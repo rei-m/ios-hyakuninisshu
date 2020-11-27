@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0289352570A390003ADE9C /* Karuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289342570A390003ADE9C /* Karuta.swift */; };
+		FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289392570BEDF003ADE9C /* Verse.swift */; };
+		FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02893E2570C194003ADE9C /* KarutaNo.swift */; };
+		FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289432570CBBA003ADE9C /* KamiNoKu.swift */; };
+		FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289482570CD72003ADE9C /* ShimoNoKu.swift */; };
+		FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02894D2570D053003ADE9C /* KarutaColor.swift */; };
+		FA0289532570D107003ADE9C /* Kimariji.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289522570D107003ADE9C /* Kimariji.swift */; };
 		FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E25F257055FC001132A3 /* AppDelegate.swift */; };
 		FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E261257055FC001132A3 /* SceneDelegate.swift */; };
 		FA27E264257055FC001132A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E263257055FC001132A3 /* ViewController.swift */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0289342570A390003ADE9C /* Karuta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karuta.swift; sourceTree = "<group>"; };
+		FA0289392570BEDF003ADE9C /* Verse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verse.swift; sourceTree = "<group>"; };
+		FA02893E2570C194003ADE9C /* KarutaNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaNo.swift; sourceTree = "<group>"; };
+		FA0289432570CBBA003ADE9C /* KamiNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KamiNoKu.swift; sourceTree = "<group>"; };
+		FA0289482570CD72003ADE9C /* ShimoNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimoNoKu.swift; sourceTree = "<group>"; };
+		FA02894D2570D053003ADE9C /* KarutaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaColor.swift; sourceTree = "<group>"; };
+		FA0289522570D107003ADE9C /* Kimariji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kimariji.swift; sourceTree = "<group>"; };
 		FA27E25C257055FC001132A3 /* Hyakuninisshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyakuninisshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA27E25F257055FC001132A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA27E261257055FC001132A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +92,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0289322570A32D003ADE9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA0289332570A338003ADE9C /* Entities */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA0289332570A338003ADE9C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FA0289342570A390003ADE9C /* Karuta.swift */,
+				FA0289522570D107003ADE9C /* Kimariji.swift */,
+				FA02894D2570D053003ADE9C /* KarutaColor.swift */,
+				FA0289392570BEDF003ADE9C /* Verse.swift */,
+				FA0289432570CBBA003ADE9C /* KamiNoKu.swift */,
+				FA0289482570CD72003ADE9C /* ShimoNoKu.swift */,
+				FA02893E2570C194003ADE9C /* KarutaNo.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		FA27E253257055FC001132A3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +137,7 @@
 		FA27E25E257055FC001132A3 /* Hyakuninisshu */ = {
 			isa = PBXGroup;
 			children = (
+				FA0289322570A32D003ADE9C /* Models */,
 				FA27E25F257055FC001132A3 /* AppDelegate.swift */,
 				FA27E261257055FC001132A3 /* SceneDelegate.swift */,
 				FA27E263257055FC001132A3 /* ViewController.swift */,
@@ -261,9 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
+				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
+				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
+				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,
 				FA27E264257055FC001132A3 /* ViewController.swift in Sources */,
 				FA27E26A257055FC001132A3 /* Hyakuninisshu.xcdatamodeld in Sources */,
+				FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */,
 				FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */,
+				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
+				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
