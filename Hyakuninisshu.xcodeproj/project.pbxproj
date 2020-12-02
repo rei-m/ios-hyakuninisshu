@@ -14,6 +14,7 @@
 		FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289482570CD72003ADE9C /* ShimoNoKu.swift */; };
 		FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02894D2570D053003ADE9C /* KarutaColor.swift */; };
 		FA0289532570D107003ADE9C /* Kimariji.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289522570D107003ADE9C /* Kimariji.swift */; };
+		FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02895825783E51003ADE9C /* KarutaRepository.swift */; };
 		FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E25F257055FC001132A3 /* AppDelegate.swift */; };
 		FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E261257055FC001132A3 /* SceneDelegate.swift */; };
 		FA27E264257055FC001132A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E263257055FC001132A3 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		FA0289482570CD72003ADE9C /* ShimoNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimoNoKu.swift; sourceTree = "<group>"; };
 		FA02894D2570D053003ADE9C /* KarutaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaColor.swift; sourceTree = "<group>"; };
 		FA0289522570D107003ADE9C /* Kimariji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kimariji.swift; sourceTree = "<group>"; };
+		FA02895825783E51003ADE9C /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
 		FA27E25C257055FC001132A3 /* Hyakuninisshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyakuninisshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA27E25F257055FC001132A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA27E261257055FC001132A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		FA0289322570A32D003ADE9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA02895725783E32003ADE9C /* Repositories */,
 				FA0289332570A338003ADE9C /* Entities */,
 			);
 			path = Models;
@@ -112,6 +115,14 @@
 				FA02893E2570C194003ADE9C /* KarutaNo.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		FA02895725783E32003ADE9C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FA02895825783E51003ADE9C /* KarutaRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		FA27E253257055FC001132A3 = {
@@ -299,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
+				FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
 				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
 				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,

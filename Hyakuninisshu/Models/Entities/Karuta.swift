@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - Karuta
-//
 struct Karuta {
     let no: KarutaNo
     let kamiNoKu: KamiNoKu

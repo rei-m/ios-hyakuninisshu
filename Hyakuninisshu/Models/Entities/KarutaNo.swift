@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - KarutaNo
-//
 struct KarutaNo {
     let value: Int
 

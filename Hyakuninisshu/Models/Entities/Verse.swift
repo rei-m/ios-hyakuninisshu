@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - Verse
-//
 struct Verse {
     let kana: String
     let kanji: String

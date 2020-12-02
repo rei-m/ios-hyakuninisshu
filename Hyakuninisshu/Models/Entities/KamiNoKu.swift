@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - KamiNoKu
-//
 struct KamiNoKu {
     let karutaNo: KarutaNo
     let shoku: Verse

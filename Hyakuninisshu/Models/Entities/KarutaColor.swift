@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - KarutaColor
-//
 enum KarutaColor {
     case blue
     case pink

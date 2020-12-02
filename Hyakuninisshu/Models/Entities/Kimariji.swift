@@ -7,9 +7,6 @@
 
 import Foundation
 
-//
-// MARK: - Kimariji
-//
 enum Kimariji: Int {
     case one = 1
     case two = 2
