@@ -15,6 +15,7 @@
 		FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02894D2570D053003ADE9C /* KarutaColor.swift */; };
 		FA0289532570D107003ADE9C /* Kimariji.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289522570D107003ADE9C /* Kimariji.swift */; };
 		FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02895825783E51003ADE9C /* KarutaRepository.swift */; };
+		FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA02896D2579F016003ADE9C /* karuta_list_v_3.json */; };
 		FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E25F257055FC001132A3 /* AppDelegate.swift */; };
 		FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E261257055FC001132A3 /* SceneDelegate.swift */; };
 		FA27E264257055FC001132A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E263257055FC001132A3 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		FA02894D2570D053003ADE9C /* KarutaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaColor.swift; sourceTree = "<group>"; };
 		FA0289522570D107003ADE9C /* Kimariji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kimariji.swift; sourceTree = "<group>"; };
 		FA02895825783E51003ADE9C /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
+		FA02896D2579F016003ADE9C /* karuta_list_v_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = karuta_list_v_3.json; path = ../../../../../Desktop/karuta_list_v_3.json; sourceTree = "<group>"; };
 		FA27E25C257055FC001132A3 /* Hyakuninisshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyakuninisshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA27E25F257055FC001132A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA27E261257055FC001132A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		FA02895725783E32003ADE9C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				FA02896D2579F016003ADE9C /* karuta_list_v_3.json */,
 				FA02895825783E51003ADE9C /* KarutaRepository.swift */,
 			);
 			path = Repositories;
@@ -284,6 +287,7 @@
 			files = (
 				FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */,
 				FA27E26C257055FF001132A3 /* Assets.xcassets in Resources */,
+				FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */,
 				FA27E267257055FC001132A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

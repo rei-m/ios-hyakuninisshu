@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum KarutaColor {
-    case blue
-    case pink
-    case yellow
-    case green
-    case orange
+enum KarutaColor: String {
+    case blue = "blue"
+    case pink = "pink"
+    case yellow = "yellow"
+    case green = "green"
+    case orange = "orange"
 }

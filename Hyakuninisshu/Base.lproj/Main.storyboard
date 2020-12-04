@@ -74,7 +74,7 @@
         <!--Item 1-->
         <scene sceneID="pFl-pr-7Ws">
             <objects>
-                <viewController id="xlR-HG-rf3" sceneMemberID="viewController">
+                <viewController id="xlR-HG-rf3" customClass="ViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6HQ-Hu-3Zj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
