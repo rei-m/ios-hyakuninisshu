@@ -9,15 +9,17 @@ import Foundation
 import CoreData
 
 enum RepositoryError: Error {
-    case initialize
+    case io
+    case unhandled
 }
 
 protocol KarutaRepositoryProtocol {
     func initialize() -> Result<Void, RepositoryError>
     
+    func findAll() -> Result<[Karuta], RepositoryError>
+
+    
 //    func findByNo(karutaNo: KarutaNo) -> Karuta
-//
-//    func findAll() -> [Karuta]
 //
 //    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> [Karuta]
 }
@@ -94,30 +96,43 @@ private struct KarutaListJson: Codable {
 }
 
 class KarutaRepository: KarutaRepositoryProtocol {
+
+    private static let VERSION = "1"
     
     private let container: NSPersistentContainer
+
+    private var karutas: [Karuta] = []
     
     init(container: NSPersistentContainer) {
         self.container = container
     }
-
+    
     func initialize() -> Result<Void, RepositoryError> {
+        let currentVer = UserDefaults.standard.string(forKey: "8XhHm")
+        if currentVer == KarutaRepository.VERSION {
+            return Result.success(())
+        }
+
         guard let url = Bundle.main.url(forResource: "karuta_list_v_3", withExtension: "json") else {
-            return Result.failure(RepositoryError.initialize)
+            return Result.failure(RepositoryError.io)
         }
         guard let data = try? Data(contentsOf: url) else {
-            return Result.failure(RepositoryError.initialize)
+            return Result.failure(RepositoryError.io)
         }
         
         guard let json = try? JSONDecoder().decode(KarutaListJson.self, from: data) else {
-            return Result.failure(RepositoryError.initialize)
+            return Result.failure(RepositoryError.io)
         }
         
-        for karutaJson in json.karuta_list {
-            print(karutaJson.toModel())
-        }
+        karutas = json.karuta_list.map { $0.toModel() }
+        
+        // ここでCoreDataに保存する
         
         return Result.success(())
+    }
+    
+    func findAll() -> Result<[Karuta], RepositoryError> {
+        return Result.success(karutas)
     }
     
 //    func findByNo(karutaNo: KarutaNo) -> Karuta {
