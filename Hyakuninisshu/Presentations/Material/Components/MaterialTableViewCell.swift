@@ -13,8 +13,8 @@ class MaterialTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLine1Label: UILabel!
     @IBOutlet weak var contentLine2Label: UILabel!
     @IBOutlet weak var creatorLabel: UILabel!
-    @IBOutlet weak var KarutaImage: UIImageView!
-
+    @IBOutlet weak var karutaImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

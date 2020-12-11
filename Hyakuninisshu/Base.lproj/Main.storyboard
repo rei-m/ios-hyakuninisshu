@@ -93,10 +93,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="KarutaImage" destination="6fb-Cm-969" id="duJ-rw-2PH"/>
                                     <outlet property="contentLine1Label" destination="Dpg-Ea-CdR" id="2g5-EJ-UPW"/>
                                     <outlet property="contentLine2Label" destination="eEb-kZ-bdA" id="0am-6K-igg"/>
                                     <outlet property="creatorLabel" destination="fCC-v0-QGs" id="Vol-GT-6bA"/>
+                                    <outlet property="karutaImage" destination="6fb-Cm-969" id="Bfg-Lz-KtR"/>
                                     <outlet property="noLabel" destination="uti-tK-aED" id="BB7-td-8eS"/>
                                 </connections>
                             </tableViewCell>

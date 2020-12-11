@@ -54,7 +54,8 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
         cell.contentLine1Label.text = item.kamiNoKu.kanji
         cell.contentLine2Label.text = item.shimoNoKu.kanji
         cell.creatorLabel.text = item.creator
-        
+        cell.karutaImage.setKarutaImage(no: item.no)
+
         return cell
     }
 

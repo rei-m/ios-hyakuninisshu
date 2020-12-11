@@ -32,6 +32,7 @@
 		FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */; };
 		FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */; };
 		FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */; };
+		FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTablePresenter.swift; sourceTree = "<group>"; };
 		FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableModel.swift; sourceTree = "<group>"; };
 		FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
+		FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */,
+				FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
 				FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */,
+				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
 				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
 				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,
