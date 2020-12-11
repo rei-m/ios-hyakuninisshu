@@ -8,9 +8,9 @@
 import Foundation
 
 struct KarutaNo {
-    let value: Int
+    let value: Int8
 
-    init(_ value: Int) {
+    init(_ value: Int8) {
         self.value = value
     }
     

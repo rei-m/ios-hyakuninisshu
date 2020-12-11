@@ -18,6 +18,17 @@ class MaterialTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let findAllResult = karutaRepository?.findAll() else {
+            return
+        }
+        
+        switch findAllResult {
+        case .success(let karutas):
+            print(karutas)
+        case .failure(let e):
+            print(e)
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

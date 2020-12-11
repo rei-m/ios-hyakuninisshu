@@ -19,6 +19,7 @@ class SplashViewController: UIViewController {
         guard let initializeResult = karutaRepository?.initialize() else {
             return
         }
+
         switch initializeResult {
         case .success(_):
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
