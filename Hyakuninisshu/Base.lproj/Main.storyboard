@@ -18,17 +18,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MaterialTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MaterialTableViewCell" id="Gcs-Bg-4QB" customClass="MaterialTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="89"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gcs-Bg-4QB" id="413-cq-S8K">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-G9-pIr" userLabel="NoAndImage">
-                                            <rect key="frame" x="8" y="8" width="45" height="73"/>
+                                            <rect key="frame" x="8" y="8" width="45" height="79"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一番" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uti-tK-aED" userLabel="No">
-                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="9"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="vzR-ky-1t4"/>
                                                     </constraints>
@@ -37,7 +37,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Karuta1" translatesAutoresizingMaskIntoConstraints="NO" id="6fb-Cm-969" userLabel="Karuta">
-                                                    <rect key="frame" x="0.0" y="13" width="45" height="60"/>
+                                                    <rect key="frame" x="0.0" y="19" width="45" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="fnP-4s-VPB"/>
                                                         <constraint firstAttribute="height" constant="60" id="rgt-jg-nux"/>
@@ -48,28 +48,33 @@
                                                 <constraint firstAttribute="width" constant="45" id="z7H-4I-8Pf"/>
                                             </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秋の田の かりほの庵の 苫をあらみ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpg-Ea-CdR" userLabel="ContentLine1">
-                                            <rect key="frame" x="61" y="19" width="325" height="16.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="16.5" id="T3G-Fr-vav"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jUR-14-DYV" userLabel="Content">
+                                            <rect key="frame" x="61" y="19" width="325" height="37"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秋の田の かりほの庵の 苫をあらみ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpg-Ea-CdR" userLabel="ContentLine1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="16.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16.5" id="T3G-Fr-vav"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="わが衣手は 露にぬれつつ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEb-kZ-bdA" userLabel="ConetntLine2">
+                                                    <rect key="frame" x="0.0" y="20.5" width="325" height="16.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16.5" id="8kq-sq-4Dz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天智天皇" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCC-v0-QGs" userLabel="Creator">
-                                            <rect key="frame" x="61" y="64" width="345" height="16.5"/>
+                                            <rect key="frame" x="61" y="70.5" width="345" height="16.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16.5" id="TND-1x-AvC"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="わが衣手は 露にぬれつつ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEb-kZ-bdA" userLabel="ConetntLine2">
-                                            <rect key="frame" x="61" y="39.5" width="325" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="16.5" id="8kq-sq-4Dz"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
@@ -78,17 +83,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="fCC-v0-QGs" secondAttribute="trailing" constant="8" id="0Br-8c-wEO"/>
-                                        <constraint firstItem="fCC-v0-QGs" firstAttribute="top" secondItem="eEb-kZ-bdA" secondAttribute="bottom" constant="8" id="4fa-LQ-z4t"/>
-                                        <constraint firstItem="eEb-kZ-bdA" firstAttribute="leading" secondItem="6SZ-G9-pIr" secondAttribute="trailing" constant="8" id="53L-lS-bcd"/>
                                         <constraint firstItem="6SZ-G9-pIr" firstAttribute="top" secondItem="413-cq-S8K" secondAttribute="top" constant="8" id="F8T-gX-Ze4"/>
+                                        <constraint firstItem="jUR-14-DYV" firstAttribute="leading" secondItem="6SZ-G9-pIr" secondAttribute="trailing" constant="8" id="JMO-EW-VEZ"/>
                                         <constraint firstItem="6SZ-G9-pIr" firstAttribute="leading" secondItem="413-cq-S8K" secondAttribute="leading" constant="8" id="LLe-aE-VGi"/>
-                                        <constraint firstItem="eEb-kZ-bdA" firstAttribute="top" secondItem="Dpg-Ea-CdR" secondAttribute="bottom" constant="4" id="M5I-lc-N4A"/>
-                                        <constraint firstItem="Dpg-Ea-CdR" firstAttribute="leading" secondItem="6SZ-G9-pIr" secondAttribute="trailing" constant="8" id="PeI-Ax-GRi"/>
-                                        <constraint firstItem="Dpg-Ea-CdR" firstAttribute="top" secondItem="413-cq-S8K" secondAttribute="topMargin" constant="8" id="RPc-lQ-Mth"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eEb-kZ-bdA" secondAttribute="trailing" constant="8" id="isz-Aq-GT7"/>
                                         <constraint firstAttribute="bottom" secondItem="6SZ-G9-pIr" secondAttribute="bottom" constant="8" id="jef-vk-31g"/>
                                         <constraint firstItem="fCC-v0-QGs" firstAttribute="leading" secondItem="6SZ-G9-pIr" secondAttribute="trailing" constant="8" id="lgd-kS-D6b"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Dpg-Ea-CdR" secondAttribute="trailing" constant="8" id="vSW-2o-hZR"/>
+                                        <constraint firstItem="jUR-14-DYV" firstAttribute="top" secondItem="413-cq-S8K" secondAttribute="topMargin" constant="8" id="qhe-Wx-SG5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jUR-14-DYV" secondAttribute="trailing" constant="8" id="sSX-8d-hwC"/>
                                         <constraint firstAttribute="bottom" secondItem="fCC-v0-QGs" secondAttribute="bottom" constant="8" id="wLw-il-JCm"/>
                                     </constraints>
                                 </tableViewCellContentView>
