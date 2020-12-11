@@ -107,12 +107,12 @@
                             <outlet property="delegate" destination="ggK-NR-fWs" id="JyU-Fv-dQN"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="資料" image="book.closed" catalog="system" id="6xo-FZ-afn" userLabel="Material"/>
+                    <navigationItem key="navigationItem" title="資料" id="cyj-ND-whh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A76-8B-kth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246.376811594203" y="851.78571428571422"/>
+            <point key="canvasLocation" x="2156.521739130435" y="851.78571428571422"/>
         </scene>
         <!--Item-->
         <scene sceneID="Oom-Ca-MT1">
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3j-vh-2US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225" y="416"/>
+            <point key="canvasLocation" x="3134.7826086956525" y="415.84821428571428"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="pFl-pr-7Ws">
@@ -175,13 +175,32 @@
                     <connections>
                         <segue destination="xlR-HG-rf3" kind="relationship" relationship="viewControllers" id="Uhj-25-Bw9"/>
                         <segue destination="yUJ-Eh-Pjj" kind="relationship" relationship="viewControllers" id="PFJ-mo-DKk"/>
-                        <segue destination="ggK-NR-fWs" kind="relationship" relationship="viewControllers" id="hI5-Rm-ldA"/>
+                        <segue destination="LbA-ok-zjX" kind="relationship" relationship="viewControllers" id="hI5-Rm-ldA"/>
                         <segue destination="rsq-X5-Cae" kind="relationship" relationship="viewControllers" id="W5X-14-nxQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6A-O2-9NX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="94"/>
+        </scene>
+        <!--資料-->
+        <scene sceneID="68Z-Hb-i5J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LbA-ok-zjX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="資料" image="book.closed" catalog="system" id="6xo-FZ-afn" userLabel="Material"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D1j-f0-iSI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ggK-NR-fWs" kind="relationship" relationship="rootViewController" id="DLV-Fh-0Rc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iii-r4-wlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1246.376811594203" y="851.78571428571422"/>
         </scene>
     </scenes>
     <resources>
