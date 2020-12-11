@@ -99,6 +99,7 @@
                                     <outlet property="creatorLabel" destination="fCC-v0-QGs" id="Vol-GT-6bA"/>
                                     <outlet property="karutaImage" destination="6fb-Cm-969" id="Bfg-Lz-KtR"/>
                                     <outlet property="noLabel" destination="uti-tK-aED" id="BB7-td-8eS"/>
+                                    <segue destination="45r-yb-FGh" kind="show" identifier="ShowMaterialDetail" id="4uv-N4-oO6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -112,7 +113,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A76-8B-kth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156.521739130435" y="851.78571428571422"/>
+            <point key="canvasLocation" x="2146" y="1263"/>
+        </scene>
+        <!--Material Detail View Controller-->
+        <scene sceneID="sDe-BJ-1kt">
+            <objects>
+                <viewController id="45r-yb-FGh" customClass="MaterialDetailViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V0Z-9M-Dz9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Cf6-ls-zbX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0LJ-TE-3gN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tar-2E-AP5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="1263"/>
         </scene>
         <!--Item-->
         <scene sceneID="Oom-Ca-MT1">
@@ -163,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="2224.6376811594205" y="-265.17857142857144"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Entrance Tab Bar Controller-->
         <scene sceneID="5yD-dr-2JP">
             <objects>
-                <tabBarController storyboardIdentifier="EntrancePageViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ngg-Oc-Ctx" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="EntrancePageViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ngg-Oc-Ctx" customClass="EntranceTabBarController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y84-o3-TFX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -200,7 +217,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iii-r4-wlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246.376811594203" y="851.78571428571422"/>
+            <point key="canvasLocation" x="1242" y="1263"/>
         </scene>
     </scenes>
     <resources>

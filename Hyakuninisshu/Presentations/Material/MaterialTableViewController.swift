@@ -94,15 +94,35 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier ?? "" {
+            case "ShowMaterialDetail":
+                guard let mealDetailViewController = segue.destination as? MaterialDetailViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+
+                guard let selectedMaterialCell = sender as? MaterialTableViewCell else {
+                    fatalError("Unexpected sender: \(String(describing: sender))")
+                }
+
+                guard let indexPath = tableView.indexPath(for: selectedMaterialCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+
+                let selectedMaterial = karutas[indexPath.row]
+                mealDetailViewController.material = selectedMaterial
+
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
 
     // MARK: - View methods
     func updateLoading(_ isLoading: Bool) {
