@@ -87,7 +87,7 @@ private extension CDKaruta {
             karutaNo: karutaNo,
             shiku: Verse(
                 kana: fourth_kana!,
-                kanji: first_kanji!
+                kanji: fourth_kanji!
             ),
             goku: Verse(
                 kana: fifth_kana!,
@@ -122,6 +122,8 @@ private struct KarutaListJson: Codable {
 class KarutaRepository: KarutaRepositoryProtocol {
 
     private static let VERSION = "1"
+
+    private static let VERSION_KEY = "8XhHm"
     
     private let container: NSPersistentContainer
 
@@ -132,7 +134,7 @@ class KarutaRepository: KarutaRepositoryProtocol {
     }
     
     func initialize() -> Result<Void, RepositoryError> {
-        let currentVer = UserDefaults.standard.string(forKey: "8XhHm")
+        let currentVer = UserDefaults.standard.string(forKey: KarutaRepository.VERSION_KEY)
         if currentVer == KarutaRepository.VERSION {
             return Result.success(())
         }
@@ -150,9 +152,12 @@ class KarutaRepository: KarutaRepositoryProtocol {
         
         do {
             let context = container.viewContext
+            
+            // TODO: 掃除する処理を入れる
+            
             let _ = json.karuta_list.map { $0.toPersistentModel(context: context) }
             try context.save()
-            UserDefaults.standard.setValue(KarutaRepository.VERSION, forKey: "8XhHm")
+            UserDefaults.standard.setValue(KarutaRepository.VERSION, forKey: KarutaRepository.VERSION_KEY)
             print("success !!")
 
         } catch {

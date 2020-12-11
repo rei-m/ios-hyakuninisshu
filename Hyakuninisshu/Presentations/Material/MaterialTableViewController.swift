@@ -13,50 +13,50 @@ protocol MaterialTableViewProtocol: AnyObject {
     func displayError(_ message: String)
 }
 
-class MaterialTableViewController: UITableViewController {
+class MaterialTableViewController: UITableViewController, MaterialTableViewProtocol {
 
+    private var presenter: MaterialTablePresenterProtocol!
+    
+    private var model: MaterialTableModelProtocol!
+    
+    private var karutas: [Karuta] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let findAllResult = karutaRepository?.findAll() else {
-            return
-        }
         
-        switch findAllResult {
-        case .success(let karutas):
-            print(karutas)
-        case .failure(let e):
-            print(e)
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        model = MaterialTableModel(karutaRepository: karutaRepository)
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        presenter = MaterialTablePresenter(view: self, model: model)
+
+        presenter.viewDidLoad()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return karutas.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MaterialTableViewCell", for: indexPath) as? MaterialTableViewCell else {
+            fatalError("The dequeued cell is not instance of MaterialTableViewCell.")
+        }
 
-        // Configure the cell...
-
+        let item = karutas[indexPath.item]
+        
+        cell.noLabel.text = item.no.text
+        cell.contentLine1Label.text = item.kamiNoKu.kanji
+        cell.contentLine2Label.text = item.shimoNoKu.kanji
+        cell.creatorLabel.text = item.creator
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -103,4 +103,20 @@ class MaterialTableViewController: UITableViewController {
     }
     */
 
+    // MARK: - View methods
+    func updateLoading(_ isLoading: Bool) {
+        // deprecatedになった
+        // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
+    }
+    
+    func updateKarutaTable(_ karutas: [Karuta]) {
+        self.karutas = karutas
+        self.tableView.reloadData()
+        self.tableView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
+    func displayError(_ message: String) {
+        // TODO
+        print("Error: \(message)")
+    }
 }

@@ -31,6 +31,7 @@
 		FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */; };
 		FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */; };
 		FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */; };
+		FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewController.swift; sourceTree = "<group>"; };
 		FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTablePresenter.swift; sourceTree = "<group>"; };
 		FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableModel.swift; sourceTree = "<group>"; };
+		FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,11 +227,20 @@
 		FA2D7ADA25817A4600C6134B /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				FA2D7AF22583190100C6134B /* Components */,
 				FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */,
 				FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */,
 				FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */,
 			);
 			path = Material;
+			sourceTree = "<group>";
+		};
+		FA2D7AF22583190100C6134B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
+				FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */,
 				FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

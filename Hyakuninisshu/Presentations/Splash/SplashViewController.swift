@@ -16,11 +16,7 @@ class SplashViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        guard let initializeResult = karutaRepository?.initialize() else {
-            return
-        }
-
-        switch initializeResult {
+        switch karutaRepository.initialize() {
         case .success(_):
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let entrancePage = storyboard.instantiateViewController(withIdentifier: "EntrancePageViewController") as! UITabBarController

@@ -7,13 +7,15 @@
 
 import Foundation
 
-protocol MaterialTableModelProtocol {
-    func fetchKarutas(completion: @escaping (Result<[Karuta], Error>) -> Void)
+enum ModelError: Error {
+    case unhandled
+}
+
+protocol MaterialTableModelProtocol: AnyObject {
+    func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void)
 }
 
 class MaterialTableModel: MaterialTableModelProtocol {
-
-    // MARK - Properties
     
     private let karutaRepository: KarutaRepositoryProtocol
     
@@ -21,7 +23,13 @@ class MaterialTableModel: MaterialTableModelProtocol {
         self.karutaRepository = karutaRepository
     }
     
-    func fetchKarutas(completion: @escaping (Result<[Karuta], Error>) -> Void) {
-//        queryService.getSearchResults(searchCompletion: completion)
+    // TODO: 非同期で呼ばれることを想定してこのIFにしてる
+    func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void) {
+        switch karutaRepository.findAll() {
+        case .success(let karutas):
+            completion(Result.success(karutas))
+        case .failure(_):
+            completion(Result.failure(ModelError.unhandled))
+        }
     }
 }
