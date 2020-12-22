@@ -14,10 +14,10 @@ struct KamiNoKu {
     let sanku: Verse
     
     var kana: String {
-        get { "\(shoku.kana) \(niku.kana) \(sanku.kana)" }
+        get { "\(shoku.kana)　\(niku.kana)　\(sanku.kana)" }
     }
     
     var kanji: String {
-        get { "\(shoku.kanji) \(niku.kanji) \(sanku.kanji)" }
+        get { "\(shoku.kanji)　\(niku.kanji)　\(sanku.kanji)" }
     }
 }

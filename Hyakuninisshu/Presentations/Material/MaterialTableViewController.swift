@@ -22,12 +22,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
     private var karutas: [Karuta] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        model = MaterialTableModel(karutaRepository: karutaRepository)
-
-        presenter = MaterialTablePresenter(view: self, model: model)
-
+        super.viewDidLoad()    
         presenter.viewDidLoad()
     }
 
@@ -123,7 +118,12 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
-
+    
+    func inject(presenter: MaterialTablePresenterProtocol, model: MaterialTableModelProtocol) {
+        self.presenter = presenter
+        self.model = model
+    }
+    
     // MARK: - View methods
     func updateLoading(_ isLoading: Bool) {
         // deprecatedになった

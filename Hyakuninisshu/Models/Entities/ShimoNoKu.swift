@@ -13,10 +13,10 @@ struct ShimoNoKu {
     let goku: Verse
     
     var kana: String {
-        get { "\(shiku.kana) \(goku.kana)" }
+        get { "\(shiku.kana)　\(goku.kana)" }
     }
     
     var kanji: String {
-        get { "\(shiku.kanji) \(goku.kanji)" }
+        get { "\(shiku.kanji)　\(goku.kanji)" }
     }
 }

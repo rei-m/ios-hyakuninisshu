@@ -35,6 +35,8 @@
 		FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */; };
 		FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */; };
 		FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */; };
+		FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B1D2584959800C6134B /* CardFrameView.swift */; };
+		FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceTabBarController.swift; sourceTree = "<group>"; };
 		FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailViewController.swift; sourceTree = "<group>"; };
+		FA2D7B1D2584959800C6134B /* CardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrameView.swift; sourceTree = "<group>"; };
+		FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		FA028972257A0096003ADE9C /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				FA2D7B1B2584950700C6134B /* Common */,
 				FA2D7B122584231C00C6134B /* MaterialDetail */,
 				FA2D7B03258361C300C6134B /* Entrance */,
 				FA2D7ADA25817A4600C6134B /* Material */,
@@ -229,6 +234,7 @@
 			children = (
 				FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */,
 				FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */,
+				FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +272,14 @@
 				FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */,
 			);
 			path = MaterialDetail;
+			sourceTree = "<group>";
+		};
+		FA2D7B1B2584950700C6134B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7B1D2584959800C6134B /* CardFrameView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +416,7 @@
 			files = (
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
+				FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */,
 				FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
@@ -418,6 +433,7 @@
 				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
+				FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
 				FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */,
 				FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */,
