@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0289352570A390003ADE9C /* Karuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289342570A390003ADE9C /* Karuta.swift */; };
+		FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289392570BEDF003ADE9C /* Verse.swift */; };
+		FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02893E2570C194003ADE9C /* KarutaNo.swift */; };
+		FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289432570CBBA003ADE9C /* KamiNoKu.swift */; };
+		FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289482570CD72003ADE9C /* ShimoNoKu.swift */; };
+		FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02894D2570D053003ADE9C /* KarutaColor.swift */; };
+		FA0289532570D107003ADE9C /* Kimariji.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289522570D107003ADE9C /* Kimariji.swift */; };
+		FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02895825783E51003ADE9C /* KarutaRepository.swift */; };
+		FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA02896D2579F016003ADE9C /* karuta_list_v_3.json */; };
+		FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028974257A00DA003ADE9C /* SplashViewController.swift */; };
+		FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA02897E257A0626003ADE9C /* Splash.storyboard */; };
 		FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E25F257055FC001132A3 /* AppDelegate.swift */; };
 		FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E261257055FC001132A3 /* SceneDelegate.swift */; };
 		FA27E264257055FC001132A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E263257055FC001132A3 /* ViewController.swift */; };
@@ -16,6 +27,16 @@
 		FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA27E26D257055FF001132A3 /* LaunchScreen.storyboard */; };
 		FA27E27A257055FF001132A3 /* HyakuninisshuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E279257055FF001132A3 /* HyakuninisshuTests.swift */; };
 		FA27E285257055FF001132A3 /* HyakuninisshuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E284257055FF001132A3 /* HyakuninisshuUITests.swift */; };
+		FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */; };
+		FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */; };
+		FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */; };
+		FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */; };
+		FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */; };
+		FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */; };
+		FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */; };
+		FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */; };
+		FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B1D2584959800C6134B /* CardFrameView.swift */; };
+		FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +57,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0289342570A390003ADE9C /* Karuta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karuta.swift; sourceTree = "<group>"; };
+		FA0289392570BEDF003ADE9C /* Verse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verse.swift; sourceTree = "<group>"; };
+		FA02893E2570C194003ADE9C /* KarutaNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaNo.swift; sourceTree = "<group>"; };
+		FA0289432570CBBA003ADE9C /* KamiNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KamiNoKu.swift; sourceTree = "<group>"; };
+		FA0289482570CD72003ADE9C /* ShimoNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimoNoKu.swift; sourceTree = "<group>"; };
+		FA02894D2570D053003ADE9C /* KarutaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaColor.swift; sourceTree = "<group>"; };
+		FA0289522570D107003ADE9C /* Kimariji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kimariji.swift; sourceTree = "<group>"; };
+		FA02895825783E51003ADE9C /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
+		FA02896D2579F016003ADE9C /* karuta_list_v_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = karuta_list_v_3.json; path = ../../../../../Desktop/karuta_list_v_3.json; sourceTree = "<group>"; };
+		FA028974257A00DA003ADE9C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		FA02897E257A0626003ADE9C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		FA27E25C257055FC001132A3 /* Hyakuninisshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyakuninisshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA27E25F257055FC001132A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA27E261257055FC001132A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +83,16 @@
 		FA27E280257055FF001132A3 /* HyakuninisshuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyakuninisshuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA27E284257055FF001132A3 /* HyakuninisshuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyakuninisshuUITests.swift; sourceTree = "<group>"; };
 		FA27E286257055FF001132A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewController.swift; sourceTree = "<group>"; };
+		FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTablePresenter.swift; sourceTree = "<group>"; };
+		FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableModel.swift; sourceTree = "<group>"; };
+		FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
+		FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceTabBarController.swift; sourceTree = "<group>"; };
+		FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailViewController.swift; sourceTree = "<group>"; };
+		FA2D7B1D2584959800C6134B /* CardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrameView.swift; sourceTree = "<group>"; };
+		FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +120,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0289322570A32D003ADE9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA02895725783E32003ADE9C /* Repositories */,
+				FA0289332570A338003ADE9C /* Entities */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA0289332570A338003ADE9C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FA0289342570A390003ADE9C /* Karuta.swift */,
+				FA0289522570D107003ADE9C /* Kimariji.swift */,
+				FA02894D2570D053003ADE9C /* KarutaColor.swift */,
+				FA0289392570BEDF003ADE9C /* Verse.swift */,
+				FA0289432570CBBA003ADE9C /* KamiNoKu.swift */,
+				FA0289482570CD72003ADE9C /* ShimoNoKu.swift */,
+				FA02893E2570C194003ADE9C /* KarutaNo.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FA02895725783E32003ADE9C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FA02896D2579F016003ADE9C /* karuta_list_v_3.json */,
+				FA02895825783E51003ADE9C /* KarutaRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FA028972257A0096003ADE9C /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7B1B2584950700C6134B /* Common */,
+				FA2D7B122584231C00C6134B /* MaterialDetail */,
+				FA2D7B03258361C300C6134B /* Entrance */,
+				FA2D7ADA25817A4600C6134B /* Material */,
+				FA028973257A00AE003ADE9C /* Splash */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
+		FA028973257A00AE003ADE9C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FA028974257A00DA003ADE9C /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		FA27E253257055FC001132A3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +195,13 @@
 		FA27E25E257055FC001132A3 /* Hyakuninisshu */ = {
 			isa = PBXGroup;
 			children = (
+				FA2D7AD1258177BF00C6134B /* Extensions */,
+				FA028972257A0096003ADE9C /* Presentations */,
+				FA0289322570A32D003ADE9C /* Models */,
 				FA27E25F257055FC001132A3 /* AppDelegate.swift */,
 				FA27E261257055FC001132A3 /* SceneDelegate.swift */,
 				FA27E263257055FC001132A3 /* ViewController.swift */,
+				FA02897E257A0626003ADE9C /* Splash.storyboard */,
 				FA27E265257055FC001132A3 /* Main.storyboard */,
 				FA27E26B257055FF001132A3 /* Assets.xcassets */,
 				FA27E26D257055FF001132A3 /* LaunchScreen.storyboard */,
@@ -129,6 +227,59 @@
 				FA27E286257055FF001132A3 /* Info.plist */,
 			);
 			path = HyakuninisshuUITests;
+			sourceTree = "<group>";
+		};
+		FA2D7AD1258177BF00C6134B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */,
+				FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */,
+				FA2D7B2225849E2F00C6134B /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA2D7ADA25817A4600C6134B /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7AF22583190100C6134B /* Components */,
+				FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */,
+				FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */,
+				FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
+		FA2D7AF22583190100C6134B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA2D7B03258361C300C6134B /* Entrance */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */,
+			);
+			path = Entrance;
+			sourceTree = "<group>";
+		};
+		FA2D7B122584231C00C6134B /* MaterialDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */,
+			);
+			path = MaterialDetail;
+			sourceTree = "<group>";
+		};
+		FA2D7B1B2584950700C6134B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7B1D2584959800C6134B /* CardFrameView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +387,8 @@
 			files = (
 				FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */,
 				FA27E26C257055FF001132A3 /* Assets.xcassets in Resources */,
+				FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */,
+				FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */,
 				FA27E267257055FC001132A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,10 +414,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
+				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
+				FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */,
+				FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */,
+				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
+				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
+				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
+				FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */,
+				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
+				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,
 				FA27E264257055FC001132A3 /* ViewController.swift in Sources */,
+				FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */,
 				FA27E26A257055FC001132A3 /* Hyakuninisshu.xcdatamodeld in Sources */,
+				FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */,
 				FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */,
+				FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */,
+				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
+				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
+				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
+				FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
+				FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */,
+				FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

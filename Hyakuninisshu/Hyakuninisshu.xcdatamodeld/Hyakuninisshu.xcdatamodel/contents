@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDKaruta" representedClassName="CDKaruta" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String"/>
+        <attribute name="creator" attributeType="String"/>
+        <attribute name="fifth_kana" attributeType="String"/>
+        <attribute name="fifth_kanji" attributeType="String"/>
+        <attribute name="first_kana" attributeType="String"/>
+        <attribute name="first_kanji" attributeType="String"/>
+        <attribute name="fourth_kana" attributeType="String"/>
+        <attribute name="fourth_kanji" attributeType="String"/>
+        <attribute name="kimariji" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="no" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="second_kana" attributeType="String"/>
+        <attribute name="second_kanji" attributeType="String"/>
+        <attribute name="third_kana" attributeType="String"/>
+        <attribute name="third_kanji" attributeType="String"/>
+        <attribute name="translation" attributeType="String"/>
+        <fetchIndex name="byNoKimarijiColorIndex">
+            <fetchIndexElement property="no" type="Binary" order="ascending"/>
+            <fetchIndexElement property="kimariji" type="Binary" order="ascending"/>
+            <fetchIndexElement property="color" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="no"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="CDKaruta" positionX="-63" positionY="-18" width="128" height="268"/>
+    </elements>
 </model>
