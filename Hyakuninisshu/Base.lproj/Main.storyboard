@@ -324,37 +324,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-cm-9sW" userLabel="RangeCondition">
-                                                <rect key="frame" x="0.0" y="56.5" width="414" height="40"/>
+                                                <rect key="frame" x="16" y="56.5" width="382" height="40"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUZ-yn-wNR" userLabel="RangeFrom" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="173.5" height="40"/>
-                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUZ-yn-wNR" userLabel="RangeFrom" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174.5" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="〜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egO-Rf-0BW">
-                                                        <rect key="frame" x="181.5" y="0.0" width="17.5" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egO-Rf-0BW" userLabel="Separate">
+                                                        <rect key="frame" x="182.5" y="0.0" width="17.5" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lo2-JV-ciE" userLabel="RangeTo" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                        <rect key="frame" x="207" y="0.0" width="207" height="40"/>
-                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lo2-JV-ciE" userLabel="RangeTo" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                        <rect key="frame" x="208" y="0.0" width="174" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="DUZ-yn-wNR" firstAttribute="top" secondItem="FjN-cm-9sW" secondAttribute="top" multiplier="2" id="DEx-mZ-Ck3"/>
-                                                    <constraint firstAttribute="bottom" secondItem="egO-Rf-0BW" secondAttribute="bottom" id="IM9-za-a2W"/>
-                                                    <constraint firstAttribute="bottom" secondItem="lo2-JV-ciE" secondAttribute="bottom" id="O2q-Yn-Owe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lo2-JV-ciE" secondAttribute="trailing" id="SjL-XA-LFL"/>
-                                                    <constraint firstItem="egO-Rf-0BW" firstAttribute="leading" secondItem="DUZ-yn-wNR" secondAttribute="trailing" constant="8" symbolic="YES" id="eVx-Tt-eh7"/>
-                                                    <constraint firstItem="lo2-JV-ciE" firstAttribute="top" secondItem="FjN-cm-9sW" secondAttribute="top" id="guL-Rp-2el"/>
-                                                    <constraint firstItem="DUZ-yn-wNR" firstAttribute="width" relation="lessThanOrEqual" secondItem="FjN-cm-9sW" secondAttribute="width" multiplier="0.5" id="icJ-c0-kj4"/>
-                                                    <constraint firstItem="lo2-JV-ciE" firstAttribute="width" relation="lessThanOrEqual" secondItem="FjN-cm-9sW" secondAttribute="width" multiplier="0.5" id="jJd-yo-fwt"/>
-                                                    <constraint firstItem="lo2-JV-ciE" firstAttribute="leading" secondItem="egO-Rf-0BW" secondAttribute="trailing" constant="8" symbolic="YES" id="kql-LZ-qlT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lo2-JV-ciE" secondAttribute="trailing" id="0Q6-xX-tTO"/>
+                                                    <constraint firstItem="egO-Rf-0BW" firstAttribute="centerX" secondItem="FjN-cm-9sW" secondAttribute="centerX" id="7jC-v1-8dO"/>
+                                                    <constraint firstItem="DUZ-yn-wNR" firstAttribute="leading" secondItem="FjN-cm-9sW" secondAttribute="leading" id="RNt-2E-Fvs"/>
                                                     <constraint firstAttribute="height" constant="40" id="mhf-88-GX4"/>
-                                                    <constraint firstItem="DUZ-yn-wNR" firstAttribute="leading" secondItem="FjN-cm-9sW" secondAttribute="leading" id="o5M-G0-Q2T"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DUZ-yn-wNR" secondAttribute="bottom" id="o8P-ou-hDK"/>
-                                                    <constraint firstItem="egO-Rf-0BW" firstAttribute="top" secondItem="FjN-cm-9sW" secondAttribute="top" id="xDK-3X-J8p"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -364,9 +355,10 @@
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2n8-jx-OYn"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="top" secondItem="8TG-7p-gsp" secondAttribute="bottom" constant="4" id="JvA-1n-aXK"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="Yib-P9-yd0"/>
-                                            <constraint firstItem="FjN-cm-9sW" firstAttribute="width" secondItem="nmN-z4-4cs" secondAttribute="width" id="b9y-Hw-KEu"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="dtS-pq-x7m"/>
+                                            <constraint firstAttribute="trailing" secondItem="FjN-cm-9sW" secondAttribute="trailing" constant="16" id="hyF-kR-yB6"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="top" secondItem="nmN-z4-4cs" secondAttribute="top" constant="32" id="ni7-VH-S6b"/>
+                                            <constraint firstItem="FjN-cm-9sW" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="vIg-aq-0v8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -471,11 +463,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
