@@ -12,12 +12,8 @@ class KeyboardPicker: UIControl {
     var data: [String] = ["1", "2", "3", "4", "5", "6", "7"]
 
     var text: String {
-        get {
-            return titleLabel.text ?? ""
-        }
-        set(v) {
-            titleLabel.text = v
-        }
+        get { titleLabel.text ?? "" }
+        set(v) { titleLabel.text = v }
     }
 
     private var textTemp = ""
@@ -25,20 +21,15 @@ class KeyboardPicker: UIControl {
     private let titleLabel = UILabel()
     private let pickerView = UIPickerView()
     private let accessaryView = UIView()
+    private let borderView = UIView()
 
-    private lazy var bottomBorderFrame = CGRect(x:0, y: frame.size.height - 1.0, width: frame.size.width, height: 1.0)
-    private lazy var bottomBorderFrameSelected = CGRect(x:0, y: frame.size.height - 2.0, width: frame.size.width, height:2.0)
+    private var bottomBorderHeightConstraint: NSLayoutConstraint!
     private var borderColor: UIColor = UIColor.systemGray
     private var borderColorSelected: UIColor = UIColor(named: "AccentColor")!
     
     private func setUp() {
         // 自身のViewの設定
         backgroundColor = UIColor.clear
-
-        let bottomBorder = CALayer()
-        bottomBorder.backgroundColor = borderColor.cgColor
-        bottomBorder.frame = bottomBorderFrame
-        layer.addSublayer(bottomBorder)
 
         // ラベルの設定
         titleLabel.numberOfLines = 1
@@ -52,7 +43,16 @@ class KeyboardPicker: UIControl {
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
+
+        borderView.backgroundColor = borderColor
+        addSubview(borderView)
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        borderView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        borderView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        bottomBorderHeightConstraint = borderView.heightAnchor.constraint(equalToConstant: 1)
+        bottomBorderHeightConstraint.isActive = true
+
         // 右のアイコンの設定
         let arrowIcon = UIImageView()
         arrowIcon.image = UIImage(systemName: "arrowtriangle.down.fill")
@@ -104,11 +104,8 @@ class KeyboardPicker: UIControl {
     // タッチされたらFirst Responderになる
     @objc func didTap(sender: KeyboardPicker) {
         becomeFirstResponder()
-        guard let sublayer = layer.sublayers?.first else {
-            return
-        }
-        sublayer.backgroundColor = borderColorSelected.cgColor
-        sublayer.frame = bottomBorderFrameSelected
+        borderView.backgroundColor = borderColorSelected
+        bottomBorderHeightConstraint.constant = 2
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -131,11 +128,8 @@ class KeyboardPicker: UIControl {
     @objc func didTapDone(sender: UIButton) {
         text = textTemp
         resignFirstResponder()
-        guard let sublayer = layer.sublayers?.first else {
-            return
-        }
-        sublayer.backgroundColor = borderColor.cgColor
-        sublayer.frame = bottomBorderFrame
+        borderView.backgroundColor = borderColor
+        bottomBorderHeightConstraint.constant = 1
     }
 }
 
