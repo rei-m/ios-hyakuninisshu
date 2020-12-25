@@ -18,4 +18,14 @@ extension UIViewController {
             return appDelegate.karutaRepository
         }
     }
+    
+    var questionRepository: QuestionRepositoryProtocol {
+        get {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                // TODO
+                fatalError("")
+            }
+            return appDelegate.questionRepository
+        }
+    }
 }

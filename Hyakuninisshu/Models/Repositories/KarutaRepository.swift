@@ -8,11 +8,6 @@
 import Foundation
 import CoreData
 
-enum RepositoryError: Error {
-    case io
-    case unhandled
-}
-
 protocol KarutaRepositoryProtocol {
     func initialize() -> Result<Void, RepositoryError>
     
@@ -126,8 +121,6 @@ class KarutaRepository: KarutaRepositoryProtocol {
     private static let VERSION_KEY = "8XhHm"
     
     private let container: NSPersistentContainer
-
-    private var karutas: [Karuta] = []
     
     init(container: NSPersistentContainer) {
         self.container = container
