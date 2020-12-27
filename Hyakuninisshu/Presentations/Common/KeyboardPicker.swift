@@ -7,16 +7,20 @@
 
 import UIKit
 
+protocol KeyboardPickerItem {
+    var text: String { get }
+}
+
 class KeyboardPicker: UIControl {
 
-    var data: [String] = ["1", "2", "3", "4", "5", "6", "7"]
-
-    var text: String {
-        get { titleLabel.text ?? "" }
-        set(v) { titleLabel.text = v }
+    public var currentItem: KeyboardPickerItem {
+        get { data[currentItemIndex] }
     }
 
-    private var textTemp = ""
+    private var data: [KeyboardPickerItem] = []
+
+    private var currentItemIndex: Int = -1
+    private var currentItemIndexTemp: Int = -1
 
     private let titleLabel = UILabel()
     private let pickerView = UIPickerView()
@@ -101,22 +105,18 @@ class KeyboardPicker: UIControl {
         setUp()
     }
 
-    // タッチされたらFirst Responderになる
-    @objc func didTap(sender: KeyboardPicker) {
-        becomeFirstResponder()
-        borderView.backgroundColor = borderColorSelected
-        bottomBorderHeightConstraint.constant = 2
-    }
-    
     override var canBecomeFirstResponder: Bool {
         get { true }
     }
             
     // inputViewをオーバーライドさせてシステムキーボードの代わりにPickerViewを表示
     override var inputView: UIView? {
-        let row = data.firstIndex(of: text) ?? -1
-        pickerView.selectRow(row, inComponent: 0, animated: false)
-        textTemp = text
+        if (currentItemIndex < 0) {
+            return nil
+        }
+        
+        pickerView.selectRow(currentItemIndex, inComponent: 0, animated: false)
+        currentItemIndexTemp = currentItemIndex
         return pickerView
     }
 
@@ -124,12 +124,31 @@ class KeyboardPicker: UIControl {
         return accessaryView
     }
 
+    public func setUpData(data: [KeyboardPickerItem], currentItemIndex: Int) {
+        self.data = data
+        self.currentItemIndex = currentItemIndex
+        titleLabel.text = data[currentItemIndex].text
+    }
+
+    // タッチされたらFirst Responderになる
+    @objc func didTap(sender: KeyboardPicker) {
+        becomeFirstResponder()
+        borderView.backgroundColor = borderColorSelected
+        bottomBorderHeightConstraint.constant = 2
+    }
+    
     // ボタンを押したらresignしてキーボードを閉じる
     @objc func didTapDone(sender: UIButton) {
-        text = textTemp
         resignFirstResponder()
         borderView.backgroundColor = borderColor
         bottomBorderHeightConstraint.constant = 1
+
+        if (currentItemIndex < 0) {
+            return
+        }
+
+        currentItemIndex = currentItemIndexTemp
+        titleLabel.text = data[currentItemIndex].text
     }
 }
 
@@ -143,10 +162,11 @@ extension KeyboardPicker: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data[row]
+        return data[row].text
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textTemp = data[row]
+        currentItemIndexTemp = row
+//        textTemp = data[row]
     }
 }

@@ -28,7 +28,7 @@ class MaterialTablePresenter: MaterialTablePresenterProtocol {
             self?.view.updateLoading(false)
             switch result {
             case .success(let karutas):
-                self?.view.updateKarutaTable(karutas)
+                self?.view.updateMaterialTable(karutas.map { $0.toMaterial() })
             case .failure(let error):
                 // TODO
                 print(error)

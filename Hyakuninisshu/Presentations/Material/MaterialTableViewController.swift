@@ -9,7 +9,7 @@ import UIKit
 
 protocol MaterialTableViewProtocol: AnyObject {
     func updateLoading(_ isLoading: Bool)
-    func updateKarutaTable(_ karutas: [Karuta])
+    func updateMaterialTable(_ materials: [Material])
     func displayError(_ message: String)
 }
 
@@ -19,7 +19,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
     
     private var model: MaterialTableModelProtocol!
     
-    private var karutas: [Karuta] = []
+    private var materials: [Material] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()    
@@ -35,7 +35,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return karutas.count
+        return materials.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,11 +43,11 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
             fatalError("The dequeued cell is not instance of MaterialTableViewCell.")
         }
 
-        let item = karutas[indexPath.item]
+        let item = materials[indexPath.item]
         
-        cell.noLabel.text = item.no.text
-        cell.contentLine1Label.text = item.kamiNoKu.kanji
-        cell.contentLine2Label.text = item.shimoNoKu.kanji
+        cell.noLabel.text = item.noTxt
+        cell.contentLine1Label.text = item.kamiNoKuKanji
+        cell.contentLine2Label.text = item.shimoNoKuKanji
         cell.creatorLabel.text = item.creator
         cell.karutaImage.setKarutaImage(no: item.no)
 
@@ -111,7 +111,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
                     fatalError("The selected cell is not being displayed by the table")
                 }
 
-                let selectedMaterial = karutas[indexPath.row]
+                let selectedMaterial = materials[indexPath.row]
                 mealDetailViewController.material = selectedMaterial
 
             default:
@@ -130,8 +130,8 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
         // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
     }
     
-    func updateKarutaTable(_ karutas: [Karuta]) {
-        self.karutas = karutas
+    func updateMaterialTable(_ materials: [Material]) {
+        self.materials = materials
         self.tableView.reloadData()
         self.tableView.setContentOffset(CGPoint.zero, animated: false)
     }

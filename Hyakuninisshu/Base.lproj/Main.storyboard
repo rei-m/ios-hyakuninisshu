@@ -317,7 +317,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-z4-4cs" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出題範囲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-7p-gsp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出題範囲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-7p-gsp" userLabel="RangeTitle">
                                                 <rect key="frame" x="16" y="32" width="382" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -348,17 +348,122 @@
                                                     <constraint firstAttribute="height" constant="40" id="mhf-88-GX4"/>
                                                 </constraints>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="決まり字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnD-te-Gse" userLabel="KimarijiTitle">
+                                                <rect key="frame" x="16" y="112.5" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-wM-s1X" userLabel="KimarijiCondition" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="137" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="0b0-Kn-gZ9"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYE-K8-FiI" userLabel="ColorTitle">
+                                                <rect key="frame" x="16" y="193" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bS-jX-24r" userLabel="ColorCondition" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="217.5" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="sNB-kJ-GS2"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上の句" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd9-tx-vBK" userLabel="KamiNoKuTitle">
+                                                <rect key="frame" x="16" y="273.5" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-kv-fzu" userLabel="KamiNoKuCondition" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="298" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="KZ4-vP-9EN"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下の句" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-W0-oKC" userLabel="ShimoNoKuTitle">
+                                                <rect key="frame" x="16" y="354" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxs-qY-H86" userLabel="ShimoNoKuCondition" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="378.5" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="9aZ-2D-PQS"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="読み札の表示速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa9-mU-tSn" userLabel="AnimationSpeedTitle">
+                                                <rect key="frame" x="16" y="434.5" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdN-M6-AOC" userLabel="AnimationSpeedCondition" customClass="KeyboardPicker" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="459" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="e1A-iN-Rmy"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1400" id="0zW-Nn-PF9"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="13b-Fk-t3s"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2n8-jx-OYn"/>
+                                            <constraint firstItem="Yd9-tx-vBK" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2qx-i5-TJx"/>
+                                            <constraint firstItem="xa9-mU-tSn" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="3uF-WP-Yw6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yd9-tx-vBK" secondAttribute="trailing" constant="16" id="5Da-2f-O1Y"/>
+                                            <constraint firstItem="VBB-wM-s1X" firstAttribute="top" secondItem="LnD-te-Gse" secondAttribute="bottom" constant="4" id="9zh-71-BEK"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="BRL-qm-P2s"/>
+                                            <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" constant="4" id="DNw-FK-cgU"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZxP-W0-oKC" secondAttribute="trailing" constant="16" id="Epl-P9-1fn"/>
+                                            <constraint firstItem="bYE-K8-FiI" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="FRH-yO-Ite"/>
+                                            <constraint firstItem="CAg-kv-fzu" firstAttribute="top" secondItem="Yd9-tx-vBK" secondAttribute="bottom" constant="4" id="HuW-5B-H1O"/>
+                                            <constraint firstItem="CAg-kv-fzu" firstAttribute="top" secondItem="Yd9-tx-vBK" secondAttribute="bottom" constant="4" id="IPI-l0-CIs"/>
+                                            <constraint firstItem="VBB-wM-s1X" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="J0q-MU-u4B"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="top" secondItem="8TG-7p-gsp" secondAttribute="bottom" constant="4" id="JvA-1n-aXK"/>
+                                            <constraint firstAttribute="trailing" secondItem="9bS-jX-24r" secondAttribute="trailing" constant="16" id="KMT-yf-XO7"/>
+                                            <constraint firstItem="9bS-jX-24r" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="L0W-PJ-amU"/>
+                                            <constraint firstItem="CAg-kv-fzu" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="MEF-nF-uXI"/>
+                                            <constraint firstAttribute="trailing" secondItem="xa9-mU-tSn" secondAttribute="trailing" constant="16" id="MGE-GY-rXd"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="MGW-Bs-9ea"/>
+                                            <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" constant="4" id="PnE-vV-3mQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="VBB-wM-s1X" secondAttribute="trailing" constant="16" id="RdX-bL-6VR"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fxs-qY-H86" secondAttribute="trailing" constant="16" id="S3S-2j-Ldt"/>
+                                            <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" constant="4" id="UF2-tC-lQr"/>
+                                            <constraint firstItem="CAg-kv-fzu" firstAttribute="top" secondItem="Yd9-tx-vBK" secondAttribute="bottom" constant="4" id="URA-5c-B6F"/>
+                                            <constraint firstItem="ZxP-W0-oKC" firstAttribute="top" secondItem="CAg-kv-fzu" secondAttribute="bottom" constant="16" id="VW7-lD-bl5"/>
+                                            <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" constant="4" id="YPi-8g-VTj"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="Yib-P9-yd0"/>
+                                            <constraint firstItem="ZxP-W0-oKC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="baq-yT-wmI"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="dtS-pq-x7m"/>
+                                            <constraint firstItem="LnD-te-Gse" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="duk-RK-P0J"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="dwV-bq-OsD"/>
+                                            <constraint firstItem="Fxs-qY-H86" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="e5W-nL-XQo"/>
+                                            <constraint firstItem="9bS-jX-24r" firstAttribute="top" secondItem="bYE-K8-FiI" secondAttribute="bottom" constant="4" id="h7P-qJ-wzm"/>
                                             <constraint firstAttribute="trailing" secondItem="FjN-cm-9sW" secondAttribute="trailing" constant="16" id="hyF-kR-yB6"/>
+                                            <constraint firstItem="9bS-jX-24r" firstAttribute="top" secondItem="bYE-K8-FiI" secondAttribute="bottom" constant="4" id="jdW-KL-Dtr"/>
+                                            <constraint firstAttribute="trailing" secondItem="CAg-kv-fzu" secondAttribute="trailing" constant="16" id="lid-A5-tM3"/>
+                                            <constraint firstAttribute="trailing" secondItem="LnD-te-Gse" secondAttribute="trailing" constant="16" id="lqy-jX-H2U"/>
+                                            <constraint firstAttribute="trailing" secondItem="bYE-K8-FiI" secondAttribute="trailing" constant="16" id="mXO-VS-ndw"/>
+                                            <constraint firstItem="Yd9-tx-vBK" firstAttribute="top" secondItem="9bS-jX-24r" secondAttribute="bottom" constant="16" id="mhq-Ed-vfX"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="nco-25-IIE"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="top" secondItem="nmN-z4-4cs" secondAttribute="top" constant="32" id="ni7-VH-S6b"/>
+                                            <constraint firstItem="LnD-te-Gse" firstAttribute="top" secondItem="FjN-cm-9sW" secondAttribute="bottom" constant="16" id="rK9-fb-uyX"/>
+                                            <constraint firstItem="bYE-K8-FiI" firstAttribute="top" secondItem="VBB-wM-s1X" secondAttribute="bottom" constant="16" id="rTk-13-nyp"/>
+                                            <constraint firstItem="hdN-M6-AOC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="tum-Kj-rEX"/>
+                                            <constraint firstItem="xa9-mU-tSn" firstAttribute="top" secondItem="Fxs-qY-H86" secondAttribute="bottom" constant="16" id="uUJ-Hr-AKX"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="vIg-aq-0v8"/>
+                                            <constraint firstAttribute="trailing" secondItem="hdN-M6-AOC" secondAttribute="trailing" constant="16" id="yEW-5X-orT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -384,6 +489,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="練習" id="WN8-Dc-g6h"/>
+                    <connections>
+                        <outlet property="rangeFromPicker" destination="DUZ-yn-wNR" id="aKV-zQ-UcE"/>
+                        <outlet property="rangeToPicker" destination="lo2-JV-ciE" id="D6e-tt-w5p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvz-Ka-gNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

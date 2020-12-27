@@ -9,7 +9,7 @@ import UIKit
 
 class MaterialDetailViewController: UIViewController {
 
-    var material: Karuta!
+    var material: Material!
 
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var creatorLabel: UILabel!
@@ -22,17 +22,17 @@ class MaterialDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = material.no.text
+        navigationItem.title = material.noTxt
         
         // Do any additional setup after loading the view.
 
-        noLabel.text = material.no.text
+        noLabel.text = material.noTxt
         creatorLabel.text = material.creator
         karutaImage.setKarutaImage(no: material.no)
-        kamiNoKuKanjiLabel.text = material.kamiNoKu.kanji.padSpace()
-        shimoNoKuKanjiLabel.text = material.shimoNoKu.kanji.padSpace()
-        kamiNoKuKanaLabel.text = material.kamiNoKu.kana.padSpace()
-        shimoNoKuKanaLabel.text = material.shimoNoKu.kana.padSpace()
+        kamiNoKuKanjiLabel.text = material.kamiNoKuKanji.padSpace()
+        shimoNoKuKanjiLabel.text = material.shimoNoKuKanji.padSpace()
+        kamiNoKuKanaLabel.text = material.kamiNoKuKana.padSpace()
+        shimoNoKuKanaLabel.text = material.shimoNoKuKana.padSpace()
         transrationLabel.text = material.translation
     }
 

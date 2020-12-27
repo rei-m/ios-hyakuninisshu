@@ -26,6 +26,6 @@ struct KarutaNo {
     
     init(_ value: Int8) {
         self.value = value
-        self.text = "\(KarutaNo.formatter.string(from: NSNumber(value: value))!)番"
+        self.text = "\(KanjiFormatter.string(NSNumber(value: value)))番"
     }
 }
