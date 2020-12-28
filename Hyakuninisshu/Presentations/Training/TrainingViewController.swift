@@ -17,6 +17,7 @@ protocol TrainingViewProtocol: AnyObject {
     func updateKamiNoKu(_ condition: DisplayStyleCondition)
     func updateShimoNoKu(_ condition: DisplayStyleCondition)
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition)
+    func updateRangeError(_ message: String?)
 }
 
 class TrainingViewController: UIViewController {
@@ -28,7 +29,10 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var kamiNoKuPicker: KeyboardPicker!
     @IBOutlet weak var shimoNoKuPicker: KeyboardPicker!
     @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
-        
+
+    @IBOutlet weak var rangeErrorLabel: UILabel!    
+    private var rangeErrorHeightConstraint: NSLayoutConstraint?
+    
     private var presenter: TrainingPresenterProtocol!
     
     private var model: TrainingModelProtocol!
@@ -44,6 +48,8 @@ class TrainingViewController: UIViewController {
         shimoNoKuPicker.data = DisplayStyleCondition.DATA
         animationSpeedPicker.data = AnimationSpeedCondition.DATA
 
+        rangeErrorHeightConstraint = rangeErrorLabel.constraints.first
+        
         rangeFromPicker.delegate = self
         rangeToPicker.delegate = self
         kimarijiPicker.delegate = self
@@ -51,10 +57,9 @@ class TrainingViewController: UIViewController {
         kamiNoKuPicker.delegate = self
         shimoNoKuPicker.delegate = self
         animationSpeedPicker.delegate = self
-
         presenter.viewDidLoad()
     }
-
+    
     /*
     // MARK: - Navigation
 
@@ -109,6 +114,15 @@ extension TrainingViewController: TrainingViewProtocol {
     
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition) {
         animationSpeedPicker.currentItemIndex = AnimationSpeedCondition.DATA.firstIndex(of: condition)!
+    }
+    
+    func updateRangeError(_ message: String?) {
+        if (message == nil) {
+            rangeErrorHeightConstraint?.isActive = true
+        } else {
+            rangeErrorHeightConstraint?.isActive = false
+            rangeErrorLabel.text = message
+        }
     }
 }
 

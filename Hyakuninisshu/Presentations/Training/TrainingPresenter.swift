@@ -54,11 +54,13 @@ class TrainingPresenter: TrainingPresenterProtocol {
     func didChangeRangeFrom(_ condition: RangeCondition) {
         model.rangeFromCondition = condition
         view.updateRangeFrom(condition)
+        view.updateRangeError(model.rangeConditionError)
     }
     
     func didChangeRangeTo(_ condition: RangeCondition) {
         model.rangeToCondition = condition
         view.updateRangeTo(condition)
+        view.updateRangeError(model.rangeConditionError)
     }
     
     func didChangeKimariji(_ condition: KimarijiCondition) {
