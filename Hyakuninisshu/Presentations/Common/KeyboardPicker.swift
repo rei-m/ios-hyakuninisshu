@@ -11,15 +11,24 @@ protocol KeyboardPickerItem {
     var text: String { get }
 }
 
+protocol KeyboardPickerDelegate {
+    func didTapDone(_ keyboardPicker: KeyboardPicker, index: Int)
+}
+
 class KeyboardPicker: UIControl {
 
-    public var currentItem: KeyboardPickerItem {
-        get { data[currentItemIndex] }
+    public var delegate: KeyboardPickerDelegate?
+    
+    public var data: [KeyboardPickerItem] = []
+
+    private var _currentItemIndex: Int = -1
+    public var currentItemIndex: Int {
+        get { _currentItemIndex }
+        set(v) {
+            _currentItemIndex = v
+            titleLabel.text = data[v].text
+        }
     }
-
-    private var data: [KeyboardPickerItem] = []
-
-    private var currentItemIndex: Int = -1
     private var currentItemIndexTemp: Int = -1
 
     private let titleLabel = UILabel()
@@ -124,12 +133,6 @@ class KeyboardPicker: UIControl {
         return accessaryView
     }
 
-    public func setUpData(data: [KeyboardPickerItem], currentItemIndex: Int) {
-        self.data = data
-        self.currentItemIndex = currentItemIndex
-        titleLabel.text = data[currentItemIndex].text
-    }
-
     // タッチされたらFirst Responderになる
     @objc func didTap(sender: KeyboardPicker) {
         becomeFirstResponder()
@@ -146,9 +149,8 @@ class KeyboardPicker: UIControl {
         if (currentItemIndex < 0) {
             return
         }
-
-        currentItemIndex = currentItemIndexTemp
-        titleLabel.text = data[currentItemIndex].text
+        
+        delegate?.didTapDone(self, index: currentItemIndexTemp)
     }
 }
 
@@ -167,6 +169,5 @@ extension KeyboardPicker: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentItemIndexTemp = row
-//        textTemp = data[row]
     }
 }

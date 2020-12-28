@@ -11,4 +11,8 @@ extension Int8 {
     var noText: String {
         get { "\(KanjiFormatter.string(NSNumber(value: self)))番" }
     }
+    
+    var kimarijiText: String {
+        get { "\(KanjiFormatter.string(NSNumber(value: self)))字決まり" }
+    }
 }

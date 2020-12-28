@@ -8,11 +8,28 @@
 import Foundation
 
 protocol TrainingModelProtocol: AnyObject {
+    var rangeFromCondition: RangeCondition { get set }
+    var rangeToCondition: RangeCondition { get set }
+    var kimarijiCondition: KimarijiCondition { get set }
+    var colorCondition: ColorCondition { get set }
+    var kamiNoKuCondition: DisplayStyleCondition { get set }
+    var shimoNoKuCondition: DisplayStyleCondition { get set }
+    var animationSpeedCondition: AnimationSpeedCondition { get set }
+
+
     func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void)
 }
 
 class TrainingModel: TrainingModelProtocol {
     
+    public var rangeFromCondition = RangeCondition.FROM_DATA.first!
+    public var rangeToCondition = RangeCondition.TO_DATA.last!
+    public var kimarijiCondition = KimarijiCondition.DATA.first!
+    public var colorCondition = ColorCondition.DATA.first!
+    public var kamiNoKuCondition = DisplayStyleCondition.DATA.first!
+    public var shimoNoKuCondition = DisplayStyleCondition.DATA.last!
+    public var animationSpeedCondition = AnimationSpeedCondition.DATA[2]
+
     private let karutaRepository: KarutaRepositoryProtocol
     
     init(karutaRepository: KarutaRepositoryProtocol) {

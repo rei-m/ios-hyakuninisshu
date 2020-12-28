@@ -490,8 +490,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="練習" id="WN8-Dc-g6h"/>
                     <connections>
+                        <outlet property="animationSpeedPicker" destination="hdN-M6-AOC" id="BVM-y2-1lr"/>
+                        <outlet property="colorPicker" destination="9bS-jX-24r" id="eMz-Qb-RJM"/>
+                        <outlet property="kamiNoKuPicker" destination="CAg-kv-fzu" id="10t-s6-b4o"/>
+                        <outlet property="kimarijiPicker" destination="VBB-wM-s1X" id="mzA-R6-G0F"/>
                         <outlet property="rangeFromPicker" destination="DUZ-yn-wNR" id="aKV-zQ-UcE"/>
                         <outlet property="rangeToPicker" destination="lo2-JV-ciE" id="D6e-tt-w5p"/>
+                        <outlet property="shimoNoKuPicker" destination="Fxs-qY-H86" id="ETz-wa-pqa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvz-Ka-gNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,13 @@ import Foundation
 
 protocol TrainingPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func didChangeRangeFrom(_ condition: RangeCondition)
+    func didChangeRangeTo(_ condition: RangeCondition)
+    func didChangeKimariji(_ condition: KimarijiCondition)
+    func didChangeColor(_ condition: ColorCondition)
+    func didChangeKamiNoKu(_ condition: DisplayStyleCondition)
+    func didChangeShimoNoKu(_ condition: DisplayStyleCondition)
+    func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition)
 }
 
 class TrainingPresenter: TrainingPresenterProtocol {
@@ -22,7 +29,15 @@ class TrainingPresenter: TrainingPresenterProtocol {
     }
     
     func viewDidLoad() {
-        view.updateLoading(true)
+        view.updateRangeFrom(model.rangeFromCondition)
+        view.updateRangeTo(model.rangeToCondition)
+        view.updateKimariji(model.kimarijiCondition)
+        view.updateColor(model.colorCondition)
+        view.updateKamiNoKu(model.kamiNoKuCondition)
+        view.updateShimoNoKu(model.shimoNoKuCondition)
+        view.updateAnimationSpeed(model.animationSpeedCondition)
+
+//        view.updateLoading(true)
 
 //        model.fetchKarutas() { [weak self] result in
 //            self?.view.updateLoading(false)
@@ -34,5 +49,40 @@ class TrainingPresenter: TrainingPresenterProtocol {
 //                print(error)
 //            }
 //        }
+    }
+    
+    func didChangeRangeFrom(_ condition: RangeCondition) {
+        model.rangeFromCondition = condition
+        view.updateRangeFrom(condition)
+    }
+    
+    func didChangeRangeTo(_ condition: RangeCondition) {
+        model.rangeToCondition = condition
+        view.updateRangeTo(condition)
+    }
+    
+    func didChangeKimariji(_ condition: KimarijiCondition) {
+        model.kimarijiCondition = condition
+        view.updateKimariji(condition)
+    }
+    
+    func didChangeColor(_ condition: ColorCondition) {
+        model.colorCondition = condition
+        view.updateColor(condition)
+    }
+    
+    func didChangeKamiNoKu(_ condition: DisplayStyleCondition) {
+        model.kamiNoKuCondition = condition
+        view.updateKamiNoKu(condition)
+    }
+    
+    func didChangeShimoNoKu(_ condition: DisplayStyleCondition) {
+        model.shimoNoKuCondition = condition
+        view.updateShimoNoKu(condition)
+    }
+    
+    func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition) {
+        model.animationSpeedCondition = condition
+        view.updateAnimationSpeed(condition)
     }
 }
