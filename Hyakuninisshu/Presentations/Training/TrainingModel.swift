@@ -16,8 +16,7 @@ protocol TrainingModelProtocol: AnyObject {
     var shimoNoKuCondition: DisplayStyleCondition { get set }
     var animationSpeedCondition: AnimationSpeedCondition { get set }
     var rangeConditionError: String? { get }
-    
-    func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void)
+    var hasError: Bool { get }
 }
 
 class TrainingModel: TrainingModelProtocol {
@@ -48,20 +47,14 @@ class TrainingModel: TrainingModelProtocol {
         get { _rangeConditionError }
     }
     
+    public var hasError: Bool {
+        get { _rangeConditionError != nil }
+    }
+    
     private let karutaRepository: KarutaRepositoryProtocol
     
     init(karutaRepository: KarutaRepositoryProtocol) {
         self.karutaRepository = karutaRepository
-    }
-    
-    // TODO: 非同期で呼ばれることを想定してこのIFにしてる
-    func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void) {
-        switch karutaRepository.findAll() {
-        case .success(let karutas):
-            completion(Result.success(karutas))
-        case .failure(_):
-            completion(Result.failure(ModelError.unhandled))
-        }
     }
     
     private func validateRangeCondition() {
@@ -88,3 +81,13 @@ class TrainingModel: TrainingModelProtocol {
 //case .failure(let e):
 //    dump(e)
 //}
+//// TODO: 非同期で呼ばれることを想定してこのIFにしてる
+//func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void) {
+//    switch karutaRepository.findAll() {
+//    case .success(let karutas):
+//        completion(Result.success(karutas))
+//    case .failure(_):
+//        completion(Result.failure(ModelError.unhandled))
+//    }
+//}
+

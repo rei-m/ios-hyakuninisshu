@@ -16,6 +16,7 @@ protocol TrainingPresenterProtocol: AnyObject {
     func didChangeKamiNoKu(_ condition: DisplayStyleCondition)
     func didChangeShimoNoKu(_ condition: DisplayStyleCondition)
     func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition)
+    func didStartTrainingButtonTapDone()
 }
 
 class TrainingPresenter: TrainingPresenterProtocol {
@@ -36,19 +37,6 @@ class TrainingPresenter: TrainingPresenterProtocol {
         view.updateKamiNoKu(model.kamiNoKuCondition)
         view.updateShimoNoKu(model.shimoNoKuCondition)
         view.updateAnimationSpeed(model.animationSpeedCondition)
-
-//        view.updateLoading(true)
-
-//        model.fetchKarutas() { [weak self] result in
-//            self?.view.updateLoading(false)
-//            switch result {
-//            case .success(let karutas):
-//                self?.view.updateMaterialTable(karutas.map { $0.toMaterial() })
-//            case .failure(let error):
-//                // TODO
-//                print(error)
-//            }
-//        }
     }
     
     func didChangeRangeFrom(_ condition: RangeCondition) {
@@ -86,5 +74,20 @@ class TrainingPresenter: TrainingPresenterProtocol {
     func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition) {
         model.animationSpeedCondition = condition
         view.updateAnimationSpeed(condition)
+    }
+    
+    func didStartTrainingButtonTapDone() {
+        if (model.hasError) {
+            view.showAlertDialog()
+        } else {
+            view.goToNextVC(
+                rangeFrom: model.rangeFromCondition,
+                rangeTo: model.rangeToCondition,
+                kimariji: model.kimarijiCondition,
+                kamiNoKu: model.kamiNoKuCondition,
+                shimoNoKu: model.shimoNoKuCondition,
+                animationSpeed: model.animationSpeedCondition
+            )
+        }
     }
 }

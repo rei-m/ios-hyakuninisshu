@@ -8,8 +8,6 @@
 import UIKit
 
 protocol TrainingViewProtocol: AnyObject {
-    func updateLoading(_ isLoading: Bool)
-    func displayError(_ message: String)
     func updateRangeFrom(_ condition: RangeCondition)
     func updateRangeTo(_ condition: RangeCondition)
     func updateKimariji(_ condition: KimarijiCondition)
@@ -18,6 +16,15 @@ protocol TrainingViewProtocol: AnyObject {
     func updateShimoNoKu(_ condition: DisplayStyleCondition)
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition)
     func updateRangeError(_ message: String?)
+    func showAlertDialog()
+    func goToNextVC(
+        rangeFrom: RangeCondition,
+        rangeTo: RangeCondition,
+        kimariji: KimarijiCondition,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    )
 }
 
 class TrainingViewController: UIViewController {
@@ -34,9 +41,7 @@ class TrainingViewController: UIViewController {
     private var rangeErrorHeightConstraint: NSLayoutConstraint?
     
     private var presenter: TrainingPresenterProtocol!
-    
-    private var model: TrainingModelProtocol!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -60,6 +65,10 @@ class TrainingViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {
+        presenter.didStartTrainingButtonTapDone()
+    }
+
     /*
     // MARK: - Navigation
 
@@ -70,26 +79,13 @@ class TrainingViewController: UIViewController {
     }
     */
 
-    func inject(presenter: TrainingPresenterProtocol, model: TrainingModelProtocol) {
+    func inject(presenter: TrainingPresenterProtocol) {
         self.presenter = presenter
-        self.model = model
     }
-    
-    
 }
 
 extension TrainingViewController: TrainingViewProtocol {
     // MARK: - View methods
-    func updateLoading(_ isLoading: Bool) {
-        // deprecatedになった
-        // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
-    }
-
-    func displayError(_ message: String) {
-        // TODO
-        print("Error: \(message)")
-    }
-    
     func updateRangeFrom(_ condition: RangeCondition) {
         rangeFromPicker.currentItemIndex = RangeCondition.FROM_DATA.firstIndex(of: condition)!
     }
@@ -121,6 +117,31 @@ extension TrainingViewController: TrainingViewProtocol {
     func updateRangeError(_ message: String?) {
         rangeErrorLabel.text = message
         rangeErrorHeightConstraint?.isActive = message == nil
+    }
+    
+    func showAlertDialog() {
+        let alert = UIAlertController(
+            title: "エラー",
+            message: "エラーがあります。画面をご確認ください。",
+            preferredStyle: .alert
+        )
+
+        let defaultAction = UIAlertAction(title: "閉じる", style: .default)
+        alert.addAction(defaultAction)
+        
+        self.present(alert, animated: true)
+    }
+    
+    func goToNextVC(
+        rangeFrom: RangeCondition,
+        rangeTo: RangeCondition,
+        kimariji: KimarijiCondition,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    ) {
+        let vc = storyboard?.instantiateViewController(identifier: "TrainingStarterViewController")
+        navigationController?.pushViewController(vc!, animated: false)
     }
 }
 

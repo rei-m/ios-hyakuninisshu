@@ -59,6 +59,8 @@
 		FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB312592E14000B2DA55 /* KarutaNoCollection.swift */; };
 		FA35DB382592E2DA00B2DA55 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB372592E2DA00B2DA55 /* IntExtension.swift */; };
 		FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB3D259310C000B2DA55 /* TrainingViewController.swift */; };
+		FA56085C259B13510059AF7D /* TrainingStarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56085B259B13510059AF7D /* TrainingStarterViewController.swift */; };
+		FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560864259B13940059AF7D /* QuestionViewController.swift */; };
 		FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		FA35DB312592E14000B2DA55 /* KarutaNoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaNoCollection.swift; sourceTree = "<group>"; };
 		FA35DB372592E2DA00B2DA55 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		FA35DB3D259310C000B2DA55 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		FA56085B259B13510059AF7D /* TrainingStarterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStarterViewController.swift; sourceTree = "<group>"; };
+		FA560864259B13940059AF7D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +214,8 @@
 		FA028972257A0096003ADE9C /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				FA560863259B13820059AF7D /* Question */,
+				FA56085A259B131D0059AF7D /* TrainingStarter */,
 				FA35DB3C2593109F00B2DA55 /* Training */,
 				FA2D7B1B2584950700C6134B /* Common */,
 				FA2D7B122584231C00C6134B /* MaterialDetail */,
@@ -383,6 +389,22 @@
 			path = Training;
 			sourceTree = "<group>";
 		};
+		FA56085A259B131D0059AF7D /* TrainingStarter */ = {
+			isa = PBXGroup;
+			children = (
+				FA56085B259B13510059AF7D /* TrainingStarterViewController.swift */,
+			);
+			path = TrainingStarter;
+			sourceTree = "<group>";
+		};
+		FA560863259B13820059AF7D /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				FA560864259B13940059AF7D /* QuestionViewController.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +551,7 @@
 				FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */,
 				FA35DB102592DB3A00B2DA55 /* QuestionResult.swift in Sources */,
 				FA35DB1A2592DDC000B2DA55 /* Question.swift in Sources */,
+				FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
@@ -559,6 +582,7 @@
 				FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */,
 				FA35DB152592DB4900B2DA55 /* QuestionJudgement.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
+				FA56085C259B13510059AF7D /* TrainingStarterViewController.swift in Sources */,
 				FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */,
 				FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */,
 			);

@@ -29,7 +29,7 @@ class EntranceTabBarController: UITabBarController {
                     }
                     let model = TrainingModel(karutaRepository: karutaRepository)
                     let presenter = TrainingPresenter(view: trainingViewController, model: model)
-                    trainingViewController.inject(presenter: presenter, model: model)
+                    trainingViewController.inject(presenter: presenter)
                 }
             }
         }

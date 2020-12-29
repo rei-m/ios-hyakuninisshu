@@ -427,6 +427,9 @@
                                                 <state key="normal" title="練習をはじめる" image="highlighter" catalog="system">
                                                     <color key="titleColor" name="AccentColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="Usx-d8-JLh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -523,6 +526,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvz-Ka-gNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3134.7826086956525" y="-265.17857142857144"/>
+        </scene>
+        <!--Training Starter View Controller-->
+        <scene sceneID="4eH-XQ-mSU">
+            <objects>
+                <viewController storyboardIdentifier="TrainingStarterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0qI-hl-HnW" customClass="TrainingStarterViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ygn-Fv-yKb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MHW-M8-X4y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZw-Lq-bH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4035" y="-265"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="a2M-F2-tZe">
+            <objects>
+                <viewController storyboardIdentifier="QuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wci-wO-yI9" customClass="QuestionViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="blN-sP-bW1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Wc9-ga-5Ql"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z35-CC-Tye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5072" y="-265"/>
         </scene>
         <!--Entrance Tab Bar Controller-->
         <scene sceneID="5yD-dr-2JP">
