@@ -74,6 +74,8 @@ class TrainingViewController: UIViewController {
         self.presenter = presenter
         self.model = model
     }
+    
+    
 }
 
 extension TrainingViewController: TrainingViewProtocol {
@@ -117,12 +119,8 @@ extension TrainingViewController: TrainingViewProtocol {
     }
     
     func updateRangeError(_ message: String?) {
-        if (message == nil) {
-            rangeErrorHeightConstraint?.isActive = true
-        } else {
-            rangeErrorHeightConstraint?.isActive = false
-            rangeErrorLabel.text = message
-        }
+        rangeErrorLabel.text = message
+        rangeErrorHeightConstraint?.isActive = message == nil
     }
 }
 

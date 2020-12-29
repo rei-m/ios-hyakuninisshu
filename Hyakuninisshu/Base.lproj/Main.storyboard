@@ -315,7 +315,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-z4-4cs" userLabel="ContentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出題範囲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-7p-gsp" userLabel="RangeTitle">
                                                 <rect key="frame" x="16" y="32" width="382" height="20.5"/>
@@ -422,20 +422,27 @@
                                                     <constraint firstAttribute="height" constant="40" id="e1A-iN-Rmy"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-hM-Gw6" userLabel="StartTrainingButton">
+                                                <rect key="frame" x="132" y="535" width="150.5" height="22.5"/>
+                                                <state key="normal" title="練習をはじめる" image="highlighter" catalog="system">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1400" id="0zW-Nn-PF9"/>
                                             <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="13b-Fk-t3s"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2n8-jx-OYn"/>
                                             <constraint firstItem="Yd9-tx-vBK" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2qx-i5-TJx"/>
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="3uF-WP-Yw6"/>
                                             <constraint firstAttribute="trailing" secondItem="Yd9-tx-vBK" secondAttribute="trailing" constant="16" id="5Da-2f-O1Y"/>
+                                            <constraint firstItem="Qcn-hM-Gw6" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="9Re-II-9j4"/>
                                             <constraint firstItem="VBB-wM-s1X" firstAttribute="top" secondItem="LnD-te-Gse" secondAttribute="bottom" constant="4" id="9zh-71-BEK"/>
                                             <constraint firstItem="hdN-M6-AOC" firstAttribute="top" secondItem="xa9-mU-tSn" secondAttribute="bottom" constant="4" id="BRL-qm-P2s"/>
                                             <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" constant="4" id="DNw-FK-cgU"/>
                                             <constraint firstAttribute="trailing" secondItem="ZxP-W0-oKC" secondAttribute="trailing" constant="16" id="Epl-P9-1fn"/>
                                             <constraint firstItem="bYE-K8-FiI" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="FRH-yO-Ite"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qcn-hM-Gw6" secondAttribute="bottom" constant="32" id="Hll-IK-dkQ"/>
                                             <constraint firstItem="CAg-kv-fzu" firstAttribute="top" secondItem="Yd9-tx-vBK" secondAttribute="bottom" constant="4" id="HuW-5B-H1O"/>
                                             <constraint firstItem="CAg-kv-fzu" firstAttribute="top" secondItem="Yd9-tx-vBK" secondAttribute="bottom" constant="4" id="IPI-l0-CIs"/>
                                             <constraint firstItem="VBB-wM-s1X" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="J0q-MU-u4B"/>
@@ -476,6 +483,7 @@
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="top" secondItem="Fxs-qY-H86" secondAttribute="bottom" constant="16" id="uUJ-Hr-AKX"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="vIg-aq-0v8"/>
                                             <constraint firstAttribute="trailing" secondItem="hdN-M6-AOC" secondAttribute="trailing" constant="16" id="yEW-5X-orT"/>
+                                            <constraint firstItem="Qcn-hM-Gw6" firstAttribute="top" secondItem="hdN-M6-AOC" secondAttribute="bottom" constant="32" id="yag-3w-czs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -580,6 +588,7 @@
     <resources>
         <image name="Karuta1" width="150" height="209.5"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
+        <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
