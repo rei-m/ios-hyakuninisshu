@@ -146,8 +146,12 @@ class KarutaRepository: KarutaRepositoryProtocol {
         do {
             let context = container.viewContext
             
-            // TODO: 掃除する処理を入れる
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDKaruta.fetchRequest()
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            deleteRequest.resultType = .resultTypeObjectIDs
             
+            try context.execute(deleteRequest)
+
             let _ = json.karuta_list.map { $0.toPersistentModel(context: context) }
             try context.save()
             UserDefaults.standard.setValue(KarutaRepository.VERSION, forKey: KarutaRepository.VERSION_KEY)
@@ -180,7 +184,7 @@ class KarutaRepository: KarutaRepositoryProtocol {
     
     func findAll2() -> AnyPublisher<[Karuta], RepositoryError> {
         let publisher = Future<[Karuta], RepositoryError> { promise in
-            let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+            let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
 
             let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
