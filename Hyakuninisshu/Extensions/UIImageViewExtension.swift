@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setKarutaImage(no: KarutaNo) {
-        self.image = UIImage(named: "Karuta\(no.value)")
+    func setKarutaImage(no: Int8) {
+        self.image = UIImage(named: "Karuta\(no)")
     }
 }
