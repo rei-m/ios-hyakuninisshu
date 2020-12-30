@@ -7,10 +7,12 @@
 
 import Foundation
 import CoreData
+import Combine
 
 protocol KarutaRepositoryProtocol {
     func initialize() -> Result<Void, RepositoryError>
     func findAll() -> Result<[Karuta], RepositoryError>
+    func findAll2() -> AnyPublisher<[Karuta], RepositoryError>
     func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError>
     
 //    func findByNo(karutaNo: KarutaNo) -> Karuta
@@ -175,7 +177,32 @@ class KarutaRepository: KarutaRepositoryProtocol {
             return Result.failure(RepositoryError.io)
         }
     }
+    
+    func findAll2() -> AnyPublisher<[Karuta], RepositoryError> {
+        let publisher = Future<[Karuta], RepositoryError> { promise in
+            let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
 
+            let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
+                guard let cdKarutas = result.finalResult else {
+                    return
+                }
+                promise(.success(cdKarutas.map { $0.toModel() }))
+            }
+
+            do {
+                let backgroundContext = self.container.newBackgroundContext()
+                try backgroundContext.execute(asyncFetch)
+            } catch let error {
+                let nserror = error as NSError
+                // TODO
+                print(nserror)
+                promise(.failure(.io))
+            }
+        }
+        return AnyPublisher<[Karuta], RepositoryError>(publisher)
+    }
+    
     func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError> {
         do {
             let context = container.viewContext

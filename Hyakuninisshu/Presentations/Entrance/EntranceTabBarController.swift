@@ -21,7 +21,7 @@ class EntranceTabBarController: UITabBarController {
                     }
                     let model = MaterialTableModel(karutaRepository: karutaRepository)
                     let presenter = MaterialTablePresenter(view: materialTableViewController, model: model)
-                    materialTableViewController.inject(presenter: presenter, model: model)
+                    materialTableViewController.inject(presenter: presenter)
                 }
                 for nvc in vc.children {
                     guard let trainingViewController = nvc as? TrainingViewController else {

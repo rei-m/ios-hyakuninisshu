@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum ModelError: Error {
     case unhandled
@@ -13,6 +14,7 @@ enum ModelError: Error {
 
 protocol MaterialTableModelProtocol: AnyObject {
     func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void)
+    func fetchKarutas2() -> AnyPublisher<[Material], ModelError>
 }
 
 class MaterialTableModel: MaterialTableModelProtocol {
@@ -31,5 +33,13 @@ class MaterialTableModel: MaterialTableModelProtocol {
         case .failure(_):
             completion(Result.failure(ModelError.unhandled))
         }
+    }
+    
+    func fetchKarutas2() -> AnyPublisher<[Material], ModelError> {
+        return karutaRepository.findAll2().map { karutas in
+            karutas.map { $0.toMaterial() }
+        }.mapError { _ in
+            ModelError.unhandled
+        }.eraseToAnyPublisher()
     }
 }
