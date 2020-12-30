@@ -7,26 +7,53 @@
 
 import UIKit
 
+protocol TrainingStarterViewProtocol: AnyObject {
+    func displayEmptyError()
+    func goToNextVC(
+        questionCount: Int,
+        questionNo: Int,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    )
+}
+
 class TrainingStarterViewController: UIViewController {
 
+    @IBOutlet weak var emptyMessageLabel: UILabel!
+
+    private var presenter: TrainingStarterPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("TrainingStarterViewController")
-
         // Do any additional setup after loading the view.
 
-        let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController")
-        navigationController?.pushViewController(vc!, animated: false)
+        emptyMessageLabel.isHidden = true
+        
+        presenter.viewDidLoad()
+    }
+
+    func inject(presenter: TrainingStarterPresenterProtocol) {
+        self.presenter = presenter
+    }
+}
+
+extension TrainingStarterViewController: TrainingStarterViewProtocol {
+
+    func displayEmptyError() {
+        emptyMessageLabel.isHidden = false
     }
     
-    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        print("unko")
-//    }
-
+    func goToNextVC(
+        questionCount: Int,
+        questionNo: Int,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    ) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") else {
+            fatalError("unknown VC identifier value='QuestionViewController'")
+        }
+        navigationController?.pushViewController(vc, animated: false)
+    }
 }

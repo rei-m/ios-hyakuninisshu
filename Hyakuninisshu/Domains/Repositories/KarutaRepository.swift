@@ -10,13 +10,11 @@ import CoreData
 
 protocol KarutaRepositoryProtocol {
     func initialize() -> Result<Void, RepositoryError>
-    
     func findAll() -> Result<[Karuta], RepositoryError>
-
+    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError>
     
 //    func findByNo(karutaNo: KarutaNo) -> Karuta
 //
-//    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> [Karuta]
 }
 
 private struct KarutaJson: Codable {
@@ -167,6 +165,29 @@ class KarutaRepository: KarutaRepositoryProtocol {
         do {
             let context = container.viewContext
             let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
+            let cdKarutas = try context.fetch(fetchRequest)
+            return Result.success(cdKarutas.map { $0.toModel() })
+        } catch {
+            let nserror = error as NSError
+            // TODO
+            print(nserror)
+            return Result.failure(RepositoryError.io)
+        }
+    }
+
+    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError> {
+        do {
+            let context = container.viewContext
+            let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+            fetchRequest.predicate = NSPredicate(
+                format: "%K BETWEEN {%i, %i} AND kimariji IN %@ AND color IN %@",
+                "no",
+                fromNo.value,
+                toNo.value,
+                kimarijis.map { $0.rawValue },
+                colors.map { $0.rawValue }
+            )
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
             let cdKarutas = try context.fetch(fetchRequest)
             return Result.success(cdKarutas.map { $0.toModel() })

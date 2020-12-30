@@ -84,6 +84,7 @@ class TrainingPresenter: TrainingPresenterProtocol {
                 rangeFrom: model.rangeFromCondition,
                 rangeTo: model.rangeToCondition,
                 kimariji: model.kimarijiCondition,
+                color: model.colorCondition,
                 kamiNoKu: model.kamiNoKuCondition,
                 shimoNoKu: model.shimoNoKuCondition,
                 animationSpeed: model.animationSpeedCondition

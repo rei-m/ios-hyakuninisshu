@@ -534,9 +534,25 @@
                     <view key="view" contentMode="scaleToFill" id="ygn-Fv-yKb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="対象の歌が見つかりませんでした" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hP-TV-VV9" userLabel="EmptyMessage">
+                                <rect key="frame" x="32" y="437.5" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MHW-M8-X4y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MHW-M8-X4y" firstAttribute="trailing" secondItem="3hP-TV-VV9" secondAttribute="trailing" constant="32" id="BhN-iT-jxY"/>
+                            <constraint firstItem="3hP-TV-VV9" firstAttribute="centerY" secondItem="ygn-Fv-yKb" secondAttribute="centerY" id="Hbd-wn-hHx"/>
+                            <constraint firstItem="3hP-TV-VV9" firstAttribute="leading" secondItem="MHW-M8-X4y" secondAttribute="leading" constant="32" id="ljN-wo-59C"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emptyMessageLabel" destination="3hP-TV-VV9" id="v7t-gx-uUO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZw-Lq-bH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

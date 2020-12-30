@@ -21,6 +21,7 @@ protocol TrainingViewProtocol: AnyObject {
         rangeFrom: RangeCondition,
         rangeTo: RangeCondition,
         kimariji: KimarijiCondition,
+        color: ColorCondition,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
@@ -55,13 +56,10 @@ class TrainingViewController: UIViewController {
 
         rangeErrorHeightConstraint = rangeErrorLabel.constraints.first
         
-        rangeFromPicker.delegate = self
-        rangeToPicker.delegate = self
-        kimarijiPicker.delegate = self
-        colorPicker.delegate = self
-        kamiNoKuPicker.delegate = self
-        shimoNoKuPicker.delegate = self
-        animationSpeedPicker.delegate = self
+        [rangeFromPicker, rangeToPicker, kimarijiPicker, colorPicker, kamiNoKuPicker, shimoNoKuPicker, animationSpeedPicker].forEach {
+            $0?.delegate = self
+        }
+
         presenter.viewDidLoad()
     }
     
@@ -136,12 +134,32 @@ extension TrainingViewController: TrainingViewProtocol {
         rangeFrom: RangeCondition,
         rangeTo: RangeCondition,
         kimariji: KimarijiCondition,
+        color: ColorCondition,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
-        let vc = storyboard?.instantiateViewController(identifier: "TrainingStarterViewController")
-        navigationController?.pushViewController(vc!, animated: false)
+        guard let vc = storyboard?.instantiateViewController(identifier: "TrainingStarterViewController") as? TrainingStarterViewController else {
+            fatalError("unknown VC identifier value='TrainingStarterViewController'")
+        }
+        
+        let model = TrainingStarterModel(
+            rangeFromCondition: rangeFrom,
+            rangeToCondition: rangeTo,
+            kimarijiCondition: kimariji,
+            colorCondition: color,
+            kamiNoKuCondition: kamiNoKu,
+            shimoNoKuCondition: shimoNoKu,
+            animationSpeedCondition: animationSpeed,
+            karutaRepository: karutaRepository,
+            questionRepository: questionRepository
+        )
+        
+        let presenter = TrainingStarterPresenter(view: vc, model: model)
+
+        vc.inject(presenter: presenter)
+
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 
