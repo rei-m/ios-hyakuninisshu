@@ -6,28 +6,36 @@
 //
 
 import UIKit
+import Combine
 
 class SplashViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    private var cancellables = [AnyCancellable]()
 
     override func viewDidAppear(_ animated: Bool) {
-        switch karutaRepository.initialize() {
-        case .success(_):
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let entrancePage = storyboard.instantiateViewController(withIdentifier: "EntrancePageViewController") as! UITabBarController
-            self.present(entrancePage, animated: false)
-        case .failure(let error):
-            // TODO
-            print(error)
-        }
+        karutaRepository.initialize().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let e):
+                // TODO
+                print(e)
+            case .finished:
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let vc = storyboard.instantiateViewController(withIdentifier: "EntrancePageViewController") as? UITabBarController else {
+                    fatalError("unknown identifier value is='EntrancePageViewController'")
+                }
+                self.present(vc, animated: false)
+            }
+        }, receiveValue: { _ in
+        }).store(in: &cancellables)
+        
+        print("viewDidAppear")
     }
     
-
+    override func viewDidDisappear(_ animated: Bool) {
+        cancellables.forEach { cancellable in cancellable.cancel() }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

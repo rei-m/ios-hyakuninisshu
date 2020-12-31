@@ -7,9 +7,10 @@
 
 import Foundation
 import CoreData
+import Combine
 
 protocol QuestionRepositoryProtocol {
-    func initialize(questions: [Question]) -> Result<Void, RepositoryError>
+    func initialize(questions: [Question]) -> AnyPublisher<Void, RepositoryError>
     
 //    func count() -> Result<Int, RepositoryError>
 //
@@ -28,8 +29,13 @@ class QuestionRepository: QuestionRepositoryProtocol {
         self.container = container
     }
 
-    func initialize(questions: [Question]) -> Result<Void, RepositoryError> {
+    func initialize(questions: [Question]) -> AnyPublisher<Void, RepositoryError> {
         self.questions = questions
-        return Result.success(())
+        
+        let publisher = Future<Void, RepositoryError>{ promise in
+            promise(.success(()))
+        }
+
+        return publisher.eraseToAnyPublisher()
     }
 }

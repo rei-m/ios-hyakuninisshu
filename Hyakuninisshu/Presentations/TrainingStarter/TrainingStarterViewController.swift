@@ -33,6 +33,10 @@ class TrainingStarterViewController: UIViewController {
         presenter.viewDidLoad()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        presenter.viewDidDisappear()
+    }
+    
     func inject(presenter: TrainingStarterPresenterProtocol) {
         self.presenter = presenter
     }

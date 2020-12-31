@@ -59,14 +59,3 @@ class TrainingModel: TrainingModelProtocol {
         }
     }
 }
-
-//// TODO: 非同期で呼ばれることを想定してこのIFにしてる
-//func fetchKarutas(completion: @escaping (Result<[Karuta], ModelError>) -> Void) {
-//    switch karutaRepository.findAll() {
-//    case .success(let karutas):
-//        completion(Result.success(karutas))
-//    case .failure(_):
-//        completion(Result.failure(ModelError.unhandled))
-//    }
-//}
-

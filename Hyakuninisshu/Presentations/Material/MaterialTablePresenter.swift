@@ -26,7 +26,7 @@ class MaterialTablePresenter: MaterialTablePresenterProtocol {
     
     func viewDidLoad() {
         view.updateLoading(true)
-        model.fetchKarutas2().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+        model.fetchKarutas().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
             switch completion {
             case .finished:
                 self.view.updateLoading(false)
