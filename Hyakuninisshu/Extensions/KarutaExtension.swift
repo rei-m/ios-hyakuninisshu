@@ -28,4 +28,26 @@ extension Karuta {
             translation: translation
         )
     }
+    
+    func toToriFuda(style: DisplayStyleCondition) -> ToriFuda {
+        switch style.value {
+        case 0:
+            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kanji, secondLine: shimoNoKu.shiku.kanji)
+        case 1:
+            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kana, secondLine: shimoNoKu.shiku.kana)
+        default:
+            fatalError("unknown value")
+        }
+    }
+    
+    func toYomiFuda(style: DisplayStyleCondition) -> YomiFuda {
+        switch style.value {
+        case 0:
+            return YomiFuda(karutaNo: no.value, firstLine: kamiNoKu.shoku.kanji, secondLine: kamiNoKu.niku.kanji, thirdLine: kamiNoKu.sanku.kanji)
+        case 1:
+            return YomiFuda(karutaNo: no.value, firstLine: kamiNoKu.shoku.kana, secondLine: kamiNoKu.niku.kana, thirdLine: kamiNoKu.sanku.kana)
+        default:
+            fatalError("unknown value")
+        }
+    }
 }

@@ -38,7 +38,7 @@ class CreateQuestionsService {
             let correctPosition = choiceSize.generateRandomIndexArray(size: 1).first!
             choices.insert(targetKarutaNo, at: correctPosition)
             
-            return Question(id: QuestionId(), no: no, choices: choices, state: .ready)
+            return Question(id: QuestionId(), no: no, choices: choices, correctNo: targetKarutaNo, state: .ready)
         }
         
         return result

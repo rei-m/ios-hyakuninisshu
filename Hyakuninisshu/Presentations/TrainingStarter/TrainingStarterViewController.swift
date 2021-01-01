@@ -32,10 +32,6 @@ class TrainingStarterViewController: UIViewController {
         
         presenter.viewDidLoad()
     }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        presenter.viewDidDisappear()
-    }
     
     func inject(presenter: TrainingStarterPresenterProtocol) {
         self.presenter = presenter
@@ -55,9 +51,15 @@ extension TrainingStarterViewController: TrainingStarterViewProtocol {
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") as? QuestionViewController else {
             fatalError("unknown VC identifier value='QuestionViewController'")
         }
+        
+        let model = QuestionModel(questionCount: questionCount, questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let presenter = QuestionPresenter(view: vc, model: model)
+
+        vc.inject(presenter: presenter)
+        
         navigationController?.pushViewController(vc, animated: false)
     }
 }

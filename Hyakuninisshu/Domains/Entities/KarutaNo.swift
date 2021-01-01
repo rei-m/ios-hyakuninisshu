@@ -14,7 +14,7 @@ private func createKanjiFormater() -> NumberFormatter {
     return formatter
 }
 
-struct KarutaNo {
+struct KarutaNo: Equatable {
     static let MIN = KarutaNo(1)
     static let MAX = KarutaNo(100)
     static let LIST: [KarutaNo] = (MIN.value...MAX.value).map { KarutaNo($0) }
@@ -27,5 +27,9 @@ struct KarutaNo {
     init(_ value: Int8) {
         self.value = value
         self.text = "\(KanjiFormatter.string(NSNumber(value: value)))番"
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.value == rhs.value
     }
 }

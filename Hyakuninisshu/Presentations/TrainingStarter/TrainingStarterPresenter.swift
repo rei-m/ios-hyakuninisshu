@@ -10,7 +10,6 @@ import Combine
 
 protocol TrainingStarterPresenterProtocol: AnyObject {
     func viewDidLoad()
-    func viewDidDisappear()
 }
 
 class TrainingStarterPresenter: TrainingStarterPresenterProtocol {
@@ -33,11 +32,14 @@ class TrainingStarterPresenter: TrainingStarterPresenterProtocol {
             case .finished:
                 return
             }
-        }, receiveValue: { [self] questionCount in
+        }, receiveValue: { [weak self] questionCount in
             if (questionCount == 0) {
-                view.displayEmptyError()
+                self?.view.displayEmptyError()
             } else {
-                view.goToNextVC(
+                guard let model = self?.model else {
+                    return
+                }
+                self?.view.goToNextVC(
                     questionCount: questionCount,
                     questionNo: 1,
                     kamiNoKu: model.kamiNoKuCondition,
@@ -46,9 +48,5 @@ class TrainingStarterPresenter: TrainingStarterPresenterProtocol {
                 )
             }
         }).store(in: &cancellables)
-    }
-    
-    func viewDidDisappear() {
-        cancellables.forEach { $0.cancel() }
     }
 }

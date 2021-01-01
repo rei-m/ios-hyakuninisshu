@@ -13,9 +13,7 @@ protocol KarutaRepositoryProtocol {
     func initialize() -> AnyPublisher<Void, RepositoryError>
     func findAll() -> AnyPublisher<[Karuta], RepositoryError>
     func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> AnyPublisher<[Karuta], RepositoryError>
-    
-//    func findByNo(karutaNo: KarutaNo) -> Karuta
-//
+    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError>
 }
 
 private struct KarutaJson: Codable {
@@ -237,15 +235,34 @@ class KarutaRepository: KarutaRepositoryProtocol {
         return publisher.eraseToAnyPublisher()
     }
     
-//    func findByNo(karutaNo: KarutaNo) -> Karuta {
-//        let no = KarutaNo.MIN
-//        return Karuta(
-//            no: no,
-//            kamiNoKu: KamiNoKu(
-//                karutaNo: no,
-//                shoku: Verse(kana: <#T##String#>, kanji: <#T##String#>),
-//                niku: <#T##Verse#>,
-//                sanku: Verse
-//            ))
-//    }
+    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError> {
+        let publisher = Future<[Karuta], RepositoryError> { promise in
+            let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
+            fetchRequest.predicate = NSPredicate(
+                format: "%K IN %@",
+                "no",
+                karutaNos.map { $0.value }
+            )
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
+
+            let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
+                guard let cdKarutas = result.finalResult else {
+                    return
+                }
+                promise(.success(cdKarutas.map { $0.toModel() }))
+            }
+
+            do {
+                let backgroundContext = self.container.newBackgroundContext()
+                try backgroundContext.execute(asyncFetch)
+            } catch let error {
+                let nserror = error as NSError
+                // TODO
+                print(nserror)
+                promise(.failure(.io))
+            }
+        }
+
+        return publisher.eraseToAnyPublisher()
+    }
 }

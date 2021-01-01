@@ -7,25 +7,31 @@
 
 import UIKit
 
+protocol QuestionViewProtocol: AnyObject {
+
+}
+
 class QuestionViewController: UIViewController {
 
+    private var presenter: QuestionPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("QuestionViewController")
 
         let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goTop))
-        self.navigationItem.leftBarButtonItem = leftButton
+        navigationItem.leftBarButtonItem = leftButton
 
         // Do any additional setup after loading the view.
+        presenter.viewDidLoad()
     }
 
     
     @objc func goTop(){
-      //トップ画面に戻る。
-      self.navigationController?.popToRootViewController(animated: true)
+      navigationController?.popToRootViewController(animated: true)
     }
-    
+
     /*
     // MARK: - Navigation
 
@@ -35,5 +41,12 @@ class QuestionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func inject(presenter: QuestionPresenterProtocol) {
+        self.presenter = presenter
+    }
+}
 
+extension QuestionViewController: QuestionViewProtocol {
+    
 }
