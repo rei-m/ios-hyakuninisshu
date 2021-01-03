@@ -29,6 +29,9 @@
 		FA0EC5C82599B749003B4FEE /* ColorCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5C72599B749003B4FEE /* ColorCondition.swift */; };
 		FA0EC5CD2599BB3A003B4FEE /* DisplayStyleCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5CC2599BB3A003B4FEE /* DisplayStyleCondition.swift */; };
 		FA0EC5D22599BBAE003B4FEE /* AnimationSpeedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5D12599BBAE003B4FEE /* AnimationSpeedCondition.swift */; };
+		FA0ED109259F76BC00D41DBA /* ToriFudaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ED108259F76BC00D41DBA /* ToriFudaView.swift */; };
+		FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ED10D259F854900D41DBA /* YomiFudaView.swift */; };
+		FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */; };
 		FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */; };
 		FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE7259E0F6B001C0311 /* QuestionModel.swift */; };
 		FA178EED259E14B8001C0311 /* ToriFuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EEC259E14B8001C0311 /* ToriFuda.swift */; };
@@ -111,6 +114,9 @@
 		FA0EC5C72599B749003B4FEE /* ColorCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCondition.swift; sourceTree = "<group>"; };
 		FA0EC5CC2599BB3A003B4FEE /* DisplayStyleCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStyleCondition.swift; sourceTree = "<group>"; };
 		FA0EC5D12599BBAE003B4FEE /* AnimationSpeedCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationSpeedCondition.swift; sourceTree = "<group>"; };
+		FA0ED108259F76BC00D41DBA /* ToriFudaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToriFudaView.swift; sourceTree = "<group>"; };
+		FA0ED10D259F854900D41DBA /* YomiFudaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomiFudaView.swift; sourceTree = "<group>"; };
+		FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabel.swift; sourceTree = "<group>"; };
 		FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 		FA178EE7259E0F6B001C0311 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		FA178EEC259E14B8001C0311 /* ToriFuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToriFuda.swift; sourceTree = "<group>"; };
@@ -383,7 +389,10 @@
 			isa = PBXGroup;
 			children = (
 				FA2D7B1D2584959800C6134B /* CardFrameView.swift */,
+				FA0ED10D259F854900D41DBA /* YomiFudaView.swift */,
 				FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */,
+				FA0ED108259F76BC00D41DBA /* ToriFudaView.swift */,
+				FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -577,11 +586,14 @@
 				FA35DB1A2592DDC000B2DA55 /* Question.swift in Sources */,
 				FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
+				FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
 				FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
 				FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */,
 				FA0EC5AC2597EAEF003B4FEE /* RangeCondition.swift in Sources */,
+				FA0ED109259F76BC00D41DBA /* ToriFudaView.swift in Sources */,
+				FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */,
 				FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */,
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
 				FA178EF2259E172D001C0311 /* YomiFuda.swift in Sources */,

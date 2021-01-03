@@ -7,17 +7,9 @@
 
 import UIKit
 
-@IBDesignable class CardFrameView: UIView {
-
-    @IBInspectable var borderColor: UIColor = UIColor(named: "AccentColor")!
-    @IBInspectable var borderWidth: CGFloat = 8.0
-    @IBInspectable var cornerRadius: CGFloat = 8.0
-    @IBInspectable var shadowOffset: CGFloat = 2.0
-    
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+extension UIView {
+    func setUpCardFrame(borderWidth: CGFloat, cornerRadius: CGFloat, shadowOffset: CGFloat) {
+        let borderColor = UIColor(named: "AccentColor")
         let shadowView = UIView()
         shadowView.backgroundColor = .white
         shadowView.layer.shadowColor = UIColor.gray.cgColor
@@ -28,7 +20,7 @@ import UIKit
         shadowView.layer.masksToBounds = false
         
         let roundView = UIView()
-        roundView.layer.borderColor = borderColor.cgColor
+        roundView.layer.borderColor = borderColor?.cgColor
         roundView.layer.borderWidth = borderWidth
         roundView.layer.cornerRadius = cornerRadius
         roundView.layer.masksToBounds = true
@@ -39,7 +31,5 @@ import UIKit
         addFitConstraints(to: shadowView)
         sendSubviewToBack(roundView)
         sendSubviewToBack(shadowView)
-
     }
 }
-

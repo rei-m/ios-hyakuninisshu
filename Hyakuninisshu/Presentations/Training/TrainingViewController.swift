@@ -59,8 +59,12 @@ class TrainingViewController: UIViewController {
         [rangeFromPicker, rangeToPicker, kimarijiPicker, colorPicker, kamiNoKuPicker, shimoNoKuPicker, animationSpeedPicker].forEach {
             $0?.delegate = self
         }
-
+        
         presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {

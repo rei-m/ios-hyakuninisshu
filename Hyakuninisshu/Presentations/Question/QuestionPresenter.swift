@@ -33,7 +33,7 @@ class QuestionPresenter: QuestionPresenterProtocol {
                 return
             }
         }, receiveValue: { [weak self] play in
-            dump(play)
+            self?.view.setUpPlay(play)
         }).store(in: &cancellables)
     }
 }

@@ -565,13 +565,79 @@
                     <view key="view" contentMode="scaleToFill" id="blN-sP-bW1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-fE-c6R" userLabel="YomiFuda Area">
+                                <rect key="frame" x="0.0" y="44" width="414" height="409"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                        <rect key="frame" x="139" y="94" width="136" height="221"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerY" secondItem="KhX-fE-c6R" secondAttribute="centerY" id="3OR-KI-euO"/>
+                                    <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerX" secondItem="KhX-fE-c6R" secondAttribute="centerX" id="Zqn-mf-zD6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgZ-dr-Zro" userLabel="ToriFuda Area">
+                                <rect key="frame" x="0.0" y="453" width="414" height="409"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x91-1V-jq8">
+                                        <rect key="frame" x="16" y="16" width="382" height="377"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="377"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="98.5" y="0.0" width="86" height="377"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="197.5" y="0.0" width="86" height="377"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="296" y="0.0" width="86" height="377"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="x91-1V-jq8" secondAttribute="trailing" constant="16" id="5ep-pB-PtX"/>
+                                    <constraint firstItem="x91-1V-jq8" firstAttribute="top" secondItem="mgZ-dr-Zro" secondAttribute="top" constant="16" id="L7z-wN-WcC"/>
+                                    <constraint firstItem="x91-1V-jq8" firstAttribute="leading" secondItem="mgZ-dr-Zro" secondAttribute="leading" constant="16" id="fed-GF-rSY"/>
+                                    <constraint firstAttribute="bottom" secondItem="x91-1V-jq8" secondAttribute="bottom" constant="16" id="kUw-ff-8k6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wc9-ga-5Ql"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KhX-fE-c6R" firstAttribute="leading" secondItem="Wc9-ga-5Ql" secondAttribute="leading" id="0TB-be-iFf"/>
+                            <constraint firstItem="mgZ-dr-Zro" firstAttribute="bottom" secondItem="Wc9-ga-5Ql" secondAttribute="bottom" id="4gW-1z-1lM"/>
+                            <constraint firstItem="mgZ-dr-Zro" firstAttribute="leading" secondItem="Wc9-ga-5Ql" secondAttribute="leading" id="5dx-89-AIE"/>
+                            <constraint firstItem="KhX-fE-c6R" firstAttribute="height" secondItem="Wc9-ga-5Ql" secondAttribute="height" multiplier="0.5" id="6oA-Ro-e98"/>
+                            <constraint firstItem="mgZ-dr-Zro" firstAttribute="height" secondItem="Wc9-ga-5Ql" secondAttribute="height" multiplier="0.5" id="O1E-cn-oOA"/>
+                            <constraint firstItem="KhX-fE-c6R" firstAttribute="top" secondItem="Wc9-ga-5Ql" secondAttribute="top" id="SA9-4d-iHW"/>
+                            <constraint firstItem="KhX-fE-c6R" firstAttribute="trailing" secondItem="Wc9-ga-5Ql" secondAttribute="trailing" id="hkf-2r-1Me"/>
+                            <constraint firstItem="mgZ-dr-Zro" firstAttribute="trailing" secondItem="Wc9-ga-5Ql" secondAttribute="trailing" id="jZh-X0-LeC"/>
+                            <constraint firstItem="mgZ-dr-Zro" firstAttribute="top" secondItem="KhX-fE-c6R" secondAttribute="bottom" id="uzM-vK-sX8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="toriFudaView1" destination="35q-Zy-B9S" id="6Bf-rS-ZHs"/>
+                        <outlet property="toriFudaView2" destination="zuf-OP-kDh" id="cFc-Lv-R0l"/>
+                        <outlet property="toriFudaView3" destination="XKB-NW-52C" id="6hQ-wV-Vog"/>
+                        <outlet property="toriFudaView4" destination="Myh-Xe-0AE" id="413-wZ-Rku"/>
+                        <outlet property="yomiFudaView" destination="mpO-Zn-wxx" id="Esh-aV-4sl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z35-CC-Tye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5072" y="-265"/>
+            <point key="canvasLocation" x="5071.0144927536239" y="-265.17857142857144"/>
         </scene>
         <!--Entrance Tab Bar Controller-->
         <scene sceneID="5yD-dr-2JP">
@@ -650,6 +716,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -32,9 +32,9 @@ extension Karuta {
     func toToriFuda(style: DisplayStyleCondition) -> ToriFuda {
         switch style.value {
         case 0:
-            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kanji, secondLine: shimoNoKu.shiku.kanji)
+            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kanji, secondLine: shimoNoKu.goku.kanji)
         case 1:
-            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kana, secondLine: shimoNoKu.shiku.kana)
+            return ToriFuda(karutaNo: no.value, firstLine: shimoNoKu.shiku.kana, secondLine: shimoNoKu.goku.kana)
         default:
             fatalError("unknown value")
         }
