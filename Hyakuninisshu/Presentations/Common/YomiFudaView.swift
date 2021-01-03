@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 @IBDesignable class YomiFudaView: UIView {
     @IBInspectable var borderWidth: CGFloat = 6.0
@@ -36,6 +37,8 @@ import UIKit
     private let secondLineView = UIStackView()
     private let thirdLineView = UIStackView()
 
+    private var cancellables = [AnyCancellable]()
+
     private func setUpView() {
         setUpCardFrame(borderWidth: borderWidth, cornerRadius: cornerRadius, shadowOffset: shadowOffset)
         widthAnchor.constraint(equalToConstant: fontSize * 8).isActive = true
@@ -46,7 +49,7 @@ import UIKit
         addSubview(lineView)
         
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.spacing = 0
+        lineView.spacing = 1
         
         for _ in 0..<count {
             let label = UILabel() // 6
@@ -55,6 +58,7 @@ import UIKit
             label.textColor = .black
             label.heightAnchor.constraint(equalToConstant: fontSize).isActive = true
             label.text = " "
+            label.alpha = 0
         }
     }
     
@@ -82,7 +86,33 @@ import UIKit
         super.init(coder: aDecoder)
         setUp()
     }
+    
+    public func startAnimation() {
+        guard let yomiFuda = _yomiFuda else {
+            return
+        }
 
+        var arrangedSubviews: [UIView] = []
+        arrangedSubviews += firstLineView.arrangedSubviews[0...yomiFuda.firstLine.count - 1]
+        arrangedSubviews += secondLineView.arrangedSubviews[0...yomiFuda.secondLine.count - 1]
+        arrangedSubviews += thirdLineView.arrangedSubviews[0...yomiFuda.thirdLine.count - 1]
+        
+        Timer.publish(every: 0.6, on: .main, in: .default)
+            .autoconnect()
+            .measureInterval(using: RunLoop.main)
+            .zip(arrangedSubviews.publisher)
+            .sink { _, view in
+                UIView.animate(withDuration: 0.6, delay: 0, options: .allowUserInteraction, animations: {
+                    view.alpha = 1
+                })
+            }
+            .store(in: &cancellables)
+    }
+    
+    public func stopAnimation() {
+        cancellables.forEach { $0.cancel() }
+    }
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -90,5 +120,4 @@ import UIKit
         // Drawing code
     }
     */
-
 }

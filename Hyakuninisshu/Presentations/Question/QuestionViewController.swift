@@ -9,6 +9,7 @@ import UIKit
 
 protocol QuestionViewProtocol: AnyObject {
     func setUpPlay(_ play: Play)
+    func startDisplayYomiFuda()
 }
 
 class QuestionViewController: UIViewController {
@@ -61,5 +62,9 @@ extension QuestionViewController: QuestionViewProtocol {
         toriFudaView2.toriFuda = play.toriFudas[1]
         toriFudaView3.toriFuda = play.toriFudas[2]
         toriFudaView4.toriFuda = play.toriFudas[3]
+    }
+    
+    func startDisplayYomiFuda() {
+        yomiFudaView.startAnimation()
     }
 }

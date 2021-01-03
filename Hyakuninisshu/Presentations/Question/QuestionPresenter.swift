@@ -34,6 +34,7 @@ class QuestionPresenter: QuestionPresenterProtocol {
             }
         }, receiveValue: { [weak self] play in
             self?.view.setUpPlay(play)
+            self?.view.startDisplayYomiFuda()
         }).store(in: &cancellables)
     }
 }
