@@ -17,6 +17,7 @@ protocol QuestionRepositoryProtocol {
 //    func findById(id: QuestionId) -> Result<Question, RepositoryError>
 //
     func findByNo(no: Int) -> AnyPublisher<Question, RepositoryError>
+    func save(_ question: Question) -> AnyPublisher<Void, RepositoryError>
 }
 
 class QuestionRepository: QuestionRepositoryProtocol {
@@ -42,6 +43,15 @@ class QuestionRepository: QuestionRepositoryProtocol {
     func findByNo(no: Int) -> AnyPublisher<Question, RepositoryError> {
         let publisher = Future<Question, RepositoryError>{ promise in
             promise(.success(self.questions[no - 1]))
+        }
+
+        return publisher.eraseToAnyPublisher()
+    }
+    
+    func save(_ question: Question) -> AnyPublisher<Void, RepositoryError> {
+        questions[question.no - 1] = question
+        let publisher = Future<Void, RepositoryError>{ promise in
+            promise(.success(()))
         }
 
         return publisher.eraseToAnyPublisher()

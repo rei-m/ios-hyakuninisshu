@@ -569,8 +569,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-fE-c6R" userLabel="YomiFuda Area">
                                 <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                        <rect key="frame" x="139" y="94" width="136" height="221"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                        <rect key="frame" x="139" y="90.5" width="136" height="228"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -585,21 +585,37 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x91-1V-jq8">
                                         <rect key="frame" x="16" y="16" width="382" height="377"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="377"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="6Oc-mJ-fbs" appends="YES" id="gdR-jA-YSh"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                <rect key="frame" x="98.5" y="0.0" width="86" height="377"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="106" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="FHz-7C-gAx" appends="YES" id="nRi-rj-a39"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                <rect key="frame" x="197.5" y="0.0" width="86" height="377"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="212" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="GKk-ep-9Ye" appends="YES" id="pP4-U9-EDa"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                                <rect key="frame" x="296" y="0.0" width="86" height="377"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="318" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="eXU-iU-czB" appends="YES" id="l8C-KT-PyH"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -612,6 +628,19 @@
                                     <constraint firstAttribute="bottom" secondItem="x91-1V-jq8" secondAttribute="bottom" constant="16" id="kUw-ff-8k6"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08q-gX-i8b" userLabel="Result Area">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct" translatesAutoresizingMaskIntoConstraints="NO" id="7Tf-OY-VDN" userLabel="Result">
+                                        <rect key="frame" x="94.5" y="296.5" width="225" height="225"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7Tf-OY-VDN" firstAttribute="centerY" secondItem="08q-gX-i8b" secondAttribute="centerY" id="afy-OL-sWu"/>
+                                    <constraint firstItem="7Tf-OY-VDN" firstAttribute="centerX" secondItem="08q-gX-i8b" secondAttribute="centerX" id="kPh-52-jGI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wc9-ga-5Ql"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -620,14 +649,20 @@
                             <constraint firstItem="mgZ-dr-Zro" firstAttribute="bottom" secondItem="Wc9-ga-5Ql" secondAttribute="bottom" id="4gW-1z-1lM"/>
                             <constraint firstItem="mgZ-dr-Zro" firstAttribute="leading" secondItem="Wc9-ga-5Ql" secondAttribute="leading" id="5dx-89-AIE"/>
                             <constraint firstItem="KhX-fE-c6R" firstAttribute="height" secondItem="Wc9-ga-5Ql" secondAttribute="height" multiplier="0.5" id="6oA-Ro-e98"/>
+                            <constraint firstItem="08q-gX-i8b" firstAttribute="top" secondItem="Wc9-ga-5Ql" secondAttribute="top" id="KUx-xt-i31"/>
                             <constraint firstItem="mgZ-dr-Zro" firstAttribute="height" secondItem="Wc9-ga-5Ql" secondAttribute="height" multiplier="0.5" id="O1E-cn-oOA"/>
                             <constraint firstItem="KhX-fE-c6R" firstAttribute="top" secondItem="Wc9-ga-5Ql" secondAttribute="top" id="SA9-4d-iHW"/>
+                            <constraint firstItem="Wc9-ga-5Ql" firstAttribute="bottom" secondItem="08q-gX-i8b" secondAttribute="bottom" id="Su4-uR-3Dz"/>
+                            <constraint firstItem="Wc9-ga-5Ql" firstAttribute="trailing" secondItem="08q-gX-i8b" secondAttribute="trailing" id="ZQ3-hk-ewT"/>
+                            <constraint firstItem="08q-gX-i8b" firstAttribute="leading" secondItem="Wc9-ga-5Ql" secondAttribute="leading" id="eEs-Hs-Kst"/>
                             <constraint firstItem="KhX-fE-c6R" firstAttribute="trailing" secondItem="Wc9-ga-5Ql" secondAttribute="trailing" id="hkf-2r-1Me"/>
                             <constraint firstItem="mgZ-dr-Zro" firstAttribute="trailing" secondItem="Wc9-ga-5Ql" secondAttribute="trailing" id="jZh-X0-LeC"/>
                             <constraint firstItem="mgZ-dr-Zro" firstAttribute="top" secondItem="KhX-fE-c6R" secondAttribute="bottom" id="uzM-vK-sX8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resultAreaView" destination="08q-gX-i8b" id="Vc8-dj-yDj"/>
+                        <outlet property="resultImageView" destination="7Tf-OY-VDN" id="7Nm-WY-g9F"/>
                         <outlet property="toriFudaView1" destination="35q-Zy-B9S" id="6Bf-rS-ZHs"/>
                         <outlet property="toriFudaView2" destination="zuf-OP-kDh" id="cFc-Lv-R0l"/>
                         <outlet property="toriFudaView3" destination="XKB-NW-52C" id="6hQ-wV-Vog"/>
@@ -636,6 +671,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z35-CC-Tye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6Oc-mJ-fbs" userLabel="ToriFuda1GestureRecognizer">
+                    <connections>
+                        <action selector="didTapToriFuda1:" destination="Wci-wO-yI9" id="MTy-8t-moF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="FHz-7C-gAx" userLabel="ToriFuda2GestureRecognizer">
+                    <connections>
+                        <action selector="didTapToriFuda2:" destination="Wci-wO-yI9" id="hgE-5T-OZy"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GKk-ep-9Ye" userLabel="ToriFuda3GestureRecognizer">
+                    <connections>
+                        <action selector="didTapToriFuda3:" destination="Wci-wO-yI9" id="5Om-7N-ydE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="eXU-iU-czB" userLabel="ToriFuda4GestureRecognizer">
+                    <connections>
+                        <action selector="didTapToriFuda4:" destination="Wci-wO-yI9" id="ybm-Ha-AFZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5071.0144927536239" y="-265.17857142857144"/>
         </scene>
@@ -701,6 +756,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Correct" width="225" height="225"/>
         <image name="Karuta1" width="150" height="209.5"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
