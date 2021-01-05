@@ -583,6 +583,9 @@
                                 <state key="normal" title=" 次の問題へ進む" image="arrow.right.circle" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToNextVC:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="Rss-ft-zLo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-8R-Lwl" userLabel="NoLabel">
                                 <rect key="frame" x="188" y="304.5" width="38" height="17"/>

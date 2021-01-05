@@ -9,6 +9,11 @@ import Foundation
 import Combine
 
 protocol QuestionModelProtocol: AnyObject {
+    var questionCount: Int { get }
+    var questionNo: Int { get }
+    var kamiNoKu: DisplayStyleCondition { get }
+    var shimoNoKu: DisplayStyleCondition { get }
+    var animationSpeed: AnimationSpeedCondition { get }
     func fetchPlay() -> AnyPublisher<Play, ModelError>
     func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError>
 }

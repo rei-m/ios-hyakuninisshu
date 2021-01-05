@@ -13,6 +13,11 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var noAndKimarijiLabel: UILabel!
     
     public var material: Material!
+    public var questionNo: Int!
+    public var questionCount: Int!
+    public var kamiNoKu: DisplayStyleCondition!
+    public var shimoNoKu: DisplayStyleCondition!
+    public var animationSpeed: AnimationSpeedCondition!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,27 @@ class AnswerViewController: UIViewController {
         noAndKimarijiLabel.text = "\(material.noTxt) / \(material.kimarijiTxt)"
     }
     
+    @IBAction func goToNextVC(_ sender: UIButton) {
+        if (questionNo == questionCount) {
+            return
+        }
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") as? QuestionViewController else {
+            fatalError("unknown VC identifier value='QuestionViewController'")
+        }
+        guard var currentVCs = navigationController?.viewControllers else {
+            return
+        }
 
+        let model = QuestionModel(questionCount: questionCount, questionNo: questionNo + 1, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let presenter = QuestionPresenter(view: vc, model: model)
+
+        vc.inject(presenter: presenter)
+
+        currentVCs.removeLast()
+        currentVCs.append(vc)
+        navigationController?.setViewControllers(currentVCs, animated: false)
+    }
 
     // MARK: - Navigation
 

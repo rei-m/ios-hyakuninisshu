@@ -11,7 +11,13 @@ protocol QuestionViewProtocol: AnyObject {
     func setUpPlay(_ play: Play)
     func startDisplayYomiFuda()
     func displayResult(selectedNo: Int8, isCorrect: Bool)
-    func goToNextVC()
+    func goToNextVC(
+        questionCount: Int,
+        questionNo: Int,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    )
 }
 
 class QuestionViewController: UIViewController {
@@ -120,7 +126,13 @@ extension QuestionViewController: QuestionViewProtocol {
         resultAreaView.isHidden = false
     }
 
-    func goToNextVC() {
+    func goToNextVC(
+        questionCount: Int,
+        questionNo: Int,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    ) {
         guard let vc = storyboard?.instantiateViewController(identifier: "AnswerViewController") as? AnswerViewController else {
             fatalError("unknown VC identifier value='AnswerViewController'")
         }
@@ -138,9 +150,16 @@ extension QuestionViewController: QuestionViewProtocol {
         guard let correct = play?.correct else {
             return
         }
+
+        vc.material = correct
+        vc.questionCount = questionCount
+        vc.questionNo = questionNo
+        vc.kamiNoKu = kamiNoKu
+        vc.shimoNoKu = shimoNoKu
+        vc.animationSpeed = animationSpeed
+        
         currentVCs.removeLast()
         currentVCs.append(vc)
-        vc.material = correct
         navigationController?.setViewControllers(currentVCs, animated: false)
     }
 }
