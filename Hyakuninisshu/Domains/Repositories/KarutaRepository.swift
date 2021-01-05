@@ -249,9 +249,7 @@ class KarutaRepository: KarutaRepositoryProtocol {
                 guard let cdKarutas = result.finalResult else {
                     return
                 }
-                
-                Thread.sleep(forTimeInterval: 3)
-                
+                                
                 promise(.success(cdKarutas.map { $0.toModel() }))
             }
 

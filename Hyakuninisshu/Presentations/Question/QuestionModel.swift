@@ -56,10 +56,13 @@ class QuestionModel: QuestionModelProtocol {
                 // TODO
                 fatalError()
             }
+            guard let correct = choiceKarutaMap[question.correctNo.value]?.toMaterial() else {
+                fatalError()
+            }
             
             let toriFudas = choiceKarutas.map { $0.toToriFuda(style: self.shimoNoKu) }
-
-            return Play(no: question.no, totalCount: self.questionCount, yomiFuda: yomiFuda, toriFudas: toriFudas)
+            
+            return Play(no: question.no, totalCount: self.questionCount, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
         }
         
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
@@ -78,5 +81,9 @@ class QuestionModel: QuestionModelProtocol {
         }
 
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+    }
+    
+    func fetchCorrect() {
+//        let publisher =
     }
 }

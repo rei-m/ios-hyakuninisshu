@@ -121,11 +121,11 @@
             <objects>
                 <viewController id="45r-yb-FGh" customClass="MaterialDetailViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0Z-9M-Dz9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy0-A3-57n">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtW-d4-hei" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
@@ -558,6 +558,65 @@
             </objects>
             <point key="canvasLocation" x="4035" y="-265"/>
         </scene>
+        <!--Answer View Controller-->
+        <scene sceneID="n4K-tL-N4c">
+            <objects>
+                <viewController storyboardIdentifier="AnswerViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W1D-Ts-5nX" customClass="AnswerViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t9v-A2-dna">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atI-NP-udN" customClass="FudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="122" y="337.5" width="170" height="221"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="nCh-O3-gLy"/>
+                                    <constraint firstAttribute="width" constant="170" id="r7t-hn-3ph"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HjF-OY-ET9" appends="YES" id="tKb-zv-u9u"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-Be-PgA" userLabel="GoToNextButton">
+                                <rect key="frame" x="130.5" y="598.5" width="153" height="22"/>
+                                <state key="normal" title=" 次の問題へ進む" image="arrow.right.circle" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-8R-Lwl" userLabel="NoLabel">
+                                <rect key="frame" x="188" y="304.5" width="38" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bwh-kF-w0u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="atI-NP-udN" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="3H0-ie-5eH"/>
+                            <constraint firstItem="M0a-8R-Lwl" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="9mA-My-56f"/>
+                            <constraint firstItem="LBT-Be-PgA" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="B3d-xU-ZdL"/>
+                            <constraint firstItem="LBT-Be-PgA" firstAttribute="top" secondItem="atI-NP-udN" secondAttribute="bottom" constant="40" id="CPD-73-Iz0"/>
+                            <constraint firstItem="atI-NP-udN" firstAttribute="centerY" secondItem="t9v-A2-dna" secondAttribute="centerY" id="O6D-pY-8KK"/>
+                            <constraint firstItem="atI-NP-udN" firstAttribute="top" secondItem="M0a-8R-Lwl" secondAttribute="bottom" constant="16" id="vyN-bj-Qfg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lvM-xd-14r"/>
+                    <connections>
+                        <outlet property="fudaView" destination="atI-NP-udN" id="aeT-Ve-x06"/>
+                        <outlet property="noAndKimarijiLabel" destination="M0a-8R-Lwl" id="jrU-VO-hZD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trJ-FI-mxz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HjF-OY-ET9" userLabel="FudaTapGestureRecognizer">
+                    <connections>
+                        <segue destination="45r-yb-FGh" kind="presentation" id="oQ5-kb-hnV"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="6060.8695652173919" y="-265.17857142857144"/>
+        </scene>
         <!--Question View Controller-->
         <scene sceneID="a2M-F2-tZe">
             <objects>
@@ -569,7 +628,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-fE-c6R" userLabel="YomiFuda Area">
                                 <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                         <rect key="frame" x="139" y="90.5" width="136" height="228"/>
                                     </view>
                                 </subviews>
@@ -585,7 +644,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x91-1V-jq8">
                                         <rect key="frame" x="16" y="16" width="382" height="377"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -593,7 +652,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="6Oc-mJ-fbs" appends="YES" id="gdR-jA-YSh"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="106" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -601,7 +660,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="FHz-7C-gAx" appends="YES" id="nRi-rj-a39"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="212" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -609,7 +668,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="GKk-ep-9Ye" appends="YES" id="pP4-U9-EDa"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="318" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -636,10 +695,14 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="7Tf-OY-VDN" firstAttribute="centerY" secondItem="08q-gX-i8b" secondAttribute="centerY" id="afy-OL-sWu"/>
                                     <constraint firstItem="7Tf-OY-VDN" firstAttribute="centerX" secondItem="08q-gX-i8b" secondAttribute="centerX" id="kPh-52-jGI"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NOp-V6-OtW" appends="YES" id="tOL-hq-9V8"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wc9-ga-5Ql"/>
@@ -689,6 +752,11 @@
                 <tapGestureRecognizer id="eXU-iU-czB" userLabel="ToriFuda4GestureRecognizer">
                     <connections>
                         <action selector="didTapToriFuda4:" destination="Wci-wO-yI9" id="ybm-Ha-AFZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="NOp-V6-OtW" userLabel="ResultAreaGestureRecognizer">
+                    <connections>
+                        <action selector="didTapResultArea:" destination="Wci-wO-yI9" id="9om-aI-YL1"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -755,9 +823,13 @@
             <point key="canvasLocation" x="2224.6376811594205" y="-265.17857142857144"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oQ5-kb-hnV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Correct" width="225" height="225"/>
         <image name="Karuta1" width="150" height="209.5"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="pencil" catalog="system" width="128" height="113"/>

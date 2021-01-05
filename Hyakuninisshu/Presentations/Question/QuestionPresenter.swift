@@ -11,6 +11,7 @@ import Combine
 protocol QuestionPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didTapToriFuda(no: Int8)
+    func didTapResult()
 }
 
 class QuestionPresenter: QuestionPresenterProtocol {
@@ -51,5 +52,9 @@ class QuestionPresenter: QuestionPresenterProtocol {
         }, receiveValue: { [weak self] result in
             self?.view.displayResult(selectedNo: no, isCorrect: result)
         }).store(in: &cancellables)
+    }
+    
+    func didTapResult() {
+        view.goToNextVC()
     }
 }

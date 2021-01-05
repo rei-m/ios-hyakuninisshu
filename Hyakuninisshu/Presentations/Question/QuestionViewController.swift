@@ -11,6 +11,7 @@ protocol QuestionViewProtocol: AnyObject {
     func setUpPlay(_ play: Play)
     func startDisplayYomiFuda()
     func displayResult(selectedNo: Int8, isCorrect: Bool)
+    func goToNextVC()
 }
 
 class QuestionViewController: UIViewController {
@@ -23,6 +24,23 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var resultAreaView: UIView!
     @IBOutlet weak var resultImageView: UIImageView!
 
+    private var _play: Play?
+    private var play: Play? {
+        get { _play }
+        set(v) {
+            _play = v
+            guard let _play = v else {
+                return
+            }
+            title = _play.position
+            yomiFudaView.yomiFuda = _play.yomiFuda
+            toriFudaView1.toriFuda = _play.toriFudas[0]
+            toriFudaView2.toriFuda = _play.toriFudas[1]
+            toriFudaView3.toriFuda = _play.toriFudas[2]
+            toriFudaView4.toriFuda = _play.toriFudas[3]
+        }
+    }
+    
     private var presenter: QuestionPresenterProtocol!
     
     override func viewDidLoad() {
@@ -50,6 +68,10 @@ class QuestionViewController: UIViewController {
     
     @IBAction func didTapToriFuda4(_ sender: UITapGestureRecognizer) {
         didTapToriFuda(toriFudaView4)
+    }
+
+    @IBAction func didTapResultArea(_ sender: UITapGestureRecognizer) {
+        presenter.didTapResult()
     }
     
     private func didTapToriFuda(_ toriFudaView: ToriFudaView) {
@@ -80,13 +102,7 @@ class QuestionViewController: UIViewController {
 
 extension QuestionViewController: QuestionViewProtocol {
     func setUpPlay(_ play: Play) {
-        title = play.position
-        
-        yomiFudaView.yomiFuda = play.yomiFuda
-        toriFudaView1.toriFuda = play.toriFudas[0]
-        toriFudaView2.toriFuda = play.toriFudas[1]
-        toriFudaView3.toriFuda = play.toriFudas[2]
-        toriFudaView4.toriFuda = play.toriFudas[3]
+        self.play = play
     }
     
     func startDisplayYomiFuda() {
@@ -102,5 +118,29 @@ extension QuestionViewController: QuestionViewProtocol {
         }
         resultImageView.image = isCorrect ? #imageLiteral(resourceName: "Correct") : #imageLiteral(resourceName: "Wrong")
         resultAreaView.isHidden = false
+    }
+
+    func goToNextVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "AnswerViewController") as? AnswerViewController else {
+            fatalError("unknown VC identifier value='AnswerViewController'")
+        }
+        
+//        let model = QuestionModel(questionCount: questionCount, questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, karutaRepository: karutaRepository, questionRepository: questionRepository)
+//        let presenter = QuestionPresenter(view: vc, model: model)
+//
+//        vc.inject(presenter: presenter)
+        
+//        navigationController?.pushViewController(vc, animated: false)
+//                navigationController?.popViewController(animated: false)
+        guard var currentVCs = navigationController?.viewControllers else {
+            return
+        }
+        guard let correct = play?.correct else {
+            return
+        }
+        currentVCs.removeLast()
+        currentVCs.append(vc)
+        vc.material = correct
+        navigationController?.setViewControllers(currentVCs, animated: false)
     }
 }
