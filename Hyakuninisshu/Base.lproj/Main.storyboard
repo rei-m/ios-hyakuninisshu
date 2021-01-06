@@ -620,6 +620,21 @@
             </objects>
             <point key="canvasLocation" x="6060.8695652173919" y="-265.17857142857144"/>
         </scene>
+        <!--練習結果-->
+        <scene sceneID="rBg-NQ-zEN">
+            <objects>
+                <viewController storyboardIdentifier="TrainingResultViewController" title="練習結果" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eOc-UN-KB8" customClass="TrainingResultViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qo4-5v-ZXu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="J28-k0-6Lm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w90-vv-yP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7029" y="-265"/>
+        </scene>
         <!--Question View Controller-->
         <scene sceneID="a2M-F2-tZe">
             <objects>

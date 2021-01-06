@@ -33,6 +33,20 @@ class AnswerViewController: UIViewController {
     
     @IBAction func goToNextVC(_ sender: UIButton) {
         if (questionNo == questionCount) {
+            guard let vc = storyboard?.instantiateViewController(identifier: "TrainingResultViewController") as? TrainingResultViewController else {
+                fatalError("unknown VC identifier value='TrainingResultViewController'")
+            }
+            guard var currentVCs = navigationController?.viewControllers else {
+                return
+            }
+            let model = TrainingResultModel(kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, questionRepository: questionRepository)
+            let presenter = TrainingResultPresenter(view: vc, model: model)
+
+            vc.inject(presenter: presenter)
+
+            currentVCs.removeLast()
+            currentVCs.append(vc)
+            navigationController?.setViewControllers(currentVCs, animated: false)
             return
         }
         

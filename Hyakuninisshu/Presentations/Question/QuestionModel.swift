@@ -87,8 +87,4 @@ class QuestionModel: QuestionModelProtocol {
 
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
     }
-    
-    func fetchCorrect() {
-//        let publisher =
-    }
 }

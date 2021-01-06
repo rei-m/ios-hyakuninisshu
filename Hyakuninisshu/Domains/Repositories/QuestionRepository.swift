@@ -11,12 +11,8 @@ import Combine
 
 protocol QuestionRepositoryProtocol {
     func initialize(questions: [Question]) -> AnyPublisher<Void, RepositoryError>
-    
-//    func count() -> Result<Int, RepositoryError>
-//
-//    func findById(id: QuestionId) -> Result<Question, RepositoryError>
-//
     func findByNo(no: Int) -> AnyPublisher<Question, RepositoryError>
+    func findCollection() -> AnyPublisher<QuestionCollection, RepositoryError>
     func save(_ question: Question) -> AnyPublisher<Void, RepositoryError>
 }
 
@@ -35,6 +31,14 @@ class QuestionRepository: QuestionRepositoryProtocol {
         
         let publisher = Future<Void, RepositoryError>{ promise in
             promise(.success(()))
+        }
+
+        return publisher.eraseToAnyPublisher()
+    }
+    
+    func findCollection() -> AnyPublisher<QuestionCollection, RepositoryError> {
+        let publisher = Future<QuestionCollection, RepositoryError>{ promise in
+            promise(.success(QuestionCollection(values: self.questions)))
         }
 
         return publisher.eraseToAnyPublisher()
