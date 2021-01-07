@@ -9,28 +9,14 @@ import Foundation
 import Combine
 
 protocol TrainingResultModelProtocol: AnyObject {
-    var kamiNoKu: DisplayStyleCondition { get }
-    var shimoNoKu: DisplayStyleCondition { get }
-    var animationSpeed: AnimationSpeedCondition { get }
     func fetchResult() -> AnyPublisher<TrainingResult, ModelError>
 }
 
 class TrainingResultModel: TrainingResultModelProtocol {
-    let kamiNoKu: DisplayStyleCondition
-    let shimoNoKu: DisplayStyleCondition
-    let animationSpeed: AnimationSpeedCondition
 
     private let questionRepository: QuestionRepositoryProtocol
     
-    init(
-        kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition,
-        questionRepository: QuestionRepositoryProtocol
-    ) {
-        self.kamiNoKu = kamiNoKu
-        self.shimoNoKu = shimoNoKu
-        self.animationSpeed = animationSpeed
+    init(questionRepository: QuestionRepositoryProtocol) {
         self.questionRepository = questionRepository
     }
     
@@ -40,7 +26,8 @@ class TrainingResultModel: TrainingResultModelProtocol {
             let score = resultSummary.score()
             let averageAnswerSecText = "\(round(resultSummary.averageAnswerSec*100)/100)秒"
             let canRestart = questionCollection.canRestart()
-            return TrainingResult(score: score, averageAnswerSecText: averageAnswerSecText, canRestart: canRestart)
+            let wrongKarutaNos = questionCollection.wrongKarutaNoCollection().values.map { $0.value }
+            return TrainingResult(score: score, averageAnswerSecText: averageAnswerSecText, canRestart: canRestart, wrongKarutaNos: wrongKarutaNos)
         }
 
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()

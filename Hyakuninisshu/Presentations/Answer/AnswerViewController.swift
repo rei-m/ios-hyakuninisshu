@@ -7,6 +7,18 @@
 
 import UIKit
 
+extension UIViewController {
+//    func setUpBackButton() {
+//        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goTop))
+//        navigationItem.leftBarButtonItem = leftButton
+//        tabBarController?.tabBar.isHidden = true
+//    }
+//
+//    @objc func goTop(){
+//      navigationController?.popToRootViewController(animated: true)
+//    }
+}
+
 class AnswerViewController: UIViewController {
 
     @IBOutlet weak var fudaView: FudaView!
@@ -32,6 +44,9 @@ class AnswerViewController: UIViewController {
     }
     
     @IBAction func goToNextVC(_ sender: UIButton) {
+        navigationController?.viewControllers.forEach { vc in
+            print(vc is TrainingViewController)
+        }
         if (questionNo == questionCount) {
             guard let vc = storyboard?.instantiateViewController(identifier: "TrainingResultViewController") as? TrainingResultViewController else {
                 fatalError("unknown VC identifier value='TrainingResultViewController'")
@@ -39,10 +54,15 @@ class AnswerViewController: UIViewController {
             guard var currentVCs = navigationController?.viewControllers else {
                 return
             }
-            let model = TrainingResultModel(kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, questionRepository: questionRepository)
+            let model = TrainingResultModel(questionRepository: questionRepository)
             let presenter = TrainingResultPresenter(view: vc, model: model)
 
-            vc.inject(presenter: presenter)
+            vc.inject(
+                presenter: presenter,
+                kamiNoKu: kamiNoKu,
+                shimoNoKu: shimoNoKu,
+                animationSpeed: animationSpeed
+            )
 
             currentVCs.removeLast()
             currentVCs.append(vc)

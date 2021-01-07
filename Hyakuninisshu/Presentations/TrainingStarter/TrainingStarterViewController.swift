@@ -9,13 +9,7 @@ import UIKit
 
 protocol TrainingStarterViewProtocol: AnyObject {
     func displayEmptyError()
-    func goToNextVC(
-        questionCount: Int,
-        questionNo: Int,
-        kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition
-    )
+    func goToNextVC(questionCount: Int, questionNo: Int)
 }
 
 class TrainingStarterViewController: UIViewController {
@@ -23,6 +17,10 @@ class TrainingStarterViewController: UIViewController {
     @IBOutlet weak var emptyMessageLabel: UILabel!
 
     private var presenter: TrainingStarterPresenterProtocol!
+    
+    private var kamiNoKu: DisplayStyleCondition!
+    private var shimoNoKu: DisplayStyleCondition!
+    private var animationSpeed: AnimationSpeedCondition!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +31,16 @@ class TrainingStarterViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
-    func inject(presenter: TrainingStarterPresenterProtocol) {
+    func inject(
+        presenter: TrainingStarterPresenterProtocol,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    ) {
         self.presenter = presenter
+        self.kamiNoKu = kamiNoKu
+        self.shimoNoKu = shimoNoKu
+        self.animationSpeed = animationSpeed
     }
 }
 
@@ -44,13 +50,7 @@ extension TrainingStarterViewController: TrainingStarterViewProtocol {
         emptyMessageLabel.isHidden = false
     }
     
-    func goToNextVC(
-        questionCount: Int,
-        questionNo: Int,
-        kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition
-    ) {
+    func goToNextVC(questionCount: Int, questionNo: Int) {
         guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") as? QuestionViewController else {
             fatalError("unknown VC identifier value='QuestionViewController'")
         }

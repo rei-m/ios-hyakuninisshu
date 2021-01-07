@@ -252,6 +252,7 @@
 		FA028972257A0096003ADE9C /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				FA3BA3F825A6EF7F00841087 /* Exam */,
 				FA3BA3D925A5177100841087 /* TrainingResult */,
 				FA12E2D425A3569800C057B6 /* Answer */,
 				FA560863259B13820059AF7D /* Question */,
@@ -453,6 +454,13 @@
 				FA3BA3F325A5FE6800841087 /* TrainingResultModel.swift */,
 			);
 			path = TrainingResult;
+			sourceTree = "<group>";
+		};
+		FA3BA3F825A6EF7F00841087 /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exam;
 			sourceTree = "<group>";
 		};
 		FA56085A259B131D0059AF7D /* TrainingStarter */ = {

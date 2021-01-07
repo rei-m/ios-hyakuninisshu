@@ -28,4 +28,16 @@ extension UIViewController {
             return appDelegate.questionRepository
         }
     }
+    
+    func setUpLeftBackButton() {
+        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(popToNaviRoot))
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc func popToNaviRoot(){
+        guard let navigationController = navigationController else {
+            fatalError("missing navigationController. confirm storyboard.")
+        }
+        navigationController.popToRootViewController(animated: true)
+    }
 }

@@ -18,10 +18,7 @@ protocol TrainingViewProtocol: AnyObject {
     func updateRangeError(_ message: String?)
     func showAlertDialog()
     func goToNextVC(
-        rangeFrom: RangeCondition,
-        rangeTo: RangeCondition,
-        kimariji: KimarijiCondition,
-        color: ColorCondition,
+        karutaNos: [Int8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
@@ -135,10 +132,7 @@ extension TrainingViewController: TrainingViewProtocol {
     }
     
     func goToNextVC(
-        rangeFrom: RangeCondition,
-        rangeTo: RangeCondition,
-        kimariji: KimarijiCondition,
-        color: ColorCondition,
+        karutaNos: [Int8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
@@ -148,20 +142,19 @@ extension TrainingViewController: TrainingViewProtocol {
         }
         
         let model = TrainingStarterModel(
-            rangeFromCondition: rangeFrom,
-            rangeToCondition: rangeTo,
-            kimarijiCondition: kimariji,
-            colorCondition: color,
-            kamiNoKuCondition: kamiNoKu,
-            shimoNoKuCondition: shimoNoKu,
-            animationSpeedCondition: animationSpeed,
+            karutaNos: karutaNos,
             karutaRepository: karutaRepository,
             questionRepository: questionRepository
         )
         
         let presenter = TrainingStarterPresenter(view: vc, model: model)
 
-        vc.inject(presenter: presenter)
+        vc.inject(
+            presenter: presenter,
+            kamiNoKu: kamiNoKu,
+            shimoNoKu: shimoNoKu,
+            animationSpeed: animationSpeed
+        )
 
         navigationController?.pushViewController(vc, animated: false)
     }

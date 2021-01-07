@@ -52,8 +52,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goTop))
-        navigationItem.leftBarButtonItem = leftButton
+        setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
         
         // Do any additional setup after loading the view.
@@ -86,20 +85,6 @@ class QuestionViewController: UIViewController {
         }
         presenter.didTapToriFuda(no: no)
     }
-    
-    @objc func goTop(){
-      navigationController?.popToRootViewController(animated: true)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func inject(presenter: QuestionPresenterProtocol) {
         self.presenter = presenter
@@ -137,13 +122,6 @@ extension QuestionViewController: QuestionViewProtocol {
             fatalError("unknown VC identifier value='AnswerViewController'")
         }
         
-//        let model = QuestionModel(questionCount: questionCount, questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, karutaRepository: karutaRepository, questionRepository: questionRepository)
-//        let presenter = QuestionPresenter(view: vc, model: model)
-//
-//        vc.inject(presenter: presenter)
-        
-//        navigationController?.pushViewController(vc, animated: false)
-//                navigationController?.popViewController(animated: false)
         guard var currentVCs = navigationController?.viewControllers else {
             return
         }

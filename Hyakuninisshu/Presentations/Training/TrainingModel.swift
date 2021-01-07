@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol TrainingModelProtocol: AnyObject {
     var rangeFromCondition: RangeCondition { get set }
@@ -17,6 +18,8 @@ protocol TrainingModelProtocol: AnyObject {
     var animationSpeedCondition: AnimationSpeedCondition { get set }
     var rangeConditionError: String? { get }
     var hasError: Bool { get }
+    
+    func fetchQuestionKarutaNos() -> AnyPublisher<[Int8], ModelError>
 }
 
 class TrainingModel: TrainingModelProtocol {
@@ -57,5 +60,21 @@ class TrainingModel: TrainingModelProtocol {
         } else {
             _rangeConditionError = nil
         }
+    }
+
+    private let karutaRepository: KarutaRepositoryProtocol
+
+    init(karutaRepository: KarutaRepositoryProtocol) {
+        self.karutaRepository = karutaRepository
+    }
+    
+    func fetchQuestionKarutaNos() -> AnyPublisher<[Int8], ModelError> {
+        let publisher = karutaRepository.findAll(
+            fromNo: KarutaNo(rangeFromCondition.no),
+            toNo: KarutaNo(rangeToCondition.no),
+            kimarijis: kimarijiCondition.value == nil ? Kimariji.ALL : [Kimariji.valueOf(value: kimarijiCondition.value!)],
+            colors: colorCondition.value == nil  ? KarutaColor.ALL : [KarutaColor.valueOf(value: colorCondition.value!)]
+        ).map { $0.map { karuta in karuta.no.value } }
+        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
     }
 }

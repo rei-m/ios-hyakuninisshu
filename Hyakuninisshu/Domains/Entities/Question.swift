@@ -41,7 +41,7 @@ class Question {
             fatalError("Question is not started. Call start.")
         case .inAnswer(let startDate):
             let answerTime = startDate.distance(to: answerDate)
-            let judgement = QuestionJudgement(karutaNo: selectedNo, isCorrect: correctNo == selectedNo)
+            let judgement = QuestionJudgement(karutaNo: correctNo, isCorrect: correctNo == selectedNo)
             let result = QuestionResult(selectedKarutaNo: selectedNo, answerMillSec: answerTime, judgement: judgement)
             let copied = self
             copied.state = .answered(startDate: startDate, result: result)

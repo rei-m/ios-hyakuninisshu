@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol TrainingPresenterProtocol: AnyObject {
     func viewDidLoad()
@@ -23,6 +24,8 @@ class TrainingPresenter: TrainingPresenterProtocol {
     
     private weak var view: TrainingViewProtocol!
     private let model: TrainingModelProtocol
+    
+    private var cancellables = [AnyCancellable]()
     
     init(view: TrainingViewProtocol, model: TrainingModelProtocol) {
         self.view = view
@@ -80,15 +83,25 @@ class TrainingPresenter: TrainingPresenterProtocol {
         if (model.hasError) {
             view.showAlertDialog()
         } else {
-            view.goToNextVC(
-                rangeFrom: model.rangeFromCondition,
-                rangeTo: model.rangeToCondition,
-                kimariji: model.kimarijiCondition,
-                color: model.colorCondition,
-                kamiNoKu: model.kamiNoKuCondition,
-                shimoNoKu: model.shimoNoKuCondition,
-                animationSpeed: model.animationSpeedCondition
-            )
+            model.fetchQuestionKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    // TODO
+                    print(error)
+                case .finished:
+                    return
+                }
+            }, receiveValue: { [weak self] karutaNos in
+                guard let model = self?.model else {
+                    return
+                }
+                self?.view.goToNextVC(
+                    karutaNos: karutaNos,
+                    kamiNoKu: model.kamiNoKuCondition,
+                    shimoNoKu: model.shimoNoKuCondition,
+                    animationSpeed: model.animationSpeedCondition
+                )
+            }).store(in: &cancellables)
         }
     }
 }

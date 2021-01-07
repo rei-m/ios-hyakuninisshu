@@ -36,16 +36,7 @@ class TrainingStarterPresenter: TrainingStarterPresenterProtocol {
             if (questionCount == 0) {
                 self?.view.displayEmptyError()
             } else {
-                guard let model = self?.model else {
-                    return
-                }
-                self?.view.goToNextVC(
-                    questionCount: questionCount,
-                    questionNo: 1,
-                    kamiNoKu: model.kamiNoKuCondition,
-                    shimoNoKu: model.shimoNoKuCondition,
-                    animationSpeed: model.animationSpeedCondition
-                )
+                self?.view.goToNextVC(questionCount: questionCount, questionNo: 1)
             }
         }).store(in: &cancellables)
     }

@@ -24,7 +24,7 @@ struct QuestionCollection {
             guard case .answered(_, let result) = question.state else {
                 return nil
             }
-            return result.judgement.karutaNo
+            return result.judgement.isCorrect ? nil : result.judgement.karutaNo
         })
     }
     

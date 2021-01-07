@@ -11,4 +11,5 @@ struct TrainingResult {
     let score: String
     let averageAnswerSecText: String
     let canRestart: Bool
+    let wrongKarutaNos: [Int8]
 }
