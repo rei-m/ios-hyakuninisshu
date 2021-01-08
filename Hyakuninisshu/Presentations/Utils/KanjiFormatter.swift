@@ -9,6 +9,14 @@ import Foundation
 
 class KanjiFormatter {
     private static let formatter = createFormater()
+
+    static func no(_ value: NSNumber) -> String {
+        return "\(Self.string(value))番"
+    }
+    
+    static func kimariji(_ value: NSNumber) -> String {
+        return "\(Self.string(value))字決まり"
+    }
     
     static func string(_ value: NSNumber) -> String {
         return KanjiFormatter.formatter.string(from: value)!
