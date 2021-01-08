@@ -61,7 +61,6 @@
 		FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */; };
 		FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */; };
 		FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */; };
-		FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B1D2584959800C6134B /* CardFrameView.swift */; };
 		FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB052592DA0D00B2DA55 /* QuestionId.swift */; };
 		FA35DB0B2592DA9D00B2DA55 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB0A2592DA9D00B2DA55 /* QuestionState.swift */; };
 		FA35DB102592DB3A00B2DA55 /* QuestionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB0F2592DB3A00B2DA55 /* QuestionResult.swift */; };
@@ -170,7 +169,6 @@
 		FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceTabBarController.swift; sourceTree = "<group>"; };
 		FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailViewController.swift; sourceTree = "<group>"; };
-		FA2D7B1D2584959800C6134B /* CardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrameView.swift; sourceTree = "<group>"; };
 		FA35DB052592DA0D00B2DA55 /* QuestionId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionId.swift; sourceTree = "<group>"; };
 		FA35DB0A2592DA9D00B2DA55 /* QuestionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
 		FA35DB0F2592DB3A00B2DA55 /* QuestionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResult.swift; sourceTree = "<group>"; };
@@ -276,6 +274,7 @@
 		FA028972257A0096003ADE9C /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				FAB9E0CE25A89F7B0038EA04 /* Components */,
 				FA0EC5A525972355003B4FEE /* Utils */,
 				FA0EC59A2596948C003B4FEE /* PresentationModels */,
 				FA5E6A5725A74B67008EE33F /* Extensions */,
@@ -394,20 +393,11 @@
 		FA2D7ADA25817A4600C6134B /* Material */ = {
 			isa = PBXGroup;
 			children = (
-				FA2D7AF22583190100C6134B /* Components */,
 				FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */,
 				FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */,
 				FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */,
 			);
 			path = Material;
-			sourceTree = "<group>";
-		};
-		FA2D7AF22583190100C6134B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		FA2D7B03258361C300C6134B /* Entrance */ = {
@@ -424,19 +414,6 @@
 				FA2D7B132584234300C6134B /* MaterialDetailViewController.swift */,
 			);
 			path = MaterialDetail;
-			sourceTree = "<group>";
-		};
-		FA2D7B1B2584950700C6134B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				FA2D7B1D2584959800C6134B /* CardFrameView.swift */,
-				FA12E2DD25A3BFD200C057B6 /* FudaView.swift */,
-				FA0ED10D259F854900D41DBA /* YomiFudaView.swift */,
-				FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */,
-				FA0ED108259F76BC00D41DBA /* ToriFudaView.swift */,
-				FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		FA35DB282592DFD800B2DA55 /* Services */ = {
@@ -486,7 +463,6 @@
 				FA560863259B13820059AF7D /* Question */,
 				FA56085A259B131D0059AF7D /* QuestionStarter */,
 				FA35DB3C2593109F00B2DA55 /* Training */,
-				FA2D7B1B2584950700C6134B /* Common */,
 				FA2D7B122584231C00C6134B /* MaterialDetail */,
 				FA2D7B03258361C300C6134B /* Entrance */,
 				FA2D7ADA25817A4600C6134B /* Material */,
@@ -543,6 +519,19 @@
 				FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		FAB9E0CE25A89F7B0038EA04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */,
+				FA12E2DD25A3BFD200C057B6 /* FudaView.swift */,
+				FA0ED10D259F854900D41DBA /* YomiFudaView.swift */,
+				FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */,
+				FA0ED108259F76BC00D41DBA /* ToriFudaView.swift */,
+				FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -684,7 +673,6 @@
 				FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */,
 				FA178EF7259E1AD2001C0311 /* Play.swift in Sources */,
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
-				FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */,
 				FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */,
 				FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */,
 				FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */,
