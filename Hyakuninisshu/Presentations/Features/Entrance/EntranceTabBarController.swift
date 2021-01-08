@@ -11,7 +11,7 @@ class EntranceTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // TODO: DIはもっとうまいやり方があると思うんだけど・・・取りあえず動くの優先
         viewControllers?.forEach { vc in
             if vc is UINavigationController {

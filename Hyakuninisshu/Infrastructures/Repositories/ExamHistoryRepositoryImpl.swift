@@ -18,9 +18,9 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
         self.container = container
     }
     
-    func findAll() -> AnyPublisher<[ExamHistory], RepositoryError> {
-        let publisher = Future<[ExamHistory], RepositoryError>{ promise in
-            promise(.success([]))
+    func findCollection() -> AnyPublisher<ExamHistoryCollection, RepositoryError> {
+        let publisher = Future<ExamHistoryCollection, RepositoryError>{ promise in
+            promise(.success(ExamHistoryCollection([])))
         }
 
         return publisher.eraseToAnyPublisher()
@@ -31,6 +31,24 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
             promise(.success(nil))
         }
 
+        return publisher.eraseToAnyPublisher()
+    }
+
+    func add(_ examHistory: ExamHistory)  -> AnyPublisher<Void, RepositoryError> {
+        let publisher = Future<Void, RepositoryError>{ promise in
+            self.examHistories.append(examHistory)
+            promise(.success(()))
+        }
+        
+        return publisher.eraseToAnyPublisher()
+    }
+
+    func delete(_ examHistories: [ExamHistory])  -> AnyPublisher<Void, RepositoryError> {
+        let publisher = Future<Void, RepositoryError>{ promise in
+            self.examHistories.remove(at: 0)
+            promise(.success(()))
+        }
+        
         return publisher.eraseToAnyPublisher()
     }
 }
