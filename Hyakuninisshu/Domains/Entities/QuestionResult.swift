@@ -9,6 +9,6 @@ import Foundation
 
 struct QuestionResult {
     let selectedKarutaNo: KarutaNo
-    let answerMillSec: Int
+    let answerMillSec: TimeInterval
     let judgement: QuestionJudgement
 }

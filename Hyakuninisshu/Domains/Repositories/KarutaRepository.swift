@@ -7,14 +7,13 @@
 
 import Foundation
 import CoreData
+import Combine
 
 protocol KarutaRepositoryProtocol {
-    func initialize() -> Result<Void, RepositoryError>
-    func findAll() -> Result<[Karuta], RepositoryError>
-    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError>
-    
-//    func findByNo(karutaNo: KarutaNo) -> Karuta
-//
+    func initialize() -> AnyPublisher<Void, RepositoryError>
+    func findAll() -> AnyPublisher<[Karuta], RepositoryError>
+    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> AnyPublisher<[Karuta], RepositoryError>
+    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError>
 }
 
 private struct KarutaJson: Codable {
@@ -123,63 +122,88 @@ class KarutaRepository: KarutaRepositoryProtocol {
     init(container: NSPersistentContainer) {
         self.container = container
     }
-    
-    func initialize() -> Result<Void, RepositoryError> {
-        let currentVer = UserDefaults.standard.string(forKey: KarutaRepository.VERSION_KEY)
-        if currentVer == KarutaRepository.VERSION {
-            return Result.success(())
-        }
 
-        guard let url = Bundle.main.url(forResource: "karuta_list_v_3", withExtension: "json") else {
-            return Result.failure(RepositoryError.io)
-        }
-        guard let data = try? Data(contentsOf: url) else {
-            return Result.failure(RepositoryError.io)
-        }
-        
-        guard let json = try? JSONDecoder().decode(KarutaListJson.self, from: data) else {
-            return Result.failure(RepositoryError.io)
-        }
-        
-        do {
-            let context = container.viewContext
-            
-            // TODO: 掃除する処理を入れる
-            
-            let _ = json.karuta_list.map { $0.toPersistentModel(context: context) }
-            try context.save()
-            UserDefaults.standard.setValue(KarutaRepository.VERSION, forKey: KarutaRepository.VERSION_KEY)
-            print("success !!")
+    func initialize() -> AnyPublisher<Void, RepositoryError> {
+        let publisher = Future<Void, RepositoryError>{ promise in
+            let currentVer = UserDefaults.standard.string(forKey: KarutaRepository.VERSION_KEY)
+            if currentVer == KarutaRepository.VERSION {
+                promise(.success(()))
+                return
+            }
 
-        } catch {
-            let nserror = error as NSError
-            // TODO
-            print(nserror)
-            return Result.failure(RepositoryError.io)
+            DispatchQueue.global(qos: .userInteractive).async {
+                guard let url = Bundle.main.url(forResource: "karuta_list_v_3", withExtension: "json") else {
+                    promise(.failure(.io))
+                    return
+                }
+                guard let data = try? Data(contentsOf: url) else {
+                    promise(.failure(.io))
+                    return
+                }
+                
+                guard let json = try? JSONDecoder().decode(KarutaListJson.self, from: data) else {
+                    promise(.failure(.io))
+                    return
+                }
+
+                do {
+                    let context = self.container.viewContext
+                    
+                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDKaruta.fetchRequest()
+                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                    deleteRequest.resultType = .resultTypeObjectIDs
+                    
+                    try context.execute(deleteRequest)
+
+                    let _ = json.karuta_list.map { $0.toPersistentModel(context: context) }
+                    try context.save()
+                    UserDefaults.standard.setValue(KarutaRepository.VERSION, forKey: KarutaRepository.VERSION_KEY)
+                    // TODO
+                    print("success !!")
+                    
+                    promise(.success(()))
+                } catch {
+                    let nserror = error as NSError
+                    // TODO
+                    print(nserror)
+                    
+                    promise(.failure(.io))
+                }
+            }
         }
         
-        return Result.success(())
+        return publisher.eraseToAnyPublisher()
     }
-    
-    func findAll() -> Result<[Karuta], RepositoryError> {
-        do {
-            let context = container.viewContext
-            let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+
+    func findAll() -> AnyPublisher<[Karuta], RepositoryError> {
+        let publisher = Future<[Karuta], RepositoryError> { promise in
+            let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
-            let cdKarutas = try context.fetch(fetchRequest)
-            return Result.success(cdKarutas.map { $0.toModel() })
-        } catch {
-            let nserror = error as NSError
-            // TODO
-            print(nserror)
-            return Result.failure(RepositoryError.io)
+
+            let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
+                guard let cdKarutas = result.finalResult else {
+                    return
+                }
+                promise(.success(cdKarutas.map { $0.toModel() }))
+            }
+
+            do {
+                let backgroundContext = self.container.newBackgroundContext()
+                try backgroundContext.execute(asyncFetch)
+            } catch let error {
+                let nserror = error as NSError
+                // TODO
+                print(nserror)
+                promise(.failure(.io))
+            }
         }
+
+        return publisher.eraseToAnyPublisher()
     }
 
-    func findAllWithCondition(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Result<[Karuta], RepositoryError> {
-        do {
-            let context = container.viewContext
-            let fetchRequest = NSFetchRequest<CDKaruta>(entityName: "CDKaruta")
+    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> AnyPublisher<[Karuta], RepositoryError> {
+        let publisher = Future<[Karuta], RepositoryError> { promise in
+            let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.predicate = NSPredicate(
                 format: "%K BETWEEN {%i, %i} AND kimariji IN %@ AND color IN %@",
                 "no",
@@ -189,25 +213,57 @@ class KarutaRepository: KarutaRepositoryProtocol {
                 colors.map { $0.rawValue }
             )
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
-            let cdKarutas = try context.fetch(fetchRequest)
-            return Result.success(cdKarutas.map { $0.toModel() })
-        } catch {
-            let nserror = error as NSError
-            // TODO
-            print(nserror)
-            return Result.failure(RepositoryError.io)
+
+            let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
+                guard let cdKarutas = result.finalResult else {
+                    return
+                }
+                promise(.success(cdKarutas.map { $0.toModel() }))
+            }
+
+            do {
+                let backgroundContext = self.container.newBackgroundContext()
+                try backgroundContext.execute(asyncFetch)
+            } catch let error {
+                let nserror = error as NSError
+                // TODO
+                print(nserror)
+                promise(.failure(.io))
+            }
         }
+
+        return publisher.eraseToAnyPublisher()
     }
     
-//    func findByNo(karutaNo: KarutaNo) -> Karuta {
-//        let no = KarutaNo.MIN
-//        return Karuta(
-//            no: no,
-//            kamiNoKu: KamiNoKu(
-//                karutaNo: no,
-//                shoku: Verse(kana: <#T##String#>, kanji: <#T##String#>),
-//                niku: <#T##Verse#>,
-//                sanku: Verse
-//            ))
-//    }
+    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError> {
+        let publisher = Future<[Karuta], RepositoryError> { promise in
+            let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
+            fetchRequest.predicate = NSPredicate(
+                format: "%K IN %@",
+                "no",
+                karutaNos.map { $0.value }
+            )
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
+
+            let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
+                guard let cdKarutas = result.finalResult else {
+                    return
+                }
+                                
+                promise(.success(cdKarutas.map { $0.toModel() }))
+            }
+
+            do {
+                let backgroundContext = self.container.newBackgroundContext()
+                try backgroundContext.execute(asyncFetch)
+            } catch let error {
+                let nserror = error as NSError
+                // TODO
+                print(nserror)
+                promise(.failure(.io))
+            }
+        }
+
+        return publisher.eraseToAnyPublisher()
+    }
 }
