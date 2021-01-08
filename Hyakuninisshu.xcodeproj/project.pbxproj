@@ -39,6 +39,8 @@
 		FA142B2A25A83781005218F4 /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA142B2925A83781005218F4 /* karuta_list_v_3.json */; };
 		FA142B3225A83834005218F4 /* KarutaRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */; };
 		FA142B3D25A8390A005218F4 /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B3C25A8390A005218F4 /* KarutaRepository.swift */; };
+		FA142B4225A839E1005218F4 /* QuestionRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B4125A839E1005218F4 /* QuestionRepositoryImpl.swift */; };
+		FA142B4725A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B4625A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift */; };
 		FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */; };
 		FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE7259E0F6B001C0311 /* QuestionModel.swift */; };
 		FA178EED259E14B8001C0311 /* ToriFuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EEC259E14B8001C0311 /* ToriFuda.swift */; };
@@ -143,6 +145,8 @@
 		FA142B2925A83781005218F4 /* karuta_list_v_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = karuta_list_v_3.json; path = ../../../../../.Trash/Assets/karuta_list_v_3.json; sourceTree = "<group>"; };
 		FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepositoryImpl.swift; sourceTree = "<group>"; };
 		FA142B3C25A8390A005218F4 /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
+		FA142B4125A839E1005218F4 /* QuestionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRepositoryImpl.swift; sourceTree = "<group>"; };
+		FA142B4625A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryRepositoryImpl.swift; sourceTree = "<group>"; };
 		FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 		FA178EE7259E0F6B001C0311 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		FA178EEC259E14B8001C0311 /* ToriFuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToriFuda.swift; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */,
+				FA142B4125A839E1005218F4 /* QuestionRepositoryImpl.swift */,
+				FA142B4625A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				FA35DB102592DB3A00B2DA55 /* QuestionResult.swift in Sources */,
 				FA35DB1A2592DDC000B2DA55 /* Question.swift in Sources */,
 				FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */,
+				FA142B4225A839E1005218F4 /* QuestionRepositoryImpl.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
@@ -727,6 +734,7 @@
 				FA178EF2259E172D001C0311 /* YomiFuda.swift in Sources */,
 				FA3BA3F425A5FE6800841087 /* TrainingResultModel.swift in Sources */,
 				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
+				FA142B4725A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift in Sources */,
 				FA3BA3DB25A5179600841087 /* TrainingResultViewController.swift in Sources */,
 				FA0EC5C82599B749003B4FEE /* ColorCondition.swift in Sources */,
 				FA0EC5C32599B199003B4FEE /* KimarijiCondition.swift in Sources */,

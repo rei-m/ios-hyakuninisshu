@@ -12,7 +12,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var karutaRepository: KarutaRepository = KarutaRepositoryImpl(container: persistentContainer)
-    lazy var questionRepository: QuestionRepositoryProtocol = QuestionRepository(container: persistentContainer)
+    lazy var questionRepository: QuestionRepository = QuestionRepositoryImpl(container: persistentContainer)
+    lazy var examHistoryRepository: ExamHistoryRepository = ExamHistoryRepositoryImpl(container: persistentContainer)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

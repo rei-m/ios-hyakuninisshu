@@ -16,12 +16,12 @@ class QuestionStarterModel: QuestionStarterModelProtocol {
     let karutaNos: [Int8]
     
     private let karutaRepository: KarutaRepository
-    private let questionRepository: QuestionRepositoryProtocol
+    private let questionRepository: QuestionRepository
     
     init(
         karutaNos: [Int8],
         karutaRepository: KarutaRepository,
-        questionRepository: QuestionRepositoryProtocol
+        questionRepository: QuestionRepository
     ) {
         self.karutaNos = karutaNos
         self.karutaRepository = karutaRepository

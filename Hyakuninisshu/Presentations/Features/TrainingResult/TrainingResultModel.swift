@@ -14,9 +14,9 @@ protocol TrainingResultModelProtocol: AnyObject {
 
 class TrainingResultModel: TrainingResultModelProtocol {
 
-    private let questionRepository: QuestionRepositoryProtocol
+    private let questionRepository: QuestionRepository
     
-    init(questionRepository: QuestionRepositoryProtocol) {
+    init(questionRepository: QuestionRepository) {
         self.questionRepository = questionRepository
     }
     
