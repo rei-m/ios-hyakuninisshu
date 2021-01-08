@@ -609,7 +609,7 @@
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToNextVC:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="Rss-ft-zLo"/>
+                                    <action selector="didTapGoToNext:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="Rss-ft-zLo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-8R-Lwl" userLabel="NoLabel">
@@ -618,6 +618,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h90-wo-70a" userLabel="GoToResultButton">
+                                <rect key="frame" x="151" y="598.5" width="112" height="22"/>
+                                <state key="normal" title="結果を見る" image="arrow.right.circle" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapGoToResult:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="aga-rD-Aem"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bwh-kF-w0u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -627,12 +636,16 @@
                             <constraint firstItem="LBT-Be-PgA" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="B3d-xU-ZdL"/>
                             <constraint firstItem="LBT-Be-PgA" firstAttribute="top" secondItem="atI-NP-udN" secondAttribute="bottom" constant="40" id="CPD-73-Iz0"/>
                             <constraint firstItem="atI-NP-udN" firstAttribute="centerY" secondItem="t9v-A2-dna" secondAttribute="centerY" id="O6D-pY-8KK"/>
+                            <constraint firstItem="h90-wo-70a" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="dhq-8U-aXs"/>
+                            <constraint firstItem="h90-wo-70a" firstAttribute="top" secondItem="atI-NP-udN" secondAttribute="bottom" constant="40" id="eOE-xV-WRM"/>
                             <constraint firstItem="atI-NP-udN" firstAttribute="top" secondItem="M0a-8R-Lwl" secondAttribute="bottom" constant="16" id="vyN-bj-Qfg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lvM-xd-14r"/>
                     <connections>
                         <outlet property="fudaView" destination="atI-NP-udN" id="aeT-Ve-x06"/>
+                        <outlet property="goToNextButton" destination="LBT-Be-PgA" id="zdn-HG-4TT"/>
+                        <outlet property="goToResultButton" destination="h90-wo-70a" id="oxP-e4-FBH"/>
                         <outlet property="noAndKimarijiLabel" destination="M0a-8R-Lwl" id="jrU-VO-hZD"/>
                     </connections>
                 </viewController>
@@ -644,6 +657,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5870" y="94"/>
+        </scene>
+        <!--Exam Result View Controller-->
+        <scene sceneID="jPK-mn-e7z">
+            <objects>
+                <viewController storyboardIdentifier="ExamResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rNc-9Y-OQb" customClass="ExamResultViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7dD-jh-VRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="H0H-Ec-mqB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZI-eS-NPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6761" y="467"/>
         </scene>
         <!--練習結果-->
         <scene sceneID="rBg-NQ-zEN">

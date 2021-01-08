@@ -19,7 +19,11 @@ struct ExamHistoryCollection {
         self.overflowed = values.count <= Self.MAX_HISTORY_COUNT ? [] : values.suffix(values.count - Self.MAX_HISTORY_COUNT)
         var totalWrongKarutaNoSet: Set<KarutaNo> = Set()
         values.forEach { examHistory in
-            examHistory.result.wrongKarutaNoCollection.values.forEach { totalWrongKarutaNoSet.insert($0) }
+            examHistory.questionJudgements.forEach { judgement in
+                if (!judgement.isCorrect) {
+                    totalWrongKarutaNoSet.insert(judgement.karutaNo)
+                }
+            }
         }
         self.totalWrongKarutaNoCollection = KarutaNoCollection(values: totalWrongKarutaNoSet.compactMap { $0 })
     }

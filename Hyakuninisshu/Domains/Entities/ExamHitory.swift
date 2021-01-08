@@ -10,11 +10,13 @@ import Foundation
 class ExamHistory {
     let id: ExamHistoryId
     let tookDate: Date
-    let result: ExamResult
+    let resultSummary: QuestionResultSummary
+    let questionJudgements: [QuestionJudgement]
     
-    init(id: ExamHistoryId, tookDate: Date, result: ExamResult) {
+    init(id: ExamHistoryId, tookDate: Date, resultSummary: QuestionResultSummary, questionJudgements: [QuestionJudgement]) {
         self.id = id
         self.tookDate = tookDate
-        self.result = result
+        self.resultSummary = resultSummary
+        self.questionJudgements = questionJudgements
     }
 }

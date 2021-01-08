@@ -31,7 +31,6 @@
 		FA12E2D625A356B300C057B6 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12E2D525A356B300C057B6 /* AnswerViewController.swift */; };
 		FA12E2DE25A3BFD200C057B6 /* FudaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12E2DD25A3BFD200C057B6 /* FudaView.swift */; };
 		FA142B0525A82D5C005218F4 /* ExamHistoryId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */; };
-		FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B0C25A82DA9005218F4 /* ExamResult.swift */; };
 		FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B1125A82DD9005218F4 /* ExamHitory.swift */; };
 		FA142B1725A82EF0005218F4 /* ExamHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B1625A82EF0005218F4 /* ExamHistoryRepository.swift */; };
 		FA142B3225A83834005218F4 /* KarutaRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */; };
@@ -75,8 +74,6 @@
 		FA3BA3E025A53D7C00841087 /* QuestionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3DF25A53D7C00841087 /* QuestionCollection.swift */; };
 		FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3E425A540BD00841087 /* QuestionResultSummary.swift */; };
 		FA3BA3EA25A5FC1C00841087 /* TrainingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */; };
-		FA3BA3EF25A5FE5A00841087 /* TrainingResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3EE25A5FE5A00841087 /* TrainingResultPresenter.swift */; };
-		FA3BA3F425A5FE6800841087 /* TrainingResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3F325A5FE6800841087 /* TrainingResultModel.swift */; };
 		FA56085C259B13510059AF7D /* QuestionStarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56085B259B13510059AF7D /* QuestionStarterViewController.swift */; };
 		FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560864259B13940059AF7D /* QuestionViewController.swift */; };
 		FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56086C259B21DB0059AF7D /* QuestionStarterPresenter.swift */; };
@@ -89,6 +86,12 @@
 		FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */; };
 		FA6DEACB25A8550E00F8C349 /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */; };
 		FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */; };
+		FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */; };
+		FAB9E0DF25A8A0DA0038EA04 /* ExamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0DE25A8A0DA0038EA04 /* ExamResultModel.swift */; };
+		FAB9E0E425A8A0E70038EA04 /* ExamResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0E325A8A0E70038EA04 /* ExamResultPresenter.swift */; };
+		FAB9E0E925A8A3640038EA04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */; };
+		FAB9E0EE25A8A3700038EA04 /* AnswerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */; };
+		FAB9E0F925A8B6530038EA04 /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0F825A8B6530038EA04 /* ExamResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +136,6 @@
 		FA12E2D525A356B300C057B6 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		FA12E2DD25A3BFD200C057B6 /* FudaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FudaView.swift; sourceTree = "<group>"; };
 		FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryId.swift; sourceTree = "<group>"; };
-		FA142B0C25A82DA9005218F4 /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
 		FA142B1125A82DD9005218F4 /* ExamHitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHitory.swift; sourceTree = "<group>"; };
 		FA142B1625A82EF0005218F4 /* ExamHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryRepository.swift; sourceTree = "<group>"; };
 		FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -183,8 +185,6 @@
 		FA3BA3DF25A53D7C00841087 /* QuestionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollection.swift; sourceTree = "<group>"; };
 		FA3BA3E425A540BD00841087 /* QuestionResultSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultSummary.swift; sourceTree = "<group>"; };
 		FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResult.swift; sourceTree = "<group>"; };
-		FA3BA3EE25A5FE5A00841087 /* TrainingResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultPresenter.swift; sourceTree = "<group>"; };
-		FA3BA3F325A5FE6800841087 /* TrainingResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultModel.swift; sourceTree = "<group>"; };
 		FA56085B259B13510059AF7D /* QuestionStarterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStarterViewController.swift; sourceTree = "<group>"; };
 		FA560864259B13940059AF7D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FA56086C259B21DB0059AF7D /* QuestionStarterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStarterPresenter.swift; sourceTree = "<group>"; };
@@ -197,6 +197,12 @@
 		FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPresenter.swift; sourceTree = "<group>"; };
 		FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = karuta_list_v_3.json; sourceTree = "<group>"; };
 		FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPicker.swift; sourceTree = "<group>"; };
+		FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultViewController.swift; sourceTree = "<group>"; };
+		FAB9E0DE25A8A0DA0038EA04 /* ExamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultModel.swift; sourceTree = "<group>"; };
+		FAB9E0E325A8A0E70038EA04 /* ExamResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultPresenter.swift; sourceTree = "<group>"; };
+		FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
+		FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPresenter.swift; sourceTree = "<group>"; };
+		FAB9E0F825A8B6530038EA04 /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +259,6 @@
 				FA35DB142592DB4900B2DA55 /* QuestionJudgement.swift */,
 				FA35DB312592E14000B2DA55 /* KarutaNoCollection.swift */,
 				FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */,
-				FA142B0C25A82DA9005218F4 /* ExamResult.swift */,
 				FA142B1125A82DD9005218F4 /* ExamHitory.swift */,
 				FA142B4B25A8454A005218F4 /* ExamHistoryCollection.swift */,
 			);
@@ -304,6 +309,7 @@
 				FA178EF1259E172D001C0311 /* YomiFuda.swift */,
 				FA178EF6259E1AD2001C0311 /* Play.swift */,
 				FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */,
+				FAB9E0F825A8B6530038EA04 /* ExamResult.swift */,
 			);
 			path = PresentationModels;
 			sourceTree = "<group>";
@@ -320,6 +326,8 @@
 			isa = PBXGroup;
 			children = (
 				FA12E2D525A356B300C057B6 /* AnswerViewController.swift */,
+				FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */,
+				FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */,
 			);
 			path = Answer;
 			sourceTree = "<group>";
@@ -438,8 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				FA3BA3DA25A5179600841087 /* TrainingResultViewController.swift */,
-				FA3BA3EE25A5FE5A00841087 /* TrainingResultPresenter.swift */,
-				FA3BA3F325A5FE6800841087 /* TrainingResultModel.swift */,
 			);
 			path = TrainingResult;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 		FA3BA3FC25A7016A00841087 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FAB9E0D525A8A0620038EA04 /* ExamResult */,
 				FA3BA3F825A6EF7F00841087 /* Exam */,
 				FA3BA3D925A5177100841087 /* TrainingResult */,
 				FA12E2D425A3569800C057B6 /* Answer */,
@@ -532,6 +539,16 @@
 				FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FAB9E0D525A8A0620038EA04 /* ExamResult */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */,
+				FAB9E0DE25A8A0DA0038EA04 /* ExamResultModel.swift */,
+				FAB9E0E325A8A0E70038EA04 /* ExamResultPresenter.swift */,
+			);
+			path = ExamResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,17 +685,17 @@
 			files = (
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
 				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
+				FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
 				FA5E6A5E25A74BCA008EE33F /* ViewControllerIdentifier.swift in Sources */,
 				FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */,
 				FA178EF7259E1AD2001C0311 /* Play.swift in Sources */,
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
-				FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */,
 				FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */,
 				FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */,
 				FA3BA3E025A53D7C00841087 /* QuestionCollection.swift in Sources */,
-				FA3BA3EF25A5FE5A00841087 /* TrainingResultPresenter.swift in Sources */,
 				FA5E6A5925A74B80008EE33F /* UIStoryboardExtension.swift in Sources */,
+				FAB9E0DF25A8A0DA0038EA04 /* ExamResultModel.swift in Sources */,
 				FA0EC5B62597EE50003B4FEE /* TrainingPresenter.swift in Sources */,
 				FA0EC5CD2599BB3A003B4FEE /* DisplayStyleCondition.swift in Sources */,
 				FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */,
@@ -688,6 +705,7 @@
 				FA142B4225A839E1005218F4 /* QuestionRepositoryImpl.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */,
+				FAB9E0E925A8A3640038EA04 /* AnswerModel.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
 				FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */,
 				FA142B3D25A8390A005218F4 /* KarutaRepository.swift in Sources */,
@@ -701,7 +719,6 @@
 				FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */,
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
 				FA178EF2259E172D001C0311 /* YomiFuda.swift in Sources */,
-				FA3BA3F425A5FE6800841087 /* TrainingResultModel.swift in Sources */,
 				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
 				FA142B4725A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift in Sources */,
 				FA3BA3DB25A5179600841087 /* TrainingResultViewController.swift in Sources */,
@@ -711,6 +728,7 @@
 				FA142B1725A82EF0005218F4 /* ExamHistoryRepository.swift in Sources */,
 				FA35DB242592DF2400B2DA55 /* RepositoryError.swift in Sources */,
 				FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */,
+				FAB9E0F925A8B6530038EA04 /* ExamResult.swift in Sources */,
 				FA35DB2A2592DFEE00B2DA55 /* CreateQuestionsService.swift in Sources */,
 				FA27E26A257055FC001132A3 /* Hyakuninisshu.xcdatamodeld in Sources */,
 				FA12E2D625A356B300C057B6 /* AnswerViewController.swift in Sources */,
@@ -726,6 +744,7 @@
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
+				FAB9E0E425A8A0E70038EA04 /* ExamResultPresenter.swift in Sources */,
 				FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */,
 				FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */,
 				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
@@ -734,6 +753,7 @@
 				FA142B5425A84C8A005218F4 /* UIViewExtension.swift in Sources */,
 				FA35DB0B2592DA9D00B2DA55 /* QuestionState.swift in Sources */,
 				FA0EC5A725972389003B4FEE /* KanjiFormatter.swift in Sources */,
+				FAB9E0EE25A8A3700038EA04 /* AnswerPresenter.swift in Sources */,
 				FA35DB152592DB4900B2DA55 /* QuestionJudgement.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
 				FA56085C259B13510059AF7D /* QuestionStarterViewController.swift in Sources */,
