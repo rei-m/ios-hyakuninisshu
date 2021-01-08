@@ -18,9 +18,9 @@ protocol MaterialTableModelProtocol: AnyObject {
 
 class MaterialTableModel: MaterialTableModelProtocol {
     
-    private let karutaRepository: KarutaRepositoryProtocol
+    private let karutaRepository: KarutaRepository
     
-    init(karutaRepository: KarutaRepositoryProtocol) {
+    init(karutaRepository: KarutaRepository) {
         self.karutaRepository = karutaRepository
     }
 

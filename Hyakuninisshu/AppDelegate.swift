@@ -11,7 +11,7 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    lazy var karutaRepository: KarutaRepositoryProtocol = KarutaRepository(container: persistentContainer)
+    lazy var karutaRepository: KarutaRepository = KarutaRepositoryImpl(container: persistentContainer)
     lazy var questionRepository: QuestionRepositoryProtocol = QuestionRepository(container: persistentContainer)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -14,8 +14,6 @@
 		FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289482570CD72003ADE9C /* ShimoNoKu.swift */; };
 		FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02894D2570D053003ADE9C /* KarutaColor.swift */; };
 		FA0289532570D107003ADE9C /* Kimariji.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0289522570D107003ADE9C /* Kimariji.swift */; };
-		FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02895825783E51003ADE9C /* KarutaRepository.swift */; };
-		FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA02896D2579F016003ADE9C /* karuta_list_v_3.json */; };
 		FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028974257A00DA003ADE9C /* SplashViewController.swift */; };
 		FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA02897E257A0626003ADE9C /* Splash.storyboard */; };
 		FA0EC59C259694C0003B4FEE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC59B259694C0003B4FEE /* Material.swift */; };
@@ -34,6 +32,13 @@
 		FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */; };
 		FA12E2D625A356B300C057B6 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12E2D525A356B300C057B6 /* AnswerViewController.swift */; };
 		FA12E2DE25A3BFD200C057B6 /* FudaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12E2DD25A3BFD200C057B6 /* FudaView.swift */; };
+		FA142B0525A82D5C005218F4 /* ExamHistoryId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */; };
+		FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B0C25A82DA9005218F4 /* ExamResult.swift */; };
+		FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B1125A82DD9005218F4 /* ExamHitory.swift */; };
+		FA142B1725A82EF0005218F4 /* ExamHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B1625A82EF0005218F4 /* ExamHistoryRepository.swift */; };
+		FA142B2A25A83781005218F4 /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA142B2925A83781005218F4 /* karuta_list_v_3.json */; };
+		FA142B3225A83834005218F4 /* KarutaRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */; };
+		FA142B3D25A8390A005218F4 /* KarutaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA142B3C25A8390A005218F4 /* KarutaRepository.swift */; };
 		FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */; };
 		FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EE7259E0F6B001C0311 /* QuestionModel.swift */; };
 		FA178EED259E14B8001C0311 /* ToriFuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA178EEC259E14B8001C0311 /* ToriFuda.swift */; };
@@ -113,8 +118,6 @@
 		FA0289482570CD72003ADE9C /* ShimoNoKu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimoNoKu.swift; sourceTree = "<group>"; };
 		FA02894D2570D053003ADE9C /* KarutaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaColor.swift; sourceTree = "<group>"; };
 		FA0289522570D107003ADE9C /* Kimariji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kimariji.swift; sourceTree = "<group>"; };
-		FA02895825783E51003ADE9C /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
-		FA02896D2579F016003ADE9C /* karuta_list_v_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = karuta_list_v_3.json; path = ../../../../../Desktop/karuta_list_v_3.json; sourceTree = "<group>"; };
 		FA028974257A00DA003ADE9C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FA02897E257A0626003ADE9C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		FA0EC59B259694C0003B4FEE /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
@@ -133,6 +136,13 @@
 		FA0ED11525A0CA4D00D41DBA /* VerticalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabel.swift; sourceTree = "<group>"; };
 		FA12E2D525A356B300C057B6 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		FA12E2DD25A3BFD200C057B6 /* FudaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FudaView.swift; sourceTree = "<group>"; };
+		FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryId.swift; sourceTree = "<group>"; };
+		FA142B0C25A82DA9005218F4 /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
+		FA142B1125A82DD9005218F4 /* ExamHitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHitory.swift; sourceTree = "<group>"; };
+		FA142B1625A82EF0005218F4 /* ExamHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryRepository.swift; sourceTree = "<group>"; };
+		FA142B2925A83781005218F4 /* karuta_list_v_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = karuta_list_v_3.json; path = ../../../../../.Trash/Assets/karuta_list_v_3.json; sourceTree = "<group>"; };
+		FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepositoryImpl.swift; sourceTree = "<group>"; };
+		FA142B3C25A8390A005218F4 /* KarutaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaRepository.swift; sourceTree = "<group>"; };
 		FA178EE2259E0F58001C0311 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 		FA178EE7259E0F6B001C0311 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		FA178EEC259E14B8001C0311 /* ToriFuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToriFuda.swift; sourceTree = "<group>"; };
@@ -246,6 +256,9 @@
 				FA35DB192592DDC000B2DA55 /* Question.swift */,
 				FA35DB142592DB4900B2DA55 /* QuestionJudgement.swift */,
 				FA35DB312592E14000B2DA55 /* KarutaNoCollection.swift */,
+				FA142B0425A82D5C005218F4 /* ExamHistoryId.swift */,
+				FA142B0C25A82DA9005218F4 /* ExamResult.swift */,
+				FA142B1125A82DD9005218F4 /* ExamHitory.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -253,10 +266,10 @@
 		FA02895725783E32003ADE9C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				FA02896D2579F016003ADE9C /* karuta_list_v_3.json */,
-				FA02895825783E51003ADE9C /* KarutaRepository.swift */,
 				FA35DB1E2592DF0E00B2DA55 /* QuestionRepository.swift */,
 				FA35DB232592DF2400B2DA55 /* RepositoryError.swift */,
+				FA142B1625A82EF0005218F4 /* ExamHistoryRepository.swift */,
+				FA142B3C25A8390A005218F4 /* KarutaRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -309,6 +322,22 @@
 				FA12E2D525A356B300C057B6 /* AnswerViewController.swift */,
 			);
 			path = Answer;
+			sourceTree = "<group>";
+		};
+		FA142B1B25A8362C005218F4 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FA142B3125A83834005218F4 /* KarutaRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FA142B1C25A83638005218F4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FA142B2925A83781005218F4 /* karuta_list_v_3.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		FA27E253257055FC001132A3 = {
@@ -521,6 +550,8 @@
 		FA5E6A6A25A803DB008EE33F /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
+				FA142B1C25A83638005218F4 /* Assets */,
+				FA142B1B25A8362C005218F4 /* Repositories */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -628,9 +659,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA142B2A25A83781005218F4 /* karuta_list_v_3.json in Resources */,
 				FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */,
 				FA27E26C257055FF001132A3 /* Assets.xcassets in Resources */,
-				FA02896E2579F016003ADE9C /* karuta_list_v_3.json in Resources */,
 				FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */,
 				FA27E267257055FC001132A3 /* Main.storyboard in Resources */,
 			);
@@ -667,7 +698,7 @@
 				FA0EC5A125969860003B4FEE /* KarutaExtension.swift in Sources */,
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
 				FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */,
-				FA02895925783E51003ADE9C /* KarutaRepository.swift in Sources */,
+				FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */,
 				FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */,
 				FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */,
 				FA3BA3E025A53D7C00841087 /* QuestionCollection.swift in Sources */,
@@ -684,6 +715,8 @@
 				FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */,
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
 				FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */,
+				FA142B3D25A8390A005218F4 /* KarutaRepository.swift in Sources */,
+				FA142B3225A83834005218F4 /* KarutaRepositoryImpl.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
 				FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */,
 				FA0EC5AC2597EAEF003B4FEE /* RangeCondition.swift in Sources */,
@@ -699,6 +732,7 @@
 				FA0EC5C32599B199003B4FEE /* KimarijiCondition.swift in Sources */,
 				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,
 				FA27E264257055FC001132A3 /* ViewController.swift in Sources */,
+				FA142B1725A82EF0005218F4 /* ExamHistoryRepository.swift in Sources */,
 				FA35DB242592DF2400B2DA55 /* RepositoryError.swift in Sources */,
 				FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */,
 				FA35DB2A2592DFEE00B2DA55 /* CreateQuestionsService.swift in Sources */,
@@ -710,11 +744,13 @@
 				FA35DB1F2592DF0E00B2DA55 /* QuestionRepository.swift in Sources */,
 				FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */,
 				FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */,
+				FA142B0525A82D5C005218F4 /* ExamHistoryId.swift in Sources */,
 				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
 				FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */,
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
+				FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */,
 				FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */,
 				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
 				FA0EC5D22599BBAE003B4FEE /* AnimationSpeedCondition.swift in Sources */,

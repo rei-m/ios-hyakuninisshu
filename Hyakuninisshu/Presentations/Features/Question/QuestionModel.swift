@@ -21,14 +21,14 @@ class QuestionModel: QuestionModelProtocol {
     let kamiNoKu: DisplayStyleCondition
     let shimoNoKu: DisplayStyleCondition
 
-    private let karutaRepository: KarutaRepositoryProtocol
+    private let karutaRepository: KarutaRepository
     private let questionRepository: QuestionRepositoryProtocol
     
     init(
         questionNo: Int,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
-        karutaRepository: KarutaRepositoryProtocol,
+        karutaRepository: KarutaRepository,
         questionRepository: QuestionRepositoryProtocol
     ) {
         self.questionNo = questionNo

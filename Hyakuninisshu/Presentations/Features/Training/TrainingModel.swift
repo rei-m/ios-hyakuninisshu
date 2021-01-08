@@ -62,9 +62,9 @@ class TrainingModel: TrainingModelProtocol {
         }
     }
 
-    private let karutaRepository: KarutaRepositoryProtocol
+    private let karutaRepository: KarutaRepository
 
-    init(karutaRepository: KarutaRepositoryProtocol) {
+    init(karutaRepository: KarutaRepository) {
         self.karutaRepository = karutaRepository
     }
     

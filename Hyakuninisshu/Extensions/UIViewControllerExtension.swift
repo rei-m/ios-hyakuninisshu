@@ -36,7 +36,7 @@ extension UIViewController {
         }
     }
 
-    var karutaRepository: KarutaRepositoryProtocol {
+    var karutaRepository: KarutaRepository {
         get { requireAppDelegate.karutaRepository }
     }
     
