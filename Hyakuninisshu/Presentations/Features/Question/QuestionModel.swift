@@ -54,7 +54,7 @@ class QuestionModel: QuestionModelProtocol {
                 fatalError()
             }
             
-            let correct = correctKaruta.toMaterial()
+            let correct = Material.fromKaruta(correctKaruta)
             let yomiFuda = YomiFuda.fromKamiNoKu(kamiNoKu: correctKaruta.kamiNoKu, style: self.kamiNoKu)
             let toriFudas = choiceKarutas.map { ToriFuda.fromShimoNoKu(shimoNoKu: $0.shimoNoKu, style: self.shimoNoKu) }
             

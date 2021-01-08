@@ -17,7 +17,6 @@
 		FA028975257A00DA003ADE9C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028974257A00DA003ADE9C /* SplashViewController.swift */; };
 		FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA02897E257A0626003ADE9C /* Splash.storyboard */; };
 		FA0EC59C259694C0003B4FEE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC59B259694C0003B4FEE /* Material.swift */; };
-		FA0EC5A125969860003B4FEE /* KarutaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5A025969860003B4FEE /* KarutaExtension.swift */; };
 		FA0EC5A725972389003B4FEE /* KanjiFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5A625972389003B4FEE /* KanjiFormatter.swift */; };
 		FA0EC5AC2597EAEF003B4FEE /* RangeCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5AB2597EAEF003B4FEE /* RangeCondition.swift */; };
 		FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EC5B02597EE45003B4FEE /* TrainingModel.swift */; };
@@ -123,7 +122,6 @@
 		FA028974257A00DA003ADE9C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FA02897E257A0626003ADE9C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		FA0EC59B259694C0003B4FEE /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
-		FA0EC5A025969860003B4FEE /* KarutaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarutaExtension.swift; sourceTree = "<group>"; };
 		FA0EC5A625972389003B4FEE /* KanjiFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiFormatter.swift; sourceTree = "<group>"; };
 		FA0EC5AB2597EAEF003B4FEE /* RangeCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeCondition.swift; sourceTree = "<group>"; };
 		FA0EC5B02597EE45003B4FEE /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
@@ -402,7 +400,6 @@
 		FA2D7AD1258177BF00C6134B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA0EC5A025969860003B4FEE /* KarutaExtension.swift */,
 				FA0EC5BD259937BD003B4FEE /* Int8Extension.swift */,
 			);
 			path = Extensions;
@@ -701,7 +698,6 @@
 				FA0EC5BE259937BD003B4FEE /* Int8Extension.swift in Sources */,
 				FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */,
 				FA178EF7259E1AD2001C0311 /* Play.swift in Sources */,
-				FA0EC5A125969860003B4FEE /* KarutaExtension.swift in Sources */,
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
 				FA2D7B1E2584959800C6134B /* CardFrameView.swift in Sources */,
 				FA142B0D25A82DA9005218F4 /* ExamResult.swift in Sources */,

@@ -26,7 +26,7 @@ class MaterialTableModel: MaterialTableModelProtocol {
 
     func fetchKarutas() -> AnyPublisher<[Material], ModelError> {
         return karutaRepository.findAll().map { karutas in
-            karutas.map { $0.toMaterial() }
+            karutas.map { Material.fromKaruta($0) }
         }.mapError { _ in
             ModelError.unhandled
         }.eraseToAnyPublisher()
