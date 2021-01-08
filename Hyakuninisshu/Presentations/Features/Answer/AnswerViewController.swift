@@ -35,6 +35,7 @@ class AnswerViewController: UIViewController {
                 return
             }
             // TODO exam result
+            // TODO examの結果を保存する必要があるなあ・・・
             
             // TODO どちらもいなかったらエラーにする
         } else {

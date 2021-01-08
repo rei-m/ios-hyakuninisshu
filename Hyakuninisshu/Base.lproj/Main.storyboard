@@ -114,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A76-8B-kth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2146" y="1263"/>
+            <point key="canvasLocation" x="3135" y="1250"/>
         </scene>
         <!--Material Detail View Controller-->
         <scene sceneID="sDe-BJ-1kt">
@@ -268,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tar-2E-AP5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057.971014492754" y="1262.9464285714284"/>
+            <point key="canvasLocation" x="4119" y="1250"/>
         </scene>
         <!--Item-->
         <scene sceneID="Oom-Ca-MT1">
@@ -287,21 +287,46 @@
             </objects>
             <point key="canvasLocation" x="84" y="909"/>
         </scene>
-        <!--Item 2-->
+        <!--Exam View Controller-->
         <scene sceneID="JhD-QT-4wN">
             <objects>
-                <viewController id="yUJ-Eh-Pjj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExamViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yUJ-Eh-Pjj" customClass="ExamViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2N3-h9-ypB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全百首から出題され、出題順は毎回変わります。結果は過去10回分が保存され、間違えた問題は振り返りで練習することができます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-w9-afT" userLabel="ExamExplain">
+                                <rect key="frame" x="16" y="104" width="382" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartTrainingButton">
+                                <rect key="frame" x="122.5" y="197" width="169" height="23"/>
+                                <state key="normal" title="腕試しをはじめる" image="highlighter" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="a4L-9q-kAU"/>
+                                    <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Cn-wn-Nqu"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
+                            <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
+                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="HLn-bw-0pp"/>
+                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="fEV-LE-Ii2"/>
+                    <navigationItem key="navigationItem" id="OhD-yT-RVn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3j-vh-2US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3134.7826086956525" y="415.84821428571428"/>
+            <point key="canvasLocation" x="3135" y="467"/>
         </scene>
         <!--練習-->
         <scene sceneID="pFl-pr-7Ws">
@@ -556,7 +581,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZw-Lq-bH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4035" y="-265"/>
+            <point key="canvasLocation" x="4119" y="94"/>
         </scene>
         <!--Answer View Controller-->
         <scene sceneID="n4K-tL-N4c">
@@ -618,7 +643,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6060.8695652173919" y="-265.17857142857144"/>
+            <point key="canvasLocation" x="5870" y="94"/>
         </scene>
         <!--練習結果-->
         <scene sceneID="rBg-NQ-zEN">
@@ -722,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w90-vv-yP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7028.985507246377" y="-265.17857142857144"/>
+            <point key="canvasLocation" x="6762" y="-265"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="a2M-F2-tZe">
@@ -867,7 +892,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5071.0144927536239" y="-265.17857142857144"/>
+            <point key="canvasLocation" x="4986" y="94"/>
         </scene>
         <!--Entrance Tab Bar Controller-->
         <scene sceneID="5yD-dr-2JP">
@@ -881,7 +906,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="bkj-ch-Ioe" kind="relationship" relationship="viewControllers" id="Uhj-25-Bw9"/>
-                        <segue destination="yUJ-Eh-Pjj" kind="relationship" relationship="viewControllers" id="PFJ-mo-DKk"/>
+                        <segue destination="VKN-r1-Q6w" kind="relationship" relationship="viewControllers" id="PFJ-mo-DKk"/>
                         <segue destination="LbA-ok-zjX" kind="relationship" relationship="viewControllers" id="hI5-Rm-ldA"/>
                         <segue destination="rsq-X5-Cae" kind="relationship" relationship="viewControllers" id="W5X-14-nxQ"/>
                     </connections>
@@ -908,7 +933,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iii-r4-wlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="1263"/>
+            <point key="canvasLocation" x="2225" y="1250"/>
         </scene>
         <!--練習-->
         <scene sceneID="URk-gu-Gso">
@@ -929,6 +954,25 @@
             </objects>
             <point key="canvasLocation" x="2224.6376811594205" y="-265.17857142857144"/>
         </scene>
+        <!--腕試し-->
+        <scene sceneID="5sd-JB-dyd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VKN-r1-Q6w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="腕試し" image="note.text" catalog="system" id="fEV-LE-Ii2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uAM-wf-y6L">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yUJ-Eh-Pjj" kind="relationship" relationship="rootViewController" id="s5z-gu-Ll9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKm-AL-8WZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2225" y="467"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="oQ5-kb-hnV"/>
@@ -939,6 +983,7 @@
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
+        <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

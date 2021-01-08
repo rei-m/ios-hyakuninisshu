@@ -31,6 +31,14 @@ class EntranceTabBarController: UITabBarController {
                     let presenter = TrainingPresenter(view: trainingViewController, model: model)
                     trainingViewController.inject(presenter: presenter)
                 }
+                for nvc in vc.children {
+                    guard let examViewController = nvc as? ExamViewController else {
+                        break
+                    }
+                    let model = ExamModel(karutaRepository: karutaRepository)
+                    let presenter = ExamPresenter(view: examViewController, model: model)
+                    examViewController.inject(presenter: presenter)
+                }
             }
         }
     }
