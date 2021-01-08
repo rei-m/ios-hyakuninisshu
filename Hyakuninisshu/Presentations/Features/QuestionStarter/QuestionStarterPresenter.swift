@@ -8,17 +8,17 @@
 import Foundation
 import Combine
 
-protocol TrainingStarterPresenterProtocol: AnyObject {
+protocol QuestionStarterPresenterProtocol: AnyObject {
     func viewDidLoad()
 }
 
-class TrainingStarterPresenter: TrainingStarterPresenterProtocol {
-    private weak var view: TrainingStarterViewProtocol!
-    private let model: TrainingStarterModelProtocol
+class QuestionStarterPresenter: QuestionStarterPresenterProtocol {
+    private weak var view: QuestionStarterViewProtocol!
+    private let model: QuestionStarterModelProtocol
     
     private var cancellables = [AnyCancellable]()
     
-    init(view: TrainingStarterViewProtocol, model: TrainingStarterModelProtocol) {
+    init(view: QuestionStarterViewProtocol, model: QuestionStarterModelProtocol) {
         self.view = view
         self.model = model
     }

@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-protocol TrainingStarterModelProtocol: AnyObject {
+protocol QuestionStarterModelProtocol: AnyObject {
     func createQuestions() -> AnyPublisher<Int, ModelError>
 }
 
-class TrainingStarterModel: TrainingStarterModelProtocol {
+class QuestionStarterModel: QuestionStarterModelProtocol {
     let karutaNos: [Int8]
     
     private let karutaRepository: KarutaRepositoryProtocol

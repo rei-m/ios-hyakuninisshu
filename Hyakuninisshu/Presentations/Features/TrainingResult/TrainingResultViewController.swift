@@ -26,44 +26,30 @@ class TrainingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goTop))
-        navigationItem.leftBarButtonItem = leftButton
+        setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
         
-        // Do any additional setup after loading the view.
         presenter.viewDidLoad()
     }
     
     @IBAction func didTapGoToTraining(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "TrainingStarterViewController") as? TrainingStarterViewController else {
-            fatalError("unknown VC identifier value='TrainingStarterViewController'")
-        }
-        
         guard let wrongKarutaNos = self.wrongKarutaNos else {
             return
         }
-                
-        let model = TrainingStarterModel(
-            karutaNos: wrongKarutaNos,
-            karutaRepository: karutaRepository,
-            questionRepository: questionRepository
-        )
-        
-        let presenter = TrainingStarterPresenter(view: vc, model: model)
 
-        vc.inject(
-            presenter: presenter,
-            kamiNoKu: kamiNoKu,
-            shimoNoKu: shimoNoKu,
-            animationSpeed: animationSpeed
-        )
+        let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
+        
+        let model = QuestionStarterModel(karutaNos: wrongKarutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        
+        let presenter = QuestionStarterPresenter(view: vc, model: model)
+
+        vc.inject(presenter: presenter, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
 
         navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func didTapGoToMenu(_ sender: Any) {
-        goTop()
+        popToNaviRoot()
     }
     
     /*
@@ -86,10 +72,6 @@ class TrainingResultViewController: UIViewController {
         self.kamiNoKu = kamiNoKu
         self.shimoNoKu = shimoNoKu
         self.animationSpeed = animationSpeed
-    }
-    
-    @objc func goTop(){
-      navigationController?.popToRootViewController(animated: true)
     }
 }
 

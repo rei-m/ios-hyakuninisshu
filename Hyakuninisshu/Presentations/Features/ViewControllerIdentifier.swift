@@ -9,9 +9,9 @@ import Foundation
 
 enum ViewControllerIdentifier: String {
     case entrance = "EntrancePageViewController"
-    case trainingStarter = "TrainingStarterViewController"
-    case trainingResult = "TrainingResultViewController"
-    case examResult = "ExamResultViewController"
+    case questionStarter = "QuestionStarterViewController"
     case question = "QuestionViewController"
     case answer = "AnswerViewController"
+    case trainingResult = "TrainingResultViewController"
+    case examResult = "ExamResultViewController"
 }

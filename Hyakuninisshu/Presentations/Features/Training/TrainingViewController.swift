@@ -127,11 +127,11 @@ extension TrainingViewController: TrainingViewProtocol {
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
-        let vc: TrainingStarterViewController = requireStoryboard.instantiateViewController(identifier: .trainingStarter)
+        let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 
-        let model = TrainingStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
 
-        let presenter = TrainingStarterPresenter(view: vc, model: model)
+        let presenter = QuestionStarterPresenter(view: vc, model: model)
 
         vc.inject(presenter: presenter, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
 

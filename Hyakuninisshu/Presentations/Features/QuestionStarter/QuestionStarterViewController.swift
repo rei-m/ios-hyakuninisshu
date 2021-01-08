@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol TrainingStarterViewProtocol: AnyObject {
+protocol QuestionStarterViewProtocol: AnyObject {
     func displayEmptyError()
     func goToNextVC(questionCount: Int, questionNo: Int)
 }
 
-class TrainingStarterViewController: UIViewController {
+class QuestionStarterViewController: UIViewController {
 
     @IBOutlet weak var emptyMessageLabel: UILabel!
 
-    private var presenter: TrainingStarterPresenterProtocol!
+    private var presenter: QuestionStarterPresenterProtocol!
     
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
@@ -32,7 +32,7 @@ class TrainingStarterViewController: UIViewController {
     }
     
     func inject(
-        presenter: TrainingStarterPresenterProtocol,
+        presenter: QuestionStarterPresenterProtocol,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
@@ -44,7 +44,7 @@ class TrainingStarterViewController: UIViewController {
     }
 }
 
-extension TrainingStarterViewController: TrainingStarterViewProtocol {
+extension QuestionStarterViewController: QuestionStarterViewProtocol {
 
     func displayEmptyError() {
         emptyMessageLabel.isHidden = false

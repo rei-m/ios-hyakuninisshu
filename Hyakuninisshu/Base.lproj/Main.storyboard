@@ -527,10 +527,10 @@
             </objects>
             <point key="canvasLocation" x="3134.7826086956525" y="-265.17857142857144"/>
         </scene>
-        <!--Training Starter View Controller-->
+        <!--Question Starter View Controller-->
         <scene sceneID="4eH-XQ-mSU">
             <objects>
-                <viewController storyboardIdentifier="TrainingStarterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0qI-hl-HnW" customClass="TrainingStarterViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionStarterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0qI-hl-HnW" customClass="QuestionStarterViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ygn-Fv-yKb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
