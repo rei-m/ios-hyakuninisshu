@@ -34,13 +34,19 @@ class CreateQuestionsService {
             var dupNos = allKarutaNoCollection.values
             dupNos.removeAll(where: { $0.value == targetKarutaNo.value })
             
-            var choices = dupNos.count.generateRandomIndexArray(size: choiceSize - 1).map { dupNos[$0] }
-            let correctPosition = choiceSize.generateRandomIndexArray(size: 1).first!
+            var choices = generateRandomIndexArray(total: dupNos.count, size: choiceSize - 1).map { dupNos[$0] }
+            let correctPosition = generateRandomIndexArray(total: choiceSize, size: 1).first!
             choices.insert(targetKarutaNo, at: correctPosition)
             
             return Question(id: QuestionId(), no: no, choices: choices, correctNo: targetKarutaNo, state: .ready)
         }
         
         return result
+    }
+    
+    private func generateRandomIndexArray(total: Int, size: Int) -> [Int] {
+        let max = total - 1
+        let shuffled: [Int] = (0 ... max).shuffled()
+        return shuffled.prefix(size).map { $0 }
     }
 }

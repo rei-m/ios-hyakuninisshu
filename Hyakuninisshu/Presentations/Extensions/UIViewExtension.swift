@@ -2,7 +2,7 @@
 //  UIViewExtension.swift
 //  Hyakuninisshu
 //
-//  Created by Rei Matsushita on 2020/12/12.
+//  Created by Rei Matsushita on 2021/01/08.
 //
 
 import Foundation
