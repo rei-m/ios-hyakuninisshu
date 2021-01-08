@@ -79,6 +79,12 @@
 		FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560864259B13940059AF7D /* QuestionViewController.swift */; };
 		FA56086D259B21DB0059AF7D /* TrainingStarterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56086C259B21DB0059AF7D /* TrainingStarterPresenter.swift */; };
 		FA560872259B21E70059AF7D /* TrainingStarterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560871259B21E70059AF7D /* TrainingStarterModel.swift */; };
+		FA5E6A5925A74B80008EE33F /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A5825A74B80008EE33F /* UIStoryboardExtension.swift */; };
+		FA5E6A5E25A74BCA008EE33F /* ViewControllerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A5D25A74BCA008EE33F /* ViewControllerIdentifier.swift */; };
+		FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A6525A7F9F5008EE33F /* UINavigationControllerExtension.swift */; };
+		FA5E6A6C25A8051A008EE33F /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A6B25A8051A008EE33F /* ExamViewController.swift */; };
+		FA5E6A7425A80525008EE33F /* ExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A7325A80525008EE33F /* ExamModel.swift */; };
+		FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */; };
 		FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +184,12 @@
 		FA560864259B13940059AF7D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FA56086C259B21DB0059AF7D /* TrainingStarterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStarterPresenter.swift; sourceTree = "<group>"; };
 		FA560871259B21E70059AF7D /* TrainingStarterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStarterModel.swift; sourceTree = "<group>"; };
+		FA5E6A5825A74B80008EE33F /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
+		FA5E6A5D25A74BCA008EE33F /* ViewControllerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifier.swift; sourceTree = "<group>"; };
+		FA5E6A6525A7F9F5008EE33F /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		FA5E6A6B25A8051A008EE33F /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		FA5E6A7325A80525008EE33F /* ExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamModel.swift; sourceTree = "<group>"; };
+		FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPresenter.swift; sourceTree = "<group>"; };
 		FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,17 +264,8 @@
 		FA028972257A0096003ADE9C /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BA3F825A6EF7F00841087 /* Exam */,
-				FA3BA3D925A5177100841087 /* TrainingResult */,
-				FA12E2D425A3569800C057B6 /* Answer */,
-				FA560863259B13820059AF7D /* Question */,
-				FA56085A259B131D0059AF7D /* TrainingStarter */,
-				FA35DB3C2593109F00B2DA55 /* Training */,
-				FA2D7B1B2584950700C6134B /* Common */,
-				FA2D7B122584231C00C6134B /* MaterialDetail */,
-				FA2D7B03258361C300C6134B /* Entrance */,
-				FA2D7ADA25817A4600C6134B /* Material */,
-				FA028973257A00AE003ADE9C /* Splash */,
+				FA5E6A5725A74B67008EE33F /* Extensions */,
+				FA3BA3FC25A7016A00841087 /* Features */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 		FA27E25E257055FC001132A3 /* Hyakuninisshu */ = {
 			isa = PBXGroup;
 			children = (
+				FA5E6A6A25A803DB008EE33F /* Infrastructures */,
 				FA0EC5A525972355003B4FEE /* Utils */,
 				FA0EC59A2596948C003B4FEE /* ViewModels */,
 				FA2D7AD1258177BF00C6134B /* Extensions */,
@@ -376,6 +380,7 @@
 				FA35DB372592E2DA00B2DA55 /* IntExtension.swift */,
 				FA0EC5A025969860003B4FEE /* KarutaExtension.swift */,
 				FA0EC5BD259937BD003B4FEE /* Int8Extension.swift */,
+				FA5E6A6525A7F9F5008EE33F /* UINavigationControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,8 +464,30 @@
 		FA3BA3F825A6EF7F00841087 /* Exam */ = {
 			isa = PBXGroup;
 			children = (
+				FA5E6A6B25A8051A008EE33F /* ExamViewController.swift */,
+				FA5E6A7325A80525008EE33F /* ExamModel.swift */,
+				FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */,
 			);
 			path = Exam;
+			sourceTree = "<group>";
+		};
+		FA3BA3FC25A7016A00841087 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BA3F825A6EF7F00841087 /* Exam */,
+				FA3BA3D925A5177100841087 /* TrainingResult */,
+				FA12E2D425A3569800C057B6 /* Answer */,
+				FA560863259B13820059AF7D /* Question */,
+				FA56085A259B131D0059AF7D /* TrainingStarter */,
+				FA35DB3C2593109F00B2DA55 /* Training */,
+				FA2D7B1B2584950700C6134B /* Common */,
+				FA2D7B122584231C00C6134B /* MaterialDetail */,
+				FA2D7B03258361C300C6134B /* Entrance */,
+				FA2D7ADA25817A4600C6134B /* Material */,
+				FA028973257A00AE003ADE9C /* Splash */,
+				FA5E6A5D25A74BCA008EE33F /* ViewControllerIdentifier.swift */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		FA56085A259B131D0059AF7D /* TrainingStarter */ = {
@@ -481,6 +508,21 @@
 				FA178EE7259E0F6B001C0311 /* QuestionModel.swift */,
 			);
 			path = Question;
+			sourceTree = "<group>";
+		};
+		FA5E6A5725A74B67008EE33F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA5E6A5825A74B80008EE33F /* UIStoryboardExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA5E6A6A25A803DB008EE33F /* Infrastructures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,7 +658,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
+				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
+				FA5E6A5E25A74BCA008EE33F /* ViewControllerIdentifier.swift in Sources */,
 				FA0EC5BE259937BD003B4FEE /* Int8Extension.swift in Sources */,
 				FA56086D259B21DB0059AF7D /* TrainingStarterPresenter.swift in Sources */,
 				FA178EF7259E1AD2001C0311 /* Play.swift in Sources */,
@@ -629,6 +673,7 @@
 				FA3BA3E025A53D7C00841087 /* QuestionCollection.swift in Sources */,
 				FA35DB382592E2DA00B2DA55 /* IntExtension.swift in Sources */,
 				FA3BA3EF25A5FE5A00841087 /* TrainingResultPresenter.swift in Sources */,
+				FA5E6A5925A74B80008EE33F /* UIStoryboardExtension.swift in Sources */,
 				FA0EC5B62597EE50003B4FEE /* TrainingPresenter.swift in Sources */,
 				FA0EC5CD2599BB3A003B4FEE /* DisplayStyleCondition.swift in Sources */,
 				FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */,
@@ -659,6 +704,7 @@
 				FA35DB2A2592DFEE00B2DA55 /* CreateQuestionsService.swift in Sources */,
 				FA27E26A257055FC001132A3 /* Hyakuninisshu.xcdatamodeld in Sources */,
 				FA12E2D625A356B300C057B6 /* AnswerViewController.swift in Sources */,
+				FA5E6A7425A80525008EE33F /* ExamModel.swift in Sources */,
 				FA3BA3EA25A5FC1C00841087 /* TrainingResult.swift in Sources */,
 				FA02894E2570D053003ADE9C /* KarutaColor.swift in Sources */,
 				FA35DB1F2592DF0E00B2DA55 /* QuestionRepository.swift in Sources */,
@@ -669,8 +715,10 @@
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
+				FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */,
 				FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */,
 				FA0EC5D22599BBAE003B4FEE /* AnimationSpeedCondition.swift in Sources */,
+				FA5E6A6C25A8051A008EE33F /* ExamViewController.swift in Sources */,
 				FA35DB0B2592DA9D00B2DA55 /* QuestionState.swift in Sources */,
 				FA0EC5A725972389003B4FEE /* KanjiFormatter.swift in Sources */,
 				FA2D7B2325849E2F00C6134B /* UIViewExtension.swift in Sources */,

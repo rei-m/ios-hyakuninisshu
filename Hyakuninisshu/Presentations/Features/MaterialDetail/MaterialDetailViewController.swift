@@ -23,8 +23,6 @@ class MaterialDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = material.noTxt
-        
-        // Do any additional setup after loading the view.
 
         noLabel.text = material.noTxt
         creatorLabel.text = material.creator
@@ -35,20 +33,9 @@ class MaterialDetailViewController: UIViewController {
         shimoNoKuKanaLabel.text = material.shimoNoKuKana.padSpace()
         transrationLabel.text = material.translation
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension String {
+private extension String {
     func padSpace() -> String {
         return self.padding(toLength: 21, withPad: "　", startingAt: 0)
     }

@@ -24,7 +24,7 @@ protocol TrainingModelProtocol: AnyObject {
 
 class TrainingModel: TrainingModelProtocol {
     private var _rangeFromCondition: RangeCondition = RangeCondition.FROM_DATA.first!
-    public var rangeFromCondition: RangeCondition {
+    var rangeFromCondition: RangeCondition {
         get { _rangeFromCondition }
         set(v) {
             _rangeFromCondition = v
@@ -32,25 +32,25 @@ class TrainingModel: TrainingModelProtocol {
         }
     }
     private var _rangeToCondition: RangeCondition = RangeCondition.TO_DATA.last!
-    public var rangeToCondition: RangeCondition {
+    var rangeToCondition: RangeCondition {
         get { _rangeToCondition }
         set(v) {
             _rangeToCondition = v
             validateRangeCondition()
         }
     }
-    public var kimarijiCondition = KimarijiCondition.DATA.first!
-    public var colorCondition = ColorCondition.DATA.first!
-    public var kamiNoKuCondition = DisplayStyleCondition.DATA.first!
-    public var shimoNoKuCondition = DisplayStyleCondition.DATA.last!
-    public var animationSpeedCondition = AnimationSpeedCondition.DATA[2]
+    var kimarijiCondition = KimarijiCondition.DATA.first!
+    var colorCondition = ColorCondition.DATA.first!
+    var kamiNoKuCondition = DisplayStyleCondition.DATA.first!
+    var shimoNoKuCondition = DisplayStyleCondition.DATA.last!
+    var animationSpeedCondition = AnimationSpeedCondition.DATA[2]
 
     private var _rangeConditionError: String?
-    public var rangeConditionError: String? {
+    var rangeConditionError: String? {
         get { _rangeConditionError }
     }
     
-    public var hasError: Bool {
+    var hasError: Bool {
         get { _rangeConditionError != nil }
     }
 

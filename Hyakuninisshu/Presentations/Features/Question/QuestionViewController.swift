@@ -12,11 +12,9 @@ protocol QuestionViewProtocol: AnyObject {
     func startDisplayYomiFuda()
     func displayResult(selectedNo: Int8, isCorrect: Bool)
     func goToNextVC(
-        questionCount: Int,
         questionNo: Int,
         kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition
+        shimoNoKu: DisplayStyleCondition
     )
 }
 
@@ -30,6 +28,11 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var resultAreaView: UIView!
     @IBOutlet weak var resultImageView: UIImageView!
 
+    private var questionCount: Int!
+    private var animationSpeed: AnimationSpeedCondition!
+    
+    private var presenter: QuestionPresenterProtocol!
+    
     private var _play: Play?
     private var play: Play? {
         get { _play }
@@ -38,7 +41,7 @@ class QuestionViewController: UIViewController {
             guard let _play = v else {
                 return
             }
-            title = _play.position
+            title = "\(_play.no) / \(questionCount ?? 0)"
             yomiFudaView.yomiFuda = _play.yomiFuda
             toriFudaView1.toriFuda = _play.toriFudas[0]
             toriFudaView2.toriFuda = _play.toriFudas[1]
@@ -46,16 +49,12 @@ class QuestionViewController: UIViewController {
             toriFudaView4.toriFuda = _play.toriFudas[3]
         }
     }
-    
-    private var presenter: QuestionPresenterProtocol!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
         
-        // Do any additional setup after loading the view.
         presenter.viewDidLoad()
     }
     
@@ -86,7 +85,9 @@ class QuestionViewController: UIViewController {
         presenter.didTapToriFuda(no: no)
     }
     
-    func inject(presenter: QuestionPresenterProtocol) {
+    func inject(questionCount: Int, animationSpeed: AnimationSpeedCondition, presenter: QuestionPresenterProtocol) {
+        self.questionCount = questionCount
+        self.animationSpeed = animationSpeed
         self.presenter = presenter
     }
 }
@@ -111,33 +112,15 @@ extension QuestionViewController: QuestionViewProtocol {
         resultAreaView.isHidden = false
     }
 
-    func goToNextVC(
-        questionCount: Int,
-        questionNo: Int,
-        kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition
-    ) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "AnswerViewController") as? AnswerViewController else {
-            fatalError("unknown VC identifier value='AnswerViewController'")
-        }
-        
-        guard var currentVCs = navigationController?.viewControllers else {
-            return
-        }
+    func goToNextVC(questionNo: Int, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition) {
         guard let correct = play?.correct else {
             return
         }
 
-        vc.material = correct
-        vc.questionCount = questionCount
-        vc.questionNo = questionNo
-        vc.kamiNoKu = kamiNoKu
-        vc.shimoNoKu = shimoNoKu
-        vc.animationSpeed = animationSpeed
+        let vc: AnswerViewController = requireStoryboard.instantiateViewController(identifier: .answer)
+
+        vc.inject(material: correct, questionNo: questionNo, questionCount: questionCount, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
         
-        currentVCs.removeLast()
-        currentVCs.append(vc)
-        navigationController?.setViewControllers(currentVCs, animated: false)
+        requireNavigationController.replace(vc)
     }
 }

@@ -55,12 +55,6 @@ class QuestionPresenter: QuestionPresenterProtocol {
     }
     
     func didTapResult() {
-        view.goToNextVC(
-            questionCount: model.questionCount,
-            questionNo: model.questionNo,
-            kamiNoKu: model.kamiNoKu,
-            shimoNoKu: model.shimoNoKu,
-            animationSpeed: model.animationSpeed
-        )
+        view.goToNextVC(questionNo: model.questionNo, kamiNoKu: model.kamiNoKu, shimoNoKu: model.shimoNoKu)
     }
 }

@@ -51,14 +51,13 @@ extension TrainingStarterViewController: TrainingStarterViewProtocol {
     }
     
     func goToNextVC(questionCount: Int, questionNo: Int) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "QuestionViewController") as? QuestionViewController else {
-            fatalError("unknown VC identifier value='QuestionViewController'")
-        }
-        
-        let model = QuestionModel(questionCount: questionCount, questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let vc: QuestionViewController = requireStoryboard.instantiateViewController(identifier: .question)
+
+        let model = QuestionModel(questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: karutaRepository, questionRepository: questionRepository)
+
         let presenter = QuestionPresenter(view: vc, model: model)
 
-        vc.inject(presenter: presenter)
+        vc.inject(questionCount: questionCount, animationSpeed: animationSpeed, presenter: presenter)
         
         navigationController?.pushViewController(vc, animated: false)
     }

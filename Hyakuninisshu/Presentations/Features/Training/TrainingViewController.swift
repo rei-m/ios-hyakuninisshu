@@ -39,7 +39,7 @@ class TrainingViewController: UIViewController {
     private var rangeErrorHeightConstraint: NSLayoutConstraint?
     
     private var presenter: TrainingPresenterProtocol!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -67,16 +67,6 @@ class TrainingViewController: UIViewController {
     @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {
         presenter.didStartTrainingButtonTapDone()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func inject(presenter: TrainingPresenterProtocol) {
         self.presenter = presenter
@@ -137,26 +127,15 @@ extension TrainingViewController: TrainingViewProtocol {
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "TrainingStarterViewController") as? TrainingStarterViewController else {
-            fatalError("unknown VC identifier value='TrainingStarterViewController'")
-        }
-        
-        let model = TrainingStarterModel(
-            karutaNos: karutaNos,
-            karutaRepository: karutaRepository,
-            questionRepository: questionRepository
-        )
-        
+        let vc: TrainingStarterViewController = requireStoryboard.instantiateViewController(identifier: .trainingStarter)
+
+        let model = TrainingStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+
         let presenter = TrainingStarterPresenter(view: vc, model: model)
 
-        vc.inject(
-            presenter: presenter,
-            kamiNoKu: kamiNoKu,
-            shimoNoKu: shimoNoKu,
-            animationSpeed: animationSpeed
-        )
+        vc.inject(presenter: presenter, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
 
-        navigationController?.pushViewController(vc, animated: false)
+        requireNavigationController.pushViewController(vc, animated: false)
     }
 }
 

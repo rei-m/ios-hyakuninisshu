@@ -9,24 +9,39 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    var karutaRepository: KarutaRepositoryProtocol {
+    var requireAppDelegate: AppDelegate {
         get {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                // TODO
-                fatalError("")
+                fatalError("Missing appdelegate.")
             }
-            return appDelegate.karutaRepository
+            return appDelegate
+        }
+    }
+        
+    var requireStoryboard: UIStoryboard {
+        get {
+            guard let storyboard = storyboard else {
+                fatalError("Missing storyboard.")
+            }
+            return storyboard
         }
     }
     
-    var questionRepository: QuestionRepositoryProtocol {
+    var requireNavigationController: UINavigationController {
         get {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                // TODO
-                fatalError("")
+            guard let navigationController = navigationController else {
+                fatalError("Missing navigationController.")
             }
-            return appDelegate.questionRepository
+            return navigationController
         }
+    }
+
+    var karutaRepository: KarutaRepositoryProtocol {
+        get { requireAppDelegate.karutaRepository }
+    }
+    
+    var questionRepository: QuestionRepositoryProtocol {
+        get { requireAppDelegate.questionRepository }
     }
     
     func setUpLeftBackButton() {
@@ -35,9 +50,6 @@ extension UIViewController {
     }
     
     @objc func popToNaviRoot(){
-        guard let navigationController = navigationController else {
-            fatalError("missing navigationController. confirm storyboard.")
-        }
-        navigationController.popToRootViewController(animated: true)
+        requireNavigationController.popToRootViewController(animated: true)
     }
 }

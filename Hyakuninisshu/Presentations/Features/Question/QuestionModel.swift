@@ -9,39 +9,31 @@ import Foundation
 import Combine
 
 protocol QuestionModelProtocol: AnyObject {
-    var questionCount: Int { get }
     var questionNo: Int { get }
     var kamiNoKu: DisplayStyleCondition { get }
     var shimoNoKu: DisplayStyleCondition { get }
-    var animationSpeed: AnimationSpeedCondition { get }
     func fetchPlay() -> AnyPublisher<Play, ModelError>
     func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError>
 }
 
 class QuestionModel: QuestionModelProtocol {
-    let questionCount: Int
     let questionNo: Int
     let kamiNoKu: DisplayStyleCondition
     let shimoNoKu: DisplayStyleCondition
-    let animationSpeed: AnimationSpeedCondition
 
     private let karutaRepository: KarutaRepositoryProtocol
     private let questionRepository: QuestionRepositoryProtocol
     
     init(
-        questionCount: Int,
         questionNo: Int,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
-        animationSpeed: AnimationSpeedCondition,
         karutaRepository: KarutaRepositoryProtocol,
         questionRepository: QuestionRepositoryProtocol
     ) {
-        self.questionCount = questionCount
         self.questionNo = questionNo
         self.kamiNoKu = kamiNoKu
         self.shimoNoKu = shimoNoKu
-        self.animationSpeed = animationSpeed
         self.karutaRepository = karutaRepository
         self.questionRepository = questionRepository
     }
@@ -67,7 +59,7 @@ class QuestionModel: QuestionModelProtocol {
             
             let toriFudas = choiceKarutas.map { $0.toToriFuda(style: self.shimoNoKu) }
             
-            return Play(no: question.no, totalCount: self.questionCount, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
+            return Play(no: question.no, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
         }
         
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
