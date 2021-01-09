@@ -8,7 +8,9 @@
 import UIKit
 
 class ExamResultViewController: UIViewController {
-
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var averageAnswerTimeLabel: UILabel!
+    
     private var examResult: ExamResult!
     
     override func viewDidLoad() {
@@ -16,8 +18,8 @@ class ExamResultViewController: UIViewController {
         setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
 
-        dump(examResult)
-        // Do any additional setup after loading the view.
+        scoreLabel.text = examResult.score
+        averageAnswerTimeLabel.text = examResult.averageAnswerSecText
     }
     
     func inject(examResult: ExamResult) {
