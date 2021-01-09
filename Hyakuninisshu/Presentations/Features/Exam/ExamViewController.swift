@@ -17,9 +17,13 @@ class ExamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // TODO lastexamを取り直す
+        tabBarController?.tabBar.isHidden = false
+    }
+
     @IBAction func didTapStartExamButton(_ sender: Any) {
         presenter.didTapStartExamButton()
     }

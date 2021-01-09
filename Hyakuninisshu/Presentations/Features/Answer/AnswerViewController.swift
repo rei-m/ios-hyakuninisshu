@@ -43,17 +43,16 @@ class AnswerViewController: UIViewController {
         goToResultButton.isHidden = !isAnsweredAllQuestions
     }
     
-    private var cancellables = [AnyCancellable]()
-
+//    private var cancellables = [AnyCancellable]()
     
     @IBAction func didTapGoToNext(_ sender: UIButton) {
-//        presenter.didTapGoToNext()
-        karutaRepository.findAll().map { karutas -> [(Material, Bool)] in
-            karutas.map { (Material.fromKaruta($0), true) }
-        }.receive(on: DispatchQueue.main).sink(receiveCompletion: {_ in }, receiveValue: { judgements in
-            let examResult = ExamResult(score: "100 / 100", averageAnswerSecText: "3.6秒", judgements: judgements)
-            self.goToExamResult(examResult)
-        }).store(in: &cancellables)
+        presenter.didTapGoToNext()
+//        karutaRepository.findAll().map { karutas -> [(Material, Bool)] in
+//            karutas.map { (Material.fromKaruta($0), true) }
+//        }.receive(on: DispatchQueue.main).sink(receiveCompletion: {_ in }, receiveValue: { judgements in
+//            let examResult = ExamResult(score: "100 / 100", averageAnswerSecText: "3.6秒", judgements: judgements)
+//            self.goToExamResult(examResult)
+//        }).store(in: &cancellables)
     }
 
     @IBAction func didTapGoToResult(_ sender: UIButton) {
