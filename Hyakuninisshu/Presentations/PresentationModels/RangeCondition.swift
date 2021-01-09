@@ -19,10 +19,10 @@ struct RangeCondition: KeyboardPickerItem, Equatable {
     }
     
     static let FROM_DATA: [RangeCondition] = RangeCondition.FROM_DATA_SOURCE.map {
-        RangeCondition(text: $0.noText, no: $0)
+        RangeCondition(text: KanjiFormatter.no(NSNumber(value: $0)), no: $0)
     }
     
     static let TO_DATA: [RangeCondition] = RangeCondition.TO_DATA_SOURCE.map {
-        RangeCondition(text: $0.noText, no: $0)
+        RangeCondition(text: KanjiFormatter.no(NSNumber(value: $0)), no: $0)
     }
 }

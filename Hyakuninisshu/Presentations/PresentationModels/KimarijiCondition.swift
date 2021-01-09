@@ -21,6 +21,6 @@ struct KimarijiCondition: KeyboardPickerItem, Equatable {
         guard let v = $0 else {
             return Self(text: "指定しない", value: nil)
         }
-        return Self(text: v.kimarijiText, value: v)
+        return Self(text: KanjiFormatter.kimariji(NSNumber(value: v)), value: v)
     }
 }

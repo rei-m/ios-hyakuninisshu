@@ -21,15 +21,15 @@ class QuestionModel: QuestionModelProtocol {
     let kamiNoKu: DisplayStyleCondition
     let shimoNoKu: DisplayStyleCondition
 
-    private let karutaRepository: KarutaRepositoryProtocol
-    private let questionRepository: QuestionRepositoryProtocol
+    private let karutaRepository: KarutaRepository
+    private let questionRepository: QuestionRepository
     
     init(
         questionNo: Int,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
-        karutaRepository: KarutaRepositoryProtocol,
-        questionRepository: QuestionRepositoryProtocol
+        karutaRepository: KarutaRepository,
+        questionRepository: QuestionRepository
     ) {
         self.questionNo = questionNo
         self.kamiNoKu = kamiNoKu
@@ -49,15 +49,14 @@ class QuestionModel: QuestionModelProtocol {
             var choiceKarutaMap: [Int8: Karuta] = [:]
             choiceKarutas.forEach { choiceKarutaMap[$0.no.value] = $0 }
             
-            guard let yomiFuda = choiceKarutaMap[question.correctNo.value]?.toYomiFuda(style: self.kamiNoKu) else {
+            guard let correctKaruta = choiceKarutaMap[question.correctNo.value] else {
                 // TODO
                 fatalError()
             }
-            guard let correct = choiceKarutaMap[question.correctNo.value]?.toMaterial() else {
-                fatalError()
-            }
             
-            let toriFudas = choiceKarutas.map { $0.toToriFuda(style: self.shimoNoKu) }
+            let correct = Material.fromKaruta(correctKaruta)
+            let yomiFuda = YomiFuda.fromKamiNoKu(kamiNoKu: correctKaruta.kamiNoKu, style: self.kamiNoKu)
+            let toriFudas = choiceKarutas.map { ToriFuda.fromShimoNoKu(shimoNoKu: $0.shimoNoKu, style: self.shimoNoKu) }
             
             return Play(no: question.no, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
         }

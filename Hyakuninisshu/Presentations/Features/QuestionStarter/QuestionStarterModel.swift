@@ -15,13 +15,13 @@ protocol QuestionStarterModelProtocol: AnyObject {
 class QuestionStarterModel: QuestionStarterModelProtocol {
     let karutaNos: [Int8]
     
-    private let karutaRepository: KarutaRepositoryProtocol
-    private let questionRepository: QuestionRepositoryProtocol
+    private let karutaRepository: KarutaRepository
+    private let questionRepository: QuestionRepository
     
     init(
         karutaNos: [Int8],
-        karutaRepository: KarutaRepositoryProtocol,
-        questionRepository: QuestionRepositoryProtocol
+        karutaRepository: KarutaRepository,
+        questionRepository: QuestionRepository
     ) {
         self.karutaNos = karutaNos
         self.karutaRepository = karutaRepository

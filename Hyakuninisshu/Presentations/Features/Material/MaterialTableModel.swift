@@ -18,15 +18,15 @@ protocol MaterialTableModelProtocol: AnyObject {
 
 class MaterialTableModel: MaterialTableModelProtocol {
     
-    private let karutaRepository: KarutaRepositoryProtocol
+    private let karutaRepository: KarutaRepository
     
-    init(karutaRepository: KarutaRepositoryProtocol) {
+    init(karutaRepository: KarutaRepository) {
         self.karutaRepository = karutaRepository
     }
 
     func fetchKarutas() -> AnyPublisher<[Material], ModelError> {
         return karutaRepository.findAll().map { karutas in
-            karutas.map { $0.toMaterial() }
+            karutas.map { Material.fromKaruta($0) }
         }.mapError { _ in
             ModelError.unhandled
         }.eraseToAnyPublisher()

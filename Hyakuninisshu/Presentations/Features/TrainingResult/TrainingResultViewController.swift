@@ -7,39 +7,30 @@
 
 import UIKit
 
-protocol TrainingResultViewProtocol: AnyObject {
-    func displayResult(_ trainingResult: TrainingResult)
-}
-
 class TrainingResultViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var averageAnswerTimeLabel: UILabel!
     @IBOutlet weak var goToTrainingButton: UIButton!
     
-    private var presenter: TrainingResultPresenterProtocol!
-
+    private var trainingResult: TrainingResult!
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
     private var animationSpeed: AnimationSpeedCondition!
-    
-    private var wrongKarutaNos: [Int8]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
         
-        presenter.viewDidLoad()
+        scoreLabel.text = trainingResult.score
+        averageAnswerTimeLabel.text = trainingResult.averageAnswerSecText
+        goToTrainingButton.isHidden = !trainingResult.canRestart
     }
     
     @IBAction func didTapGoToTraining(_ sender: Any) {
-        guard let wrongKarutaNos = self.wrongKarutaNos else {
-            return
-        }
-
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
         
-        let model = QuestionStarterModel(karutaNos: wrongKarutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: trainingResult.wrongKarutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
         
         let presenter = QuestionStarterPresenter(view: vc, model: model)
 
@@ -51,35 +42,16 @@ class TrainingResultViewController: UIViewController {
     @IBAction func didTapGoToMenu(_ sender: Any) {
         popToNaviRoot()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func inject(
-        presenter: TrainingResultPresenterProtocol,
+        trainingResult: TrainingResult,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
-        self.presenter = presenter
+        self.trainingResult = trainingResult
         self.kamiNoKu = kamiNoKu
         self.shimoNoKu = shimoNoKu
         self.animationSpeed = animationSpeed
-    }
-}
-
-extension TrainingResultViewController: TrainingResultViewProtocol {
-    func displayResult(_ trainingResult: TrainingResult) {
-        scoreLabel.text = trainingResult.score
-        averageAnswerTimeLabel.text = trainingResult.averageAnswerSecText
-        goToTrainingButton.isHidden = !trainingResult.canRestart
-        self.wrongKarutaNos = trainingResult.wrongKarutaNos
     }
 }

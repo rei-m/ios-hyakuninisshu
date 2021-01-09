@@ -12,7 +12,7 @@ extension UIViewController {
     var requireAppDelegate: AppDelegate {
         get {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                fatalError("Missing appdelegate.")
+                fatalError("Missing AppDelegate.")
             }
             return appDelegate
         }
@@ -36,12 +36,16 @@ extension UIViewController {
         }
     }
 
-    var karutaRepository: KarutaRepositoryProtocol {
+    var karutaRepository: KarutaRepository {
         get { requireAppDelegate.karutaRepository }
     }
     
-    var questionRepository: QuestionRepositoryProtocol {
+    var questionRepository: QuestionRepository {
         get { requireAppDelegate.questionRepository }
+    }
+    
+    var examHistoryRepository: ExamHistoryRepository {
+        get { requireAppDelegate.examHistoryRepository }
     }
     
     func setUpLeftBackButton() {

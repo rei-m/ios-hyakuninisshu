@@ -11,7 +11,7 @@ class EntranceTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // TODO: DIはもっとうまいやり方があると思うんだけど・・・取りあえず動くの優先
         viewControllers?.forEach { vc in
             if vc is UINavigationController {
@@ -30,6 +30,14 @@ class EntranceTabBarController: UITabBarController {
                     let model = TrainingModel(karutaRepository: karutaRepository)
                     let presenter = TrainingPresenter(view: trainingViewController, model: model)
                     trainingViewController.inject(presenter: presenter)
+                }
+                for nvc in vc.children {
+                    guard let examViewController = nvc as? ExamViewController else {
+                        break
+                    }
+                    let model = ExamModel(karutaRepository: karutaRepository)
+                    let presenter = ExamPresenter(view: examViewController, model: model)
+                    examViewController.inject(presenter: presenter)
                 }
             }
         }

@@ -11,8 +11,9 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    lazy var karutaRepository: KarutaRepositoryProtocol = KarutaRepository(container: persistentContainer)
-    lazy var questionRepository: QuestionRepositoryProtocol = QuestionRepository(container: persistentContainer)
+    lazy var karutaRepository: KarutaRepository = KarutaRepositoryImpl(container: persistentContainer)
+    lazy var questionRepository: QuestionRepository = QuestionRepositoryImpl(container: persistentContainer)
+    lazy var examHistoryRepository: ExamHistoryRepository = ExamHistoryRepositoryImpl(container: persistentContainer)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -71,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
