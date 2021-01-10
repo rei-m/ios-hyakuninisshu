@@ -10,8 +10,8 @@ import CoreData
 import Combine
 
 protocol ExamHistoryRepository {
-    func findCollection() -> AnyPublisher<ExamHistoryCollection, RepositoryError>
-    func findLast() -> AnyPublisher<ExamHistory?, RepositoryError>
-    func add(_ examHistory: ExamHistory)  -> AnyPublisher<Void, RepositoryError>
-    func delete(_ examHistories: [ExamHistory])  -> AnyPublisher<Void, RepositoryError>
+    func findCollection() -> Future<ExamHistoryCollection, RepositoryError>
+    func findLast() -> Future<ExamHistory?, RepositoryError>
+    func add(_ examHistory: ExamHistory) -> Future<Void, RepositoryError>
+    func delete(_ examHistories: [ExamHistory]) -> Future<Void, RepositoryError>
 }

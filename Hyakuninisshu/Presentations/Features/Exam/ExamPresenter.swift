@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 protocol ExamPresenterProtocol: AnyObject {
+    func viewWillAppear()
     func didTapStartExamButton()
 }
 
@@ -22,6 +23,23 @@ class ExamPresenter: ExamPresenterProtocol {
     init(view: ExamViewProtocol, model: ExamModelProtocol) {
         self.view = view
         self.model = model
+    }
+    
+    func viewWillAppear() {
+        model.fetchLastExamResult().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let error):
+                // TODO
+                print(error)
+            case .finished:
+                return
+            }
+        }, receiveValue: { [weak self] lastExamResult in
+            guard let lastExamResult = lastExamResult else {
+                return
+            }
+            self?.view.displayLastResult(lastExamResult)
+        }).store(in: &cancellables)
     }
     
     func didTapStartExamButton() {

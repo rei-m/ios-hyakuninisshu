@@ -87,6 +87,7 @@
 		FA5E6A6C25A8051A008EE33F /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A6B25A8051A008EE33F /* ExamViewController.swift */; };
 		FA5E6A7425A80525008EE33F /* ExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A7325A80525008EE33F /* ExamModel.swift */; };
 		FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */; };
+		FA5FEFBD25AB463C00948165 /* LastExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFBC25AB463C00948165 /* LastExamResult.swift */; };
 		FA6DEACB25A8550E00F8C349 /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */; };
 		FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */; };
 		FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */; };
@@ -199,6 +200,7 @@
 		FA5E6A6B25A8051A008EE33F /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		FA5E6A7325A80525008EE33F /* ExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamModel.swift; sourceTree = "<group>"; };
 		FA5E6A7825A8052F008EE33F /* ExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPresenter.swift; sourceTree = "<group>"; };
+		FA5FEFBC25AB463C00948165 /* LastExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastExamResult.swift; sourceTree = "<group>"; };
 		FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = karuta_list_v_3.json; sourceTree = "<group>"; };
 		FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPicker.swift; sourceTree = "<group>"; };
 		FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				FA178EF6259E1AD2001C0311 /* Play.swift */,
 				FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */,
 				FAB9E0F825A8B6530038EA04 /* ExamResult.swift */,
+				FA5FEFBC25AB463C00948165 /* LastExamResult.swift */,
 			);
 			path = PresentationModels;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
 				FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */,
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
+				FA5FEFBD25AB463C00948165 /* LastExamResult.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
 				FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */,

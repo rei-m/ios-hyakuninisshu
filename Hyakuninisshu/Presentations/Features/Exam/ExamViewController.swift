@@ -8,10 +8,14 @@
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
+    func displayLastResult(_ lastExamResult: LastExamResult)
     func goToNextVC(karutaNos: [Int8])
 }
 
 class ExamViewController: UIViewController {
+    @IBOutlet weak var lastExamResultView: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var averageAnswerSecLabel: UILabel!
 
     private var presenter: ExamPresenterProtocol!
     
@@ -20,8 +24,9 @@ class ExamViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // TODO lastexamを取り直す
         tabBarController?.tabBar.isHidden = false
+        lastExamResultView.isHidden = true
+        presenter.viewWillAppear()
     }
 
     @IBAction func didTapStartExamButton(_ sender: Any) {
@@ -34,6 +39,12 @@ class ExamViewController: UIViewController {
 }
 
 extension ExamViewController: ExamViewProtocol {
+    func displayLastResult(_ lastExamResult: LastExamResult) {
+        lastExamResultView.isHidden = false
+        scoreLabel.text = lastExamResult.score
+        averageAnswerSecLabel.text = lastExamResult.averageAnswerSecText
+    }
+    
     func goToNextVC(karutaNos: [Int8]) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 

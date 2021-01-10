@@ -19,38 +19,38 @@ class QuestionRepositoryImpl: QuestionRepository {
         self.container = container
     }
 
-    func initialize(questions: [Question]) -> AnyPublisher<Void, RepositoryError> {
+    func initialize(questions: [Question]) -> Future<Void, RepositoryError> {
         self.questions = questions
         
         let publisher = Future<Void, RepositoryError>{ promise in
             promise(.success(()))
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
     
-    func findCollection() -> AnyPublisher<QuestionCollection, RepositoryError> {
+    func findCollection() -> Future<QuestionCollection, RepositoryError> {
         let publisher = Future<QuestionCollection, RepositoryError>{ promise in
             promise(.success(QuestionCollection(values: self.questions)))
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
     
-    func findByNo(no: Int) -> AnyPublisher<Question, RepositoryError> {
+    func findByNo(no: Int) -> Future<Question, RepositoryError> {
         let publisher = Future<Question, RepositoryError>{ promise in
             promise(.success(self.questions[no - 1]))
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
     
-    func save(_ question: Question) -> AnyPublisher<Void, RepositoryError> {
+    func save(_ question: Question) -> Future<Void, RepositoryError> {
         questions[question.no - 1] = question
         let publisher = Future<Void, RepositoryError>{ promise in
             promise(.success(()))
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
 }

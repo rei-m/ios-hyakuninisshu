@@ -302,8 +302,69 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-SP-zNg" userLabel="LastExamResultView">
+                                <rect key="frame" x="16" y="197" width="382" height="223"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回の腕試しの結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-tZ-Ims" userLabel="LastExamResultTitle">
+                                        <rect key="frame" x="16" y="16" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-cQ-ovJ" userLabel="ScoreTitle">
+                                        <rect key="frame" x="16" y="53" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-e6-Pv5" userLabel="Score">
+                                        <rect key="frame" x="16" y="78" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wha-qR-s3W" userLabel="AverageAnswerSecTitle">
+                                        <rect key="frame" x="16" y="115" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.22秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-Np-7jh" userLabel="AverageAnswerSec">
+                                        <rect key="frame" x="16" y="140" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-9J-0vl" userLabel="GoToAllExamHistoryButton">
+                                        <rect key="frame" x="16" y="177" width="169" height="30"/>
+                                        <state key="normal" title="過去の結果をすべて見る"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="8oi-df-6Bf"/>
+                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="top" secondItem="cmp-cQ-ovJ" secondAttribute="bottom" constant="4" id="9K7-kp-11r"/>
+                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="top" secondItem="Yjq-tZ-Ims" secondAttribute="bottom" constant="16" id="AGK-pg-xcT"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MQ-9J-0vl" secondAttribute="bottom" constant="16" id="Awt-Cq-aRX"/>
+                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="top" constant="16" id="Gfm-MV-RAF"/>
+                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="ING-PA-X1Y"/>
+                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="top" secondItem="r6Z-Np-7jh" secondAttribute="bottom" constant="16" id="JcZ-fV-Wwb"/>
+                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="top" secondItem="wha-qR-s3W" secondAttribute="bottom" constant="4" id="K0d-EV-E8C"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1MQ-9J-0vl" secondAttribute="trailing" constant="20" symbolic="YES" id="Nb9-Fy-6tj"/>
+                                    <constraint firstAttribute="trailing" secondItem="wha-qR-s3W" secondAttribute="trailing" constant="16" id="P3K-az-bnJ"/>
+                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="RJx-ag-dqs"/>
+                                    <constraint firstItem="wha-qR-s3W" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="Xia-Hu-O7T"/>
+                                    <constraint firstAttribute="trailing" secondItem="cmp-cQ-ovJ" secondAttribute="trailing" constant="16" id="YrS-vW-VKW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yjq-tZ-Ims" secondAttribute="trailing" constant="16" id="dM1-tR-WPK"/>
+                                    <constraint firstAttribute="trailing" secondItem="r6Z-Np-7jh" secondAttribute="trailing" constant="16" id="g6d-3n-6uc"/>
+                                    <constraint firstItem="wha-qR-s3W" firstAttribute="top" secondItem="Dxu-e6-Pv5" secondAttribute="bottom" constant="16" id="jfz-UJ-Fyq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dxu-e6-Pv5" secondAttribute="trailing" constant="16" id="m2U-U8-eDv"/>
+                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="tOA-gA-fXj"/>
+                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="wMg-ZF-1dB"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartTrainingButton">
-                                <rect key="frame" x="122.5" y="197" width="169" height="23"/>
+                                <rect key="frame" x="122.5" y="452" width="169" height="23"/>
                                 <state key="normal" title="腕試しをはじめる" image="highlighter" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
@@ -320,14 +381,22 @@
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="HLn-bw-0pp"/>
-                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
+                            <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="J0g-cb-JtY"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
+                            <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
+                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OhD-yT-RVn"/>
+                    <connections>
+                        <outlet property="averageAnswerSecLabel" destination="r6Z-Np-7jh" id="adg-k4-8qe"/>
+                        <outlet property="lastExamResultView" destination="EQu-SP-zNg" id="DUs-7N-Ag3"/>
+                        <outlet property="scoreLabel" destination="Dxu-e6-Pv5" id="aNL-Ra-gdC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3j-vh-2US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="467"/>
+            <point key="canvasLocation" x="3134.7826086956525" y="466.74107142857139"/>
         </scene>
         <!--練習-->
         <scene sceneID="pFl-pr-7Ws">
@@ -937,7 +1006,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-fE-c6R" userLabel="YomiFuda Area">
                                 <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                         <rect key="frame" x="139" y="90.5" width="136" height="228"/>
                                     </view>
                                 </subviews>
@@ -953,7 +1022,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x91-1V-jq8">
                                         <rect key="frame" x="16" y="16" width="382" height="377"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -961,7 +1030,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="6Oc-mJ-fbs" appends="YES" id="gdR-jA-YSh"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="106" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -969,7 +1038,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="FHz-7C-gAx" appends="YES" id="nRi-rj-a39"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="212" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -977,7 +1046,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="GKk-ep-9Ye" appends="YES" id="pP4-U9-EDa"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="318" y="92.5" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
