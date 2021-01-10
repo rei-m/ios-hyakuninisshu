@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LastExamResult {
+struct ExamScore {
     let score: String
     let averageAnswerSecText: String
 }

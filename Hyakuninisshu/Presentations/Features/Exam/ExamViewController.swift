@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
-    func displayLastResult(_ lastExamResult: LastExamResult)
+    func displayLastResult(_ examScore: ExamScore)
     func goToNextVC(karutaNos: [Int8])
 }
 
@@ -16,7 +16,8 @@ class ExamViewController: UIViewController {
     @IBOutlet weak var lastExamResultView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var averageAnswerSecLabel: UILabel!
-
+    @IBOutlet weak var startTrainingButton: UIButton!
+    
     private var presenter: ExamPresenterProtocol!
     
     override func viewDidLoad() {
@@ -26,11 +27,15 @@ class ExamViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
         lastExamResultView.isHidden = true
+        startTrainingButton.isHidden = true
         presenter.viewWillAppear()
     }
 
     @IBAction func didTapStartExamButton(_ sender: Any) {
         presenter.didTapStartExamButton()
+    }
+
+    @IBAction func didTapStartTrainingButton(_ sender: Any) {
     }
     
     func inject(presenter: ExamPresenterProtocol) {
@@ -39,10 +44,11 @@ class ExamViewController: UIViewController {
 }
 
 extension ExamViewController: ExamViewProtocol {
-    func displayLastResult(_ lastExamResult: LastExamResult) {
+    func displayLastResult(_ examScore: ExamScore) {
         lastExamResultView.isHidden = false
-        scoreLabel.text = lastExamResult.score
-        averageAnswerSecLabel.text = lastExamResult.averageAnswerSecText
+        scoreLabel.text = examScore.score
+        averageAnswerSecLabel.text = examScore.averageAnswerSecText
+        startTrainingButton.isHidden = false
     }
     
     func goToNextVC(karutaNos: [Int8]) {

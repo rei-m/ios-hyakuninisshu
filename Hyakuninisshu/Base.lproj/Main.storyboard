@@ -338,6 +338,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-9J-0vl" userLabel="GoToAllExamHistoryButton">
                                         <rect key="frame" x="16" y="177" width="169" height="30"/>
                                         <state key="normal" title="過去の結果をすべて見る"/>
+                                        <connections>
+                                            <segue destination="CUn-zO-SzP" kind="show" id="WQP-ig-As2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -363,7 +366,7 @@
                                     <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="wMg-ZF-1dB"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartTrainingButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton">
                                 <rect key="frame" x="122.5" y="452" width="169" height="23"/>
                                 <state key="normal" title="腕試しをはじめる" image="highlighter" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
@@ -373,15 +376,24 @@
                                     <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton">
+                                <rect key="frame" x="107.5" y="507" width="199" height="30"/>
+                                <state key="normal" title="過去間違えた問題を練習する"/>
+                                <connections>
+                                    <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Cn-wn-Nqu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bgB-gm-r2E" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="2Cq-cT-EHD"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="HLn-bw-0pp"/>
                             <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="J0g-cb-JtY"/>
+                            <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="32" id="RVS-pG-mH3"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
                             <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
@@ -392,6 +404,7 @@
                         <outlet property="averageAnswerSecLabel" destination="r6Z-Np-7jh" id="adg-k4-8qe"/>
                         <outlet property="lastExamResultView" destination="EQu-SP-zNg" id="DUs-7N-Ag3"/>
                         <outlet property="scoreLabel" destination="Dxu-e6-Pv5" id="aNL-Ra-gdC"/>
+                        <outlet property="startTrainingButton" destination="bgB-gm-r2E" id="j5O-1l-W40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3j-vh-2US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -890,6 +903,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZI-eS-NPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6760.8695652173919" y="466.74107142857139"/>
+        </scene>
+        <!--Exam History Table View Controller-->
+        <scene sceneID="GK2-ff-Aa5">
+            <objects>
+                <tableViewController storyboardIdentifier="ExamHistoryTableViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUn-zO-SzP" customClass="ExamHistoryTableViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPJ-2D-gbH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3fa-dC-wVX">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CUn-zO-SzP" id="OhP-U7-7gg"/>
+                            <outlet property="delegate" destination="CUn-zO-SzP" id="y0O-Cq-EKE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="WVi-lA-uvn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qye-uY-ID6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6761" y="1235"/>
         </scene>
         <!--練習結果-->
         <scene sceneID="rBg-NQ-zEN">

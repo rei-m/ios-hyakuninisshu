@@ -16,11 +16,16 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
     
     init(container: NSPersistentContainer) {
         self.container = container
+        
+        // TODO
+        let questionJudgements = KarutaNo.LIST.map { QuestionJudgement(karutaNo: $0, isCorrect: true) }
+        let dummy = ExamHistory(id: ExamHistoryId(), tookDate: Date(), resultSummary: QuestionResultSummary(totalQuestionCount: 100, correctCount: 100, averageAnswerSec: 3.6), questionJudgements: questionJudgements)
+        examHistories.append(dummy)
     }
     
     func findCollection() -> Future<ExamHistoryCollection, RepositoryError> {
         let publisher = Future<ExamHistoryCollection, RepositoryError>{ promise in
-            promise(.success(ExamHistoryCollection([])))
+            promise(.success(ExamHistoryCollection(self.examHistories)))
         }
 
         return publisher
