@@ -31,7 +31,9 @@ class AnswerModel: AnswerModelProtocol {
             let averageAnswerSecText = "\(round(resultSummary.averageAnswerSec*100)/100)秒"
             let canRestart = questionCollection.canRestart()
             let wrongKarutaNos = questionCollection.wrongKarutaNoCollection().values.map { $0.value }
-            return TrainingResult(score: score, averageAnswerSecText: averageAnswerSecText, canRestart: canRestart, wrongKarutaNos: wrongKarutaNos)
+            // TODO
+            let playScore = PlayScore(tookDate: Date(), score: score, averageAnswerSecText: averageAnswerSecText)
+            return TrainingResult(score: playScore, canRestart: canRestart, wrongKarutaNos: wrongKarutaNos)
         }
 
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
@@ -48,7 +50,9 @@ class AnswerModel: AnswerModelProtocol {
             let score = examHistory.resultSummary.score()
             let averageAnswerSecText = "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒"
             let judgements: [(Material, Bool)] = karutas.enumerated().map { (Material.fromKaruta($0.element), examHistory.questionJudgements[$0.offset].isCorrect) }
-            return ExamResult(score: score, averageAnswerSecText: averageAnswerSecText, judgements: judgements)
+            // TODO
+            let playScore = PlayScore(tookDate: Date(), score: score, averageAnswerSecText: averageAnswerSecText)
+            return ExamResult(score: playScore, judgements: judgements)
         }
         
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()

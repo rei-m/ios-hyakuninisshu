@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
-    func displayLastResult(_ examScore: ExamScore)
+    func displayLastResult(_ examScore: PlayScore)
     func goToNextVC(karutaNos: [Int8])
 }
 
@@ -38,13 +38,35 @@ class ExamViewController: UIViewController {
     @IBAction func didTapStartTrainingButton(_ sender: Any) {
     }
     
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier ?? "" {
+            case "ShowExamHistory":
+                guard let examHistoryTableViewController = segue.destination as? ExamHistoryTableViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                let model = ExamHistoryModel(examHistoryRepository: examHistoryRepository)
+                let presenter = ExamHistoryPresenter(view: examHistoryTableViewController, model: model)
+                
+                examHistoryTableViewController.inject(presenter: presenter)
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
+    }
+    
     func inject(presenter: ExamPresenterProtocol) {
         self.presenter = presenter
     }
 }
 
 extension ExamViewController: ExamViewProtocol {
-    func displayLastResult(_ examScore: ExamScore) {
+    func displayLastResult(_ examScore: PlayScore) {
         lastExamResultView.isHidden = false
         scoreLabel.text = examScore.score
         averageAnswerSecLabel.text = examScore.averageAnswerSecText

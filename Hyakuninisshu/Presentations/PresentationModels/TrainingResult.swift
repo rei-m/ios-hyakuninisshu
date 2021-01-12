@@ -8,8 +8,7 @@
 import Foundation
 
 struct TrainingResult {
-    let score: String
-    let averageAnswerSecText: String
+    let score: PlayScore
     let canRestart: Bool
     let wrongKarutaNos: [Int8]
 }

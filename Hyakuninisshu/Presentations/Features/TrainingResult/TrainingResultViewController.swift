@@ -22,8 +22,8 @@ class TrainingResultViewController: UIViewController {
         setUpLeftBackButton()
         tabBarController?.tabBar.isHidden = true
         
-        scoreLabel.text = trainingResult.score
-        averageAnswerTimeLabel.text = trainingResult.averageAnswerSecText
+        scoreLabel.text = trainingResult.score.score
+        averageAnswerTimeLabel.text = trainingResult.score.averageAnswerSecText
         goToTrainingButton.isHidden = !trainingResult.canRestart
     }
     

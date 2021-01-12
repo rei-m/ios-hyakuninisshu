@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol ExamModelProtocol: AnyObject {
-    func fetchLastExamScore() -> AnyPublisher<ExamScore?, ModelError>
+    func fetchLastExamScore() -> AnyPublisher<PlayScore?, ModelError>
     func fetchExamKarutaNos() -> AnyPublisher<[Int8], ModelError>
     func fetchPastExamsWrongKarutaNos() -> AnyPublisher<[Int8], ModelError>
 }
@@ -23,12 +23,12 @@ class ExamModel: ExamModelProtocol {
         self.examHistoryRepository = examHistoryRepository
     }
 
-    func fetchLastExamScore() -> AnyPublisher<ExamScore?, ModelError> {
-        let publisher = examHistoryRepository.findLast().map { examHistory -> ExamScore? in
+    func fetchLastExamScore() -> AnyPublisher<PlayScore?, ModelError> {
+        let publisher = examHistoryRepository.findLast().map { examHistory -> PlayScore? in
             guard let examHistory = examHistory else {
                 return nil
             }
-            return ExamScore(score: examHistory.resultSummary.score(), averageAnswerSecText: "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒")
+            return PlayScore(tookDate: Date(), score: examHistory.resultSummary.score(), averageAnswerSecText: "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒")
         }
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
     }
