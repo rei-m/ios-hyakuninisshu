@@ -114,7 +114,7 @@ class KarutaRepositoryImpl: KarutaRepository {
         self.container = container
     }
 
-    func initialize() -> AnyPublisher<Void, RepositoryError> {
+    func initialize() -> Future<Void, RepositoryError> {
         let publisher = Future<Void, RepositoryError>{ promise in
             let currentVer = UserDefaults.standard.string(forKey: KarutaRepositoryImpl.VERSION_KEY)
             if currentVer == KarutaRepositoryImpl.VERSION {
@@ -163,10 +163,10 @@ class KarutaRepositoryImpl: KarutaRepository {
             }
         }
         
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
 
-    func findAll() -> AnyPublisher<[Karuta], RepositoryError> {
+    func findAll() -> Future<[Karuta], RepositoryError> {
         let publisher = Future<[Karuta], RepositoryError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
@@ -189,10 +189,10 @@ class KarutaRepositoryImpl: KarutaRepository {
             }
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
 
-    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> AnyPublisher<[Karuta], RepositoryError> {
+    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Future<[Karuta], RepositoryError> {
         let publisher = Future<[Karuta], RepositoryError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.predicate = NSPredicate(
@@ -223,10 +223,10 @@ class KarutaRepositoryImpl: KarutaRepository {
             }
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
     
-    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError> {
+    func findAll(karutaNos: [KarutaNo]) -> Future<[Karuta], RepositoryError> {
         let publisher = Future<[Karuta], RepositoryError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.predicate = NSPredicate(
@@ -255,6 +255,6 @@ class KarutaRepositoryImpl: KarutaRepository {
             }
         }
 
-        return publisher.eraseToAnyPublisher()
+        return publisher
     }
 }

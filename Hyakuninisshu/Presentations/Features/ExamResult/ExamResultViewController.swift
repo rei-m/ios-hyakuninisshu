@@ -69,8 +69,8 @@ extension ExamResultViewController: UICollectionViewDataSource {
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ExamResultHeaderView", for: indexPath) as? ExamResultCollectionViewHeader else {
                 fatalError("The dequeued view is not instance of ExamResultHeaderView.")
             }
-            view.scoreLabel.text = examResult.score
-            view.averageAnswerTimeLabel.text = examResult.averageAnswerSecText
+            view.scoreLabel.text = examResult.score.score
+            view.averageAnswerTimeLabel.text = examResult.score.averageAnswerSecText
             return view
         case "UICollectionElementKindSectionFooter":
             return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExamResultFooterView", for: indexPath)

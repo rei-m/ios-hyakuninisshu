@@ -10,8 +10,8 @@ import CoreData
 import Combine
 
 protocol QuestionRepository {
-    func initialize(questions: [Question]) -> AnyPublisher<Void, RepositoryError>
-    func findByNo(no: Int) -> AnyPublisher<Question, RepositoryError>
-    func findCollection() -> AnyPublisher<QuestionCollection, RepositoryError>
-    func save(_ question: Question) -> AnyPublisher<Void, RepositoryError>
+    func initialize(questions: [Question]) -> Future<Void, RepositoryError>
+    func findByNo(no: Int) -> Future<Question, RepositoryError>
+    func findCollection() -> Future<QuestionCollection, RepositoryError>
+    func save(_ question: Question) -> Future<Void, RepositoryError>
 }

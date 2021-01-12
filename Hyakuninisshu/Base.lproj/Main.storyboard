@@ -302,8 +302,72 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartTrainingButton">
-                                <rect key="frame" x="122.5" y="197" width="169" height="23"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-SP-zNg" userLabel="LastExamResultView">
+                                <rect key="frame" x="16" y="197" width="382" height="223"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回の腕試しの結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-tZ-Ims" userLabel="LastExamResultTitle">
+                                        <rect key="frame" x="16" y="16" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-cQ-ovJ" userLabel="ScoreTitle">
+                                        <rect key="frame" x="16" y="53" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-e6-Pv5" userLabel="Score">
+                                        <rect key="frame" x="16" y="78" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wha-qR-s3W" userLabel="AverageAnswerSecTitle">
+                                        <rect key="frame" x="16" y="115" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.22秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-Np-7jh" userLabel="AverageAnswerSec">
+                                        <rect key="frame" x="16" y="140" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-9J-0vl" userLabel="GoToAllExamHistoryButton">
+                                        <rect key="frame" x="16" y="177" width="169" height="30"/>
+                                        <state key="normal" title="過去の結果をすべて見る"/>
+                                        <connections>
+                                            <segue destination="CUn-zO-SzP" kind="show" identifier="ShowExamHistory" id="WQP-ig-As2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="8oi-df-6Bf"/>
+                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="top" secondItem="cmp-cQ-ovJ" secondAttribute="bottom" constant="4" id="9K7-kp-11r"/>
+                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="top" secondItem="Yjq-tZ-Ims" secondAttribute="bottom" constant="16" id="AGK-pg-xcT"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MQ-9J-0vl" secondAttribute="bottom" constant="16" id="Awt-Cq-aRX"/>
+                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="top" constant="16" id="Gfm-MV-RAF"/>
+                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="ING-PA-X1Y"/>
+                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="top" secondItem="r6Z-Np-7jh" secondAttribute="bottom" constant="16" id="JcZ-fV-Wwb"/>
+                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="top" secondItem="wha-qR-s3W" secondAttribute="bottom" constant="4" id="K0d-EV-E8C"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1MQ-9J-0vl" secondAttribute="trailing" constant="20" symbolic="YES" id="Nb9-Fy-6tj"/>
+                                    <constraint firstAttribute="trailing" secondItem="wha-qR-s3W" secondAttribute="trailing" constant="16" id="P3K-az-bnJ"/>
+                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="RJx-ag-dqs"/>
+                                    <constraint firstItem="wha-qR-s3W" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="Xia-Hu-O7T"/>
+                                    <constraint firstAttribute="trailing" secondItem="cmp-cQ-ovJ" secondAttribute="trailing" constant="16" id="YrS-vW-VKW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yjq-tZ-Ims" secondAttribute="trailing" constant="16" id="dM1-tR-WPK"/>
+                                    <constraint firstAttribute="trailing" secondItem="r6Z-Np-7jh" secondAttribute="trailing" constant="16" id="g6d-3n-6uc"/>
+                                    <constraint firstItem="wha-qR-s3W" firstAttribute="top" secondItem="Dxu-e6-Pv5" secondAttribute="bottom" constant="16" id="jfz-UJ-Fyq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dxu-e6-Pv5" secondAttribute="trailing" constant="16" id="m2U-U8-eDv"/>
+                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="tOA-gA-fXj"/>
+                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="wMg-ZF-1dB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton">
+                                <rect key="frame" x="122.5" y="452" width="169" height="23"/>
                                 <state key="normal" title="腕試しをはじめる" image="highlighter" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
@@ -312,22 +376,40 @@
                                     <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton">
+                                <rect key="frame" x="107.5" y="507" width="199" height="30"/>
+                                <state key="normal" title="過去間違えた問題を練習する"/>
+                                <connections>
+                                    <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Cn-wn-Nqu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bgB-gm-r2E" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="2Cq-cT-EHD"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="HLn-bw-0pp"/>
-                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
+                            <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="J0g-cb-JtY"/>
+                            <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="32" id="RVS-pG-mH3"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
+                            <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
+                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OhD-yT-RVn"/>
+                    <connections>
+                        <outlet property="averageAnswerSecLabel" destination="r6Z-Np-7jh" id="adg-k4-8qe"/>
+                        <outlet property="lastExamResultView" destination="EQu-SP-zNg" id="DUs-7N-Ag3"/>
+                        <outlet property="scoreLabel" destination="Dxu-e6-Pv5" id="aNL-Ra-gdC"/>
+                        <outlet property="startTrainingButton" destination="bgB-gm-r2E" id="j5O-1l-W40"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3j-vh-2US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="467"/>
+            <point key="canvasLocation" x="3134.7826086956525" y="466.74107142857139"/>
         </scene>
         <!--練習-->
         <scene sceneID="pFl-pr-7Ws">
@@ -821,6 +903,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZI-eS-NPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6760.8695652173919" y="466.74107142857139"/>
+        </scene>
+        <!--Exam History Table View Controller-->
+        <scene sceneID="GK2-ff-Aa5">
+            <objects>
+                <tableViewController storyboardIdentifier="ExamHistoryTableViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUn-zO-SzP" customClass="ExamHistoryTableViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPJ-2D-gbH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
+                                            <rect key="frame" x="8" y="8" width="398" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="qjw-W1-aSY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
+                                            <rect key="frame" x="8" y="28" width="199" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
+                                            <rect key="frame" x="215" y="28" width="191" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Dql-Re-fuk" secondAttribute="bottom" constant="8" id="1it-Cv-QF3"/>
+                                        <constraint firstAttribute="bottom" secondItem="e5Z-BN-3E6" secondAttribute="bottom" constant="8" id="1zN-ZB-dr0"/>
+                                        <constraint firstItem="Dql-Re-fuk" firstAttribute="top" secondItem="6eI-hY-Jgb" secondAttribute="bottom" constant="4" id="40J-yd-4CK"/>
+                                        <constraint firstItem="6eI-hY-Jgb" firstAttribute="top" secondItem="PKI-y7-Ohp" secondAttribute="top" constant="8" id="KSf-sf-JCG"/>
+                                        <constraint firstItem="Dql-Re-fuk" firstAttribute="leading" secondItem="e5Z-BN-3E6" secondAttribute="trailing" constant="8" id="PlY-9e-Kob"/>
+                                        <constraint firstAttribute="trailing" secondItem="Dql-Re-fuk" secondAttribute="trailing" constant="8" id="Ufu-VT-IRv"/>
+                                        <constraint firstItem="e5Z-BN-3E6" firstAttribute="top" secondItem="6eI-hY-Jgb" secondAttribute="bottom" constant="4" id="ZMr-0r-oeC"/>
+                                        <constraint firstItem="Dql-Re-fuk" firstAttribute="width" secondItem="PKI-y7-Ohp" secondAttribute="width" multiplier="0.5" constant="-16" id="aK5-w8-te1"/>
+                                        <constraint firstItem="e5Z-BN-3E6" firstAttribute="width" relation="lessThanOrEqual" secondItem="PKI-y7-Ohp" secondAttribute="width" multiplier="0.5" constant="-8" id="cVL-1Y-act"/>
+                                        <constraint firstItem="6eI-hY-Jgb" firstAttribute="leading" secondItem="PKI-y7-Ohp" secondAttribute="leading" constant="8" id="dIw-3S-1Oz"/>
+                                        <constraint firstItem="e5Z-BN-3E6" firstAttribute="leading" secondItem="PKI-y7-Ohp" secondAttribute="leading" constant="8" id="lFq-Iz-7YO"/>
+                                        <constraint firstAttribute="trailing" secondItem="6eI-hY-Jgb" secondAttribute="trailing" constant="8" id="voV-03-1o1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="averageAnswerTimeLabel" destination="Dql-Re-fuk" id="RTK-hW-YYe"/>
+                                    <outlet property="dateLabel" destination="6eI-hY-Jgb" id="5or-Z6-ff5"/>
+                                    <outlet property="scoreLabel" destination="e5Z-BN-3E6" id="LtY-vE-7c8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CUn-zO-SzP" id="OhP-U7-7gg"/>
+                            <outlet property="delegate" destination="CUn-zO-SzP" id="y0O-Cq-EKE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="WVi-lA-uvn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qye-uY-ID6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6760.8695652173919" y="1234.8214285714284"/>
         </scene>
         <!--練習結果-->
         <scene sceneID="rBg-NQ-zEN">

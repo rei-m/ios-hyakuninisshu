@@ -48,6 +48,19 @@ extension UIViewController {
         get { requireAppDelegate.examHistoryRepository }
     }
     
+    func showUnexpectedErrorDialog() {
+        let alert = UIAlertController(
+            title: "エラー",
+            message: "予期しないエラーが発生しました。アプリを終了してください。",
+            preferredStyle: .alert
+        )
+
+        let defaultAction = UIAlertAction(title: "閉じる", style: .default)
+        alert.addAction(defaultAction)
+        
+        self.present(alert, animated: true)
+    }
+
     func setUpLeftBackButton() {
         let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(popToNaviRoot))
         navigationItem.leftBarButtonItem = leftButton

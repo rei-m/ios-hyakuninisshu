@@ -8,7 +8,6 @@
 import Foundation
 
 struct ExamResult {
-    let score: String
-    let averageAnswerSecText: String
+    let score: PlayScore
     let judgements: [(Material, Bool)]
 }

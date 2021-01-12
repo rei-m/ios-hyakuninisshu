@@ -8,11 +8,16 @@
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
+    func displayLastResult(_ examScore: PlayScore)
     func goToNextVC(karutaNos: [Int8])
 }
 
 class ExamViewController: UIViewController {
-
+    @IBOutlet weak var lastExamResultView: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var averageAnswerSecLabel: UILabel!
+    @IBOutlet weak var startTrainingButton: UIButton!
+    
     private var presenter: ExamPresenterProtocol!
     
     override func viewDidLoad() {
@@ -20,12 +25,39 @@ class ExamViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // TODO lastexamを取り直す
         tabBarController?.tabBar.isHidden = false
+        lastExamResultView.isHidden = true
+        startTrainingButton.isHidden = true
+        presenter.viewWillAppear()
     }
 
     @IBAction func didTapStartExamButton(_ sender: Any) {
         presenter.didTapStartExamButton()
+    }
+
+    @IBAction func didTapStartTrainingButton(_ sender: Any) {
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier ?? "" {
+            case "ShowExamHistory":
+                guard let examHistoryTableViewController = segue.destination as? ExamHistoryTableViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                let model = ExamHistoryModel(examHistoryRepository: examHistoryRepository)
+                let presenter = ExamHistoryPresenter(view: examHistoryTableViewController, model: model)
+                
+                examHistoryTableViewController.inject(presenter: presenter)
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
     
     func inject(presenter: ExamPresenterProtocol) {
@@ -34,6 +66,13 @@ class ExamViewController: UIViewController {
 }
 
 extension ExamViewController: ExamViewProtocol {
+    func displayLastResult(_ examScore: PlayScore) {
+        lastExamResultView.isHidden = false
+        scoreLabel.text = examScore.score
+        averageAnswerSecLabel.text = examScore.averageAnswerSecText
+        startTrainingButton.isHidden = false
+    }
+    
     func goToNextVC(karutaNos: [Int8]) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 

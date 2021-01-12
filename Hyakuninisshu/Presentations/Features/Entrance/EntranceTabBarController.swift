@@ -35,7 +35,7 @@ class EntranceTabBarController: UITabBarController {
                     guard let examViewController = nvc as? ExamViewController else {
                         break
                     }
-                    let model = ExamModel(karutaRepository: karutaRepository)
+                    let model = ExamModel(karutaRepository: karutaRepository, examHistoryRepository: examHistoryRepository)
                     let presenter = ExamPresenter(view: examViewController, model: model)
                     examViewController.inject(presenter: presenter)
                 }

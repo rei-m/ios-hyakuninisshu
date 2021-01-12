@@ -10,8 +10,8 @@ import CoreData
 import Combine
 
 protocol KarutaRepository {
-    func initialize() -> AnyPublisher<Void, RepositoryError>
-    func findAll() -> AnyPublisher<[Karuta], RepositoryError>
-    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> AnyPublisher<[Karuta], RepositoryError>
-    func findAll(karutaNos: [KarutaNo]) -> AnyPublisher<[Karuta], RepositoryError>
+    func initialize() -> Future<Void, RepositoryError>
+    func findAll() -> Future<[Karuta], RepositoryError>
+    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Future<[Karuta], RepositoryError>
+    func findAll(karutaNos: [KarutaNo]) -> Future<[Karuta], RepositoryError>
 }
