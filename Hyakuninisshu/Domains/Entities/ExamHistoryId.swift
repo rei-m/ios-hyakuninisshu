@@ -8,9 +8,17 @@
 import Foundation
 
 struct ExamHistoryId {
-    let value: String
+    let value: UUID
     
-    init() {
-        value = NSUUID().uuidString
+    private init(_ value: UUID) {
+        self.value = value
+    }
+    
+    static func create() -> ExamHistoryId {
+        return ExamHistoryId(UUID())
+    }
+
+    static func restore(_ value: UUID) -> ExamHistoryId {
+        return ExamHistoryId(value)
     }
 }

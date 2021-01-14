@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDExamHistory" representedClassName="CDExamHistory" syncable="YES" codeGenerationType="class">
+        <attribute name="averageAnswerSec" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="correctCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="tookDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="totalQuestionCount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="questionJudgements" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CDExamHistoryQuestionJudgement" inverseName="examHistory" inverseEntity="CDExamHistoryQuestionJudgement"/>
+        <fetchIndex name="byId">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="CDExamHistoryQuestionJudgement" representedClassName="CDExamHistoryQuestionJudgement" syncable="YES" codeGenerationType="class">
+        <attribute name="isCorrect" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="karutaNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="examHistory" maxCount="1" deletionRule="Nullify" destinationEntity="CDExamHistory" inverseName="questionJudgements" inverseEntity="CDExamHistory"/>
+    </entity>
     <entity name="CDKaruta" representedClassName="CDKaruta" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
         <attribute name="creator" attributeType="String"/>
@@ -27,7 +43,37 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="CDQuestion" representedClassName="CDQuestion" syncable="YES" codeGenerationType="class">
+        <attribute name="answer_time" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="correct_karuta_no" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="is_correct" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="no" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="selected_karuta_no" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="start_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="questionChoices" toMany="YES" minCount="1" maxCount="4" deletionRule="Cascade" ordered="YES" destinationEntity="CDQuestionChoice" inverseName="question" inverseEntity="CDQuestionChoice"/>
+        <fetchIndex name="byNo">
+            <fetchIndexElement property="no" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byId">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="no"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CDQuestionChoice" representedClassName="CDQuestionChoice" syncable="YES" codeGenerationType="class">
+        <attribute name="karuta_no" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="questionChoices" inverseEntity="CDQuestion"/>
+    </entity>
     <elements>
-        <element name="CDKaruta" positionX="-63" positionY="-18" width="128" height="268"/>
+        <element name="CDExamHistory" positionX="-324" positionY="198" width="128" height="133"/>
+        <element name="CDExamHistoryQuestionJudgement" positionX="-315" positionY="207" width="128" height="88"/>
+        <element name="CDKaruta" positionX="-537.84765625" positionY="80.05859375" width="128" height="268"/>
+        <element name="CDQuestion" positionX="-63" positionY="99" width="128" height="163"/>
+        <element name="CDQuestionChoice" positionX="-338.109375" positionY="173.6640625" width="128" height="88"/>
     </elements>
 </model>
