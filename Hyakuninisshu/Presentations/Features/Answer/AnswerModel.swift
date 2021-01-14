@@ -45,7 +45,7 @@ class AnswerModel: AnswerModelProtocol {
             var wrongKarutaNpSet: Set<KarutaNo> = Set()
             questionCollection.wrongKarutaNoCollection().values.forEach { wrongKarutaNpSet.insert($0) }
             let questionJudgements = KarutaNo.LIST.map { QuestionJudgement(karutaNo: $0, isCorrect: wrongKarutaNpSet.contains($0)) }
-            return ExamHistory(id: ExamHistoryId(), tookDate: Date(), resultSummary: resultSummary, questionJudgements: questionJudgements)
+            return ExamHistory(id: ExamHistoryId.create(), tookDate: Date(), resultSummary: resultSummary, questionJudgements: questionJudgements)
         }.flatMap { examHistory in self.examHistoryRepository.add(examHistory).map { _ in examHistory }.eraseToAnyPublisher() }.zip(self.karutaRepository.findAll()).map { (examHistory, karutas) -> ExamResult in
             let score = examHistory.resultSummary.score()
             let averageAnswerSecText = "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒"

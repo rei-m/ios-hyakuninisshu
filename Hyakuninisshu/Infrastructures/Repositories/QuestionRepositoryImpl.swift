@@ -33,7 +33,7 @@ private extension CDQuestion {
                         state: state)
     }
     
-    func persist(question: Question) {
+    func persistentFromModel(question: Question) {
         id = question.id.value
         no = Int16(question.no)
         correct_karuta_no = Int16(question.correctNo.value)
@@ -68,10 +68,11 @@ class QuestionRepositoryImpl: QuestionRepository {
                     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDQuestion.fetchRequest()
                     let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                     deleteRequest.resultType = .resultTypeStatusOnly
+                    try context.execute(deleteRequest)
                     
                     let _ = questions.map { question in
                         let cdQuestion = CDQuestion(context: context)
-                        cdQuestion.persist(question: question)
+                        cdQuestion.persistentFromModel(question: question)
 
                         question.choices.enumerated().forEach { (idx, karutaNo) in
                             let cdQuestionChoice = CDQuestionChoice(context: context)
@@ -160,16 +161,16 @@ class QuestionRepositoryImpl: QuestionRepository {
                 do {
                     let fetchRequest: NSFetchRequest<CDQuestion> = CDQuestion.fetchRequest()
                     fetchRequest.predicate = NSPredicate(
-                        format: "%K = %d",
-                        "no",
-                        question.no
+                        format: "%K = %@",
+                        "id",
+                        question.id.value as CVarArg
                     )
                                         
                     let context = self.container.viewContext
                     guard let cdQuestion = try context.fetch(fetchRequest).first else {
                         fatalError("unko")
                     }
-                    cdQuestion.persist(question: question)
+                    cdQuestion.persistentFromModel(question: question)
                     try context.save()
                     promise(.success(()))
                 } catch {
