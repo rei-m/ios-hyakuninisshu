@@ -22,7 +22,7 @@ class ExamHistoryModel: ExamHistoryModelProtocol {
     func fetchScores() -> AnyPublisher<[PlayScore], ModelError> {
         let publisher = examHistoryRepository.findCollection().map { examHistoryCollection -> [PlayScore] in
             return examHistoryCollection.values.map { examHistory in
-                return PlayScore(tookDate: examHistory.tookDate, score: examHistory.resultSummary.score(), averageAnswerSecText: "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒")
+                return PlayScore(tookDate: examHistory.tookDate, score: examHistory.resultSummary.score, averageAnswerSecText: "\(examHistory.resultSummary.averageAnswerSec)秒")
             }
         }
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()

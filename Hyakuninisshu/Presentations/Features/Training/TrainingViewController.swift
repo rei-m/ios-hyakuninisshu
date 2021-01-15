@@ -18,7 +18,7 @@ protocol TrainingViewProtocol: AnyObject {
     func updateRangeError(_ message: String?)
     func showAlertDialog()
     func goToNextVC(
-        karutaNos: [Int8],
+        karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
@@ -122,7 +122,7 @@ extension TrainingViewController: TrainingViewProtocol {
     }
     
     func goToNextVC(
-        karutaNos: [Int8],
+        karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition

@@ -26,12 +26,14 @@ class AnswerModel: AnswerModelProtocol {
     
     func aggregateTrainingResult() -> AnyPublisher<TrainingResult, ModelError> {
         let publisher = self.questionRepository.findCollection().map { questionCollection -> TrainingResult in
-            let resultSummary = questionCollection.resultSummary()
-            let score = resultSummary.score()
-            let averageAnswerSecText = "\(round(resultSummary.averageAnswerSec*100)/100)秒"
-            let canRestart = questionCollection.canRestart()
-            let wrongKarutaNos = questionCollection.wrongKarutaNoCollection().values.map { $0.value }
+            let (resultSummary, wrongKarutaNoCollection) = questionCollection.aggregateResult()
+            let score = resultSummary.score
+            let averageAnswerSecText = "\(resultSummary.averageAnswerSec)秒"
+
+            let canRestart = resultSummary.canRestart
+            let wrongKarutaNos = wrongKarutaNoCollection.values.map { $0.value }
             // TODO
+
             let playScore = PlayScore(tookDate: Date(), score: score, averageAnswerSecText: averageAnswerSecText)
             return TrainingResult(score: playScore, canRestart: canRestart, wrongKarutaNos: wrongKarutaNos)
         }
@@ -41,14 +43,15 @@ class AnswerModel: AnswerModelProtocol {
     
     func saveExamHistory() -> AnyPublisher<ExamResult, ModelError> {
         let publisher = self.questionRepository.findCollection().map { questionCollection -> ExamHistory in
-            let resultSummary = questionCollection.resultSummary()
+            let (resultSummary, wrongKarutaNoCollection) = questionCollection.aggregateResult()
+
             var wrongKarutaNpSet: Set<KarutaNo> = Set()
-            questionCollection.wrongKarutaNoCollection().values.forEach { wrongKarutaNpSet.insert($0) }
+            wrongKarutaNoCollection.values.forEach { wrongKarutaNpSet.insert($0) }
             let questionJudgements = KarutaNo.LIST.map { QuestionJudgement(karutaNo: $0, isCorrect: wrongKarutaNpSet.contains($0)) }
             return ExamHistory(id: ExamHistoryId.create(), tookDate: Date(), resultSummary: resultSummary, questionJudgements: questionJudgements)
         }.flatMap { examHistory in self.examHistoryRepository.add(examHistory).map { _ in examHistory }.eraseToAnyPublisher() }.zip(self.karutaRepository.findAll()).map { (examHistory, karutas) -> ExamResult in
-            let score = examHistory.resultSummary.score()
-            let averageAnswerSecText = "\(round(examHistory.resultSummary.averageAnswerSec*100)/100)秒"
+            let score = examHistory.resultSummary.score
+            let averageAnswerSecText = "\(examHistory.resultSummary.averageAnswerSec)秒"
             let judgements: [(Material, Bool)] = karutas.enumerated().map { (Material.fromKaruta($0.element), examHistory.questionJudgements[$0.offset].isCorrect) }
             // TODO
             let playScore = PlayScore(tookDate: Date(), score: score, averageAnswerSecText: averageAnswerSecText)

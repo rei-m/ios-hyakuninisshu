@@ -24,7 +24,7 @@ class AnswerViewController: UIViewController {
     private var presenter: AnswerPresenterProtocol!
     
     private var material: Material!
-    private var questionNo: Int!
+    private var questionNo: UInt8!
     private var questionCount: Int!
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
@@ -79,7 +79,7 @@ class AnswerViewController: UIViewController {
     
     func inject(presenter: AnswerPresenterProtocol,
                 material: Material,
-                questionNo: Int,
+                questionNo: UInt8,
                 questionCount: Int,
                 kamiNoKu: DisplayStyleCondition,
                 shimoNoKu: DisplayStyleCondition,

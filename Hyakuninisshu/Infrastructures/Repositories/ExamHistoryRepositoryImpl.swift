@@ -12,19 +12,18 @@ import Combine
 private extension CDExamHistory {
     func toModel() -> ExamHistory {
         let resultSummary = QuestionResultSummary(
-            totalQuestionCount: Int(totalQuestionCount),
-            correctCount: Int(correctCount),
+            totalQuestionCount: UInt8(totalQuestionCount),
+            correctCount: UInt8(correctCount),
             averageAnswerSec: averageAnswerSec
         )
         
-        guard let cdExamHistoryQuestionJudgements: [CDExamHistoryQuestionJudgement] = questionJudgements?.array as? [CDExamHistoryQuestionJudgement] else {
-            fatalError("invalid")
-        }
+        let cdExamHistoryQuestionJudgements: [CDExamHistoryQuestionJudgement] = questionJudgements?.array as? [CDExamHistoryQuestionJudgement] ?? []
+        let questionJudgements = cdExamHistoryQuestionJudgements.map { QuestionJudgement(karutaNo: KarutaNo(UInt8($0.karutaNo)), isCorrect: $0.isCorrect) }
         
-        return ExamHistory(id: ExamHistoryId.restore(id!), tookDate: tookDate!, resultSummary: resultSummary, questionJudgements: cdExamHistoryQuestionJudgements.map { QuestionJudgement(karutaNo: KarutaNo(Int8($0.karutaNo)), isCorrect: $0.isCorrect) })
+        return ExamHistory(id: ExamHistoryId.restore(id!), tookDate: tookDate!, resultSummary: resultSummary, questionJudgements: questionJudgements)
     }
  
-    func persistentFromModel(examHistory: ExamHistory) {
+    func persistFromModel(examHistory: ExamHistory) {
         id = examHistory.id.value
         correctCount = Int16(examHistory.resultSummary.correctCount)
         averageAnswerSec = examHistory.resultSummary.averageAnswerSec
@@ -40,59 +39,53 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
         self.container = container
     }
     
-    func findCollection() -> Future<ExamHistoryCollection, RepositoryError> {
-        let publisher = Future<ExamHistoryCollection, RepositoryError>{ promise in
+    func findCollection() -> Future<ExamHistoryCollection, DomainError> {
+        let publisher = Future<ExamHistoryCollection, DomainError>{ promise in
             let fetchRequest: NSFetchRequest<CDExamHistory> = CDExamHistory.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "tookDate", ascending: false)]
+
             let asyncFetch = NSAsynchronousFetchRequest<CDExamHistory>(fetchRequest: fetchRequest){ result in
                 promise(.success(ExamHistoryCollection(result.finalResult?.map { $0.toModel() } ?? [])))
             }
 
             do {
-                let backgroundContext = self.container.newBackgroundContext()
-                try backgroundContext.execute(asyncFetch)
+                try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                let nserror = error as NSError
-                // TODO
-                print(nserror)
-                promise(.failure(.io))
+                promise(.failure(.repository(error.localizedDescription)))
             }
         }
 
         return publisher
     }
     
-    func findLast() -> Future<ExamHistory?, RepositoryError> {
-        let publisher = Future<ExamHistory?, RepositoryError>{ promise in
+    func findLast() -> Future<ExamHistory?, DomainError> {
+        let publisher = Future<ExamHistory?, DomainError>{ promise in
             let fetchRequest: NSFetchRequest<CDExamHistory> = CDExamHistory.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "tookDate", ascending: false)]
             fetchRequest.fetchLimit = 1
+
             let asyncFetch = NSAsynchronousFetchRequest<CDExamHistory>(fetchRequest: fetchRequest){ result in
                 let cdExamHistory = result.finalResult?.first
                 promise(.success(cdExamHistory?.toModel()))
             }
 
             do {
-                let backgroundContext = self.container.newBackgroundContext()
-                try backgroundContext.execute(asyncFetch)
+                try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                let nserror = error as NSError
-                // TODO
-                print(nserror)
-                promise(.failure(.io))
+                promise(.failure(.repository(error.localizedDescription)))
             }
         }
         
         return publisher
     }
 
-    func add(_ examHistory: ExamHistory)  -> Future<Void, RepositoryError> {
-        let publisher = Future<Void, RepositoryError>{ promise in
+    func add(_ examHistory: ExamHistory)  -> Future<Void, DomainError> {
+        let publisher = Future<Void, DomainError>{ promise in
             DispatchQueue.global(qos: .userInteractive).async {
                 do {
-                    let context = self.container.viewContext
+                    let context = self.container.newBackgroundContext()
                     let cdExamHistory = CDExamHistory(context: context)
-                    cdExamHistory.persistentFromModel(examHistory: examHistory)
+                    cdExamHistory.persistFromModel(examHistory: examHistory)
                     examHistory.questionJudgements.forEach { judgement in
                         let cdJudgement = CDExamHistoryQuestionJudgement(context: context)
                         cdJudgement.isCorrect = judgement.isCorrect
@@ -104,23 +97,20 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
 
                     promise(.success(()))
                 } catch {
-                    let nserror = error as NSError
-                    // TODO
-                    print(nserror)
-                    
-                    promise(.failure(.io))
+                    promise(.failure(.repository(error.localizedDescription)))
                 }
             }            
         }
         
-        return publisher    }
+        return publisher
+    }
 
-    func delete(_ examHistories: [ExamHistory])  -> Future<Void, RepositoryError> {
-        let publisher = Future<Void, RepositoryError>{ promise in
+    func delete(_ examHistories: [ExamHistory])  -> Future<Void, DomainError> {
+        let publisher = Future<Void, DomainError>{ promise in
             DispatchQueue.global(qos: .userInteractive).async {
                 do {
-                    let context = self.container.viewContext
-            
+                    let context = self.container.newBackgroundContext()
+
                     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDQuestion.fetchRequest()
                     fetchRequest.predicate = NSPredicate(
                         format: "%K IN %@",
@@ -134,11 +124,7 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
 
                     promise(.success(()))
                 } catch {
-                    let nserror = error as NSError
-                    // TODO
-                    print(nserror)
-                    
-                    promise(.failure(.io))
+                    promise(.failure(.repository(error.localizedDescription)))
                 }
             }
         }

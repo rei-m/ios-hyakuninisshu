@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Verse {
+struct Verse: ValueObject {
     let kana: String
     let kanji: String
 }

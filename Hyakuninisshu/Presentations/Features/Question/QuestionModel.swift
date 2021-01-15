@@ -9,15 +9,15 @@ import Foundation
 import Combine
 
 protocol QuestionModelProtocol: AnyObject {
-    var questionNo: Int { get }
+    var questionNo: UInt8 { get }
     var kamiNoKu: DisplayStyleCondition { get }
     var shimoNoKu: DisplayStyleCondition { get }
     func fetchPlay() -> AnyPublisher<Play, ModelError>
-    func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError>
+    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, ModelError>
 }
 
 class QuestionModel: QuestionModelProtocol {
-    let questionNo: Int
+    let questionNo: UInt8
     let kamiNoKu: DisplayStyleCondition
     let shimoNoKu: DisplayStyleCondition
 
@@ -25,7 +25,7 @@ class QuestionModel: QuestionModelProtocol {
     private let questionRepository: QuestionRepository
     
     init(
-        questionNo: Int,
+        questionNo: UInt8,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         karutaRepository: KarutaRepository,
@@ -42,14 +42,14 @@ class QuestionModel: QuestionModelProtocol {
     func fetchPlay() -> AnyPublisher<Play, ModelError> {
         let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question in
             self.karutaRepository.findAll(karutaNos: question.choices).map { (question, $0) }
-        }.flatMap { (question, choiceKarutas) -> AnyPublisher<(Question, [Karuta]), RepositoryError> in
+        }.flatMap { (question, choiceKarutas) -> AnyPublisher<(Question, [Karuta]), DomainError> in
             let started = question.start(startDate: Date())
             return self.questionRepository.save(started).map { _ in (started, choiceKarutas) }.eraseToAnyPublisher()
         }.map { (question, choiceKarutas) -> Play in
-            var choiceKarutaMap: [Int8: Karuta] = [:]
-            choiceKarutas.forEach { choiceKarutaMap[$0.no.value] = $0 }
+            var choiceKarutaMap: [KarutaNo: Karuta] = [:]
+            choiceKarutas.forEach { choiceKarutaMap[$0.no] = $0 }
             
-            guard let correctKaruta = choiceKarutaMap[question.correctNo.value] else {
+            guard let correctKaruta = choiceKarutaMap[question.correctNo] else {
                 // TODO
                 fatalError()
             }
@@ -64,8 +64,8 @@ class QuestionModel: QuestionModelProtocol {
         return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
     }
     
-    func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError> {
-        let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question -> AnyPublisher<Question, RepositoryError> in
+    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, ModelError> {
+        let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question -> AnyPublisher<Question, DomainError> in
             let answered = question.verify(selectedNo: KarutaNo(selectedNo), answerDate: Date())
             return self.questionRepository.save(answered).map { _ in answered }.eraseToAnyPublisher()
         }.map { answered -> Bool in

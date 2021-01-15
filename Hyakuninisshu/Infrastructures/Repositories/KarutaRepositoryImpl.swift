@@ -26,64 +26,34 @@ private struct KarutaJson: Codable {
     var kimariji: Int8
     var color: String
     var color_no: Int
-    
-    func toPersistentModel(context: NSManagedObjectContext) -> CDKaruta {
-        let cdKaruta = CDKaruta(context: context)
-        cdKaruta.no = Int16(no)
-        cdKaruta.creator = creator
-        cdKaruta.first_kana = first_kana
-        cdKaruta.first_kanji = first_kanji
-        cdKaruta.second_kana = second_kana
-        cdKaruta.second_kanji = second_kanji
-        cdKaruta.third_kana = third_kana
-        cdKaruta.third_kanji = third_kanji
-        cdKaruta.fourth_kana = fourth_kana
-        cdKaruta.fourth_kanji = fourth_kanji
-        cdKaruta.fifth_kana = fifth_kana
-        cdKaruta.fifth_kanji = fifth_kanji
-        cdKaruta.kimariji = Int16(kimariji)
-        cdKaruta.color = color
-        cdKaruta.translation = translation
-        return cdKaruta
-    }
+}
+
+private struct KarutaListJson: Codable {
+    var karuta_list: [KarutaJson]
 }
 
 private extension CDKaruta {
     func toModel() -> Karuta {
-        let karutaNo = KarutaNo(Int8(no))
+        let karutaNo = KarutaNo(UInt8(no))
         let kamiNoKu = KamiNoKu(
             karutaNo: karutaNo,
-            shoku: Verse(
-                kana: first_kana!,
-                kanji: first_kanji!
-            ),
-            niku: Verse(
-                kana: second_kana!,
-                kanji: second_kanji!
-            ),
-            sanku: Verse(
-                kana: third_kana!,
-                kanji: third_kanji!
-            )
-        )
-        let shimoNoKu = ShimoNoKu(
-            karutaNo: karutaNo,
-            shiku: Verse(
-                kana: fourth_kana!,
-                kanji: fourth_kanji!
-            ),
-            goku: Verse(
-                kana: fifth_kana!,
-                kanji: fifth_kanji!
-            )
+            shoku: Verse(kana: first_kana!, kanji: first_kanji!),
+            niku: Verse(kana: second_kana!, kanji: second_kanji!),
+            sanku: Verse(kana: third_kana!, kanji: third_kanji!)
         )
 
-        guard let kimarijiModel = Kimariji(rawValue: Int8(kimariji)) else {
-            fatalError("unknown value: kimariji")
+        let shimoNoKu = ShimoNoKu(
+            karutaNo: karutaNo,
+            shiku: Verse(kana: fourth_kana!, kanji: fourth_kanji!),
+            goku: Verse(kana: fifth_kana!, kanji: fifth_kanji!)
+        )
+
+        guard let kimarijiModel = Kimariji(rawValue: UInt8(kimariji)) else {
+            fatalError("unknown value: kimariji=\(kimariji)")
         }
 
         guard let karutaColor = KarutaColor(rawValue: color!) else {
-            fatalError("unknown value: color")
+            fatalError("unknown value: color=\(color ?? "")")
         }
 
         return Karuta(
@@ -96,10 +66,24 @@ private extension CDKaruta {
             color: karutaColor
         )
     }
-}
-
-private struct KarutaListJson: Codable {
-    var karuta_list: [KarutaJson]
+    
+    func persistFromJson(json: KarutaJson) {
+        no = Int16(json.no)
+        creator = json.creator
+        first_kana = json.first_kana
+        first_kanji = json.first_kanji
+        second_kana = json.second_kana
+        second_kanji = json.second_kanji
+        third_kana = json.third_kana
+        third_kanji = json.third_kanji
+        fourth_kana = json.fourth_kana
+        fourth_kanji = json.fourth_kanji
+        fifth_kana = json.fifth_kana
+        fifth_kanji = json.fifth_kanji
+        kimariji = Int16(json.kimariji)
+        color = json.color
+        translation = json.translation
+    }
 }
 
 class KarutaRepositoryImpl: KarutaRepository {
@@ -114,31 +98,31 @@ class KarutaRepositoryImpl: KarutaRepository {
         self.container = container
     }
 
-    func initialize() -> Future<Void, RepositoryError> {
-        let publisher = Future<Void, RepositoryError>{ promise in
-            let currentVer = UserDefaults.standard.string(forKey: KarutaRepositoryImpl.VERSION_KEY)
-            if currentVer == KarutaRepositoryImpl.VERSION {
+    func initialize() -> Future<Void, DomainError> {
+        let publisher = Future<Void, DomainError>{ promise in
+            let currentVer = UserDefaults.standard.string(forKey: Self.VERSION_KEY)
+            if currentVer == Self.VERSION {
                 promise(.success(()))
                 return
             }
 
             DispatchQueue.global(qos: .userInteractive).async {
                 guard let url = Bundle.main.url(forResource: "karuta_list_v_3", withExtension: "json") else {
-                    promise(.failure(.io))
+                    promise(.failure(.repository("karuta_list_v_3 path is missing")))
                     return
                 }
                 guard let data = try? Data(contentsOf: url) else {
-                    promise(.failure(.io))
+                    promise(.failure(.repository("karuta_list_v_3 contents is not readable")))
                     return
                 }
                 
                 guard let json = try? JSONDecoder().decode(KarutaListJson.self, from: data) else {
-                    promise(.failure(.io))
+                    promise(.failure(.repository("decode karuta_list_v_3 is failed")))
                     return
                 }
 
                 do {
-                    let context = self.container.viewContext
+                    let context = self.container.newBackgroundContext()
                     
                     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDKaruta.fetchRequest()
                     let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -146,19 +130,17 @@ class KarutaRepositoryImpl: KarutaRepository {
                     
                     try context.execute(deleteRequest)
 
-                    let _ = json.karuta_list.map { $0.toPersistentModel(context: context) }
+                    json.karuta_list.forEach {
+                        let cdKaruta = CDKaruta(context: context)
+                        cdKaruta.persistFromJson(json: $0)
+                    }
                     try context.save()
-                    UserDefaults.standard.setValue(KarutaRepositoryImpl.VERSION, forKey: KarutaRepositoryImpl.VERSION_KEY)
-                    // TODO
-                    print("success !!")
+
+                    UserDefaults.standard.setValue(Self.VERSION, forKey: Self.VERSION_KEY)
                     
                     promise(.success(()))
                 } catch {
-                    let nserror = error as NSError
-                    // TODO
-                    print(nserror)
-                    
-                    promise(.failure(.io))
+                    promise(.failure(.repository(error.localizedDescription)))
                 }
             }
         }
@@ -166,34 +148,27 @@ class KarutaRepositoryImpl: KarutaRepository {
         return publisher
     }
 
-    func findAll() -> Future<[Karuta], RepositoryError> {
-        let publisher = Future<[Karuta], RepositoryError> { promise in
+    func findAll() -> Future<[Karuta], DomainError> {
+        let publisher = Future<[Karuta], DomainError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
 
             let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
-                guard let cdKarutas = result.finalResult else {
-                    return
-                }
-                promise(.success(cdKarutas.map { $0.toModel() }))
+                promise(.success(result.finalResult?.map { $0.toModel() } ?? []))
             }
 
             do {
-                let backgroundContext = self.container.newBackgroundContext()
-                try backgroundContext.execute(asyncFetch)
+                try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                let nserror = error as NSError
-                // TODO
-                print(nserror)
-                promise(.failure(.io))
+                promise(.failure(.repository(error.localizedDescription)))
             }
         }
 
         return publisher
     }
 
-    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Future<[Karuta], RepositoryError> {
-        let publisher = Future<[Karuta], RepositoryError> { promise in
+    func findAll(fromNo: KarutaNo, toNo: KarutaNo, kimarijis: [Kimariji], colors: [KarutaColor]) -> Future<[Karuta], DomainError> {
+        let publisher = Future<[Karuta], DomainError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.predicate = NSPredicate(
                 format: "%K BETWEEN {%i, %i} AND kimariji IN %@ AND color IN %@",
@@ -206,28 +181,21 @@ class KarutaRepositoryImpl: KarutaRepository {
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
 
             let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
-                guard let cdKarutas = result.finalResult else {
-                    return
-                }
-                promise(.success(cdKarutas.map { $0.toModel() }))
+                promise(.success(result.finalResult?.map { $0.toModel() } ?? []))
             }
 
             do {
-                let backgroundContext = self.container.newBackgroundContext()
-                try backgroundContext.execute(asyncFetch)
+                try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                let nserror = error as NSError
-                // TODO
-                print(nserror)
-                promise(.failure(.io))
+                promise(.failure(.repository(error.localizedDescription)))
             }
         }
 
         return publisher
     }
     
-    func findAll(karutaNos: [KarutaNo]) -> Future<[Karuta], RepositoryError> {
-        let publisher = Future<[Karuta], RepositoryError> { promise in
+    func findAll(karutaNos: [KarutaNo]) -> Future<[Karuta], DomainError> {
+        let publisher = Future<[Karuta], DomainError> { promise in
             let fetchRequest: NSFetchRequest<CDKaruta> = CDKaruta.fetchRequest()
             fetchRequest.predicate = NSPredicate(
                 format: "%K IN %@",
@@ -237,21 +205,13 @@ class KarutaRepositoryImpl: KarutaRepository {
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "no", ascending: true)]
 
             let asyncFetch = NSAsynchronousFetchRequest<CDKaruta>(fetchRequest: fetchRequest){ result in
-                guard let cdKarutas = result.finalResult else {
-                    return
-                }
-                                
-                promise(.success(cdKarutas.map { $0.toModel() }))
+                promise(.success(result.finalResult?.map { $0.toModel() } ?? []))
             }
 
             do {
-                let backgroundContext = self.container.newBackgroundContext()
-                try backgroundContext.execute(asyncFetch)
+                try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                let nserror = error as NSError
-                // TODO
-                print(nserror)
-                promise(.failure(.io))
+                promise(.failure(.repository(error.localizedDescription)))
             }
         }
 

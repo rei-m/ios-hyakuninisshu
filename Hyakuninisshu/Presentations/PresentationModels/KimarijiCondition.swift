@@ -9,9 +9,9 @@ import Foundation
 
 struct KimarijiCondition: KeyboardPickerItem, Equatable {
     let text: String
-    let value: Int8?
+    let value: UInt8?
 
-    private static let DATA_SOURCE: [Int8?] = [nil, 1, 2, 3, 4, 5, 6]
+    private static let DATA_SOURCE: [UInt8?] = [nil, 1, 2, 3, 4, 5, 6]
     
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.value == rhs.value

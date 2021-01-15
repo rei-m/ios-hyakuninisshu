@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Kimariji: Int8 {
+enum Kimariji: UInt8 {
     case one = 1
     case two = 2
     case three = 3
@@ -15,7 +15,7 @@ enum Kimariji: Int8 {
     case five = 5
     case six = 6
     
-    public static let ALL: [Kimariji] = [
+    static let ALL: [Kimariji] = [
         Self.one,
         Self.two,
         Self.three,
@@ -24,7 +24,7 @@ enum Kimariji: Int8 {
         Self.six,
     ]
     
-    public static func valueOf(value: Int8) -> Kimariji {
+    static func valueOf(value: UInt8) -> Kimariji {
         precondition(value < Kimariji.one.rawValue || value < Kimariji.six.rawValue)
         return Self.ALL[Int(value) - 1]
     }

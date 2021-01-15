@@ -10,9 +10,9 @@ import UIKit
 protocol QuestionViewProtocol: AnyObject {
     func setUpPlay(_ play: Play)
     func startDisplayYomiFuda()
-    func displayResult(selectedNo: Int8, isCorrect: Bool)
+    func displayResult(selectedNo: UInt8, isCorrect: Bool)
     func goToNextVC(
-        questionNo: Int,
+        questionNo: UInt8,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition
     )
@@ -101,7 +101,7 @@ extension QuestionViewController: QuestionViewProtocol {
         yomiFudaView.startAnimation()
     }
     
-    func displayResult(selectedNo: Int8, isCorrect: Bool) {
+    func displayResult(selectedNo: UInt8, isCorrect: Bool) {
         yomiFudaView.stopAnimation()
         [toriFudaView1, toriFudaView2, toriFudaView3, toriFudaView4].forEach {
             if ($0?.toriFuda?.karutaNo != selectedNo) {
@@ -112,7 +112,7 @@ extension QuestionViewController: QuestionViewProtocol {
         resultAreaView.isHidden = false
     }
 
-    func goToNextVC(questionNo: Int, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition) {
+    func goToNextVC(questionNo: UInt8, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition) {
         guard let correct = play?.correct else {
             return
         }

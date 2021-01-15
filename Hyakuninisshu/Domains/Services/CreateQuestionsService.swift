@@ -12,7 +12,7 @@ class CreateQuestionsService {
     private let allKarutaNoCollection: KarutaNoCollection
     
     init?(_ allKarutaNoCollection: KarutaNoCollection) {
-        if (allKarutaNoCollection.count != KarutaNo.MAX.value) {
+        if (allKarutaNoCollection.values.count != KarutaNo.MAX.value) {
             return nil
         }
         self.allKarutaNoCollection = allKarutaNoCollection
@@ -23,12 +23,12 @@ class CreateQuestionsService {
         choiceSize: Int
     ) -> Optional<[Question]> {
 
-        if (targetKarutaNoCollection.count == 0) {
+        if (targetKarutaNoCollection.values.count == 0) {
             return nil
         }
 
-        let result: [Question] = targetKarutaNoCollection.asRandomized.enumerated().map { value in
-            let no = value.offset + 1
+        let result: [Question] = targetKarutaNoCollection.values.shuffled().enumerated().map { value in
+            let no: UInt8 = UInt8(value.offset + 1)
             let targetKarutaNo = value.element
             
             var dupNos = allKarutaNoCollection.values

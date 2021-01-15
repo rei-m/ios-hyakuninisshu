@@ -19,7 +19,7 @@ protocol TrainingModelProtocol: AnyObject {
     var rangeConditionError: String? { get }
     var hasError: Bool { get }
     
-    func fetchQuestionKarutaNos() -> AnyPublisher<[Int8], ModelError>
+    func fetchQuestionKarutaNos() -> AnyPublisher<[UInt8], ModelError>
 }
 
 class TrainingModel: TrainingModelProtocol {
@@ -68,7 +68,7 @@ class TrainingModel: TrainingModelProtocol {
         self.karutaRepository = karutaRepository
     }
     
-    func fetchQuestionKarutaNos() -> AnyPublisher<[Int8], ModelError> {
+    func fetchQuestionKarutaNos() -> AnyPublisher<[UInt8], ModelError> {
         let publisher = karutaRepository.findAll(
             fromNo: KarutaNo(rangeFromCondition.no),
             toNo: KarutaNo(rangeToCondition.no),

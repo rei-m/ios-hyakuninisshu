@@ -9,7 +9,7 @@ import UIKit
 
 protocol QuestionStarterViewProtocol: AnyObject {
     func displayEmptyError()
-    func goToNextVC(questionCount: Int, questionNo: Int)
+    func goToNextVC(questionCount: Int, questionNo: UInt8)
 }
 
 class QuestionStarterViewController: UIViewController {
@@ -50,7 +50,7 @@ extension QuestionStarterViewController: QuestionStarterViewProtocol {
         emptyMessageLabel.isHidden = false
     }
     
-    func goToNextVC(questionCount: Int, questionNo: Int) {
+    func goToNextVC(questionCount: Int, questionNo: UInt8) {
         let vc: QuestionViewController = requireStoryboard.instantiateViewController(identifier: .question)
 
         let model = QuestionModel(questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: karutaRepository, questionRepository: questionRepository)

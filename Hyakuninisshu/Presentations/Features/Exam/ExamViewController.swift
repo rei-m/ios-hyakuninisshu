@@ -9,7 +9,7 @@ import UIKit
 
 protocol ExamViewProtocol: AnyObject {
     func displayLastResult(_ examScore: PlayScore)
-    func goToNextVC(karutaNos: [Int8])
+    func goToNextVC(karutaNos: [UInt8])
 }
 
 class ExamViewController: UIViewController {
@@ -73,7 +73,7 @@ extension ExamViewController: ExamViewProtocol {
         startTrainingButton.isHidden = false
     }
     
-    func goToNextVC(karutaNos: [Int8]) {
+    func goToNextVC(karutaNos: [UInt8]) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 
         let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)

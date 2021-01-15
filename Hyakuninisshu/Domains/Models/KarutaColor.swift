@@ -14,7 +14,7 @@ enum KarutaColor: String {
     case green = "green"
     case orange = "orange"
     
-    public static let ALL: [KarutaColor] = [
+    static let ALL: [KarutaColor] = [
         Self.blue,
         Self.pink,
         Self.yellow,
@@ -22,7 +22,7 @@ enum KarutaColor: String {
         Self.orange,
     ]
     
-    public static func valueOf(value: String) -> KarutaColor {
+    static func valueOf(value: String) -> KarutaColor {
         switch value {
         case Self.blue.rawValue:
             return Self.blue

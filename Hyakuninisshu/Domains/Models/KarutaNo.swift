@@ -7,22 +7,14 @@
 
 import Foundation
 
-struct KarutaNo: Equatable, Hashable {
+struct KarutaNo: ValueObject {
     static let MIN = KarutaNo(1)
     static let MAX = KarutaNo(100)
     static let LIST: [KarutaNo] = (MIN.value...MAX.value).map { KarutaNo($0) }
 
-    let value: Int8
+    let value: UInt8
     
-    init(_ value: Int8) {
+    init(_ value: UInt8) {
         self.value = value
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(value)
-    }
-    
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.value == rhs.value
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RepositoryError: Error {
-    case io
-    case unhandled
+enum DomainError: Error {
+    case repository(_ reason: String)
+    case unhandled(_ reason: String)
 }

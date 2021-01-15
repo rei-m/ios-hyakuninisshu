@@ -10,7 +10,7 @@ import Combine
 
 protocol QuestionPresenterProtocol: AnyObject {
     func viewDidLoad()
-    func didTapToriFuda(no: Int8)
+    func didTapToriFuda(no: UInt8)
     func didTapResult()
 }
 
@@ -40,7 +40,7 @@ class QuestionPresenter: QuestionPresenterProtocol {
         }).store(in: &cancellables)
     }
     
-    func didTapToriFuda(no: Int8) {
+    func didTapToriFuda(no: UInt8) {
         model.answer(selectedNo: no).receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):
