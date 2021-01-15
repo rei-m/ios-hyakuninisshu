@@ -98,7 +98,7 @@ extension AnswerViewController: AnswerViewProtocol {
     func goToNextQuestion() {
         let vc: QuestionViewController = requireStoryboard.instantiateViewController(identifier: .question)
 
-        let model = QuestionModel(questionNo: questionNo + 1, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionModel(questionNo: questionNo + 1, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
 
         let presenter = QuestionPresenter(view: vc, model: model)
 

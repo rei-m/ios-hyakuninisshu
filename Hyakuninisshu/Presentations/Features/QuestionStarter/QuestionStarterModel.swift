@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol QuestionStarterModelProtocol: AnyObject {
-    func createQuestions() -> AnyPublisher<Int, ModelError>
+    func createQuestions() -> AnyPublisher<Int, PresentationError>
 }
 
 class QuestionStarterModel: QuestionStarterModelProtocol {
@@ -28,7 +28,7 @@ class QuestionStarterModel: QuestionStarterModelProtocol {
         self.questionRepository = questionRepository
     }
     
-    func createQuestions() -> AnyPublisher<Int, ModelError> {
+    func createQuestions() -> AnyPublisher<Int, PresentationError> {
         let targetKarutaNoCollection = KarutaNoCollection(karutaNos.shuffled().map { KarutaNo($0) })
         let allKarutaNoCollectionPublisher = karutaRepository.findAll().map { KarutaNoCollection($0.map { $0.no }) }
         let questionsPublisher = allKarutaNoCollectionPublisher.map { allKarutaNoCollection -> [Question]? in
@@ -47,6 +47,6 @@ class QuestionStarterModel: QuestionStarterModelProtocol {
             }.eraseToAnyPublisher()
         }
         
-        return questionsPublisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return questionsPublisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
     }
 }

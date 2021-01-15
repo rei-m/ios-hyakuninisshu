@@ -101,6 +101,9 @@
 		FAB9E0E925A8A3640038EA04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */; };
 		FAB9E0EE25A8A3700038EA04 /* AnswerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */; };
 		FAB9E0F925A8B6530038EA04 /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0F825A8B6530038EA04 /* ExamResult.swift */; };
+		FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B2325B1844F00579F96 /* DIContainer.swift */; };
+		FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC8B2B25B1D75C00579F96 /* Error.storyboard */; };
+		FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B3025B1E0E400579F96 /* PresentationError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +224,9 @@
 		FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 		FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPresenter.swift; sourceTree = "<group>"; };
 		FAB9E0F825A8B6530038EA04 /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
+		FACC8B2325B1844F00579F96 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		FACC8B2B25B1D75C00579F96 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
+		FACC8B3025B1E0E400579F96 /* PresentationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +338,7 @@
 				FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */,
 				FAB9E0F825A8B6530038EA04 /* ExamResult.swift */,
 				FA5FEFBC25AB463C00948165 /* PlayScore.swift */,
+				FACC8B3025B1E0E400579F96 /* PresentationError.swift */,
 			);
 			path = PresentationModels;
 			sourceTree = "<group>";
@@ -387,6 +394,7 @@
 		FA27E25E257055FC001132A3 /* Hyakuninisshu */ = {
 			isa = PBXGroup;
 			children = (
+				FACC8B2225B1841F00579F96 /* DI */,
 				FA5E6A6A25A803DB008EE33F /* Infrastructures */,
 				FA028972257A0096003ADE9C /* Presentations */,
 				FA0289322570A32D003ADE9C /* Domains */,
@@ -394,6 +402,7 @@
 				FA27E261257055FC001132A3 /* SceneDelegate.swift */,
 				FA02897E257A0626003ADE9C /* Splash.storyboard */,
 				FA27E265257055FC001132A3 /* Main.storyboard */,
+				FACC8B2B25B1D75C00579F96 /* Error.storyboard */,
 				FA27E26B257055FF001132A3 /* Assets.xcassets */,
 				FA27E26D257055FF001132A3 /* LaunchScreen.storyboard */,
 				FA27E270257055FF001132A3 /* Info.plist */,
@@ -594,6 +603,14 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		FACC8B2225B1841F00579F96 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				FACC8B2325B1844F00579F96 /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6DEACB25A8550E00F8C349 /* karuta_list_v_3.json in Resources */,
+				FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */,
 				FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */,
 				FA27E26C257055FF001132A3 /* Assets.xcassets in Resources */,
 				FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */,
@@ -728,6 +746,7 @@
 			files = (
 				FA5FEFD025AB5EC100948165 /* ExamHistoryPresenter.swift in Sources */,
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
+				FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */,
 				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
 				FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
@@ -738,6 +757,7 @@
 				FA178EF7259E1AD2001C0311 /* Play.swift in Sources */,
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
 				FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */,
+				FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */,
 				FA5FEFDB25AB61B700948165 /* ExamHistoryTableViewController.swift in Sources */,
 				FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */,
 				FA6BC59C25B130F000B2DEFE /* ValueObject.swift in Sources */,

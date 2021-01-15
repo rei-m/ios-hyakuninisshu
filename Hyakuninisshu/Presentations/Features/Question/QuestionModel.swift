@@ -12,8 +12,8 @@ protocol QuestionModelProtocol: AnyObject {
     var questionNo: UInt8 { get }
     var kamiNoKu: DisplayStyleCondition { get }
     var shimoNoKu: DisplayStyleCondition { get }
-    func fetchPlay() -> AnyPublisher<Play, ModelError>
-    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, ModelError>
+    func fetchPlay() -> AnyPublisher<Play, PresentationError>
+    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, PresentationError>
 }
 
 class QuestionModel: QuestionModelProtocol {
@@ -39,7 +39,7 @@ class QuestionModel: QuestionModelProtocol {
     }
     
     // TODO
-    func fetchPlay() -> AnyPublisher<Play, ModelError> {
+    func fetchPlay() -> AnyPublisher<Play, PresentationError> {
         let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question in
             self.karutaRepository.findAll(karutaNos: question.choices).map { (question, $0) }
         }.flatMap { (question, choiceKarutas) -> AnyPublisher<(Question, [Karuta]), DomainError> in
@@ -61,10 +61,10 @@ class QuestionModel: QuestionModelProtocol {
             return Play(no: question.no, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
         }
         
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
     }
     
-    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, ModelError> {
+    func answer(selectedNo: UInt8) -> AnyPublisher<Bool, PresentationError> {
         let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question -> AnyPublisher<Question, DomainError> in
             let answered = question.verify(selectedNo: KarutaNo(selectedNo), answerDate: Date())
             return self.questionRepository.save(answered).map { _ in answered }.eraseToAnyPublisher()
@@ -76,6 +76,6 @@ class QuestionModel: QuestionModelProtocol {
             return result.judgement.isCorrect
         }
 
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
     }
 }

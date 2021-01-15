@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol AnswerModelProtocol: AnyObject {
-    func aggregateTrainingResult() -> AnyPublisher<TrainingResult, ModelError>
-    func saveExamHistory() -> AnyPublisher<ExamResult, ModelError>
+    func aggregateTrainingResult() -> AnyPublisher<TrainingResult, PresentationError>
+    func saveExamHistory() -> AnyPublisher<ExamResult, PresentationError>
 }
 
 class AnswerModel: AnswerModelProtocol {
@@ -24,7 +24,7 @@ class AnswerModel: AnswerModelProtocol {
         self.examHistoryRepository = examHistoryRepository
     }
     
-    func aggregateTrainingResult() -> AnyPublisher<TrainingResult, ModelError> {
+    func aggregateTrainingResult() -> AnyPublisher<TrainingResult, PresentationError> {
         let publisher = self.questionRepository.findCollection().map { questionCollection -> TrainingResult in
             let (resultSummary, wrongKarutaNoCollection) = questionCollection.aggregateResult()
             let score = resultSummary.score
@@ -38,10 +38,10 @@ class AnswerModel: AnswerModelProtocol {
             return TrainingResult(score: playScore, canRestart: canRestart, wrongKarutaNos: wrongKarutaNos)
         }
 
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
     }
     
-    func saveExamHistory() -> AnyPublisher<ExamResult, ModelError> {
+    func saveExamHistory() -> AnyPublisher<ExamResult, PresentationError> {
         let publisher = self.questionRepository.findCollection().map { questionCollection -> ExamHistory in
             let (resultSummary, wrongKarutaNoCollection) = questionCollection.aggregateResult()
 
@@ -58,6 +58,6 @@ class AnswerModel: AnswerModelProtocol {
             return ExamResult(score: playScore, judgements: judgements)
         }
         
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
     }
 }

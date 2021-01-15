@@ -8,12 +8,8 @@
 import Foundation
 import Combine
 
-public enum ModelError: Error {
-    case unhandled
-}
-
 protocol MaterialTableModelProtocol: AnyObject {
-    func fetchKarutas() -> AnyPublisher<[Material], ModelError>
+    func fetchKarutas() -> AnyPublisher<[Material], PresentationError>
 }
 
 class MaterialTableModel: MaterialTableModelProtocol {
@@ -24,11 +20,11 @@ class MaterialTableModel: MaterialTableModelProtocol {
         self.karutaRepository = karutaRepository
     }
 
-    func fetchKarutas() -> AnyPublisher<[Material], ModelError> {
+    func fetchKarutas() -> AnyPublisher<[Material], PresentationError> {
         return karutaRepository.findAll().map { karutas in
             karutas.map { Material.fromKaruta($0) }
-        }.mapError { _ in
-            ModelError.unhandled
+        }.mapError {
+            PresentationError.unhandled($0)
         }.eraseToAnyPublisher()
     }
 }

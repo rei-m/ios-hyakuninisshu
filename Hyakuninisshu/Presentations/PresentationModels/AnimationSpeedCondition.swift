@@ -20,11 +20,11 @@ struct AnimationSpeedCondition: KeyboardPickerItem, Equatable {
         "はやめ"
     ]
     
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.value == rhs.value
-    }
-    
     static let DATA: [Self] = Self.DATA_SOURCE.enumerated().map {
         return Self(text: TEXT_SOURCE[$0.offset], value: $0.element)
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.value == rhs.value
     }
 }

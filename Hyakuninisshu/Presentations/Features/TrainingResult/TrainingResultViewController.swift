@@ -30,7 +30,7 @@ class TrainingResultViewController: UIViewController {
     @IBAction func didTapGoToTraining(_ sender: Any) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
         
-        let model = QuestionStarterModel(karutaNos: trainingResult.wrongKarutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: trainingResult.wrongKarutaNos, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
         
         let presenter = QuestionStarterPresenter(view: vc, model: model)
 

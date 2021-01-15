@@ -119,7 +119,7 @@ extension QuestionViewController: QuestionViewProtocol {
 
         let vc: AnswerViewController = requireStoryboard.instantiateViewController(identifier: .answer)
 
-        let model = AnswerModel(karutaRepository: karutaRepository, questionRepository: questionRepository, examHistoryRepository: examHistoryRepository)
+        let model = AnswerModel(karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository, examHistoryRepository: diContainer.examHistoryRepository)
         let presenter = AnswerPresenter(view: vc, model: model)
         
         vc.inject(presenter: presenter, material: correct, questionNo: questionNo, questionCount: questionCount, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)

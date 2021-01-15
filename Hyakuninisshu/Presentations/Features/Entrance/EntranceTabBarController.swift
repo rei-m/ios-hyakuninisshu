@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 class EntranceTabBarController: UITabBarController {
+    private var cancellables = [AnyCancellable]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,7 @@ class EntranceTabBarController: UITabBarController {
                     guard let materialTableViewController = nvc as? MaterialTableViewController else {
                         break
                     }
-                    let model = MaterialTableModel(karutaRepository: karutaRepository)
+                    let model = MaterialTableModel(karutaRepository: diContainer.karutaRepository)
                     let presenter = MaterialTablePresenter(view: materialTableViewController, model: model)
                     materialTableViewController.inject(presenter: presenter)
                 }
@@ -27,7 +29,7 @@ class EntranceTabBarController: UITabBarController {
                     guard let trainingViewController = nvc as? TrainingViewController else {
                         break
                     }
-                    let model = TrainingModel(karutaRepository: karutaRepository)
+                    let model = TrainingModel(karutaRepository: diContainer.karutaRepository)
                     let presenter = TrainingPresenter(view: trainingViewController, model: model)
                     trainingViewController.inject(presenter: presenter)
                 }
@@ -35,7 +37,7 @@ class EntranceTabBarController: UITabBarController {
                     guard let examViewController = nvc as? ExamViewController else {
                         break
                     }
-                    let model = ExamModel(karutaRepository: karutaRepository, examHistoryRepository: examHistoryRepository)
+                    let model = ExamModel(karutaRepository: diContainer.karutaRepository, examHistoryRepository: diContainer.examHistoryRepository)
                     let presenter = ExamPresenter(view: examViewController, model: model)
                     examViewController.inject(presenter: presenter)
                 }

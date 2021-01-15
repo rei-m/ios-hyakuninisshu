@@ -7,14 +7,6 @@
 
 import Foundation
 
-private func createTookDateFormatter() -> DateFormatter {
-    let f = DateFormatter()
-    f.timeStyle = .short
-    f.dateStyle = .short
-    f.locale = Locale(identifier: "ja_JP")
-    return f
-}
-
 struct PlayScore {
     let tookDate: Date
     let tookDateText: String
@@ -28,5 +20,11 @@ struct PlayScore {
         self.averageAnswerSecText = averageAnswerSecText
     }
     
-    private static let formatter = createTookDateFormatter()
+    private static let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.timeStyle = .short
+        f.dateStyle = .short
+        f.locale = Locale(identifier: "ja_JP")
+        return f
+    }()
 }

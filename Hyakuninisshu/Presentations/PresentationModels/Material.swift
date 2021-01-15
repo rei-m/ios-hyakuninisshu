@@ -65,9 +65,9 @@ struct Material {
         translation: String
     ) {
         self.no = no
-        self.noTxt = KanjiFormatter.no(NSNumber(value: no))
+        self.noTxt = KanjiFormatter.no(no)
         self.kimariji = kimariji
-        self.kimarijiTxt = KanjiFormatter.kimariji(NSNumber(value: kimariji))
+        self.kimarijiTxt = KanjiFormatter.kimariji(kimariji)
         self.creator = creator
         self.shokuKanji = shokuKanji
         self.shokuKana = shokuKana

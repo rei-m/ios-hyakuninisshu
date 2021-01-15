@@ -12,24 +12,25 @@ protocol KeyboardPickerItem {
 }
 
 protocol KeyboardPickerDelegate {
-    func didTapDone(_ keyboardPicker: KeyboardPicker, index: Int)
+    func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem)
 }
 
 class KeyboardPicker: UIControl {
 
-    public var delegate: KeyboardPickerDelegate?
+    var delegate: KeyboardPickerDelegate?
     
-    public var data: [KeyboardPickerItem] = []
+    private var data: [KeyboardPickerItem] = []
 
-    private var _currentItemIndex: Int = -1
-    public var currentItemIndex: Int {
-        get { _currentItemIndex }
+    private var _currentItem: KeyboardPickerItem?
+    var currentItem: KeyboardPickerItem? {
+        get { _currentItem }
         set(v) {
-            _currentItemIndex = v
-            titleLabel.text = data[v].text
+            _currentItem = v
+            titleLabel.text = _currentItem?.text
         }
     }
-    private var currentItemIndexTemp: Int = -1
+    
+    private var currentItemTemp: KeyboardPickerItem?
 
     private let titleLabel = UILabel()
     private let pickerView = UIPickerView()
@@ -120,12 +121,16 @@ class KeyboardPicker: UIControl {
             
     // inputViewをオーバーライドさせてシステムキーボードの代わりにPickerViewを表示
     override var inputView: UIView? {
-        if (currentItemIndex < 0) {
+        guard let currentItem = _currentItem else {
             return nil
         }
-        
+
+        guard let currentItemIndex = data.firstIndex(where: { $0.text == currentItem.text }) else {
+            return nil
+        }
+
         pickerView.selectRow(currentItemIndex, inComponent: 0, animated: false)
-        currentItemIndexTemp = currentItemIndex
+        currentItemTemp = currentItem
         return pickerView
     }
 
@@ -133,6 +138,11 @@ class KeyboardPicker: UIControl {
         return accessaryView
     }
 
+    func setUpData(data: [KeyboardPickerItem], currentItem: KeyboardPickerItem) {
+        self.data = data
+        self.currentItem = currentItem
+    }
+    
     // タッチされたらFirst Responderになる
     @objc func didTap(sender: KeyboardPicker) {
         becomeFirstResponder()
@@ -146,11 +156,11 @@ class KeyboardPicker: UIControl {
         borderView.backgroundColor = borderColor
         bottomBorderHeightConstraint.constant = 1
 
-        if (currentItemIndex < 0) {
+        guard let currentItem = currentItemTemp else {
             return
         }
         
-        delegate?.didTapDone(self, index: currentItemIndexTemp)
+        delegate?.didTapDone(self, item: currentItem)
     }
 }
 
@@ -168,6 +178,6 @@ extension KeyboardPicker: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentItemIndexTemp = row
+        currentItemTemp = data[row]
     }
 }

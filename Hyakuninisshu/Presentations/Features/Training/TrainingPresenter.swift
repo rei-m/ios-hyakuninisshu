@@ -33,13 +33,15 @@ class TrainingPresenter: TrainingPresenterProtocol {
     }
     
     func viewDidLoad() {
-        view.updateRangeFrom(model.rangeFromCondition)
-        view.updateRangeTo(model.rangeToCondition)
-        view.updateKimariji(model.kimarijiCondition)
-        view.updateColor(model.colorCondition)
-        view.updateKamiNoKu(model.kamiNoKuCondition)
-        view.updateShimoNoKu(model.shimoNoKuCondition)
-        view.updateAnimationSpeed(model.animationSpeedCondition)
+        view.initSettings(
+            rangeFrom: model.rangeFromCondition,
+            rangeTo: model.rangeToCondition,
+            kimariji: model.kimarijiCondition,
+            color: model.colorCondition,
+            kamiNoKu: model.kamiNoKuCondition,
+            shimoNoKu: model.shimoNoKuCondition,
+            animationSpeed: model.animationSpeedCondition
+        )
     }
     
     func didChangeRangeFrom(_ condition: RangeCondition) {
@@ -82,26 +84,24 @@ class TrainingPresenter: TrainingPresenterProtocol {
     func didStartTrainingButtonTapDone() {
         if (model.hasError) {
             view.showAlertDialog()
-        } else {
-            model.fetchQuestionKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    // TODO
-                    print(error)
-                case .finished:
-                    return
-                }
-            }, receiveValue: { [weak self] karutaNos in
-                guard let model = self?.model else {
-                    return
-                }
-                self?.view.goToNextVC(
-                    karutaNos: karutaNos,
-                    kamiNoKu: model.kamiNoKuCondition,
-                    shimoNoKu: model.shimoNoKuCondition,
-                    animationSpeed: model.animationSpeedCondition
-                )
-            }).store(in: &cancellables)
+            return
         }
+        
+        model.fetchQuestionKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
+                return
+            }
+            self?.view.presentErrorVC(error)
+        }, receiveValue: { [weak self] karutaNos in
+            guard let model = self?.model else {
+                return
+            }
+            self?.view.presentNextVC(
+                karutaNos: karutaNos,
+                kamiNoKu: model.kamiNoKuCondition,
+                shimoNoKu: model.shimoNoKuCondition,
+                animationSpeed: model.animationSpeedCondition
+            )
+        }).store(in: &cancellables)
     }
 }

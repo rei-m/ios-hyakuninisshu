@@ -17,12 +17,12 @@ struct DisplayStyleCondition: KeyboardPickerItem, Equatable {
         "漢字と仮名で表示",
         "すべて仮名で表示"
     ]
+        
+    static let DATA: [Self] = Self.DATA_SOURCE.enumerated().map {
+        return Self(text: TEXT_SOURCE[$0.offset], value: $0.element)
+    }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.value == rhs.value
-    }
-    
-    static let DATA: [Self] = Self.DATA_SOURCE.enumerated().map {
-        return Self(text: TEXT_SOURCE[$0.offset], value: $0.element)
     }
 }

@@ -51,7 +51,7 @@ class ExamViewController: UIViewController {
                 guard let examHistoryTableViewController = segue.destination as? ExamHistoryTableViewController else {
                     fatalError("Unexpected destination: \(segue.destination)")
                 }
-                let model = ExamHistoryModel(examHistoryRepository: examHistoryRepository)
+                let model = ExamHistoryModel(examHistoryRepository: diContainer.examHistoryRepository)
                 let presenter = ExamHistoryPresenter(view: examHistoryTableViewController, model: model)
                 
                 examHistoryTableViewController.inject(presenter: presenter)
@@ -76,7 +76,7 @@ extension ExamViewController: ExamViewProtocol {
     func goToNextVC(karutaNos: [UInt8]) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 
-        let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
 
         let presenter = QuestionStarterPresenter(view: vc, model: model)
 
