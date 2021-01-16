@@ -87,7 +87,7 @@ import Combine
         setUp()
     }
     
-    public func startAnimation() {
+    public func startAnimation(_ condition: AnimationSpeedCondition) {
         guard let yomiFuda = _yomiFuda else {
             return
         }

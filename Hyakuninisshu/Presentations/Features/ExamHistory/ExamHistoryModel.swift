@@ -25,6 +25,6 @@ class ExamHistoryModel: ExamHistoryModelProtocol {
                 return PlayScore(tookDate: examHistory.tookDate, score: examHistory.resultSummary.score, averageAnswerSecText: "\(examHistory.resultSummary.averageAnswerSec)秒")
             }
         }
-        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()
     }
 }

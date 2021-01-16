@@ -8,29 +8,29 @@
 import UIKit
 
 protocol QuestionStarterViewProtocol: AnyObject {
-    func displayEmptyError()
-    func goToNextVC(questionCount: Int, questionNo: UInt8)
+    func displayEmptyMessage()
+    func presentNextVC(questionCount: Int, questionNo: UInt8)
+    func presentErrorVC(_ error: Error)
 }
 
 class QuestionStarterViewController: UIViewController {
-
+    // MARK: - Outlet
     @IBOutlet weak var emptyMessageLabel: UILabel!
 
+    // MARK: - Property
     private var presenter: QuestionStarterPresenterProtocol!
     
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
     private var animationSpeed: AnimationSpeedCondition!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-        emptyMessageLabel.isHidden = true
-        
+        super.viewDidLoad()        
         presenter.viewDidLoad()
     }
     
+    // MARK: - Method
     func inject(
         presenter: QuestionStarterPresenterProtocol,
         kamiNoKu: DisplayStyleCondition,
@@ -46,11 +46,11 @@ class QuestionStarterViewController: UIViewController {
 
 extension QuestionStarterViewController: QuestionStarterViewProtocol {
 
-    func displayEmptyError() {
+    func displayEmptyMessage() {
         emptyMessageLabel.isHidden = false
     }
     
-    func goToNextVC(questionCount: Int, questionNo: UInt8) {
+    func presentNextVC(questionCount: Int, questionNo: UInt8) {
         let vc: QuestionViewController = requireStoryboard.instantiateViewController(identifier: .question)
 
         let model = QuestionModel(questionNo: questionNo, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
@@ -59,6 +59,10 @@ extension QuestionStarterViewController: QuestionStarterViewProtocol {
 
         vc.inject(questionCount: questionCount, animationSpeed: animationSpeed, presenter: presenter)
         
-        navigationController?.pushViewController(vc, animated: false)
+        requireNavigationController.pushViewController(vc, animated: false)
+    }
+    
+    func presentErrorVC(_ error: Error) {
+        presentUnexpectedErrorVC(error)
     }
 }

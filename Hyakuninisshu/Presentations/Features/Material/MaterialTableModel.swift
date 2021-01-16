@@ -24,7 +24,7 @@ class MaterialTableModel: MaterialTableModelProtocol {
         return karutaRepository.findAll().map { karutas in
             karutas.map { Material.fromKaruta($0) }
         }.mapError {
-            PresentationError.unhandled($0)
+            PresentationError($0)
         }.eraseToAnyPublisher()
     }
 }

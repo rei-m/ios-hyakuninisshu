@@ -24,26 +24,26 @@ class Question: Entity {
         self.state = state
     }
     
-    func start(startDate: Date) -> Question {
+    func start(startDate: Date) throws -> Question {
         switch state {
         case .answered(_, _):
-            fatalError("Question is already answered. no=\(no)")
+            throw DomainError(reason: "Question is already answered. no=\(no)", kind: .model)
         case .ready, .inAnswer(_):
             return Question(id: id, no: no, choices: choices, correctNo: correctNo, state: .inAnswer(startDate: startDate))
         }
     }
     
-    func verify(selectedNo: KarutaNo, answerDate: Date) -> Question {
+    func verify(selectedNo: KarutaNo, answerDate: Date) throws -> Question {
         switch state {
         case .ready:
-            fatalError("Question is not started. Call start. no=\(no)")
+            throw DomainError(reason: "Question is not started. Call start. no=\(no)", kind: .model)
         case .inAnswer(let startDate):
             let answerSec = startDate.distance(to: answerDate)
             let judgement = QuestionJudgement(karutaNo: correctNo, isCorrect: correctNo == selectedNo)
             let result = QuestionResult(selectedKarutaNo: selectedNo, answerSec: answerSec, judgement: judgement)
             return Question(id: id, no: no, choices: choices, correctNo: correctNo, state: .answered(startDate: startDate, result: result))
         case .answered(_, _):
-            fatalError("Question is already answered. no=\(no)")
+            throw DomainError(reason: "Question is already answered. no=\(no)", kind: .model)
         }
     }
     

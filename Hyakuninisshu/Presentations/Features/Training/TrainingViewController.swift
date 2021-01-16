@@ -36,7 +36,7 @@ protocol TrainingViewProtocol: AnyObject {
 }
 
 class TrainingViewController: UIViewController {
-
+    // MARK: - Outlet
     @IBOutlet weak var rangeFromPicker: KeyboardPicker!
     @IBOutlet weak var rangeToPicker: KeyboardPicker!
     @IBOutlet weak var kimarijiPicker: KeyboardPicker!
@@ -44,12 +44,14 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var kamiNoKuPicker: KeyboardPicker!
     @IBOutlet weak var shimoNoKuPicker: KeyboardPicker!
     @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
-
     @IBOutlet weak var rangeErrorLabel: UILabel!    
+
+    // MARK: - Property
     private var rangeErrorHeightConstraint: NSLayoutConstraint?
     
     private var presenter: TrainingPresenterProtocol!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
@@ -59,17 +61,18 @@ class TrainingViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
+    // MARK: - Action
     @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {
         presenter.didStartTrainingButtonTapDone()
     }
 
+    // MARK: - Method
     func inject(presenter: TrainingPresenterProtocol) {
         self.presenter = presenter
     }
 }
 
 extension TrainingViewController: TrainingViewProtocol {
-    // MARK: - View methods
     func initSettings(
         rangeFrom: RangeCondition,
         rangeTo: RangeCondition,
@@ -164,6 +167,7 @@ extension TrainingViewController: TrainingViewProtocol {
 
 extension TrainingViewController: KeyboardPickerDelegate {
     func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem) {
+        // ここイケてない・・・
         switch keyboardPicker {
         case rangeFromPicker:
             presenter.didChangeRangeFrom(item as! RangeCondition)

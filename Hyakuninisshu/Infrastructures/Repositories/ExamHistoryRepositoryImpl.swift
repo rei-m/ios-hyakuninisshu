@@ -51,7 +51,8 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 
@@ -72,7 +73,8 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
         
@@ -97,7 +99,8 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
 
                     promise(.success(()))
                 } catch {
-                    promise(.failure(.repository(error.localizedDescription)))
+                    let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                    promise(.failure(domainError))
                 }
             }            
         }
@@ -124,7 +127,8 @@ class ExamHistoryRepositoryImpl: ExamHistoryRepository {
 
                     promise(.success(()))
                 } catch {
-                    promise(.failure(.repository(error.localizedDescription)))
+                    let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                    promise(.failure(domainError))
                 }
             }
         }

@@ -67,7 +67,7 @@ class TrainingModel: TrainingModelProtocol {
             kimarijis: kimarijiCondition.value == nil ? Kimariji.ALL : [Kimariji.valueOf(value: kimarijiCondition.value!)],
             colors: colorCondition.value == nil  ? KarutaColor.ALL : [KarutaColor.valueOf(value: colorCondition.value!)]
         ).map { $0.map { karuta in karuta.no.value } }
-        return publisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()
     }
     
     private func validateRangeCondition() {

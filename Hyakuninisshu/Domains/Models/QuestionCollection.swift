@@ -14,33 +14,33 @@ struct QuestionCollection {
         self.values = values
     }
     
-    func aggregateResult() -> (QuestionResultSummary, KarutaNoCollection) {
+    func aggregateResult() throws -> (QuestionResultSummary, [QuestionJudgement]) {
         let questionCount = UInt8(values.count)
         if (questionCount == 0) {
-            return (QuestionResultSummary(totalQuestionCount: 0, correctCount: 0, averageAnswerSec: 0), KarutaNoCollection([]))
+            return (QuestionResultSummary(totalQuestionCount: 0, correctCount: 0, averageAnswerSec: 0), [])
         }
 
         var totalAnswerTimeSec: TimeInterval = 0
         var collectCount: UInt8 = 0
-        var wrongKarutaNos: [KarutaNo] = []
+        var judgements: [QuestionJudgement] = []
         
-        values.forEach { question in
+        try values.forEach { question in
             guard case .answered(_, let result) = question.state else {
-                fatalError("includes unanswered question.")
+                throw DomainError(reason: "includes unanswered question.", kind: .model)
             }
 
             totalAnswerTimeSec += result.answerSec
 
+            judgements.append(QuestionJudgement(karutaNo: question.correctNo, isCorrect: result.judgement.isCorrect))
+            
             if (result.judgement.isCorrect) {
                 collectCount += 1
-            } else {
-                wrongKarutaNos.append(result.selectedKarutaNo)
             }
         }
 
         let averageAnswerSec = totalAnswerTimeSec / Double(questionCount)
         let roundedAverageAnswerSec = round(averageAnswerSec * 100) / 100
 
-        return (QuestionResultSummary(totalQuestionCount: questionCount, correctCount: collectCount, averageAnswerSec: roundedAverageAnswerSec), KarutaNoCollection(wrongKarutaNos))
+        return (QuestionResultSummary(totalQuestionCount: questionCount, correctCount: collectCount, averageAnswerSec: roundedAverageAnswerSec), judgements)
     }
 }

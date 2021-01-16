@@ -7,6 +7,21 @@
 
 import Foundation
 
-public enum PresentationError: Error {
-    case unhandled(_ error: Error)
+struct PresentationError: Error {
+    enum ErrorKind {
+        case unhandled
+    }
+
+    let reason: String
+    let kind: ErrorKind
+    
+    init(reason: String, kind: ErrorKind) {
+        self.reason = reason
+        self.kind = kind
+    }
+    
+    init(_ domainError: DomainError) {
+        self.reason = "Domain: \(domainError.reason)"
+        self.kind = .unhandled
+    }
 }

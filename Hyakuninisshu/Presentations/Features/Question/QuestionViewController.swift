@@ -8,18 +8,14 @@
 import UIKit
 
 protocol QuestionViewProtocol: AnyObject {
-    func setUpPlay(_ play: Play)
-    func startDisplayYomiFuda()
+    func startPlay(_ play: Play)
     func displayResult(selectedNo: UInt8, isCorrect: Bool)
-    func goToNextVC(
-        questionNo: UInt8,
-        kamiNoKu: DisplayStyleCondition,
-        shimoNoKu: DisplayStyleCondition
-    )
+    func presentNextVC(questionNo: UInt8, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition)
+    func presentErrorVC(_ error: Error)
 }
 
 class QuestionViewController: UIViewController {
-
+    // MARK: - Outlet
     @IBOutlet weak var yomiFudaView: YomiFudaView!
     @IBOutlet weak var toriFudaView1: ToriFudaView!
     @IBOutlet weak var toriFudaView2: ToriFudaView!
@@ -28,11 +24,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var resultAreaView: UIView!
     @IBOutlet weak var resultImageView: UIImageView!
 
+    // MARK: - Property
+    private var presenter: QuestionPresenterProtocol!
+
     private var questionCount: Int!
     private var animationSpeed: AnimationSpeedCondition!
-    
-    private var presenter: QuestionPresenterProtocol!
-    
+        
     private var _play: Play?
     private var play: Play? {
         get { _play }
@@ -49,15 +46,19 @@ class QuestionViewController: UIViewController {
             toriFudaView4.toriFuda = _play.toriFudas[3]
         }
     }
-        
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
-        tabBarController?.tabBar.isHidden = true
-        
-        presenter.viewDidLoad()
+        presenter.viewDidLoad(now: Date())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    // MARK: - Action
     @IBAction func didTapToriFuda1(_ sender: UITapGestureRecognizer) {
         didTapToriFuda(toriFudaView1)
     }
@@ -77,42 +78,40 @@ class QuestionViewController: UIViewController {
     @IBAction func didTapResultArea(_ sender: UITapGestureRecognizer) {
         presenter.didTapResult()
     }
-    
-    private func didTapToriFuda(_ toriFudaView: ToriFudaView) {
-        guard let no = toriFudaView.toriFuda?.karutaNo else {
-            return
-        }
-        presenter.didTapToriFuda(no: no)
-    }
-    
+        
+    // MARK: - Method
     func inject(questionCount: Int, animationSpeed: AnimationSpeedCondition, presenter: QuestionPresenterProtocol) {
         self.questionCount = questionCount
         self.animationSpeed = animationSpeed
         self.presenter = presenter
     }
+    
+    private func didTapToriFuda(_ toriFudaView: ToriFudaView) {
+        guard let no = toriFudaView.toriFuda?.karutaNo else {
+            return
+        }
+        presenter.didTapToriFuda(now: Date(), no: no)
+    }
 }
 
 extension QuestionViewController: QuestionViewProtocol {
-    func setUpPlay(_ play: Play) {
+    func startPlay(_ play: Play) {
         self.play = play
-    }
-    
-    func startDisplayYomiFuda() {
-        yomiFudaView.startAnimation()
+        yomiFudaView.startAnimation(animationSpeed)
     }
     
     func displayResult(selectedNo: UInt8, isCorrect: Bool) {
         yomiFudaView.stopAnimation()
         [toriFudaView1, toriFudaView2, toriFudaView3, toriFudaView4].forEach {
             if ($0?.toriFuda?.karutaNo != selectedNo) {
-                $0?.alpha = 0
+                $0?.alpha = 0.4
             }
         }
         resultImageView.image = isCorrect ? #imageLiteral(resourceName: "Correct") : #imageLiteral(resourceName: "Wrong")
         resultAreaView.isHidden = false
     }
 
-    func goToNextVC(questionNo: UInt8, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition) {
+    func presentNextVC(questionNo: UInt8, kamiNoKu: DisplayStyleCondition, shimoNoKu: DisplayStyleCondition) {
         guard let correct = play?.correct else {
             return
         }
@@ -125,5 +124,9 @@ extension QuestionViewController: QuestionViewProtocol {
         vc.inject(presenter: presenter, material: correct, questionNo: questionNo, questionCount: questionCount, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
         
         requireNavigationController.replace(vc)
+    }
+
+    func presentErrorVC(_ error: Error) {
+        presentUnexpectedErrorVC(error)
     }
 }

@@ -13,11 +13,13 @@ protocol QuestionStarterModelProtocol: AnyObject {
 }
 
 class QuestionStarterModel: QuestionStarterModelProtocol {
-    let karutaNos: [UInt8]
-    
+
+    private static let CHOICE_COUNT = 4
+
+    private let karutaNos: [UInt8]
     private let karutaRepository: KarutaRepository
     private let questionRepository: QuestionRepository
-    
+
     init(
         karutaNos: [UInt8],
         karutaRepository: KarutaRepository,
@@ -30,23 +32,23 @@ class QuestionStarterModel: QuestionStarterModelProtocol {
     
     func createQuestions() -> AnyPublisher<Int, PresentationError> {
         let targetKarutaNoCollection = KarutaNoCollection(karutaNos.shuffled().map { KarutaNo($0) })
+
         let allKarutaNoCollectionPublisher = karutaRepository.findAll().map { KarutaNoCollection($0.map { $0.no }) }
+
         let questionsPublisher = allKarutaNoCollectionPublisher.map { allKarutaNoCollection -> [Question]? in
-            guard let createQuestionsService = CreateQuestionsService(allKarutaNoCollection) else {
-                // TODO
-                fatalError("error")
-            }
-            return createQuestionsService.execute(targetKarutaNoCollection: targetKarutaNoCollection, choiceSize: 4)
-        }.flatMap { questions -> AnyPublisher<Int, DomainError> in
+            let createQuestionsService = CreateQuestionsService(allKarutaNoCollection)
+            return createQuestionsService?.execute(targetKarutaNoCollection: targetKarutaNoCollection, choiceCount: Self.CHOICE_COUNT)
+        }.mapError { PresentationError($0) }
+        
+        return questionsPublisher.flatMap { questions -> AnyPublisher<Int, PresentationError> in
             guard let questions = questions else {
-                return Just(0).mapError { _ in DomainError.unhandled("") }.eraseToAnyPublisher()
+                let error = PresentationError(reason: "Failed question creation.", kind: .unhandled)
+                return Fail<Int, PresentationError>(error: error).eraseToAnyPublisher()
             }
             
             return self.questionRepository.initialize(questions: questions).map { _ in
                 questions.count
-            }.eraseToAnyPublisher()
-        }
-        
-        return questionsPublisher.mapError { PresentationError.unhandled($0) }.eraseToAnyPublisher()
+            }.mapError { PresentationError($0) }.eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
     }
 }

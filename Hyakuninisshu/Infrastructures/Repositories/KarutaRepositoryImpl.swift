@@ -108,16 +108,19 @@ class KarutaRepositoryImpl: KarutaRepository {
 
             DispatchQueue.global(qos: .userInteractive).async {
                 guard let url = Bundle.main.url(forResource: "karuta_list_v_3", withExtension: "json") else {
-                    promise(.failure(.repository("karuta_list_v_3 path is missing")))
+                    let error = DomainError(reason: "karuta_list_v_3 path is missing", kind: .repository)
+                    promise(.failure(error))
                     return
                 }
                 guard let data = try? Data(contentsOf: url) else {
-                    promise(.failure(.repository("karuta_list_v_3 contents is not readable")))
+                    let error = DomainError(reason: "karuta_list_v_3 contents is not readable", kind: .repository)
+                    promise(.failure(error))
                     return
                 }
                 
                 guard let json = try? JSONDecoder().decode(KarutaListJson.self, from: data) else {
-                    promise(.failure(.repository("decode karuta_list_v_3 is failed")))
+                    let error = DomainError(reason: "decode karuta_list_v_3 is failed", kind: .repository)
+                    promise(.failure(error))
                     return
                 }
 
@@ -139,8 +142,9 @@ class KarutaRepositoryImpl: KarutaRepository {
                     UserDefaults.standard.setValue(Self.VERSION, forKey: Self.VERSION_KEY)
                     
                     promise(.success(()))
-                } catch {
-                    promise(.failure(.repository(error.localizedDescription)))
+                } catch let error {
+                    let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                    promise(.failure(domainError))
                 }
             }
         }
@@ -160,7 +164,8 @@ class KarutaRepositoryImpl: KarutaRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 
@@ -187,7 +192,8 @@ class KarutaRepositoryImpl: KarutaRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 
@@ -211,7 +217,8 @@ class KarutaRepositoryImpl: KarutaRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 

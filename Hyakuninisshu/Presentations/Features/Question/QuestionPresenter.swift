@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol QuestionPresenterProtocol: AnyObject {
-    func viewDidLoad()
-    func didTapToriFuda(no: UInt8)
+    func viewDidLoad(now: Date)
+    func didTapToriFuda(now: Date, no: UInt8)
     func didTapResult()
 }
 
@@ -25,36 +25,29 @@ class QuestionPresenter: QuestionPresenterProtocol {
         self.model = model
     }
 
-    func viewDidLoad() {
-        model.fetchPlay().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+    func viewDidLoad(now: Date) {
+        model.start(startDate: now).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self]  completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] play in
-            self?.view.setUpPlay(play)
-            self?.view.startDisplayYomiFuda()
+            self?.view.startPlay(play)
         }).store(in: &cancellables)
     }
     
-    func didTapToriFuda(no: UInt8) {
-        model.answer(selectedNo: no).receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+    func didTapToriFuda(now: Date, no: UInt8) {
+        model.answer(answerDate: now, selectedNo: no).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self]  completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] result in
             self?.view.displayResult(selectedNo: no, isCorrect: result)
         }).store(in: &cancellables)
     }
     
     func didTapResult() {
-        view.goToNextVC(questionNo: model.questionNo, kamiNoKu: model.kamiNoKu, shimoNoKu: model.shimoNoKu)
+        view.presentNextVC(questionNo: model.questionNo, kamiNoKu: model.kamiNoKu, shimoNoKu: model.shimoNoKu)
     }
 }

@@ -85,7 +85,8 @@ class QuestionRepositoryImpl: QuestionRepository {
 
                     promise(.success(()))
                 } catch {
-                    promise(.failure(.repository(error.localizedDescription)))
+                    let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                    promise(.failure(domainError))
                 }
             }
         }
@@ -105,7 +106,8 @@ class QuestionRepositoryImpl: QuestionRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 
@@ -123,7 +125,8 @@ class QuestionRepositoryImpl: QuestionRepository {
             
             let asyncFetch = NSAsynchronousFetchRequest<CDQuestion>(fetchRequest: fetchRequest){ result in
                 guard let cdQuestion = result.finalResult?.first else {
-                    promise(.failure(.repository("Not found question. no=\(no)")))
+                    let domainError = DomainError(reason: "Not found question. no=\(no)", kind: .repository)
+                    promise(.failure(domainError))
                     return
                 }
                                 
@@ -133,7 +136,8 @@ class QuestionRepositoryImpl: QuestionRepository {
             do {
                 try self.container.newBackgroundContext().execute(asyncFetch)
             } catch let error {
-                promise(.failure(.repository(error.localizedDescription)))
+                let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                promise(.failure(domainError))
             }
         }
 
@@ -154,14 +158,18 @@ class QuestionRepositoryImpl: QuestionRepository {
                     let context = self.container.newBackgroundContext()
 
                     guard let cdQuestion = try context.fetch(fetchRequest).first else {
-                        promise(.failure(.repository("Not found question. id=\(question.id.value)")))
+                        let domainError = DomainError(reason: "Not found question. id=\(question.id.value)", kind: .repository)
+                        promise(.failure(domainError))
+
                         return
                     }
                     cdQuestion.persistFromModel(question: question)
                     try context.save()
                     promise(.success(()))
                 } catch {
-                    promise(.failure(.repository(error.localizedDescription)))
+                    let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
+                    promise(.failure(domainError))
+
                 }
             }
         }

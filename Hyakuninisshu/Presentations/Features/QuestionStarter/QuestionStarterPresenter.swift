@@ -24,19 +24,16 @@ class QuestionStarterPresenter: QuestionStarterPresenterProtocol {
     }
     
     func viewDidLoad() {
-        model.createQuestions().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+        model.createQuestions().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] questionCount in
             if (questionCount == 0) {
-                self?.view.displayEmptyError()
+                self?.view.displayEmptyMessage()
             } else {
-                self?.view.goToNextVC(questionCount: questionCount, questionNo: 1)
+                self?.view.presentNextVC(questionCount: questionCount, questionNo: 1)
             }
         }).store(in: &cancellables)
     }

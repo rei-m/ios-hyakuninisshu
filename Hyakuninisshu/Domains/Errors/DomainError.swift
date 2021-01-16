@@ -7,7 +7,13 @@
 
 import Foundation
 
-enum DomainError: Error {
-    case repository(_ reason: String)
-    case unhandled(_ reason: String)
+struct DomainError: Error {
+    enum ErrorKind {
+        case model
+        case repository
+        case unhandled
+    }
+
+    let reason: String
+    let kind: ErrorKind
 }
