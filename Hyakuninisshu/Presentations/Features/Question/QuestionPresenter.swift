@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol QuestionPresenterProtocol: AnyObject {
-    func viewDidLoad(now: Date)
+    func viewWillAppear(now: Date)
     func didTapToriFuda(now: Date, no: UInt8)
     func didTapResult()
 }
@@ -25,7 +25,7 @@ class QuestionPresenter: QuestionPresenterProtocol {
         self.model = model
     }
 
-    func viewDidLoad(now: Date) {
+    func viewWillAppear(now: Date) {
         model.start(startDate: now).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self]  completion in
             guard case let .failure(error) = completion else {
                 return

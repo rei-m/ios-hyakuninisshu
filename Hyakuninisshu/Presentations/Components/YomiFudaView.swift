@@ -14,8 +14,8 @@ import Combine
     @IBInspectable var shadowOffset: CGFloat = 2.0
     @IBInspectable var fontSize: CGFloat = 17.0
 
-    public var _yomiFuda: YomiFuda?
-    public var yomiFuda: YomiFuda? {
+    private var _yomiFuda: YomiFuda?
+    var yomiFuda: YomiFuda? {
         get { _yomiFuda }
         set(v) {
             _yomiFuda = v
@@ -77,7 +77,7 @@ import Combine
         thirdLineView.topAnchor.constraint(equalTo: topAnchor, constant: fontSize * 4).isActive = true
     }
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }
@@ -87,7 +87,7 @@ import Combine
         setUp()
     }
     
-    public func startAnimation(_ condition: AnimationSpeedCondition) {
+    func startAnimation(_ condition: AnimationSpeedCondition) {
         guard let yomiFuda = _yomiFuda else {
             return
         }
@@ -97,27 +97,19 @@ import Combine
         arrangedSubviews += secondLineView.arrangedSubviews[0...yomiFuda.secondLine.count - 1]
         arrangedSubviews += thirdLineView.arrangedSubviews[0...yomiFuda.thirdLine.count - 1]
         
-        Timer.publish(every: 0.6, on: .main, in: .default)
+        Timer.publish(every: condition.value, on: .main, in: .default)
             .autoconnect()
             .measureInterval(using: RunLoop.main)
             .zip(arrangedSubviews.publisher)
             .sink { _, view in
-                UIView.animate(withDuration: 0.6, delay: 0, options: .allowUserInteraction, animations: {
+                UIView.animate(withDuration: condition.value, delay: 0, options: .allowUserInteraction, animations: {
                     view.alpha = 1
                 })
             }
             .store(in: &cancellables)
     }
     
-    public func stopAnimation() {
+    func stopAnimation() {
         cancellables.forEach { $0.cancel() }
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 }

@@ -27,14 +27,13 @@ class ExamPresenter: ExamPresenterProtocol {
     }
     
     func viewWillAppear() {
-        model.fetchLastExamScore().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+        view.hideLastResult()
+
+        model.fetchLastExamScore().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] examScore in
             guard let examScore = examScore else {
                 return
@@ -44,30 +43,24 @@ class ExamPresenter: ExamPresenterProtocol {
     }
     
     func didTapStartExamButton() {
-        model.fetchExamKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+        model.fetchExamKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] karutaNos in
-            self?.view.goToNextVC(karutaNos: karutaNos)
+            self?.view.presentNextVC(karutaNos: karutaNos)
         }).store(in: &cancellables)
     }
     
     func didTapStartTrainingButton() {
-        model.fetchPastExamsWrongKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+        model.fetchPastExamsWrongKarutaNos().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] karutaNos in
-            self?.view.goToNextVC(karutaNos: karutaNos)
+            self?.view.presentNextVC(karutaNos: karutaNos)
         }).store(in: &cancellables)
     }
 }

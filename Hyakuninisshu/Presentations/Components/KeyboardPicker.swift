@@ -105,7 +105,7 @@ class KeyboardPicker: UIControl {
         addTarget(self, action: #selector(KeyboardPicker.didTap(sender:)), for: .touchDown)
     }
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }

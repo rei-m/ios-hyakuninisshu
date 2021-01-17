@@ -9,9 +9,9 @@ import Foundation
 
 struct AnimationSpeedCondition: KeyboardPickerItem, Equatable {
     let text: String
-    let value: Int
+    let value: Double
 
-    private static let DATA_SOURCE: [Int] = [0, 1, 2, 3]
+    private static let DATA_SOURCE: [Double] = [0, 1, 0.6, 0.3]
     
     private static let TEXT_SOURCE: [String] = [
         "なし",

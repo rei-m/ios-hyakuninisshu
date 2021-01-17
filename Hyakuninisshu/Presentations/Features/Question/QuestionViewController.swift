@@ -51,11 +51,11 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
-        presenter.viewDidLoad(now: Date())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
+        presenter.viewWillAppear(now: Date())
     }
     
     // MARK: - Action

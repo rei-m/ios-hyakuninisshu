@@ -13,8 +13,8 @@ import UIKit
     @IBInspectable var shadowOffset: CGFloat = 2.0
     @IBInspectable var fontSize: CGFloat = 16.0
 
-    public var _toriFuda: ToriFuda?
-    public var toriFuda: ToriFuda? {
+    private var _toriFuda: ToriFuda?
+    var toriFuda: ToriFuda? {
         get { _toriFuda }
         set(v) {
             _toriFuda = v
@@ -63,7 +63,7 @@ import UIKit
         setUpLineView(lineView: secondLineView)
     }
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }
@@ -72,5 +72,4 @@ import UIKit
         super.init(coder: aDecoder)
         setUp()
     }
-
 }

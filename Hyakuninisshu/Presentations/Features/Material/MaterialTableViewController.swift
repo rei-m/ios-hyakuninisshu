@@ -10,29 +10,27 @@ import UIKit
 protocol MaterialTableViewProtocol: AnyObject {
     func updateLoading(_ isLoading: Bool)
     func updateMaterialTable(_ materials: [Material])
-    func displayError(_ message: String)
+    func presentErrorVC(_ error: Error)
 }
 
-class MaterialTableViewController: UITableViewController, MaterialTableViewProtocol {
-
+class MaterialTableViewController: UITableViewController {
+    // MARK: - Property
     private var presenter: MaterialTablePresenterProtocol!
 
     private var materials: [Material] = []
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()    
         presenter.viewDidLoad()
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return materials.count
     }
 
@@ -53,11 +51,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
 
         switch segue.identifier ?? "" {
@@ -82,11 +76,13 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
         }
     }
     
+    // MARK: - Method
     func inject(presenter: MaterialTablePresenterProtocol) {
         self.presenter = presenter
     }
-    
-    // MARK: - View methods
+}
+
+extension MaterialTableViewController: MaterialTableViewProtocol {
     func updateLoading(_ isLoading: Bool) {
         // deprecatedになった
         // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
@@ -98,8 +94,7 @@ class MaterialTableViewController: UITableViewController, MaterialTableViewProto
         self.tableView.setContentOffset(CGPoint.zero, animated: false)
     }
     
-    func displayError(_ message: String) {
-        // TODO
-        print("Error: \(message)")
+    func presentErrorVC(_ error: Error) {
+        presentUnexpectedErrorVC(error)
     }
 }
