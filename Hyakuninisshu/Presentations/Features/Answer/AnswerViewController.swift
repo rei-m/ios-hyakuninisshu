@@ -9,31 +9,33 @@ import UIKit
 import Combine
 
 protocol AnswerViewProtocol: AnyObject {
-    func goToNextQuestion()
-    func goToTrainingResult(_ trainingResult: TrainingResult)
-    func goToExamResult(_ examResult: ExamResult)
+    func presentNextQuestionVC()
+    func presentTrainingResultVC(_ trainingResult: TrainingResult)
+    func presentExamResultVC(_ examResult: ExamResult)
+    func presentErrorVC(_ error: Error)
 }
 
 class AnswerViewController: UIViewController {
-
+    // MARK: - Outlet
     @IBOutlet weak var fudaView: FudaView!
     @IBOutlet weak var noAndKimarijiLabel: UILabel!
     @IBOutlet weak var goToNextButton: UIButton!
     @IBOutlet weak var goToResultButton: UIButton!
 
+    // MARK: - Property
     private var presenter: AnswerPresenterProtocol!
     
     private var material: Material!
-    private var questionNo: Int!
+    private var questionNo: UInt8!
     private var questionCount: Int!
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
     private var animationSpeed: AnimationSpeedCondition!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
-        tabBarController?.tabBar.isHidden = true
         
         fudaView.material = material
         noAndKimarijiLabel.text = "\(material.noTxt) / \(material.kimarijiTxt)"
@@ -42,32 +44,11 @@ class AnswerViewController: UIViewController {
         goToNextButton.isHidden = isAnsweredAllQuestions
         goToResultButton.isHidden = !isAnsweredAllQuestions
     }
-    
-//    private var cancellables = [AnyCancellable]()
-    
-    @IBAction func didTapGoToNext(_ sender: UIButton) {
-        presenter.didTapGoToNext()
-//        karutaRepository.findAll().map { karutas -> [(Material, Bool)] in
-//            karutas.map { (Material.fromKaruta($0), true) }
-//        }.receive(on: DispatchQueue.main).sink(receiveCompletion: {_ in }, receiveValue: { judgements in
-//            let examResult = ExamResult(score: "100 / 100", averageAnswerSecText: "3.6秒", judgements: judgements)
-//            self.goToExamResult(examResult)
-//        }).store(in: &cancellables)
+
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
     }
 
-    @IBAction func didTapGoToResult(_ sender: UIButton) {
-        if (0 < requireNavigationController.viewControllers.filter { $0 is TrainingViewController }.count) {
-            presenter.didTapGoToTrainingResult()
-            return
-        }
-        if (0 < requireNavigationController.viewControllers.filter { $0 is ExamViewController }.count) {
-            presenter.didTapGoToExamResult()
-            return
-        }
-
-        fatalError("Unknown Navigation.")
-    }
-            
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? MaterialDetailViewController else {
@@ -77,9 +58,28 @@ class AnswerViewController: UIViewController {
         destinationVC.material = material
     }
     
+    // MARK: - Action
+    @IBAction func didTapGoToNext(_ sender: UIButton) {
+        presenter.didTapGoToNext()
+    }
+
+    @IBAction func didTapGoToResult(_ sender: UIButton) {
+        if (0 < requireNavigationController.viewControllers.filter { $0 is TrainingViewController }.count) {
+            presenter.didTapGoToTrainingResult(now: Date())
+            return
+        }
+        if (0 < requireNavigationController.viewControllers.filter { $0 is ExamViewController }.count) {
+            presenter.didTapGoToExamResult(now: Date())
+            return
+        }
+
+        fatalError("Unknown Navigation.")
+    }
+
+    // MARK: - Method
     func inject(presenter: AnswerPresenterProtocol,
                 material: Material,
-                questionNo: Int,
+                questionNo: UInt8,
                 questionCount: Int,
                 kamiNoKu: DisplayStyleCondition,
                 shimoNoKu: DisplayStyleCondition,
@@ -95,10 +95,10 @@ class AnswerViewController: UIViewController {
 }
 
 extension AnswerViewController: AnswerViewProtocol {
-    func goToNextQuestion() {
+    func presentNextQuestionVC() {
         let vc: QuestionViewController = requireStoryboard.instantiateViewController(identifier: .question)
 
-        let model = QuestionModel(questionNo: questionNo + 1, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionModel(questionNo: questionNo + 1, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
 
         let presenter = QuestionPresenter(view: vc, model: model)
 
@@ -107,7 +107,7 @@ extension AnswerViewController: AnswerViewProtocol {
         requireNavigationController.replace(vc)
     }
 
-    func goToTrainingResult(_ trainingResult: TrainingResult) {
+    func presentTrainingResultVC(_ trainingResult: TrainingResult) {
         let vc: TrainingResultViewController = requireStoryboard.instantiateViewController(identifier: .trainingResult)
 
         vc.inject(
@@ -120,9 +120,15 @@ extension AnswerViewController: AnswerViewProtocol {
         requireNavigationController.replace(vc)
     }
     
-    func goToExamResult(_ examResult: ExamResult) {
+    func presentExamResultVC(_ examResult: ExamResult) {
         let vc: ExamResultViewController = requireStoryboard.instantiateViewController(identifier: .examResult)
+
         vc.inject(examResult: examResult)
+
         requireNavigationController.replace(vc)
+    }
+    
+    func presentErrorVC(_ error: Error) {
+        presentUnexpectedErrorVC(error)
     }
 }

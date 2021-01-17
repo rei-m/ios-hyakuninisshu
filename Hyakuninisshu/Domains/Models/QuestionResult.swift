@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QuestionResult {
+struct QuestionResult: ValueObject {
     let selectedKarutaNo: KarutaNo
-    let answerMillSec: TimeInterval
+    let answerSec: TimeInterval
     let judgement: QuestionJudgement
 }

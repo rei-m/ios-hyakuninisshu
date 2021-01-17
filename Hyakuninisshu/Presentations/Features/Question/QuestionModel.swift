@@ -9,15 +9,16 @@ import Foundation
 import Combine
 
 protocol QuestionModelProtocol: AnyObject {
-    var questionNo: Int { get }
+    var questionNo: UInt8 { get }
     var kamiNoKu: DisplayStyleCondition { get }
     var shimoNoKu: DisplayStyleCondition { get }
-    func fetchPlay() -> AnyPublisher<Play, ModelError>
-    func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError>
+
+    func start(startDate: Date) -> AnyPublisher<Play, PresentationError>
+    func answer(answerDate: Date, selectedNo: UInt8) -> AnyPublisher<Bool, PresentationError>
 }
 
 class QuestionModel: QuestionModelProtocol {
-    let questionNo: Int
+    let questionNo: UInt8
     let kamiNoKu: DisplayStyleCondition
     let shimoNoKu: DisplayStyleCondition
 
@@ -25,7 +26,7 @@ class QuestionModel: QuestionModelProtocol {
     private let questionRepository: QuestionRepository
     
     init(
-        questionNo: Int,
+        questionNo: UInt8,
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         karutaRepository: KarutaRepository,
@@ -38,22 +39,24 @@ class QuestionModel: QuestionModelProtocol {
         self.questionRepository = questionRepository
     }
     
-    // TODO
-    func fetchPlay() -> AnyPublisher<Play, ModelError> {
+    func start(startDate: Date) -> AnyPublisher<Play, PresentationError> {
         let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question in
             self.karutaRepository.findAll(karutaNos: question.choices).map { (question, $0) }
-        }.flatMap { (question, choiceKarutas) -> AnyPublisher<(Question, [Karuta]), RepositoryError> in
-            let started = question.start(startDate: Date())
-            return self.questionRepository.save(started).map { _ in (started, choiceKarutas) }.eraseToAnyPublisher()
-        }.map { (question, choiceKarutas) -> Play in
-            var choiceKarutaMap: [Int8: Karuta] = [:]
-            choiceKarutas.forEach { choiceKarutaMap[$0.no.value] = $0 }
-            
-            guard let correctKaruta = choiceKarutaMap[question.correctNo.value] else {
-                // TODO
-                fatalError()
+        }.flatMap { (question, choiceKarutas) -> AnyPublisher<(Question, [Karuta]), DomainError> in
+            do {
+                let started = try question.start(startDate: startDate)
+                return self.questionRepository.save(started).map { _ in (started, choiceKarutas) }.eraseToAnyPublisher()
+            } catch let error {
+                return self.handleCatchError(error)
             }
+        }.map { (question, choiceKarutas) -> Play in
+            var choiceKarutaMap: [KarutaNo: Karuta] = [:]
+            choiceKarutas.forEach { choiceKarutaMap[$0.no] = $0 }
             
+            guard let correctKaruta = choiceKarutaMap[question.correctNo] else {
+                preconditionFailure("Unexpected question. correctNo is missing.")
+            }
+
             let correct = Material.fromKaruta(correctKaruta)
             let yomiFuda = YomiFuda.fromKamiNoKu(kamiNoKu: correctKaruta.kamiNoKu, style: self.kamiNoKu)
             let toriFudas = choiceKarutas.map { ToriFuda.fromShimoNoKu(shimoNoKu: $0.shimoNoKu, style: self.shimoNoKu) }
@@ -61,21 +64,32 @@ class QuestionModel: QuestionModelProtocol {
             return Play(no: question.no, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
         }
         
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()
     }
     
-    func answer(selectedNo: Int8) -> AnyPublisher<Bool, ModelError> {
-        let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question -> AnyPublisher<Question, RepositoryError> in
-            let answered = question.verify(selectedNo: KarutaNo(selectedNo), answerDate: Date())
-            return self.questionRepository.save(answered).map { _ in answered }.eraseToAnyPublisher()
-        }.map { answered -> Bool in
-            guard case .answered( _, let result) = answered.state else {
-                // TODO
-                fatalError("error")
+    func answer(answerDate: Date, selectedNo: UInt8) -> AnyPublisher<Bool, PresentationError> {
+        let publisher = self.questionRepository.findByNo(no: questionNo).flatMap { question -> AnyPublisher<Bool, DomainError> in
+            do {
+                let answered = try question.verify(selectedNo: KarutaNo(selectedNo), answerDate: answerDate)
+                return self.questionRepository.save(answered).map { _ in
+                    guard case .answered( _, let result) = answered.state else {
+                        preconditionFailure("Unexpected question. state is not answered.")
+                    }
+                    return result.judgement.isCorrect
+                }.eraseToAnyPublisher()
+            } catch let error {
+                return self.handleCatchError(error)
             }
-            return result.judgement.isCorrect
         }
 
-        return publisher.mapError { _ in ModelError.unhandled }.eraseToAnyPublisher()
+        return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()
+    }
+    
+    private func handleCatchError<Output>(_ error: Error) -> AnyPublisher<Output, DomainError> {
+        guard let error = error as? DomainError else {
+            return Fail<Output, DomainError>(error: DomainError(reason: "unhandled", kind: .unhandled)).eraseToAnyPublisher()
+        }
+    
+        return Fail<Output, DomainError>(error: error).eraseToAnyPublisher()
     }
 }

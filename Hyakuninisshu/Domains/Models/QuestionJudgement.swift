@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuestionJudgement {
+struct QuestionJudgement: ValueObject {
     let karutaNo: KarutaNo
     let isCorrect: Bool
 }

@@ -27,9 +27,9 @@ struct Material {
         )
     }
 
-    let no: Int8
+    let no: UInt8
     let noTxt: String
-    let kimariji: Int8
+    let kimariji: UInt8
     let kimarijiTxt: String
     let creator: String
     let shokuKanji: String
@@ -49,8 +49,8 @@ struct Material {
     let shimoNoKuKana: String
     
     init(
-        no: Int8,
-        kimariji: Int8,
+        no: UInt8,
+        kimariji: UInt8,
         creator: String,
         shokuKanji: String,
         shokuKana: String,
@@ -65,9 +65,9 @@ struct Material {
         translation: String
     ) {
         self.no = no
-        self.noTxt = KanjiFormatter.no(NSNumber(value: no))
+        self.noTxt = KanjiFormatter.no(no)
         self.kimariji = kimariji
-        self.kimarijiTxt = KanjiFormatter.kimariji(NSNumber(value: kimariji))
+        self.kimarijiTxt = KanjiFormatter.kimariji(kimariji)
         self.creator = creator
         self.shokuKanji = shokuKanji
         self.shokuKana = shokuKana

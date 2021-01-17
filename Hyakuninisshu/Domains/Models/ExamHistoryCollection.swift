@@ -25,6 +25,6 @@ struct ExamHistoryCollection {
                 }
             }
         }
-        self.totalWrongKarutaNoCollection = KarutaNoCollection(values: totalWrongKarutaNoSet.compactMap { $0 })
+        self.totalWrongKarutaNoCollection = KarutaNoCollection(totalWrongKarutaNoSet.compactMap { $0 })
     }
 }

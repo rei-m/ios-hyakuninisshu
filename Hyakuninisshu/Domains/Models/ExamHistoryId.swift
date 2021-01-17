@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExamHistoryId {
+struct ExamHistoryId: EntityId {
     let value: UUID
     
     private init(_ value: UUID) {

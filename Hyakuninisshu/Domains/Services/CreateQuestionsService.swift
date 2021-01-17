@@ -12,7 +12,7 @@ class CreateQuestionsService {
     private let allKarutaNoCollection: KarutaNoCollection
     
     init?(_ allKarutaNoCollection: KarutaNoCollection) {
-        if (allKarutaNoCollection.count != KarutaNo.MAX.value) {
+        if (allKarutaNoCollection.values.count != KarutaNo.MAX.value) {
             return nil
         }
         self.allKarutaNoCollection = allKarutaNoCollection
@@ -20,22 +20,22 @@ class CreateQuestionsService {
     
     func execute(
         targetKarutaNoCollection: KarutaNoCollection,
-        choiceSize: Int
+        choiceCount: Int
     ) -> Optional<[Question]> {
 
-        if (targetKarutaNoCollection.count == 0) {
+        if (targetKarutaNoCollection.values.count == 0) {
             return nil
         }
 
-        let result: [Question] = targetKarutaNoCollection.asRandomized.enumerated().map { value in
-            let no = value.offset + 1
+        let result: [Question] = targetKarutaNoCollection.values.shuffled().enumerated().map { value in
+            let no: UInt8 = UInt8(value.offset + 1)
             let targetKarutaNo = value.element
             
             var dupNos = allKarutaNoCollection.values
             dupNos.removeAll(where: { $0.value == targetKarutaNo.value })
             
-            var choices = generateRandomIndexArray(total: dupNos.count, size: choiceSize - 1).map { dupNos[$0] }
-            let correctPosition = generateRandomIndexArray(total: choiceSize, size: 1).first!
+            var choices = generateRandomIndexArray(total: dupNos.count, size: choiceCount - 1).map { dupNos[$0] }
+            let correctPosition = generateRandomIndexArray(total: choiceCount, size: 1).first!
             choices.insert(targetKarutaNo, at: correctPosition)
             
             return Question(id: QuestionId.create(), no: no, choices: choices, correctNo: targetKarutaNo, state: .ready)

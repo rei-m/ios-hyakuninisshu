@@ -10,8 +10,8 @@ import Combine
 
 protocol AnswerPresenterProtocol: AnyObject {
     func didTapGoToNext()
-    func didTapGoToTrainingResult()
-    func didTapGoToExamResult()
+    func didTapGoToTrainingResult(now: Date)
+    func didTapGoToExamResult(now: Date)
 }
 
 class AnswerPresenter: AnswerPresenterProtocol {
@@ -26,34 +26,28 @@ class AnswerPresenter: AnswerPresenterProtocol {
     }
 
     func didTapGoToNext() {
-        view.goToNextQuestion()
+        view.presentNextQuestionVC()
     }
 
-    func didTapGoToTrainingResult() {
-        model.aggregateTrainingResult().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+    func didTapGoToTrainingResult(now: Date) {
+        model.aggregateTrainingResult(finishDate: now).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] trainingResult in
-            self?.view.goToTrainingResult(trainingResult)
+            self?.view.presentTrainingResultVC(trainingResult)
         }).store(in: &cancellables)
     }
 
-    func didTapGoToExamResult() {
-        model.saveExamHistory().receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                // TODO
-                print(error)
-            case .finished:
+    func didTapGoToExamResult(now: Date) {
+        model.aggregateExamResultAndSaveExamHistory(finishDate: now).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            guard case let .failure(error) = completion else {
                 return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] examHistory in
-            self?.view.goToExamResult(examHistory)
+            self?.view.presentExamResultVC(examHistory)
         }).store(in: &cancellables)
     }
 }

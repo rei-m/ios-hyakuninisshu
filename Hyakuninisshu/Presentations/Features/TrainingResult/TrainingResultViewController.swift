@@ -8,41 +8,49 @@
 import UIKit
 
 class TrainingResultViewController: UIViewController {
+    // MARK: - Outlet
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var averageAnswerTimeLabel: UILabel!
     @IBOutlet weak var goToTrainingButton: UIButton!
     
+    // MARK: - Property
     private var trainingResult: TrainingResult!
     private var kamiNoKu: DisplayStyleCondition!
     private var shimoNoKu: DisplayStyleCondition!
     private var animationSpeed: AnimationSpeedCondition!
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
-        tabBarController?.tabBar.isHidden = true
         
         scoreLabel.text = trainingResult.score.score
         averageAnswerTimeLabel.text = trainingResult.score.averageAnswerSecText
         goToTrainingButton.isHidden = !trainingResult.canRestart
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    // MARK: - Action
     @IBAction func didTapGoToTraining(_ sender: Any) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
         
-        let model = QuestionStarterModel(karutaNos: trainingResult.wrongKarutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: trainingResult.wrongKarutaNos, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
         
         let presenter = QuestionStarterPresenter(view: vc, model: model)
 
         vc.inject(presenter: presenter, kamiNoKu: kamiNoKu, shimoNoKu: shimoNoKu, animationSpeed: animationSpeed)
 
-        navigationController?.pushViewController(vc, animated: false)
+        requireNavigationController.pushViewController(vc, animated: false)
     }
     
     @IBAction func didTapGoToMenu(_ sender: Any) {
         popToNaviRoot()
     }
 
+    // MARK: - Method
     func inject(
         trainingResult: TrainingResult,
         kamiNoKu: DisplayStyleCondition,

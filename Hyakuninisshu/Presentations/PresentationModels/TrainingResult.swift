@@ -10,5 +10,5 @@ import Foundation
 struct TrainingResult {
     let score: PlayScore
     let canRestart: Bool
-    let wrongKarutaNos: [Int8]
+    let wrongKarutaNos: [UInt8]
 }

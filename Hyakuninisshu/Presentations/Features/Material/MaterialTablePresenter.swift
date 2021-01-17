@@ -27,13 +27,11 @@ class MaterialTablePresenter: MaterialTablePresenterProtocol {
     func viewDidLoad() {
         view.updateLoading(true)
         model.fetchKarutas().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
-            switch completion {
-            case .finished:
-                self?.view.updateLoading(false)
-            case .failure(let error):
-                // TODO
-                print(error)
+            self?.view.updateLoading(false)
+            guard case let .failure(error) = completion else {
+                return
             }
+            self?.view.presentErrorVC(error)
         }, receiveValue: { [weak self] materials in
             self?.view.updateMaterialTable(materials)
         }).store(in: &cancellables)

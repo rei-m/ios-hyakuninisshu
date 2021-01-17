@@ -36,29 +36,15 @@ extension UIViewController {
         }
     }
 
-    var karutaRepository: KarutaRepository {
-        get { requireAppDelegate.karutaRepository }
+    var diContainer: DIContainer {
+        get { requireAppDelegate.diContainer }
     }
     
-    var questionRepository: QuestionRepository {
-        get { requireAppDelegate.questionRepository }
-    }
-    
-    var examHistoryRepository: ExamHistoryRepository {
-        get { requireAppDelegate.examHistoryRepository }
-    }
-    
-    func showUnexpectedErrorDialog() {
-        let alert = UIAlertController(
-            title: "エラー",
-            message: "予期しないエラーが発生しました。アプリを終了してください。",
-            preferredStyle: .alert
-        )
-
-        let defaultAction = UIAlertAction(title: "閉じる", style: .default)
-        alert.addAction(defaultAction)
-        
-        self.present(alert, animated: true)
+    func presentUnexpectedErrorVC(_ error: Error) {
+        let storyboard = UIStoryboard(name: "Error", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: .fatalError)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
     }
 
     func setUpLeftBackButton() {

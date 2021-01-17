@@ -14,7 +14,7 @@ import UIKit
     @IBInspectable var fontSize: CGFloat = 17.0
 
     private var _material: Material?
-    public var material: Material? {
+    var material: Material? {
         get { _material }
         set(v) {
             _material = v
@@ -85,7 +85,7 @@ import UIKit
         setUpLineView(lineView: fifthLineView)
     }
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }
@@ -94,5 +94,4 @@ import UIKit
         super.init(coder: aDecoder)
         setUp()
     }
-
 }

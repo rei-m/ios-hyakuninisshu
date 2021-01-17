@@ -19,7 +19,7 @@ private func createFitLayoutConstraint(item: UIView, toItem: UIView, attribute: 
 }
 
 extension UIView {
-    func addFitConstraints(to: UIView) {
+    private func addFitConstraints(to: UIView) {
         to.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraint(createFitLayoutConstraint(item: to, toItem: self, attribute: .top))
         self.addConstraint(createFitLayoutConstraint(item: to, toItem: self, attribute: .leading))

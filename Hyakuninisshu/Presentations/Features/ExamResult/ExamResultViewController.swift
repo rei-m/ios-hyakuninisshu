@@ -8,20 +8,26 @@
 import UIKit
 
 class ExamResultViewController: UIViewController {
-    
+    // MARK: - Outlet
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
+    // MARK: - Property
     private var examResult: ExamResult!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
-        tabBarController?.tabBar.isHidden = true
 
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    // MARK: - Action
     @IBAction func didTapBackMenuButton(_ sender: Any) {
          popToNaviRoot()
     }
@@ -41,6 +47,7 @@ class ExamResultViewController: UIViewController {
         destinationVC.material = material
     }
     
+    // MARK: - Method
     func inject(examResult: ExamResult) {
         self.examResult = examResult
     }

@@ -19,7 +19,7 @@ struct ToriFuda {
         }
     }
     
-    let karutaNo: Int8
+    let karutaNo: UInt8
     let firstLine: String
     let secondLine: String
 }

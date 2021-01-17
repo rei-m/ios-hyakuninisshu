@@ -14,4 +14,5 @@ enum ViewControllerIdentifier: String {
     case answer = "AnswerViewController"
     case trainingResult = "TrainingResultViewController"
     case examResult = "ExamResultViewController"
+    case fatalError = "FatalErrorViewController"
 }

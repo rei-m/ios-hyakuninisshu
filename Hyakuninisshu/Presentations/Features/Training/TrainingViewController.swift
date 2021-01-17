@@ -8,6 +8,15 @@
 import UIKit
 
 protocol TrainingViewProtocol: AnyObject {
+    func initSettings(
+        rangeFrom: RangeCondition,
+        rangeTo: RangeCondition,
+        kimariji: KimarijiCondition,
+        color: ColorCondition,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    )
     func updateRangeFrom(_ condition: RangeCondition)
     func updateRangeTo(_ condition: RangeCondition)
     func updateKimariji(_ condition: KimarijiCondition)
@@ -17,16 +26,17 @@ protocol TrainingViewProtocol: AnyObject {
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition)
     func updateRangeError(_ message: String?)
     func showAlertDialog()
-    func goToNextVC(
-        karutaNos: [Int8],
+    func presentNextVC(
+        karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     )
+    func presentErrorVC(_ error: Error)
 }
 
 class TrainingViewController: UIViewController {
-
+    // MARK: - Outlet
     @IBOutlet weak var rangeFromPicker: KeyboardPicker!
     @IBOutlet weak var rangeToPicker: KeyboardPicker!
     @IBOutlet weak var kimarijiPicker: KeyboardPicker!
@@ -34,29 +44,16 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var kamiNoKuPicker: KeyboardPicker!
     @IBOutlet weak var shimoNoKuPicker: KeyboardPicker!
     @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
-
     @IBOutlet weak var rangeErrorLabel: UILabel!    
+
+    // MARK: - Property
     private var rangeErrorHeightConstraint: NSLayoutConstraint?
     
     private var presenter: TrainingPresenterProtocol!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        rangeFromPicker.data = RangeCondition.FROM_DATA
-        rangeToPicker.data = RangeCondition.TO_DATA
-        kimarijiPicker.data = KimarijiCondition.DATA
-        colorPicker.data = ColorCondition.DATA
-        kamiNoKuPicker.data = DisplayStyleCondition.DATA
-        shimoNoKuPicker.data = DisplayStyleCondition.DATA
-        animationSpeedPicker.data = AnimationSpeedCondition.DATA
-
-        rangeErrorHeightConstraint = rangeErrorLabel.constraints.first
-        
-        [rangeFromPicker, rangeToPicker, kimarijiPicker, colorPicker, kamiNoKuPicker, shimoNoKuPicker, animationSpeedPicker].forEach {
-            $0?.delegate = self
-        }
-        
         presenter.viewDidLoad()
     }
     
@@ -64,43 +61,68 @@ class TrainingViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
+    // MARK: - Action
     @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {
         presenter.didStartTrainingButtonTapDone()
     }
 
+    // MARK: - Method
     func inject(presenter: TrainingPresenterProtocol) {
         self.presenter = presenter
     }
 }
 
 extension TrainingViewController: TrainingViewProtocol {
-    // MARK: - View methods
+    func initSettings(
+        rangeFrom: RangeCondition,
+        rangeTo: RangeCondition,
+        kimariji: KimarijiCondition,
+        color: ColorCondition,
+        kamiNoKu: DisplayStyleCondition,
+        shimoNoKu: DisplayStyleCondition,
+        animationSpeed: AnimationSpeedCondition
+    ) {
+        rangeFromPicker.setUpData(data: RangeCondition.FROM_DATA, currentItem: rangeFrom)
+        rangeToPicker.setUpData(data: RangeCondition.TO_DATA, currentItem: rangeTo)
+        kimarijiPicker.setUpData(data: KimarijiCondition.DATA, currentItem: kimariji)
+        colorPicker.setUpData(data: ColorCondition.DATA, currentItem: color)
+        kamiNoKuPicker.setUpData(data: DisplayStyleCondition.DATA, currentItem: kamiNoKu)
+        shimoNoKuPicker.setUpData(data: DisplayStyleCondition.DATA, currentItem: shimoNoKu)
+        animationSpeedPicker.setUpData(data: AnimationSpeedCondition.DATA, currentItem: animationSpeed)
+
+        rangeErrorHeightConstraint = rangeErrorLabel.constraints.first
+
+        [rangeFromPicker, rangeToPicker, kimarijiPicker, colorPicker, kamiNoKuPicker, shimoNoKuPicker, animationSpeedPicker].forEach {
+            $0?.delegate = self
+        }
+    }
+
     func updateRangeFrom(_ condition: RangeCondition) {
-        rangeFromPicker.currentItemIndex = RangeCondition.FROM_DATA.firstIndex(of: condition)!
+        rangeFromPicker.currentItem = condition
     }
     
     func updateRangeTo(_ condition: RangeCondition) {
-        rangeToPicker.currentItemIndex = RangeCondition.TO_DATA.firstIndex(of: condition)!
+        rangeToPicker.currentItem = condition
     }
     
     func updateKimariji(_ condition: KimarijiCondition) {
-        kimarijiPicker.currentItemIndex = KimarijiCondition.DATA.firstIndex(of: condition)!
+        kimarijiPicker.currentItem = condition
     }
     
     func updateColor(_ condition: ColorCondition) {
-        colorPicker.currentItemIndex = ColorCondition.DATA.firstIndex(of: condition)!
+        colorPicker.currentItem = condition
     }
     
     func updateKamiNoKu(_ condition: DisplayStyleCondition) {
-        kamiNoKuPicker.currentItemIndex = DisplayStyleCondition.DATA.firstIndex(of: condition)!
+        kamiNoKuPicker.currentItem = condition
     }
     
     func updateShimoNoKu(_ condition: DisplayStyleCondition) {
-        shimoNoKuPicker.currentItemIndex = DisplayStyleCondition.DATA.firstIndex(of: condition)!
+        shimoNoKuPicker.currentItem = condition
     }
     
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition) {
-        animationSpeedPicker.currentItemIndex = AnimationSpeedCondition.DATA.firstIndex(of: condition)!
+        animationSpeedPicker.currentItem = condition
     }
     
     func updateRangeError(_ message: String?) {
@@ -121,15 +143,15 @@ extension TrainingViewController: TrainingViewProtocol {
         self.present(alert, animated: true)
     }
     
-    func goToNextVC(
-        karutaNos: [Int8],
+    func presentNextVC(
+        karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
         shimoNoKu: DisplayStyleCondition,
         animationSpeed: AnimationSpeedCondition
     ) {
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 
-        let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: karutaRepository, questionRepository: questionRepository)
+        let model = QuestionStarterModel(karutaNos: karutaNos, karutaRepository: diContainer.karutaRepository, questionRepository: diContainer.questionRepository)
 
         let presenter = QuestionStarterPresenter(view: vc, model: model)
 
@@ -137,25 +159,30 @@ extension TrainingViewController: TrainingViewProtocol {
 
         requireNavigationController.pushViewController(vc, animated: false)
     }
+    
+    func presentErrorVC(_ error: Error) {
+        presentUnexpectedErrorVC(error)
+    }
 }
 
 extension TrainingViewController: KeyboardPickerDelegate {
-    func didTapDone(_ keyboardPicker: KeyboardPicker, index: Int) {
+    func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem) {
+        // ここイケてない・・・
         switch keyboardPicker {
         case rangeFromPicker:
-            presenter.didChangeRangeFrom(RangeCondition.FROM_DATA[index])
+            presenter.didChangeRangeFrom(item as! RangeCondition)
         case rangeToPicker:
-            presenter.didChangeRangeTo(RangeCondition.TO_DATA[index])
+            presenter.didChangeRangeTo(item as! RangeCondition)
         case kimarijiPicker:
-            presenter.didChangeKimariji(KimarijiCondition.DATA[index])
+            presenter.didChangeKimariji(item as! KimarijiCondition)
         case colorPicker:
-            presenter.didChangeColor(ColorCondition.DATA[index])
+            presenter.didChangeColor(item as! ColorCondition)
         case kamiNoKuPicker:
-            presenter.didChangeKamiNoKu(DisplayStyleCondition.DATA[index])
+            presenter.didChangeKamiNoKu(item as! DisplayStyleCondition)
         case shimoNoKuPicker:
-            presenter.didChangeShimoNoKu(DisplayStyleCondition.DATA[index])
+            presenter.didChangeShimoNoKu(item as! DisplayStyleCondition)
         case animationSpeedPicker:
-            presenter.didChangeAnimationSpeed(AnimationSpeedCondition.DATA[index])
+            presenter.didChangeAnimationSpeed(item as! AnimationSpeedCondition)
         default:
             return
         }

@@ -7,17 +7,13 @@
 
 import Foundation
 
-struct KamiNoKu {
+struct KamiNoKu: ValueObject {
     let karutaNo: KarutaNo
     let shoku: Verse
     let niku: Verse
     let sanku: Verse
     
-    var kana: String {
-        get { "\(shoku.kana)　\(niku.kana)　\(sanku.kana)" }
-    }
-    
-    var kanji: String {
-        get { "\(shoku.kanji)　\(niku.kanji)　\(sanku.kanji)" }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(karutaNo)
     }
 }

@@ -9,14 +9,8 @@ import Foundation
 
 struct KarutaNoCollection {
     let values: [KarutaNo]
-
-    var count: Int {
-        get { values.count }
-    }
     
-    var asRandomized: [KarutaNo] {
-        get {
-            values
-        }
+    init(_ values: [KarutaNo]) {
+        self.values = values
     }
 }

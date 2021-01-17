@@ -26,7 +26,7 @@ class VerticalLabel: UIView {
         get { _fontSize }
     }
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
