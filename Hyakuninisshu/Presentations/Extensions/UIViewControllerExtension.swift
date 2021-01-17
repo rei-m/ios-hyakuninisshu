@@ -42,8 +42,9 @@ extension UIViewController {
     
     func presentUnexpectedErrorVC(_ error: Error) {
         let storyboard = UIStoryboard(name: "Error", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: .fatalError)
+        let vc: UnexpectedErrorViewController = storyboard.instantiateViewController(identifier: .fatalError)
         vc.modalPresentationStyle = .fullScreen
+        vc.error = error
         present(vc, animated: false)
     }
 

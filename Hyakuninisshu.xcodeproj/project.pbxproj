@@ -101,6 +101,7 @@
 		FAB9E0E925A8A3640038EA04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */; };
 		FAB9E0EE25A8A3700038EA04 /* AnswerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */; };
 		FAB9E0F925A8B6530038EA04 /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0F825A8B6530038EA04 /* ExamResult.swift */; };
+		FACB599525B482F100B4ACFA /* UnexpectedErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB599425B482F100B4ACFA /* UnexpectedErrorViewController.swift */; };
 		FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B2325B1844F00579F96 /* DIContainer.swift */; };
 		FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC8B2B25B1D75C00579F96 /* Error.storyboard */; };
 		FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B3025B1E0E400579F96 /* PresentationError.swift */; };
@@ -224,6 +225,7 @@
 		FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 		FAB9E0ED25A8A3700038EA04 /* AnswerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPresenter.swift; sourceTree = "<group>"; };
 		FAB9E0F825A8B6530038EA04 /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
+		FACB599425B482F100B4ACFA /* UnexpectedErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedErrorViewController.swift; sourceTree = "<group>"; };
 		FACC8B2325B1844F00579F96 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		FACC8B2B25B1D75C00579F96 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		FACC8B3025B1E0E400579F96 /* PresentationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationError.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 		FA3BA3FC25A7016A00841087 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FACB599325B482C800B4ACFA /* UnexpectedError */,
 				FA5FEFC125AB5E7D00948165 /* ExamHistory */,
 				FAB9E0D525A8A0620038EA04 /* ExamResult */,
 				FA3BA3F825A6EF7F00841087 /* Exam */,
@@ -593,6 +596,14 @@
 				FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */,
 			);
 			path = ExamResult;
+			sourceTree = "<group>";
+		};
+		FACB599325B482C800B4ACFA /* UnexpectedError */ = {
+			isa = PBXGroup;
+			children = (
+				FACB599425B482F100B4ACFA /* UnexpectedErrorViewController.swift */,
+			);
+			path = UnexpectedError;
 			sourceTree = "<group>";
 		};
 		FACC8B1B25B1631F00579F96 /* Errors */ = {
@@ -776,6 +787,7 @@
 				FA2D7B142584234300C6134B /* MaterialDetailViewController.swift in Sources */,
 				FA178EE3259E0F58001C0311 /* QuestionPresenter.swift in Sources */,
 				FA5FEFCB25AB5EB100948165 /* ExamHistoryModel.swift in Sources */,
+				FACB599525B482F100B4ACFA /* UnexpectedErrorViewController.swift in Sources */,
 				FA142B3D25A8390A005218F4 /* KarutaRepository.swift in Sources */,
 				FA142B3225A83834005218F4 /* KarutaRepositoryImpl.swift in Sources */,
 				FA0289492570CD73003ADE9C /* ShimoNoKu.swift in Sources */,
