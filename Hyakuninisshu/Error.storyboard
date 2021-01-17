@@ -8,28 +8,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Unexpected Error View Controller-->
         <scene sceneID="8M8-b7-bRd">
             <objects>
-                <viewController storyboardIdentifier="FatalErrorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsI-kf-foX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FatalErrorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsI-kf-foX" customClass="UnexpectedErrorViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ww9-dU-N2J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWT-gR-e4e">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エラーが発生しました。アプリを終了するか再起動してください。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWT-gR-e4e" userLabel="ErrorLabel">
+                                <rect key="frame" x="32" y="430" width="350" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atL-yJ-ERy" userLabel="RestartButton">
+                                <rect key="frame" x="168.5" y="498" width="77" height="30"/>
+                                <state key="normal" title="再起動する"/>
+                                <connections>
+                                    <action selector="didTapRestartButton:" destination="VsI-kf-foX" eventType="touchUpInside" id="hh1-MZ-tgz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7AJ-77-ydP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GWT-gR-e4e" firstAttribute="centerY" secondItem="ww9-dU-N2J" secondAttribute="centerY" id="2ZY-F5-SdY"/>
+                            <constraint firstItem="GWT-gR-e4e" firstAttribute="leading" secondItem="ww9-dU-N2J" secondAttribute="leading" constant="32" id="ZaR-9z-fVr"/>
                             <constraint firstItem="GWT-gR-e4e" firstAttribute="centerX" secondItem="ww9-dU-N2J" secondAttribute="centerX" id="kTT-65-qOG"/>
+                            <constraint firstAttribute="trailing" secondItem="GWT-gR-e4e" secondAttribute="trailing" constant="32" id="nI5-w9-LYU"/>
+                            <constraint firstItem="atL-yJ-ERy" firstAttribute="top" secondItem="GWT-gR-e4e" secondAttribute="bottom" constant="32" id="s0F-eZ-fSk"/>
+                            <constraint firstItem="atL-yJ-ERy" firstAttribute="centerX" secondItem="ww9-dU-N2J" secondAttribute="centerX" id="sdC-HU-OCh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="GWT-gR-e4e" id="DuO-iM-L0T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R88-O7-KUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
