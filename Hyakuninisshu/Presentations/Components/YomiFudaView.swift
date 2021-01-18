@@ -31,8 +31,8 @@ import Combine
         }
     }
     
-    private let borderColor = UIColor(named: "PrimaryColor")
-    
+    private let borderColor = UIColor(named: "FudaFrameColor")
+
     private let firstLineView = UIStackView()
     private let secondLineView = UIStackView()
     private let thirdLineView = UIStackView()
