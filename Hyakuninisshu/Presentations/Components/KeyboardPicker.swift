@@ -40,7 +40,8 @@ class KeyboardPicker: UIControl {
     private var bottomBorderHeightConstraint: NSLayoutConstraint!
     private var borderColor: UIColor = UIColor.systemGray
     private var borderColorSelected: UIColor = UIColor(named: "PrimaryColor")!
-    
+    private var textColor: UIColor = UIColor(named: "TextColor")!
+
     private func setUp() {
         // 自身のViewの設定
         backgroundColor = UIColor.clear
@@ -50,6 +51,8 @@ class KeyboardPicker: UIControl {
         titleLabel.textAlignment = .center
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .left
+        titleLabel.font = titleLabel.font.withSize(16)
+        titleLabel.textColor = textColor
         addSubview(titleLabel)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
