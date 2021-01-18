@@ -30,7 +30,7 @@ extension UIView {
     }
     
     func setUpCardFrame(borderWidth: CGFloat, cornerRadius: CGFloat, shadowOffset: CGFloat) {
-        let borderColor = UIColor(named: "AccentColor")
+        let borderColor = UIColor(named: "PrimaryColor")
         let shadowView = UIView()
         shadowView.backgroundColor = .white
         shadowView.layer.shadowColor = UIColor.gray.cgColor

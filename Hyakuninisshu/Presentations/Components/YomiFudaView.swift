@@ -31,7 +31,7 @@ import Combine
         }
     }
     
-    private let borderColor = UIColor(named: "AccentColor")
+    private let borderColor = UIColor(named: "PrimaryColor")
     
     private let firstLineView = UIStackView()
     private let secondLineView = UIStackView()

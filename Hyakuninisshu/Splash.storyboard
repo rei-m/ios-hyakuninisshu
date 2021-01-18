@@ -21,7 +21,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Js5-Zu-hh4"/>
-                        <color key="backgroundColor" name="AccentColor"/>
+                        <color key="backgroundColor" name="PrimaryColor"/>
                         <constraints>
                             <constraint firstItem="Fi3-et-4vZ" firstAttribute="centerX" secondItem="AzV-ig-5pD" secondAttribute="centerX" id="649-3d-kdC"/>
                             <constraint firstItem="Fi3-et-4vZ" firstAttribute="centerY" secondItem="AzV-ig-5pD" secondAttribute="centerY" id="vet-jg-Fbf"/>
@@ -34,7 +34,7 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
+        <namedColor name="PrimaryColor">
             <color red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

@@ -39,7 +39,7 @@ class KeyboardPicker: UIControl {
 
     private var bottomBorderHeightConstraint: NSLayoutConstraint!
     private var borderColor: UIColor = UIColor.systemGray
-    private var borderColorSelected: UIColor = UIColor(named: "AccentColor")!
+    private var borderColorSelected: UIColor = UIColor(named: "PrimaryColor")!
     
     private func setUp() {
         // 自身のViewの設定
