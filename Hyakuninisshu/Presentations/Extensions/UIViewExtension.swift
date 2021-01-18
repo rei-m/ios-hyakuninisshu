@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 private func createFitLayoutConstraint(item: UIView, toItem: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint {
-    return NSLayoutConstraint(item: item,
-                              attribute: attribute,
-                              relatedBy: .equal,
-                              toItem: toItem,
-                              attribute: attribute,
-                              multiplier: 1.0,
-                              constant: 0)
+    return NSLayoutConstraint(
+        item: item,
+        attribute: attribute,
+        relatedBy: .equal,
+        toItem: toItem,
+        attribute: attribute,
+        multiplier: 1.0,
+        constant: 0
+    )
 }
 
 extension UIView {
