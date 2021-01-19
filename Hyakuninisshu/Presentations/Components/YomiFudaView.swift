@@ -8,11 +8,15 @@
 import UIKit
 import Combine
 
-@IBDesignable class YomiFudaView: UIView {
-    @IBInspectable var borderWidth: CGFloat = 6.0
-    @IBInspectable var cornerRadius: CGFloat = 6.0
-    @IBInspectable var shadowOffset: CGFloat = 2.0
-    @IBInspectable var fontSize: CGFloat = 17.0
+class YomiFudaView: UIView {
+    var borderWidth: CGFloat = 6.0
+    var cornerRadius: CGFloat = 6.0
+    var shadowOffset: CGFloat = 2.0
+    var fontSize: CGFloat = {
+        let screenBounds = UIScreen.main.bounds
+        let baseSize = min(screenBounds.width, screenBounds.height / 2)
+        return baseSize / 16
+    }()
 
     private var _yomiFuda: YomiFuda?
     var yomiFuda: YomiFuda? {

@@ -20,12 +20,8 @@ import UIKit
     }
 
     private func setUpView() {
-        let borderColor = UIColor(named: "SecondaryColor")
         setTitleColor(UIColor(named: "SecondaryContrastTextColor"), for: .normal)
-        layer.backgroundColor = borderColor?.cgColor
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = 4
+        layer.backgroundColor = UIColor(named: "SecondaryColor")?.cgColor
         layer.cornerRadius = 8
-        layer.masksToBounds = true
     }
 }

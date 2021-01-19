@@ -7,11 +7,14 @@
 
 import UIKit
 
-@IBDesignable class ToriFudaView: UIView {
-    @IBInspectable var borderWidth: CGFloat = 4.0
-    @IBInspectable var cornerRadius: CGFloat = 6.0
-    @IBInspectable var shadowOffset: CGFloat = 2.0
-    @IBInspectable var fontSize: CGFloat = 16.0
+class ToriFudaView: UIView {
+    var borderWidth: CGFloat = 4.0
+    var cornerRadius: CGFloat = 6.0
+    var shadowOffset: CGFloat = 2.0
+    var fontSize: CGFloat = {
+        let baseSize = UIScreen.main.bounds.width
+        return baseSize / 22
+    }()
 
     private var _toriFuda: ToriFuda?
     var toriFuda: ToriFuda? {
@@ -39,19 +42,20 @@ import UIKit
     
     private func setUpLineView(lineView: VerticalLabel) {
         addSubview(lineView)
+        lineView.fontSize = fontSize
+        lineView.text = "        "
         lineView.backgroundColor = .clear
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16).isActive = true
         lineView.widthAnchor.constraint(equalToConstant: fontSize).isActive = true
-        lineView.text = "        "
 
         switch lineView {
         case firstLineView:
             lineView.topAnchor.constraint(equalTo: topAnchor, constant: fontSize * 1).isActive = true
-            trailingAnchor.constraint(equalTo: lineView.trailingAnchor, constant: 12).isActive = true
+            trailingAnchor.constraint(equalTo: lineView.trailingAnchor, constant: fontSize * 0.75).isActive = true
         case secondLineView:
             lineView.topAnchor.constraint(equalTo: topAnchor, constant: fontSize * 2.3).isActive = true
-            lineView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+            lineView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: fontSize * 0.75).isActive = true
         default:
             fatalError("unhandled")
         }
