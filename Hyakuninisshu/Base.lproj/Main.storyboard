@@ -411,10 +411,10 @@
             </objects>
             <point key="canvasLocation" x="3134.7826086956525" y="466.74107142857139"/>
         </scene>
-        <!--Training-->
+        <!--Training View Controller-->
         <scene sceneID="pFl-pr-7Ws">
             <objects>
-                <viewController storyboardIdentifier="TrainingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xlR-HG-rf3" userLabel="Training" customClass="TrainingViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrainingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xlR-HG-rf3" userLabel="Training View Controller" customClass="TrainingViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6HQ-Hu-3Zj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -916,10 +916,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="57"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="57.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -932,13 +932,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="21"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="21"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1092,11 +1092,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-fE-c6R" userLabel="YomiFuda Area">
                                 <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                         <rect key="frame" x="139" y="90.666666666666657" width="136" height="227.99999999999997"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerY" secondItem="KhX-fE-c6R" secondAttribute="centerY" id="3OR-KI-euO"/>
                                     <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerX" secondItem="KhX-fE-c6R" secondAttribute="centerX" id="Zqn-mf-zD6"/>
@@ -1108,7 +1107,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x91-1V-jq8">
                                         <rect key="frame" x="16" y="16" width="382" height="377"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Zy-B9S" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="92.666666666666629" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -1116,7 +1115,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="6Oc-mJ-fbs" appends="YES" id="gdR-jA-YSh"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuf-OP-kDh" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="106" y="92.666666666666629" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -1124,7 +1123,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="FHz-7C-gAx" appends="YES" id="nRi-rj-a39"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-NW-52C" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="212" y="92.666666666666629" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -1132,7 +1131,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="GKk-ep-9Ye" appends="YES" id="pP4-U9-EDa"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-Xe-0AE" customClass="ToriFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                                 <rect key="frame" x="318" y="92.666666666666629" width="64" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <gestureRecognizers/>
@@ -1143,7 +1142,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="x91-1V-jq8" secondAttribute="trailing" constant="16" id="5ep-pB-PtX"/>
                                     <constraint firstItem="x91-1V-jq8" firstAttribute="top" secondItem="mgZ-dr-Zro" secondAttribute="top" constant="16" id="L7z-wN-WcC"/>
@@ -1355,14 +1353,8 @@
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
