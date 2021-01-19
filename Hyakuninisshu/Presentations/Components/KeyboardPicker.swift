@@ -51,7 +51,7 @@ class KeyboardPicker: UIControl {
         titleLabel.textAlignment = .center
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .left
-        titleLabel.font = titleLabel.font.withSize(16)
+        titleLabel.font = titleLabel.font.withSize(17)
         titleLabel.textColor = textColor
         addSubview(titleLabel)
 
