@@ -96,6 +96,7 @@
 		FA6BC5A425B1310800B2DEFE /* EntityId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BC5A325B1310800B2DEFE /* EntityId.swift */; };
 		FA6BC5A925B1376200B2DEFE /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BC5A825B1376200B2DEFE /* Entity.swift */; };
 		FA6DEACB25A8550E00F8C349 /* karuta_list_v_3.json in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */; };
+		FA8FBC3A25B7106A00152176 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBC3925B7106A00152176 /* ActionButton.swift */; };
 		FA9EF1E42594712000265ED2 /* KeyboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */; };
 		FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */; };
 		FAB9E0E925A8A3640038EA04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */; };
@@ -220,6 +221,7 @@
 		FA6BC5A325B1310800B2DEFE /* EntityId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityId.swift; sourceTree = "<group>"; };
 		FA6BC5A825B1376200B2DEFE /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		FA6DEACA25A8550E00F8C349 /* karuta_list_v_3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = karuta_list_v_3.json; sourceTree = "<group>"; };
+		FA8FBC3925B7106A00152176 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		FA9EF1E32594712000265ED2 /* KeyboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPicker.swift; sourceTree = "<group>"; };
 		FAB9E0D625A8A0C30038EA04 /* ExamResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultViewController.swift; sourceTree = "<group>"; };
 		FAB9E0E825A8A3640038EA04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 				FA1B78D425A9F612000DB361 /* ExamResultCollectionViewHeader.swift */,
 				FA1B78E125AA074D000DB361 /* ExamResultCollectionViewFooter.swift */,
 				FA1B78DC25A9FCC9000DB361 /* ExamResultCollectionViewCell.swift */,
+				FA8FBC3925B7106A00152176 /* ActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				FA0EC5AC2597EAEF003B4FEE /* RangeCondition.swift in Sources */,
 				FA0ED109259F76BC00D41DBA /* ToriFudaView.swift in Sources */,
 				FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */,
+				FA8FBC3A25B7106A00152176 /* ActionButton.swift in Sources */,
 				FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */,
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
 				FA178EF2259E172D001C0311 /* YomiFuda.swift in Sources */,

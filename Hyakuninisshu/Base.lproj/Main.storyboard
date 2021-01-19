@@ -423,7 +423,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-z4-4cs" userLabel="ContentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="563"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="595"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出題設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-a6-uur" userLabel="FormTitle">
                                                 <rect key="frame" x="16" y="16" width="382" height="23"/>
@@ -536,11 +536,12 @@
                                                     <constraint firstAttribute="height" constant="40" id="e1A-iN-Rmy"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-hM-Gw6" userLabel="StartTrainingButton">
-                                                <rect key="frame" x="123.33333333333333" y="505" width="167.33333333333337" height="26"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-hM-Gw6" userLabel="StartTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="505" width="382" height="58"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <state key="normal" title="練習をはじめる" image="pencil" catalog="system">
-                                                    <color key="titleColor" name="PrimaryColor"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                                <state key="normal" title="練習をはじめる">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="Usx-d8-JLh"/>
@@ -554,7 +555,6 @@
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="3uF-WP-Yw6"/>
                                             <constraint firstAttribute="trailing" secondItem="Yd9-tx-vBK" secondAttribute="trailing" constant="16" id="5Da-2f-O1Y"/>
                                             <constraint firstItem="uLf-a6-uur" firstAttribute="top" secondItem="nmN-z4-4cs" secondAttribute="top" constant="16" id="6Tw-lh-C0J"/>
-                                            <constraint firstItem="Qcn-hM-Gw6" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="9Re-II-9j4"/>
                                             <constraint firstItem="VBB-wM-s1X" firstAttribute="top" secondItem="LnD-te-Gse" secondAttribute="bottom" id="9zh-71-BEK"/>
                                             <constraint firstAttribute="trailing" secondItem="ZxP-W0-oKC" secondAttribute="trailing" constant="16" id="Epl-P9-1fn"/>
                                             <constraint firstItem="bYE-K8-FiI" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="FRH-yO-Ite"/>
@@ -571,6 +571,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Fxs-qY-H86" secondAttribute="trailing" constant="16" id="S3S-2j-Ldt"/>
                                             <constraint firstAttribute="trailing" secondItem="olt-go-wSC" secondAttribute="trailing" constant="16" id="Tco-CW-IJg"/>
                                             <constraint firstItem="ZxP-W0-oKC" firstAttribute="top" secondItem="CAg-kv-fzu" secondAttribute="bottom" constant="16" id="VW7-lD-bl5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qcn-hM-Gw6" secondAttribute="trailing" constant="16" id="WPo-po-XeG"/>
                                             <constraint firstItem="Fxs-qY-H86" firstAttribute="top" secondItem="ZxP-W0-oKC" secondAttribute="bottom" id="YPi-8g-VTj"/>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="Yib-P9-yd0"/>
                                             <constraint firstItem="ZxP-W0-oKC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="baq-yT-wmI"/>
@@ -589,6 +590,7 @@
                                             <constraint firstItem="olt-go-wSC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="o5m-6M-mcm"/>
                                             <constraint firstItem="LnD-te-Gse" firstAttribute="top" secondItem="olt-go-wSC" secondAttribute="bottom" constant="16" id="rK9-fb-uyX"/>
                                             <constraint firstItem="bYE-K8-FiI" firstAttribute="top" secondItem="VBB-wM-s1X" secondAttribute="bottom" constant="16" id="rTk-13-nyp"/>
+                                            <constraint firstItem="Qcn-hM-Gw6" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="scY-AC-Kn7"/>
                                             <constraint firstItem="hdN-M6-AOC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="tum-Kj-rEX"/>
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="top" secondItem="Fxs-qY-H86" secondAttribute="bottom" constant="16" id="uUJ-Hr-AKX"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="vIg-aq-0v8"/>
@@ -828,13 +830,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vlv-RJ-KF0" userLabel="AverageAnswerTimeView">
                                             <rect key="frame" x="72" y="108" width="270" height="67.666666666666686"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-pf-VPP" userLabel="AverageAnswerTimeTitle">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-pf-VPP" userLabel="AverageAnswerTimeTitle">
                                                     <rect key="frame" x="8" y="8" width="254" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1.45秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wif-4P-0Pa" userLabel="AverageAnswerTime">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.45秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wif-4P-0Pa" userLabel="AverageAnswerTime">
                                                     <rect key="frame" x="8" y="33" width="254" height="26.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
@@ -1310,6 +1312,11 @@
             <point key="canvasLocation" x="2225" y="467"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Qcn-hM-Gw6">
+            <size key="intrinsicContentSize" width="150" height="58"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="oQ5-kb-hnV"/>
     </inferredMetricsTieBreakers>
