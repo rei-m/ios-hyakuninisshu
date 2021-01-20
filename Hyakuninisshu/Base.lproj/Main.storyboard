@@ -684,6 +684,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Tl-BLA" userLabel="NoBoxView">
+                                <rect key="frame" x="147.33333333333334" y="271.66666666666669" width="119.66666666666666" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一番 / 二字決まり" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-8R-Lwl" userLabel="NoLabel">
+                                        <rect key="frame" x="4" y="2" width="111.66666666666667" height="17"/>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="M0a-8R-Lwl" firstAttribute="leading" secondItem="NzJ-Tl-BLA" secondAttribute="leading" constant="4" id="LHP-7k-Iwz"/>
+                                    <constraint firstAttribute="bottom" secondItem="M0a-8R-Lwl" secondAttribute="bottom" constant="2" id="MNA-IM-7Bd"/>
+                                    <constraint firstAttribute="trailing" secondItem="M0a-8R-Lwl" secondAttribute="trailing" constant="4" id="mcH-WO-xhU"/>
+                                    <constraint firstItem="M0a-8R-Lwl" firstAttribute="top" secondItem="NzJ-Tl-BLA" secondAttribute="top" constant="2" id="zja-nI-jkh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J20-8w-CPi" userLabel="CreatorBoxView">
+                                <rect key="frame" x="181.66666666666666" y="300.66666666666669" width="51" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="読み人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30v-7W-Qxo" userLabel="CreatorLabel">
+                                        <rect key="frame" x="4" y="2" width="43" height="17"/>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="30v-7W-Qxo" secondAttribute="bottom" constant="2" id="MRa-kR-aqC"/>
+                                    <constraint firstAttribute="trailing" secondItem="30v-7W-Qxo" secondAttribute="trailing" constant="4" id="WiU-CR-Kfr"/>
+                                    <constraint firstItem="30v-7W-Qxo" firstAttribute="top" secondItem="J20-8w-CPi" secondAttribute="top" constant="2" id="dPx-I3-itS"/>
+                                    <constraint firstItem="30v-7W-Qxo" firstAttribute="leading" secondItem="J20-8w-CPi" secondAttribute="leading" constant="4" id="jZu-Xp-gX7"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atI-NP-udN" customClass="FudaView" customModule="Hyakuninisshu" customModuleProvider="target">
                                 <rect key="frame" x="122" y="337.66666666666669" width="170" height="221.00000000000006"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -713,12 +751,6 @@
                                     <action selector="didTapGoToNext:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="Rss-ft-zLo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-8R-Lwl" userLabel="NoLabel">
-                                <rect key="frame" x="188" y="304.66666666666669" width="38" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h90-wo-70a" userLabel="GoToResultButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
                                 <rect key="frame" x="155.66666666666666" y="598.66666666666663" width="102.99999999999997" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -742,18 +774,21 @@
                         <viewLayoutGuide key="safeArea" id="Bwh-kF-w0u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="atI-NP-udN" firstAttribute="top" secondItem="J20-8w-CPi" secondAttribute="bottom" constant="16" id="1vD-9U-ofj"/>
                             <constraint firstItem="atI-NP-udN" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="3H0-ie-5eH"/>
-                            <constraint firstItem="M0a-8R-Lwl" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="9mA-My-56f"/>
                             <constraint firstItem="LBT-Be-PgA" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="B3d-xU-ZdL"/>
                             <constraint firstItem="LBT-Be-PgA" firstAttribute="top" secondItem="atI-NP-udN" secondAttribute="bottom" constant="40" id="CPD-73-Iz0"/>
                             <constraint firstItem="atI-NP-udN" firstAttribute="centerY" secondItem="t9v-A2-dna" secondAttribute="centerY" id="O6D-pY-8KK"/>
+                            <constraint firstItem="J20-8w-CPi" firstAttribute="top" secondItem="NzJ-Tl-BLA" secondAttribute="bottom" constant="8" id="XIQ-V3-oNH"/>
+                            <constraint firstItem="NzJ-Tl-BLA" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="Xbd-v7-tZ5"/>
                             <constraint firstItem="h90-wo-70a" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="dhq-8U-aXs"/>
                             <constraint firstItem="h90-wo-70a" firstAttribute="top" secondItem="atI-NP-udN" secondAttribute="bottom" constant="40" id="eOE-xV-WRM"/>
-                            <constraint firstItem="atI-NP-udN" firstAttribute="top" secondItem="M0a-8R-Lwl" secondAttribute="bottom" constant="16" id="vyN-bj-Qfg"/>
+                            <constraint firstItem="J20-8w-CPi" firstAttribute="centerX" secondItem="t9v-A2-dna" secondAttribute="centerX" id="pGX-gC-5fz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lvM-xd-14r"/>
                     <connections>
+                        <outlet property="creatorLabel" destination="30v-7W-Qxo" id="4bL-e5-bVK"/>
                         <outlet property="fudaView" destination="atI-NP-udN" id="aeT-Ve-x06"/>
                         <outlet property="goToNextButton" destination="LBT-Be-PgA" id="npv-fl-THS"/>
                         <outlet property="goToResultButton" destination="h90-wo-70a" id="Fze-uv-6Tx"/>

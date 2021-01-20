@@ -19,6 +19,7 @@ class AnswerViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var fudaView: FudaView!
     @IBOutlet weak var noAndKimarijiLabel: UILabel!
+    @IBOutlet weak var creatorLabel: UILabel!
     @IBOutlet weak var goToNextButton: ActionButton!
     @IBOutlet weak var goToResultButton: ActionButton!
     
@@ -39,7 +40,8 @@ class AnswerViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
 
         fudaView.material = material
-        noAndKimarijiLabel.text = "\(material.noTxt) / \(material.creator) / \(material.kimarijiTxt)"
+        noAndKimarijiLabel.text = "\(material.noTxt) / \(material.kimarijiTxt)"
+        creatorLabel.text = material.creator
         
         let isAnsweredAllQuestions = questionNo == questionCount
         goToNextButton.isHidden = isAnsweredAllQuestions
