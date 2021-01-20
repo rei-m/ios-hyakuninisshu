@@ -543,6 +543,14 @@
                                                 <state key="normal" title="練習をはじめる">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" name="SecondaryContrastTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                        <color key="value" name="SecondaryColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="Usx-d8-JLh"/>
                                                 </connections>
@@ -681,18 +689,26 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="221" id="nCh-O3-gLy"/>
-                                    <constraint firstAttribute="width" constant="170" id="r7t-hn-3ph"/>
+                                    <constraint firstAttribute="height" priority="250" constant="221" identifier="FudaHeightConstraint" id="nCh-O3-gLy"/>
+                                    <constraint firstAttribute="width" priority="250" constant="170" identifier="FudaWidthConstraint" id="r7t-hn-3ph"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HjF-OY-ET9" appends="YES" id="tKb-zv-u9u"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-Be-PgA" userLabel="GoToNextButton">
-                                <rect key="frame" x="130.66666666666666" y="598.66666666666663" width="152.99999999999997" height="22"/>
-                                <state key="normal" title=" 次の問題へ進む" image="arrow.right.circle" catalog="system">
-                                    <color key="titleColor" name="PrimaryColor"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-Be-PgA" userLabel="GoToNextButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="136" y="598.66666666666663" width="142" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title=" 次の問題へ進む"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" name="PrimaryColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="PrimaryContrastTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapGoToNext:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="Rss-ft-zLo"/>
                                 </connections>
@@ -703,11 +719,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h90-wo-70a" userLabel="GoToResultButton">
-                                <rect key="frame" x="151" y="598.66666666666663" width="112" height="22"/>
-                                <state key="normal" title="結果を見る" image="arrow.right.circle" catalog="system">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h90-wo-70a" userLabel="GoToResultButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="155.66666666666666" y="598.66666666666663" width="102.99999999999997" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title="結果を見る">
                                     <color key="titleColor" name="PrimaryColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="SecondaryContrastTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" name="SecondaryColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapGoToResult:" destination="W1D-Ts-5nX" eventType="touchUpInside" id="aga-rD-Aem"/>
                                 </connections>
@@ -729,8 +755,8 @@
                     <navigationItem key="navigationItem" id="lvM-xd-14r"/>
                     <connections>
                         <outlet property="fudaView" destination="atI-NP-udN" id="aeT-Ve-x06"/>
-                        <outlet property="goToNextButton" destination="LBT-Be-PgA" id="zdn-HG-4TT"/>
-                        <outlet property="goToResultButton" destination="h90-wo-70a" id="oxP-e4-FBH"/>
+                        <outlet property="goToNextButton" destination="LBT-Be-PgA" id="npv-fl-THS"/>
+                        <outlet property="goToResultButton" destination="h90-wo-70a" id="Fze-uv-6Tx"/>
                         <outlet property="noAndKimarijiLabel" destination="M0a-8R-Lwl" id="jrU-VO-hZD"/>
                     </connections>
                 </viewController>
@@ -1311,8 +1337,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="LBT-Be-PgA">
+            <size key="intrinsicContentSize" width="142" height="37"/>
+        </designable>
         <designable name="Qcn-hM-Gw6">
             <size key="intrinsicContentSize" width="150" height="50"/>
+        </designable>
+        <designable name="h90-wo-70a">
+            <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1321,7 +1353,6 @@
     <resources>
         <image name="Correct" width="225" height="225"/>
         <image name="Karuta1" width="150" height="209.5"/>
-        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
@@ -1337,6 +1368,12 @@
         </namedColor>
         <namedColor name="PrimaryContrastTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.71992719173431396" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="1" green="0.56862745098039214" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryContrastTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.80013404989242554" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextColor">
             <color red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

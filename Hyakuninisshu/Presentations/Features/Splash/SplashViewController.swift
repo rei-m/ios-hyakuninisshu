@@ -13,6 +13,7 @@ class SplashViewController: UIViewController {
     private var cancellables = [AnyCancellable]()
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         diContainer.karutaRepository.initialize().receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
             switch completion {
             case .finished:
