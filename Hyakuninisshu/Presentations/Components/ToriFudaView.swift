@@ -32,6 +32,9 @@ class ToriFudaView: UIView {
     private let firstLineView = VerticalLabel()
     private let secondLineView = VerticalLabel()
     
+    private let bgColor = UIColor(named: "FudaBackgroundColor")
+    private let bgColorTouched = UIColor(named: "FudaBackgroundTouchedColor")
+    
     private func setUpView() {
         setUpCardFrame(borderWidth: borderWidth, cornerRadius: cornerRadius, shadowOffset: shadowOffset)
         translatesAutoresizingMaskIntoConstraints = false
@@ -75,5 +78,20 @@ class ToriFudaView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setUp()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        subviews[0].backgroundColor = bgColorTouched
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        subviews[0].backgroundColor = bgColor
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        subviews[0].backgroundColor = bgColor
     }
 }

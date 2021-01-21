@@ -38,7 +38,8 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         setUpLeftBackButton()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
-
+        title = "\(questionNo ?? 0) / \(questionCount ?? 0)"
+        
         fudaView.material = material
         noAndKimarijiLabel.text = "\(material.noTxt) / \(material.kimarijiTxt)"
         creatorLabel.text = material.creator

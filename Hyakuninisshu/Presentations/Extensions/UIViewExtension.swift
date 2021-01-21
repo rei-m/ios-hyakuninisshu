@@ -30,9 +30,10 @@ extension UIView {
     }
     
     func setUpCardFrame(borderWidth: CGFloat, cornerRadius: CGFloat, shadowOffset: CGFloat) {
+        
         let borderColor = UIColor(named: "FudaFrameColor")
         let shadowView = UIView()
-        shadowView.backgroundColor = .white
+        shadowView.backgroundColor = UIColor(named: "FudaBackgroundColor")
         shadowView.layer.shadowColor = UIColor.gray.cgColor
         shadowView.layer.shadowOpacity = 0.5
         shadowView.layer.shadowRadius = cornerRadius
