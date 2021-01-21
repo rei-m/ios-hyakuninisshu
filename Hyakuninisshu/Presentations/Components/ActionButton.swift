@@ -30,9 +30,11 @@ import UIKit
             case .primary:
                 titleColor = primaryTextColor
                 bgColor = primaryColor
+                touchedColor = primaryTouchedColor
             case .secondary:
                 titleColor = secondaryTextColor
                 bgColor = secondaryColor
+                touchedColor = secondaryTouchedColor
             }
         }
     }
@@ -45,9 +47,13 @@ import UIKit
     private let primaryTextColor: UIColor? = UIColor(named: "PrimaryContrastTextColor")
     private let secondaryTextColor: UIColor? = UIColor(named: "SecondaryContrastTextColor")
     
+    private let primaryTouchedColor: UIColor? = UIColor(named: "PrimaryTouchedColor")
+    private let secondaryTouchedColor: UIColor? = UIColor(named: "SecondaryTouchedColor")
+    
     private var titleColor: UIColor?
     private var bgColor: UIColor?
-    
+    private var touchedColor: UIColor?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -71,16 +77,16 @@ import UIKit
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        alpha = 0.8
+        layer.backgroundColor = touchedColor?.cgColor
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        alpha = 1
+        layer.backgroundColor = bgColor?.cgColor
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        alpha = 1
+        layer.backgroundColor = bgColor?.cgColor
     }
 }
