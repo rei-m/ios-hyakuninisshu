@@ -288,7 +288,7 @@
             </objects>
             <point key="canvasLocation" x="84" y="909"/>
         </scene>
-        <!--Exam View Controller-->
+        <!--力試し-->
         <scene sceneID="JhD-QT-4wN">
             <objects>
                 <viewController storyboardIdentifier="ExamViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yUJ-Eh-Pjj" customClass="ExamViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
@@ -366,18 +366,25 @@
                                     <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="wMg-ZF-1dB"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton">
-                                <rect key="frame" x="122.66666666666669" y="452" width="169" height="23"/>
-                                <state key="normal" title="腕試しをはじめる" image="highlighter" catalog="system">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="452" width="382" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                <state key="normal" title="力試しをはじめる">
                                     <color key="titleColor" name="PrimaryColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="a4L-9q-kAU"/>
                                     <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton">
-                                <rect key="frame" x="107.66666666666669" y="507" width="199" height="30"/>
+                                <rect key="frame" x="107.66666666666669" y="531" width="199" height="30"/>
                                 <state key="normal" title="過去間違えた問題を練習する"/>
                                 <connections>
                                     <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
@@ -391,15 +398,16 @@
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
-                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="HLn-bw-0pp"/>
                             <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="J0g-cb-JtY"/>
                             <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="32" id="RVS-pG-mH3"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="F9F-PJ-Yoh" secondAttribute="trailing" constant="16" id="Woe-uV-03d"/>
+                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="fPh-wn-sLi"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
                             <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OhD-yT-RVn"/>
+                    <navigationItem key="navigationItem" title="力試し" id="OhD-yT-RVn"/>
                     <connections>
                         <outlet property="averageAnswerSecLabel" destination="r6Z-Np-7jh" id="adg-k4-8qe"/>
                         <outlet property="lastExamResultView" destination="EQu-SP-zNg" id="DUs-7N-Ag3"/>
@@ -968,10 +976,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="57"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="57.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -984,13 +992,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="21"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="21"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1364,15 +1372,20 @@
             </objects>
             <point key="canvasLocation" x="2224.6376811594205" y="-265.17857142857144"/>
         </scene>
-        <!--腕試し-->
+        <!--Exam Navigation-->
         <scene sceneID="5sd-JB-dyd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VKN-r1-Q6w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="腕試し" image="note.text" catalog="system" id="fEV-LE-Ii2"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VKN-r1-Q6w" userLabel="Exam Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="力試し" image="note.text" catalog="system" id="fEV-LE-Ii2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uAM-wf-y6L">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="TextColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="TextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1385,6 +1398,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="F9F-PJ-Yoh">
+            <size key="intrinsicContentSize" width="155" height="47"/>
+        </designable>
         <designable name="LBT-Be-PgA">
             <size key="intrinsicContentSize" width="142" height="37"/>
         </designable>
@@ -1402,7 +1418,6 @@
         <image name="Correct" width="225" height="225"/>
         <image name="Karuta1" width="150" height="209.5"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
-        <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
