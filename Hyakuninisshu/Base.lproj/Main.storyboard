@@ -386,9 +386,16 @@
                                     <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton">
-                                <rect key="frame" x="107.66666666666669" y="519" width="199" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="519" width="382" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="過去間違えた問題を練習する"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
                                 </connections>
@@ -397,7 +404,6 @@
                         <viewLayoutGuide key="safeArea" id="6Cn-wn-Nqu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bgB-gm-r2E" firstAttribute="centerX" secondItem="2N3-h9-ypB" secondAttribute="centerX" id="2Cq-cT-EHD"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
                             <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
@@ -405,9 +411,11 @@
                             <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="32" id="RVS-pG-mH3"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="F9F-PJ-Yoh" secondAttribute="trailing" constant="16" id="Woe-uV-03d"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="fPh-wn-sLi"/>
+                            <constraint firstItem="bgB-gm-r2E" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="fZu-BW-PJO"/>
                             <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
                             <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
                             <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="bgB-gm-r2E" secondAttribute="trailing" constant="16" id="y9a-Lm-AJJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="力試し" id="OhD-yT-RVn"/>
@@ -1409,6 +1417,9 @@
         </designable>
         <designable name="Qcn-hM-Gw6">
             <size key="intrinsicContentSize" width="136" height="47"/>
+        </designable>
+        <designable name="bgB-gm-r2E">
+            <size key="intrinsicContentSize" width="252" height="47"/>
         </designable>
         <designable name="h90-wo-70a">
             <size key="intrinsicContentSize" width="103" height="37"/>
