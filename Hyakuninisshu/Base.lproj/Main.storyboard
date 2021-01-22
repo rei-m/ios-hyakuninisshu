@@ -296,126 +296,157 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全百首から出題され、出題順は毎回変わります。結果は過去10回分が保存され、間違えた問題は振り返りで練習することができます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-w9-afT" userLabel="ExamExplain">
-                                <rect key="frame" x="16" y="104" width="382" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-SP-zNg" userLabel="LastExamResultView">
-                                <rect key="frame" x="16" y="197" width="382" height="211"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsv-s5-Vyp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回の力試しの結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-tZ-Ims" userLabel="LastExamResultTitle">
-                                        <rect key="frame" x="16" y="16" width="350" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-cQ-ovJ" userLabel="ScoreTitle">
-                                        <rect key="frame" x="16" y="53" width="350" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-e6-Pv5" userLabel="Score">
-                                        <rect key="frame" x="16" y="75" width="350" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wha-qR-s3W" userLabel="AverageAnswerSecTitle">
-                                        <rect key="frame" x="16" y="109" width="350" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.22秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-Np-7jh" userLabel="AverageAnswerSec">
-                                        <rect key="frame" x="16" y="131" width="350" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-9J-0vl" userLabel="GoToAllExamHistoryButton">
-                                        <rect key="frame" x="16" y="165" width="169" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="過去の結果をすべて見る">
-                                            <color key="titleColor" name="PrimaryColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="CUn-zO-SzP" kind="show" identifier="ShowExamHistory" id="WQP-ig-As2"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgM-OJ-zQn" userLabel="ContentsView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="461.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全百首から出題され、出題順は毎回変わります。結果は過去10回分が保存され、間違えた問題は振り返りで練習することができます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-w9-afT" userLabel="ExamExplain">
+                                                <rect key="frame" x="16" y="16" width="382" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQu-SP-zNg" userLabel="LastExamResultView">
+                                                <rect key="frame" x="16" y="93.000000000000014" width="382" height="206.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回の力試しの結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjq-tZ-Ims" userLabel="LastExamResultTitle">
+                                                        <rect key="frame" x="16" y="16" width="350" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-cQ-ovJ" userLabel="ScoreTitle">
+                                                        <rect key="frame" x="16" y="53" width="350" height="15.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-e6-Pv5" userLabel="Score">
+                                                        <rect key="frame" x="16" y="72.666666666666657" width="350" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wha-qR-s3W" userLabel="AverageAnswerSecTitle">
+                                                        <rect key="frame" x="16" y="106.66666666666669" width="350" height="15.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.22秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-Np-7jh" userLabel="AverageAnswerSec">
+                                                        <rect key="frame" x="16" y="126.33333333333331" width="350" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MQ-9J-0vl" userLabel="GoToAllExamHistoryButton">
+                                                        <rect key="frame" x="16" y="160.33333333333331" width="169" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <state key="normal" title="過去の結果をすべて見る">
+                                                            <color key="titleColor" name="PrimaryColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="CUn-zO-SzP" kind="show" identifier="ShowExamHistory" id="WQP-ig-As2"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" name="BackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="0S7-pw-6cx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cmp-cQ-ovJ" secondAttribute="trailing" constant="16" id="1vq-iU-Zji"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1MQ-9J-0vl" secondAttribute="trailing" constant="16" id="2eW-R8-5a7"/>
+                                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="top" secondItem="Yjq-tZ-Ims" secondAttribute="bottom" constant="16" id="2sd-12-aPi"/>
+                                                    <constraint firstItem="wha-qR-s3W" firstAttribute="top" secondItem="Dxu-e6-Pv5" secondAttribute="bottom" constant="16" id="445-bv-4mF"/>
+                                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="top" secondItem="wha-qR-s3W" secondAttribute="bottom" constant="4" id="4q4-LA-cbL"/>
+                                                    <constraint firstItem="wha-qR-s3W" firstAttribute="top" secondItem="Dxu-e6-Pv5" secondAttribute="bottom" constant="16" id="BcC-bb-YNC"/>
+                                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="top" constant="16" id="Gt4-7l-OWK"/>
+                                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="I04-yL-yWm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wha-qR-s3W" secondAttribute="trailing" constant="16" id="KWL-yb-BfN"/>
+                                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="top" secondItem="cmp-cQ-ovJ" secondAttribute="bottom" constant="4" id="Ksv-6h-8lb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Yjq-tZ-Ims" secondAttribute="trailing" constant="16" id="Rci-6g-SC2"/>
+                                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="Uea-g5-k8p"/>
+                                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="top" secondItem="cmp-cQ-ovJ" secondAttribute="bottom" constant="4" id="VUP-dh-FqB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Dxu-e6-Pv5" secondAttribute="trailing" constant="16" id="aCn-gb-Kxe"/>
+                                                    <constraint firstItem="wha-qR-s3W" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="cOa-9M-kO4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="r6Z-Np-7jh" secondAttribute="trailing" constant="16" id="cw4-61-vAb"/>
+                                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="top" secondItem="r6Z-Np-7jh" secondAttribute="bottom" constant="16" id="foD-VP-XFf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1MQ-9J-0vl" secondAttribute="bottom" constant="16" id="lei-35-FL1"/>
+                                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="lsG-ZQ-BEZ"/>
+                                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="rbB-iJ-EUb"/>
+                                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="top" secondItem="r6Z-Np-7jh" secondAttribute="bottom" constant="16" id="vug-9t-Teh"/>
+                                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="top" secondItem="wha-qR-s3W" secondAttribute="bottom" constant="4" id="xHa-ff-GkZ"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="331.33333333333331" width="382" height="47"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                                <state key="normal" title="力試しをはじめる">
+                                                    <color key="titleColor" name="PrimaryColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="a4L-9q-kAU"/>
+                                                    <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="394.33333333333331" width="382" height="47"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                                <state key="normal" title="過去間違えた問題を練習する"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="bgB-gm-r2E" secondAttribute="bottom" constant="20" symbolic="YES" id="2Wf-6z-rY0"/>
+                                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="HPd-fi-fKz"/>
+                                            <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="16" id="R15-q5-Rcl"/>
+                                            <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="bgM-OJ-zQn" secondAttribute="leading" constant="16" id="Sla-Ea-OME"/>
+                                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="leading" secondItem="bgM-OJ-zQn" secondAttribute="leading" constant="16" id="Xzj-ci-5m3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="e4u-mK-lGT"/>
+                                            <constraint firstAttribute="trailing" secondItem="bgB-gm-r2E" secondAttribute="trailing" constant="16" id="h5r-vn-RzR"/>
+                                            <constraint firstAttribute="trailing" secondItem="F9F-PJ-Yoh" secondAttribute="trailing" constant="16" id="m6b-Kb-bK9"/>
+                                            <constraint firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="pca-JW-DPO"/>
+                                            <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="16" id="rPC-RO-bet"/>
+                                            <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="bgM-OJ-zQn" secondAttribute="top" constant="16" id="uHk-8N-yCJ"/>
+                                            <constraint firstItem="bgB-gm-r2E" firstAttribute="leading" secondItem="bgM-OJ-zQn" secondAttribute="leading" constant="16" id="wrp-re-HMd"/>
+                                            <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="bgM-OJ-zQn" secondAttribute="leading" constant="16" id="yyP-vc-KpX"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="8oi-df-6Bf"/>
-                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="top" secondItem="cmp-cQ-ovJ" secondAttribute="bottom" constant="4" id="9K7-kp-11r"/>
-                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="top" secondItem="Yjq-tZ-Ims" secondAttribute="bottom" constant="16" id="AGK-pg-xcT"/>
-                                    <constraint firstAttribute="bottom" secondItem="1MQ-9J-0vl" secondAttribute="bottom" constant="16" id="Awt-Cq-aRX"/>
-                                    <constraint firstItem="Yjq-tZ-Ims" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="top" constant="16" id="Gfm-MV-RAF"/>
-                                    <constraint firstItem="Dxu-e6-Pv5" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="ING-PA-X1Y"/>
-                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="top" secondItem="r6Z-Np-7jh" secondAttribute="bottom" constant="16" id="JcZ-fV-Wwb"/>
-                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="top" secondItem="wha-qR-s3W" secondAttribute="bottom" constant="4" id="K0d-EV-E8C"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1MQ-9J-0vl" secondAttribute="trailing" constant="20" symbolic="YES" id="Nb9-Fy-6tj"/>
-                                    <constraint firstAttribute="trailing" secondItem="wha-qR-s3W" secondAttribute="trailing" constant="16" id="P3K-az-bnJ"/>
-                                    <constraint firstItem="r6Z-Np-7jh" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="RJx-ag-dqs"/>
-                                    <constraint firstItem="wha-qR-s3W" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="Xia-Hu-O7T"/>
-                                    <constraint firstAttribute="trailing" secondItem="cmp-cQ-ovJ" secondAttribute="trailing" constant="16" id="YrS-vW-VKW"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yjq-tZ-Ims" secondAttribute="trailing" constant="16" id="dM1-tR-WPK"/>
-                                    <constraint firstAttribute="trailing" secondItem="r6Z-Np-7jh" secondAttribute="trailing" constant="16" id="g6d-3n-6uc"/>
-                                    <constraint firstItem="wha-qR-s3W" firstAttribute="top" secondItem="Dxu-e6-Pv5" secondAttribute="bottom" constant="16" id="jfz-UJ-Fyq"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dxu-e6-Pv5" secondAttribute="trailing" constant="16" id="m2U-U8-eDv"/>
-                                    <constraint firstItem="1MQ-9J-0vl" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="tOA-gA-fXj"/>
-                                    <constraint firstItem="cmp-cQ-ovJ" firstAttribute="leading" secondItem="EQu-SP-zNg" secondAttribute="leading" constant="16" id="wMg-ZF-1dB"/>
+                                    <constraint firstItem="lkc-sv-okA" firstAttribute="bottom" secondItem="bgM-OJ-zQn" secondAttribute="bottom" constant="20" symbolic="YES" id="66P-HL-ly6"/>
+                                    <constraint firstItem="bgM-OJ-zQn" firstAttribute="trailing" secondItem="btb-lw-q3h" secondAttribute="trailing" id="FuE-eM-d36"/>
+                                    <constraint firstItem="bgM-OJ-zQn" firstAttribute="top" secondItem="lkc-sv-okA" secondAttribute="top" id="a5m-C8-RYM"/>
+                                    <constraint firstAttribute="trailing" secondItem="bgM-OJ-zQn" secondAttribute="trailing" id="iam-jJ-xo1"/>
+                                    <constraint firstItem="bgM-OJ-zQn" firstAttribute="leading" secondItem="btb-lw-q3h" secondAttribute="leading" id="rkT-zO-gfV"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-PJ-Yoh" userLabel="StartExamButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="440" width="382" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="力試しをはじめる">
-                                    <color key="titleColor" name="PrimaryColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="a4L-9q-kAU"/>
-                                    <action selector="didTapStartExamButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="zbQ-gQ-ahQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgB-gm-r2E" userLabel="StartTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="519" width="382" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="過去間違えた問題を練習する"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didTapStartTrainingButton:" destination="yUJ-Eh-Pjj" eventType="touchUpInside" id="WIq-Gc-cZf"/>
-                                </connections>
-                            </button>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lkc-sv-okA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="btb-lw-q3h"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Cn-wn-Nqu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ogk-w9-afT" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="CQW-se-W9z"/>
-                            <constraint firstItem="Ogk-w9-afT" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" constant="16" id="FxJ-b5-7Za"/>
-                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="Ogk-w9-afT" secondAttribute="trailing" constant="16" id="G2R-iO-LMW"/>
-                            <constraint firstItem="EQu-SP-zNg" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="J0g-cb-JtY"/>
-                            <constraint firstItem="bgB-gm-r2E" firstAttribute="top" secondItem="F9F-PJ-Yoh" secondAttribute="bottom" constant="32" id="RVS-pG-mH3"/>
-                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="F9F-PJ-Yoh" secondAttribute="trailing" constant="16" id="Woe-uV-03d"/>
-                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="fPh-wn-sLi"/>
-                            <constraint firstItem="bgB-gm-r2E" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" constant="16" id="fZu-BW-PJO"/>
-                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="EQu-SP-zNg" secondAttribute="trailing" constant="16" id="kNM-hP-qcf"/>
-                            <constraint firstItem="EQu-SP-zNg" firstAttribute="top" secondItem="Ogk-w9-afT" secondAttribute="bottom" constant="32" id="tKs-CL-oYd"/>
-                            <constraint firstItem="F9F-PJ-Yoh" firstAttribute="top" secondItem="EQu-SP-zNg" secondAttribute="bottom" constant="32" id="wFD-JJ-aTz"/>
-                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="bgB-gm-r2E" secondAttribute="trailing" constant="16" id="y9a-Lm-AJJ"/>
+                            <constraint firstItem="bsv-s5-Vyp" firstAttribute="leading" secondItem="6Cn-wn-Nqu" secondAttribute="leading" id="OQe-tB-kOw"/>
+                            <constraint firstItem="bsv-s5-Vyp" firstAttribute="top" secondItem="6Cn-wn-Nqu" secondAttribute="top" id="PPf-d2-GO0"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="trailing" secondItem="bsv-s5-Vyp" secondAttribute="trailing" id="cA6-Dg-FEd"/>
+                            <constraint firstItem="6Cn-wn-Nqu" firstAttribute="bottom" secondItem="bsv-s5-Vyp" secondAttribute="bottom" id="hoP-lu-Ofy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="力試し" id="OhD-yT-RVn"/>
