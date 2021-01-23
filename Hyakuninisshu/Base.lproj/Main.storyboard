@@ -1018,10 +1018,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="57.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="57.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -1034,13 +1034,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="21.666666666666671"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="21.666666666666671"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1087,72 +1087,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B77-Sl-VDO" userLabel="ScoreView">
-                                <rect key="frame" x="16" y="60.000000000000007" width="382" height="100.66666666666669"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-95-p0K" userLabel="ScoreTitle">
-                                        <rect key="frame" x="16" y="15.999999999999998" width="350" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="TextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 / 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fai-gn-68b" userLabel="Score">
-                                        <rect key="frame" x="16" y="52.333333333333329" width="350" height="32.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <color key="textColor" name="TextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="FudaBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="fai-gn-68b" secondAttribute="bottom" constant="16" id="Ne6-0C-f9o"/>
-                                    <constraint firstItem="KTr-95-p0K" firstAttribute="leading" secondItem="B77-Sl-VDO" secondAttribute="leading" constant="16" id="PWV-qA-ith"/>
-                                    <constraint firstItem="fai-gn-68b" firstAttribute="top" secondItem="KTr-95-p0K" secondAttribute="bottom" constant="16" id="VkR-vD-N7n"/>
-                                    <constraint firstAttribute="trailing" secondItem="KTr-95-p0K" secondAttribute="trailing" constant="16" id="efC-Uv-m35"/>
-                                    <constraint firstItem="KTr-95-p0K" firstAttribute="top" secondItem="B77-Sl-VDO" secondAttribute="top" constant="16" id="mKb-OG-pSd"/>
-                                    <constraint firstAttribute="trailing" secondItem="fai-gn-68b" secondAttribute="trailing" constant="16" id="njO-94-WfW"/>
-                                    <constraint firstItem="fai-gn-68b" firstAttribute="leading" secondItem="B77-Sl-VDO" secondAttribute="leading" constant="16" id="w1I-JW-6XJ"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-oD-NDg" userLabel="ScoreView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="59.999999999999993" width="382" height="68.333333333333314"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="正解数"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-fA-Txo" userLabel="AverageAnswerTimeView">
-                                <rect key="frame" x="16" y="176.66666666666666" width="382" height="100.66666666666666"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GS-jQ-Oqc" userLabel="AverageAnswerTimeTitle">
-                                        <rect key="frame" x="16" y="15.999999999999998" width="350" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="TextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.45秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsC-oy-k0P" userLabel="AverageAnswerTime">
-                                        <rect key="frame" x="16" y="52.333333333333343" width="350" height="32.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <color key="textColor" name="TextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="FudaBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="SsC-oy-k0P" firstAttribute="top" secondItem="4GS-jQ-Oqc" secondAttribute="bottom" constant="16" id="4gM-5P-OyR"/>
-                                    <constraint firstItem="4GS-jQ-Oqc" firstAttribute="top" secondItem="4Hy-fA-Txo" secondAttribute="top" constant="16" id="7bD-Lq-3Vy"/>
-                                    <constraint firstItem="4GS-jQ-Oqc" firstAttribute="leading" secondItem="4Hy-fA-Txo" secondAttribute="leading" constant="16" id="BQA-6m-yjL"/>
-                                    <constraint firstAttribute="bottom" secondItem="SsC-oy-k0P" secondAttribute="bottom" constant="16" id="QfP-C2-ELB"/>
-                                    <constraint firstAttribute="trailing" secondItem="SsC-oy-k0P" secondAttribute="trailing" constant="16" id="YFE-Yg-D6D"/>
-                                    <constraint firstItem="SsC-oy-k0P" firstAttribute="leading" secondItem="4Hy-fA-Txo" secondAttribute="leading" constant="16" id="cDG-O1-uGT"/>
-                                    <constraint firstAttribute="trailing" secondItem="4GS-jQ-Oqc" secondAttribute="trailing" constant="16" id="uih-oi-nPI"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmE-3z-NFp" userLabel="AverageAnswerTimeView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="144.33333333333334" width="382" height="68.333333333333343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="平均回答時間"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGI-58-Oid" userLabel="GoToTrainingButton">
-                                <rect key="frame" x="111.66666666666669" y="341.33333333333331" width="191" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGI-58-Oid" userLabel="GoToTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="276.66666666666669" width="382" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="間違えた歌の練習をする"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapGoToTraining:" destination="eOc-UN-KB8" eventType="touchUpInside" id="xtp-qe-6XH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-ng-R1A" userLabel="GoToMenuButton">
-                                <rect key="frame" x="146" y="406.33333333333331" width="122" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-ng-R1A" userLabel="GoToMenuButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                <rect key="frame" x="16" y="353.66666666666669" width="382" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="メニューに戻る"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapGoToMenu:" destination="eOc-UN-KB8" eventType="touchUpInside" id="8qG-c0-pwi"/>
                                 </connections>
@@ -1161,29 +1132,29 @@
                         <viewLayoutGuide key="safeArea" id="J28-k0-6Lm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4Hy-fA-Txo" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="AHp-CF-EnT"/>
-                            <constraint firstItem="pGI-58-Oid" firstAttribute="centerX" secondItem="qo4-5v-ZXu" secondAttribute="centerX" id="TLM-14-M98"/>
-                            <constraint firstItem="B77-Sl-VDO" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="WE2-0f-nuo"/>
-                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="4Hy-fA-Txo" secondAttribute="trailing" constant="16" id="XPD-1y-FpA"/>
-                            <constraint firstItem="4Hy-fA-Txo" firstAttribute="top" secondItem="B77-Sl-VDO" secondAttribute="bottom" constant="16" id="cqk-v0-o1T"/>
+                            <constraint firstItem="hiw-ng-R1A" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="4uY-fs-MCJ"/>
+                            <constraint firstItem="gmE-3z-NFp" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="6hu-sb-TjE"/>
+                            <constraint firstItem="pGI-58-Oid" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="9D3-nM-Ucj"/>
+                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="TTi-oD-NDg" secondAttribute="trailing" constant="16" id="OYs-yD-sbc"/>
+                            <constraint firstItem="gmE-3z-NFp" firstAttribute="top" secondItem="TTi-oD-NDg" secondAttribute="bottom" constant="16" id="PYB-it-wKZ"/>
+                            <constraint firstItem="TTi-oD-NDg" firstAttribute="leading" secondItem="J28-k0-6Lm" secondAttribute="leading" constant="16" id="UgN-W9-CLF"/>
+                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="pGI-58-Oid" secondAttribute="trailing" constant="16" id="dk4-kB-7Vb"/>
                             <constraint firstItem="hiw-ng-R1A" firstAttribute="top" secondItem="pGI-58-Oid" secondAttribute="bottom" constant="32" id="dzP-E6-2pO"/>
-                            <constraint firstItem="B77-Sl-VDO" firstAttribute="top" secondItem="J28-k0-6Lm" secondAttribute="top" constant="16" id="g0I-Gc-JXw"/>
-                            <constraint firstItem="pGI-58-Oid" firstAttribute="top" secondItem="4Hy-fA-Txo" secondAttribute="bottom" constant="64" id="izG-4f-JMa"/>
-                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="B77-Sl-VDO" secondAttribute="trailing" constant="16" id="nTq-UE-n7P"/>
-                            <constraint firstItem="hiw-ng-R1A" firstAttribute="centerX" secondItem="qo4-5v-ZXu" secondAttribute="centerX" id="rqW-cn-202"/>
+                            <constraint firstItem="pGI-58-Oid" firstAttribute="top" secondItem="gmE-3z-NFp" secondAttribute="bottom" constant="64" id="izG-4f-JMa"/>
+                            <constraint firstItem="TTi-oD-NDg" firstAttribute="top" secondItem="J28-k0-6Lm" secondAttribute="top" constant="16" id="nVA-RJ-pOH"/>
+                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="hiw-ng-R1A" secondAttribute="trailing" constant="16" id="tfb-Ce-zLf"/>
+                            <constraint firstItem="J28-k0-6Lm" firstAttribute="trailing" secondItem="gmE-3z-NFp" secondAttribute="trailing" constant="16" id="xIu-Zi-H6u"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="averageAnswerTimeLabel" destination="SsC-oy-k0P" id="Lde-Cj-JoM"/>
-                        <outlet property="averageAnswerTimeView" destination="4Hy-fA-Txo" id="Oz3-XN-Qtw"/>
+                        <outlet property="averageAnswerTimeView" destination="gmE-3z-NFp" id="RIE-So-hWc"/>
                         <outlet property="goToTrainingButton" destination="pGI-58-Oid" id="Rib-Qe-dQq"/>
-                        <outlet property="scoreLabel" destination="fai-gn-68b" id="ppV-4d-aMB"/>
-                        <outlet property="scoreView" destination="B77-Sl-VDO" id="Xa1-HD-v8L"/>
+                        <outlet property="scoreView" destination="TTi-oD-NDg" id="7h5-Mz-aka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w90-vv-yP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6762" y="-265"/>
+            <point key="canvasLocation" x="6760.8695652173919" y="-265.17857142857144"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="a2M-F2-tZe">
@@ -1356,7 +1327,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="barTintColor" name="PrimaryColor"/>
                         <color key="selectedImageTintColor" name="PrimaryContrastTextColor"/>
                     </tabBar>
                     <connections>
@@ -1370,15 +1341,16 @@
             </objects>
             <point key="canvasLocation" x="971" y="94"/>
         </scene>
-        <!--資料-->
+        <!--Material Navigation-->
         <scene sceneID="68Z-Hb-i5J">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LbA-ok-zjX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LbA-ok-zjX" userLabel="Material Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="資料" image="book.closed" catalog="system" id="6xo-FZ-afn" userLabel="Material"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D1j-f0-iSI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="PrimaryContrastTextColor"/>
                         <color key="barTintColor" name="PrimaryColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1400,7 +1372,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="TextColor"/>
-                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="barTintColor" name="PrimaryColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="TextColor"/>
                         </textAttributes>
@@ -1424,7 +1396,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="TextColor"/>
-                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="barTintColor" name="PrimaryColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="TextColor"/>
                         </textAttributes>
@@ -1455,9 +1427,15 @@
         <designable name="h90-wo-70a">
             <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
+        <designable name="hiw-ng-R1A">
+            <size key="intrinsicContentSize" width="122" height="45"/>
+        </designable>
+        <designable name="pGI-58-Oid">
+            <size key="intrinsicContentSize" width="191" height="45"/>
+        </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="oQ5-kb-hnV"/>
+        <segue reference="P1p-aH-cwV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Correct" width="225" height="225"/>
@@ -1465,13 +1443,7 @@
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <namedColor name="AccentColor">
-            <color red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="0.93999999761581421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="FudaBackgroundColor">
             <color red="1" green="1" blue="0.93999999761581421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="FudaFrameColor">

@@ -9,10 +9,9 @@ import UIKit
 
 class TrainingResultViewController: UIViewController {
     // MARK: - Outlet
-    @IBOutlet weak var scoreView: UIView!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var averageAnswerTimeView: UIView!
-    @IBOutlet weak var averageAnswerTimeLabel: UILabel!
+    @IBOutlet weak var scoreView: QuestionResultView!
+    @IBOutlet weak var averageAnswerTimeView: QuestionResultView!
+    
     @IBOutlet weak var goToTrainingButton: UIButton!
     
     // MARK: - Property
@@ -27,10 +26,8 @@ class TrainingResultViewController: UIViewController {
         setUpLeftBackButton()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
 
-        scoreView.layer.cornerRadius = 8
-        scoreLabel.text = trainingResult.score.score
-        averageAnswerTimeView.layer.cornerRadius = 8
-        averageAnswerTimeLabel.text = trainingResult.score.averageAnswerSecText
+        scoreView.value = trainingResult.score.score
+        averageAnswerTimeView.value = trainingResult.score.averageAnswerSecText
         goToTrainingButton.isHidden = !trainingResult.canRestart
     }
     

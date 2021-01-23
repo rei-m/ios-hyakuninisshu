@@ -25,7 +25,7 @@ import UIKit
             self.actionButtonType = ActionButtonType(rawValue: newValue) ?? .primary
             switch self.actionButtonType {
             case .normal:
-                titleColor = .systemGray
+                titleColor = textColor
                 bgColor = .systemBackground
             case .primary:
                 titleColor = primaryTextColor
@@ -41,6 +41,8 @@ import UIKit
     
     @IBInspectable var borderColor: UIColor?
 
+    private let textColor: UIColor? = UIColor(named: "TextColor")
+    
     private let primaryColor: UIColor? = UIColor(named: "PrimaryColor")
     private let secondaryColor: UIColor? = UIColor(named: "SecondaryColor")
 
