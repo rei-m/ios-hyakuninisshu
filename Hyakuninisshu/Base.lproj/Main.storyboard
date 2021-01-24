@@ -602,15 +602,25 @@
                                                     <action selector="didStartTrainingButtonTapDone:" destination="xlR-HG-rf3" eventType="touchUpInside" id="Usx-d8-JLh"/>
                                                 </connections>
                                             </button>
+                                            <view hidden="YES" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ry-eE-auL" userLabel="MaskView">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="584"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ZS2-H9-W9T" appends="YES" id="c1t-sh-vZe"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="8TG-7p-gsp" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2n8-jx-OYn"/>
                                             <constraint firstItem="Yd9-tx-vBK" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="2qx-i5-TJx"/>
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="3uF-WP-Yw6"/>
+                                            <constraint firstItem="3Ry-eE-auL" firstAttribute="top" secondItem="nmN-z4-4cs" secondAttribute="top" id="3wo-s6-U2f"/>
                                             <constraint firstAttribute="trailing" secondItem="Yd9-tx-vBK" secondAttribute="trailing" constant="16" id="5Da-2f-O1Y"/>
                                             <constraint firstItem="uLf-a6-uur" firstAttribute="top" secondItem="nmN-z4-4cs" secondAttribute="top" constant="16" id="6Tw-lh-C0J"/>
                                             <constraint firstItem="VBB-wM-s1X" firstAttribute="top" secondItem="LnD-te-Gse" secondAttribute="bottom" id="9zh-71-BEK"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Ry-eE-auL" secondAttribute="trailing" id="Aqx-JA-2H8"/>
                                             <constraint firstAttribute="trailing" secondItem="ZxP-W0-oKC" secondAttribute="trailing" constant="16" id="Epl-P9-1fn"/>
                                             <constraint firstItem="bYE-K8-FiI" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="FRH-yO-Ite"/>
                                             <constraint firstAttribute="bottom" secondItem="Qcn-hM-Gw6" secondAttribute="bottom" constant="32" id="Hll-IK-dkQ"/>
@@ -633,6 +643,7 @@
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="centerX" secondItem="nmN-z4-4cs" secondAttribute="centerX" id="dtS-pq-x7m"/>
                                             <constraint firstItem="LnD-te-Gse" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="duk-RK-P0J"/>
                                             <constraint firstItem="Fxs-qY-H86" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="e5W-nL-XQo"/>
+                                            <constraint firstAttribute="bottom" secondItem="3Ry-eE-auL" secondAttribute="bottom" id="efj-Ke-w0K"/>
                                             <constraint firstAttribute="trailing" secondItem="uLf-a6-uur" secondAttribute="trailing" constant="16" id="gj3-Mc-eIW"/>
                                             <constraint firstItem="9bS-jX-24r" firstAttribute="top" secondItem="bYE-K8-FiI" secondAttribute="bottom" id="h7P-qJ-wzm"/>
                                             <constraint firstAttribute="trailing" secondItem="FjN-cm-9sW" secondAttribute="trailing" constant="16" id="hyF-kR-yB6"/>
@@ -649,6 +660,7 @@
                                             <constraint firstItem="hdN-M6-AOC" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="tum-Kj-rEX"/>
                                             <constraint firstItem="xa9-mU-tSn" firstAttribute="top" secondItem="Fxs-qY-H86" secondAttribute="bottom" constant="16" id="uUJ-Hr-AKX"/>
                                             <constraint firstItem="FjN-cm-9sW" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="vIg-aq-0v8"/>
+                                            <constraint firstItem="3Ry-eE-auL" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" id="y16-ff-nD3"/>
                                             <constraint firstAttribute="trailing" secondItem="hdN-M6-AOC" secondAttribute="trailing" constant="16" id="yEW-5X-orT"/>
                                             <constraint firstItem="Qcn-hM-Gw6" firstAttribute="top" secondItem="hdN-M6-AOC" secondAttribute="bottom" constant="32" id="yag-3w-czs"/>
                                             <constraint firstItem="uLf-a6-uur" firstAttribute="leading" secondItem="nmN-z4-4cs" secondAttribute="leading" constant="16" id="yza-rW-AIK"/>
@@ -682,6 +694,7 @@
                         <outlet property="colorPicker" destination="9bS-jX-24r" id="eMz-Qb-RJM"/>
                         <outlet property="kamiNoKuPicker" destination="CAg-kv-fzu" id="10t-s6-b4o"/>
                         <outlet property="kimarijiPicker" destination="VBB-wM-s1X" id="mzA-R6-G0F"/>
+                        <outlet property="maskView" destination="3Ry-eE-auL" id="cvF-RT-iA8"/>
                         <outlet property="rangeErrorLabel" destination="olt-go-wSC" id="PCC-kt-FCn"/>
                         <outlet property="rangeFromPicker" destination="DUZ-yn-wNR" id="aKV-zQ-UcE"/>
                         <outlet property="rangeToPicker" destination="lo2-JV-ciE" id="D6e-tt-w5p"/>
@@ -689,6 +702,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvz-Ka-gNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZS2-H9-W9T" userLabel="Mask Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="didTapMask:" destination="xlR-HG-rf3" id="kXA-pM-IAl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3134.7826086956525" y="-265.17857142857144"/>
         </scene>
@@ -1018,10 +1036,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="57.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="57.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -1034,13 +1052,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="21.333333333333329"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="21.333333333333329"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

@@ -12,6 +12,7 @@ protocol KeyboardPickerItem {
 }
 
 protocol KeyboardPickerDelegate {
+    func didTap()
     func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem)
 }
 
@@ -145,19 +146,25 @@ class KeyboardPicker: UIControl {
         self.data = data
         self.currentItem = currentItem
     }
+
+    func close() {
+        resignFirstResponder()
+        borderView.backgroundColor = borderColor
+        bottomBorderHeightConstraint.constant = 1
+    }
     
     // タッチされたらFirst Responderになる
     @objc func didTap(sender: KeyboardPicker) {
         becomeFirstResponder()
         borderView.backgroundColor = borderColorSelected
         bottomBorderHeightConstraint.constant = 2
+        
+        delegate?.didTap()
     }
     
     // ボタンを押したらresignしてキーボードを閉じる
     @objc func didTapDone(sender: UIButton) {
-        resignFirstResponder()
-        borderView.backgroundColor = borderColor
-        bottomBorderHeightConstraint.constant = 1
+        close()
 
         guard let currentItem = currentItemTemp else {
             return

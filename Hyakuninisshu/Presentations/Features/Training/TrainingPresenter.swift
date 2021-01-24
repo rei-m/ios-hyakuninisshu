@@ -10,6 +10,7 @@ import Combine
 
 protocol TrainingPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func didTapCondition()
     func didChangeRangeFrom(_ condition: RangeCondition)
     func didChangeRangeTo(_ condition: RangeCondition)
     func didChangeKimariji(_ condition: KimarijiCondition)
@@ -18,6 +19,7 @@ protocol TrainingPresenterProtocol: AnyObject {
     func didChangeShimoNoKu(_ condition: DisplayStyleCondition)
     func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition)
     func didStartTrainingButtonTapDone()
+    func didTapMask()
 }
 
 class TrainingPresenter: TrainingPresenterProtocol {
@@ -44,41 +46,52 @@ class TrainingPresenter: TrainingPresenterProtocol {
         )
     }
     
+    func didTapCondition() {
+        view.toggleMask(true)
+    }
+    
     func didChangeRangeFrom(_ condition: RangeCondition) {
         model.rangeFromCondition = condition
         view.updateRangeFrom(condition)
         view.updateRangeError(model.rangeConditionError)
+        view.toggleMask(false)
     }
     
     func didChangeRangeTo(_ condition: RangeCondition) {
         model.rangeToCondition = condition
         view.updateRangeTo(condition)
         view.updateRangeError(model.rangeConditionError)
+        view.toggleMask(false)
     }
     
     func didChangeKimariji(_ condition: KimarijiCondition) {
         model.kimarijiCondition = condition
         view.updateKimariji(condition)
+        view.toggleMask(false)
     }
     
     func didChangeColor(_ condition: ColorCondition) {
         model.colorCondition = condition
         view.updateColor(condition)
+        view.toggleMask(false)
     }
     
     func didChangeKamiNoKu(_ condition: DisplayStyleCondition) {
         model.kamiNoKuCondition = condition
         view.updateKamiNoKu(condition)
+        view.toggleMask(false)
     }
     
     func didChangeShimoNoKu(_ condition: DisplayStyleCondition) {
         model.shimoNoKuCondition = condition
         view.updateShimoNoKu(condition)
+        view.toggleMask(false)
     }
     
     func didChangeAnimationSpeed(_ condition: AnimationSpeedCondition) {
         model.animationSpeedCondition = condition
         view.updateAnimationSpeed(condition)
+        view.toggleMask(false)
     }
     
     func didStartTrainingButtonTapDone() {
@@ -103,5 +116,9 @@ class TrainingPresenter: TrainingPresenterProtocol {
                 animationSpeed: model.animationSpeedCondition
             )
         }).store(in: &cancellables)
+    }
+    
+    func didTapMask() {
+        view.toggleMask(false)
     }
 }
