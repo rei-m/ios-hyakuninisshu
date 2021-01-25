@@ -19,6 +19,8 @@ class ExamResultViewController: UIViewController {
         super.viewDidLoad()
         setUpLeftBackButton()
 
+        resultCollectionView.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
+
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
@@ -77,8 +79,8 @@ extension ExamResultViewController: UICollectionViewDataSource {
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ExamResultHeaderView", for: indexPath) as? ExamResultCollectionViewHeader else {
                 fatalError("The dequeued view is not instance of ExamResultHeaderView.")
             }
-            view.scoreLabel.text = examResult.score.score
-            view.averageAnswerTimeLabel.text = examResult.score.averageAnswerSecText
+            view.scoreView.value = examResult.score.score
+            view.averageAnswerTimeView.value = examResult.score.averageAnswerSecText
             return view
         case "UICollectionElementKindSectionFooter":
             return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExamResultFooterView", for: indexPath)

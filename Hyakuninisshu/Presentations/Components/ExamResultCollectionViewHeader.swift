@@ -8,6 +8,6 @@
 import UIKit
 
 class ExamResultCollectionViewHeader: UICollectionReusableView {
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var averageAnswerTimeLabel: UILabel!
+    @IBOutlet weak var scoreView: QuestionResultView!
+    @IBOutlet weak var averageAnswerTimeView: QuestionResultView!
 }
