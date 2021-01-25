@@ -876,20 +876,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eVr-hJ-pxF">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="256"/>
                                     <size key="footerReferenceSize" width="50" height="100"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ExamResultCollectionViewCell" reuseIdentifier="ExamResultCollectionViewCell" id="bD8-Wh-Rb6" customClass="ExamResultCollectionViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="256" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jli-Ue-gbt">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-Hn-8uK">
-                                                    <rect key="frame" x="45.666666666666657" y="55" width="37" height="18"/>
+                                                    <rect key="frame" x="45.333333333333329" y="55" width="37.333333333333329" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -917,19 +917,25 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ExamResultHeaderView" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ExamResultHeaderView" id="gDh-uk-mZX" customClass="ExamResultCollectionViewHeader" customModule="Hyakuninisshu" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-RU-LKu" userLabel="ScoreView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="24" width="366" height="68.333333333333329"/>
+                                            <rect key="frame" x="24" y="24" width="366" height="96"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="Leh-nw-nhQ"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="正解数"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niv-pm-Bc1" userLabel="AverageAnswerTimeView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="107.66666666666669" width="366" height="68.333333333333314"/>
+                                            <rect key="frame" x="24" y="136" width="366" height="96"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="i4j-Um-Fff"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="平均回答時間"/>
                                             </userDefinedRuntimeAttributes>
@@ -937,12 +943,13 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="niv-pm-Bc1" firstAttribute="leading" secondItem="gDh-uk-mZX" secondAttribute="leadingMargin" constant="16" id="CRB-C6-2Wl"/>
-                                        <constraint firstItem="nL1-RU-LKu" firstAttribute="leading" secondItem="gDh-uk-mZX" secondAttribute="leadingMargin" constant="16" id="Ctg-m1-Wuq"/>
-                                        <constraint firstItem="nL1-RU-LKu" firstAttribute="top" secondItem="gDh-uk-mZX" secondAttribute="topMargin" constant="16" id="ITZ-NW-yiV"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="nL1-RU-LKu" secondAttribute="trailing" constant="16" id="UzL-GV-SV6"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="niv-pm-Bc1" secondAttribute="bottom" constant="16" id="uiQ-hT-Afr"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="niv-pm-Bc1" secondAttribute="trailing" constant="16" id="yUg-du-YJS"/>
+                                        <constraint firstItem="niv-pm-Bc1" firstAttribute="top" secondItem="nL1-RU-LKu" secondAttribute="bottom" constant="16" id="E0J-0m-VUU"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nL1-RU-LKu" secondAttribute="trailing" constant="16" id="HxE-Nq-ZG2"/>
+                                        <constraint firstItem="nL1-RU-LKu" firstAttribute="top" secondItem="gDh-uk-mZX" secondAttribute="topMargin" constant="16" id="Jnq-nd-Qd2"/>
+                                        <constraint firstItem="nL1-RU-LKu" firstAttribute="leading" secondItem="gDh-uk-mZX" secondAttribute="leadingMargin" constant="16" id="Xyx-bS-QKf"/>
+                                        <constraint firstItem="niv-pm-Bc1" firstAttribute="leading" secondItem="gDh-uk-mZX" secondAttribute="leadingMargin" constant="16" id="ojd-5y-6Gz"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="niv-pm-Bc1" secondAttribute="bottom" constant="16" id="sCK-p9-DA0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="niv-pm-Bc1" secondAttribute="trailing" constant="16" id="yq4-db-73M"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="averageAnswerTimeView" destination="niv-pm-Bc1" id="EvE-K9-OcO"/>
@@ -950,21 +957,28 @@
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ExamResultFooterView" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ExamResultFooterView" id="7PP-lj-Qhp" customClass="ExamResultCollectionViewFooter" customModule="Hyakuninisshu" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="328" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="384" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-w7-jga">
-                                            <rect key="frame" x="146" y="33.666666666666664" width="122" height="32.999999999999993"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-w7-jga" userLabel="GoToMenuButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
+                                            <rect key="frame" x="24" y="27.666666666666671" width="366" height="45"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                             <state key="normal" title="メニューに戻る"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="actionButtonTypeValue">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="didTapBackMenuButton:" destination="rNc-9Y-OQb" eventType="touchUpInside" id="rjI-zA-ZuT"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7YW-w7-jga" firstAttribute="centerX" secondItem="7PP-lj-Qhp" secondAttribute="centerX" id="Yg9-SW-byQ"/>
-                                        <constraint firstItem="7YW-w7-jga" firstAttribute="centerY" secondItem="7PP-lj-Qhp" secondAttribute="centerY" id="jH9-tZ-OvH"/>
+                                        <constraint firstItem="7YW-w7-jga" firstAttribute="centerY" secondItem="7PP-lj-Qhp" secondAttribute="centerY" id="Gf4-AS-eDU"/>
+                                        <constraint firstItem="7YW-w7-jga" firstAttribute="leading" secondItem="7PP-lj-Qhp" secondAttribute="leadingMargin" constant="16" id="Qyp-K0-AT3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7YW-w7-jga" secondAttribute="trailing" constant="16" id="ek0-TB-SvP"/>
                                     </constraints>
                                 </collectionReusableView>
                             </collectionView>
@@ -995,10 +1009,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="56.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -1011,13 +1025,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="20.666666666666671"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="20.666666666666671"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1065,20 +1079,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-oD-NDg" userLabel="ScoreView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="59.999999999999993" width="382" height="68.333333333333314"/>
+                                <rect key="frame" x="16" y="60" width="382" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="CGI-lf-Ibf"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="正解数"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmE-3z-NFp" userLabel="AverageAnswerTimeView" customClass="QuestionResultView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="144.33333333333334" width="382" height="68.333333333333343"/>
+                                <rect key="frame" x="16" y="172" width="382" height="96"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="UY0-cs-hyb"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="平均回答時間"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGI-58-Oid" userLabel="GoToTrainingButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="276.66666666666669" width="382" height="45"/>
+                                <rect key="frame" x="16" y="332" width="382" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="間違えた歌の練習をする"/>
@@ -1092,7 +1112,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-ng-R1A" userLabel="GoToMenuButton" customClass="ActionButton" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="16" y="337.66666666666669" width="382" height="45"/>
+                                <rect key="frame" x="16" y="393" width="382" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="メニューに戻る"/>
@@ -1389,6 +1409,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="7YW-w7-jga">
+            <size key="intrinsicContentSize" width="122" height="45"/>
+        </designable>
         <designable name="F9F-PJ-Yoh">
             <size key="intrinsicContentSize" width="155" height="47"/>
         </designable>
