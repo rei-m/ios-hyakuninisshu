@@ -11,6 +11,9 @@ class VerticalLabel: UIView {
     private var _text: String = ""
     private var _fontSize: CGFloat = 16
     
+    private let textColor = UIColor(named: .fudaText)
+    private let font = UIFont(name: .hannari, size: 16)
+    
     var text: String {
         set (v){
             _text = v
@@ -18,6 +21,7 @@ class VerticalLabel: UIView {
         }
         get { _text }
     }
+
     var fontSize: CGFloat {
         set (v){
             _fontSize = v
@@ -37,8 +41,8 @@ class VerticalLabel: UIView {
     override func draw(_ rect: CGRect) {
         _text.enumerated().forEach { c in
             String(c.element).draw(at: CGPoint(x: 0, y: Int(_fontSize) * c.offset), withAttributes: [
-                NSAttributedString.Key.foregroundColor : UIColor.black,
-                NSAttributedString.Key.font : UIFont.systemFont(ofSize: _fontSize),
+                NSAttributedString.Key.foregroundColor : textColor,
+                NSAttributedString.Key.font : font.withSize(_fontSize),
             ])
         }
     }

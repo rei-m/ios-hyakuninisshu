@@ -34,8 +34,9 @@ class YomiFudaView: UIView {
             }
         }
     }
-    
-    private let borderColor = UIColor(named: "FudaFrameColor")
+
+    private let textColor = UIColor(named: .fudaText)
+    private let borderColor = UIColor(named: .fudaFrame)
 
     private let firstLineView = UIStackView()
     private let secondLineView = UIStackView()
@@ -56,10 +57,10 @@ class YomiFudaView: UIView {
         lineView.spacing = 1
         
         for _ in 0..<count {
-            let label = UILabel() // 6
+            let label = UILabel()
             lineView.addArrangedSubview(label)
-            label.font = UIFont.systemFont(ofSize: fontSize)
-            label.textColor = .black
+            label.font = UIFont(name: .hannari, size: fontSize)
+            label.textColor = textColor
             label.heightAnchor.constraint(equalToConstant: fontSize).isActive = true
             label.text = " "
             label.alpha = 0
@@ -71,7 +72,7 @@ class YomiFudaView: UIView {
         setUpLineView(lineView: thirdLineView, count: 6)
         setUpLineView(lineView: secondLineView, count: 8)
         setUpLineView(lineView: firstLineView, count: 6)
-                
+
         secondLineView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         secondLineView.topAnchor.constraint(equalTo: topAnchor, constant: fontSize * 3).isActive = true
         secondLineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: fontSize * -2).isActive = true

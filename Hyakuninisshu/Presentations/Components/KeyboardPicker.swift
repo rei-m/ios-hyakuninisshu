@@ -103,7 +103,7 @@ class KeyboardPicker: UIControl {
         
         // キーボードエリアに表示するピッカー
         pickerView.delegate = self
-        pickerView.backgroundColor = .white
+        pickerView.backgroundColor = .systemBackground
 
         // イベントハンドラ
         addTarget(self, action: #selector(KeyboardPicker.didTap(sender:)), for: .touchDown)

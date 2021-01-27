@@ -21,8 +21,8 @@ import UIKit
     
     private let titleLabel = UILabel()
     private let valueLabel = UILabel()
-    private let textColor = UIColor(named: "TextColor")
-    private let bgColor = UIColor(named: "FudaBackgroundColor")
+    private let textColor = UIColor(named: .fudaText)
+    private let bgColor = UIColor(named: .fudaBackground)
     
     private func setUp() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -58,10 +58,5 @@ import UIKit
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUp()
-    }
-    
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
     }
 }

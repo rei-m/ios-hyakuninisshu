@@ -25,7 +25,7 @@ enum Kimariji: UInt8 {
     ]
     
     static func valueOf(value: UInt8) -> Kimariji {
-        precondition(value < Kimariji.one.rawValue || value < Kimariji.six.rawValue)
+        precondition(Kimariji.one.rawValue <= value && value <= Kimariji.six.rawValue)
         return Self.ALL[Int(value) - 1]
     }
 }

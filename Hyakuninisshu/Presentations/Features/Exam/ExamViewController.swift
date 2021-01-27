@@ -27,6 +27,7 @@ class ExamViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        lastExamResultView.layer.cornerRadius = 8
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,17 +82,18 @@ extension ExamViewController: ExamViewProtocol {
     }
     
     func presentNextVC(karutaNos: [UInt8]) {
-        let playScore = PlayScore(tookDate: Date(), score: "0 / 100", averageAnswerSecText: "10秒")
-        let material = Material(no: 1, kimariji: 2, creator: "天智天皇", shokuKanji: "秋の田の", shokuKana: "あきのたの", nikuKanji: "かりほの庵の", nikuKana: "かりほのいおの", sankuKanji: "苫をあらみ", sankuKana: "とまをあらみ", shikuKanji: "我が衣ては", shikuKana: "わがころもでは", gokuKanji: "露に濡れつつ", gokuKana: "つゆぬぬれつつ", translation: "unko")
-        let examResult = ExamResult(score: playScore, judgements: [(material, true), (material, false)])
-        
-        let testVC: ExamResultViewController  = requireStoryboard.instantiateViewController(identifier: .examResult)
-        testVC.inject(examResult: examResult)
-        requireNavigationController.pushViewController(testVC, animated: false)
-
-        
-        // TODO
-        return
+//        let playScore = PlayScore(tookDate: Date(), score: "0 / 100", averageAnswerSecText: "10秒")
+//        let material = Material(no: 1, kimariji: 2, creator: "天智天皇", shokuKanji: "秋の田の", shokuKana: "あきのたの", nikuKanji: "かりほの庵の", nikuKana: "かりほのいおの", sankuKanji: "苫をあらみ", sankuKana: "とまをあらみ", shikuKanji: "我が衣ては", shikuKana: "わがころもでは", gokuKanji: "露に濡れつつ", gokuKana: "つゆぬぬれつつ", translation: "unko")
+//        let judgements = (1...100).map { i in (material, i % 2 == 0)  }
+//        let examResult = ExamResult(score: playScore, judgements: judgements)
+//        
+//        let testVC: ExamResultViewController  = requireStoryboard.instantiateViewController(identifier: .examResult)
+//        testVC.inject(examResult: examResult)
+//        requireNavigationController.pushViewController(testVC, animated: false)
+//
+//        
+//        // TODO
+//        return
         
         let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(identifier: .questionStarter)
 

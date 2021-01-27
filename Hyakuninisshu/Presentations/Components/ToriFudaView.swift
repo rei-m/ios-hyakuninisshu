@@ -32,8 +32,8 @@ class ToriFudaView: UIView {
     private let firstLineView = VerticalLabel()
     private let secondLineView = VerticalLabel()
     
-    private let bgColor = UIColor(named: "FudaBackgroundColor")
-    private let bgColorTouched = UIColor(named: "FudaBackgroundTouchedColor")
+    private let bgColor = UIColor(named: .fudaBackground)
+    private let bgColorTouched = UIColor(named: .fudaBackgroundTouched)
     
     private func setUpView() {
         setUpCardFrame(borderWidth: borderWidth, cornerRadius: cornerRadius, shadowOffset: shadowOffset)

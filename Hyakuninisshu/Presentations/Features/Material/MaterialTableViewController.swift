@@ -91,7 +91,6 @@ extension MaterialTableViewController: MaterialTableViewProtocol {
     func updateMaterialTable(_ materials: [Material]) {
         self.materials = materials
         self.tableView.reloadData()
-        self.tableView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     func presentErrorVC(_ error: Error) {
