@@ -21,10 +21,10 @@ class CreateQuestionsService {
     func execute(
         targetKarutaNoCollection: KarutaNoCollection,
         choiceCount: Int
-    ) -> Optional<[Question]> {
+    ) -> [Question] {
 
         if (targetKarutaNoCollection.values.count == 0) {
-            return nil
+            return []
         }
 
         let result: [Question] = targetKarutaNoCollection.values.shuffled().enumerated().map { value in

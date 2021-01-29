@@ -18,6 +18,7 @@ class UnexpectedErrorViewController: UIViewController {
     }
     
     @IBAction func didTapRestartButton(_ sender: Any) {
+        // ルートをdismissすることで再起動としているけど、これでいいのかな?
         UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: false)
     }
 }

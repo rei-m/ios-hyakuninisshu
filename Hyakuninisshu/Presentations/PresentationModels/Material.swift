@@ -22,7 +22,7 @@ struct Material {
             shikuKanji: karuta.shimoNoKu.shiku.kanji,
             shikuKana: karuta.shimoNoKu.shiku.kana,
             gokuKanji: karuta.shimoNoKu.goku.kanji,
-            gokuKana: karuta.shimoNoKu.shiku.kana,
+            gokuKana: karuta.shimoNoKu.goku.kana,
             translation: karuta.translation
         )
     }

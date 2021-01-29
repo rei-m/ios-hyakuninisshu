@@ -26,6 +26,7 @@ protocol TrainingViewProtocol: AnyObject {
     func updateAnimationSpeed(_ condition: AnimationSpeedCondition)
     func updateRangeError(_ message: String?)
     func showAlertDialog()
+    func toggleMask(_ isVisble: Bool)
     func presentNextVC(
         karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
@@ -45,7 +46,8 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var shimoNoKuPicker: KeyboardPicker!
     @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
     @IBOutlet weak var rangeErrorLabel: UILabel!    
-
+    @IBOutlet weak var maskView: UIView!
+    
     // MARK: - Property
     private var rangeErrorHeightConstraint: NSLayoutConstraint?
     
@@ -58,12 +60,17 @@ class TrainingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Action
     @IBAction func didStartTrainingButtonTapDone(_ sender: UIButton) {
         presenter.didStartTrainingButtonTapDone()
+    }
+
+    @IBAction func didTapMask(_ sender: Any) {
+        presenter.didTapMask()
     }
 
     // MARK: - Method
@@ -143,6 +150,17 @@ extension TrainingViewController: TrainingViewProtocol {
         self.present(alert, animated: true)
     }
     
+    func toggleMask(_ isVisble: Bool) {
+        maskView.isHidden = !isVisble
+        if (!isVisble) {
+            [rangeFromPicker, rangeToPicker, kimarijiPicker, colorPicker, kamiNoKuPicker, shimoNoKuPicker, animationSpeedPicker].forEach {
+                if (($0?.isFirstResponder) != nil) {
+                    $0?.close()
+                }
+            }
+        }
+    }
+    
     func presentNextVC(
         karutaNos: [UInt8],
         kamiNoKu: DisplayStyleCondition,
@@ -166,6 +184,11 @@ extension TrainingViewController: TrainingViewProtocol {
 }
 
 extension TrainingViewController: KeyboardPickerDelegate {
+    func didTap() {
+        
+        maskView.isHidden = false
+    }
+    
     func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem) {
         // ここイケてない・・・
         switch keyboardPicker {

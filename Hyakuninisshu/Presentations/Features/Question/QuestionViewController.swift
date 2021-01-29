@@ -51,9 +51,11 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         presenter.viewWillAppear(now: Date())
     }

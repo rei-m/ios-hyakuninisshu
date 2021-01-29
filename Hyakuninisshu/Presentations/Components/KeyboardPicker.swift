@@ -12,6 +12,7 @@ protocol KeyboardPickerItem {
 }
 
 protocol KeyboardPickerDelegate {
+    func didTap()
     func didTapDone(_ keyboardPicker: KeyboardPicker, item: KeyboardPickerItem)
 }
 
@@ -39,8 +40,9 @@ class KeyboardPicker: UIControl {
 
     private var bottomBorderHeightConstraint: NSLayoutConstraint!
     private var borderColor: UIColor = UIColor.systemGray
-    private var borderColorSelected: UIColor = UIColor(named: "AccentColor")!
-    
+    private var borderColorSelected: UIColor = UIColor(named: "PrimaryColor")!
+    private var textColor: UIColor = UIColor(named: "TextColor")!
+
     private func setUp() {
         // 自身のViewの設定
         backgroundColor = UIColor.clear
@@ -50,6 +52,8 @@ class KeyboardPicker: UIControl {
         titleLabel.textAlignment = .center
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .left
+        titleLabel.font = titleLabel.font.withSize(17)
+        titleLabel.textColor = textColor
         addSubview(titleLabel)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +103,7 @@ class KeyboardPicker: UIControl {
         
         // キーボードエリアに表示するピッカー
         pickerView.delegate = self
-        pickerView.backgroundColor = .white
+        pickerView.backgroundColor = .systemBackground
 
         // イベントハンドラ
         addTarget(self, action: #selector(KeyboardPicker.didTap(sender:)), for: .touchDown)
@@ -142,19 +146,25 @@ class KeyboardPicker: UIControl {
         self.data = data
         self.currentItem = currentItem
     }
+
+    func close() {
+        resignFirstResponder()
+        borderView.backgroundColor = borderColor
+        bottomBorderHeightConstraint.constant = 1
+    }
     
     // タッチされたらFirst Responderになる
     @objc func didTap(sender: KeyboardPicker) {
         becomeFirstResponder()
         borderView.backgroundColor = borderColorSelected
         bottomBorderHeightConstraint.constant = 2
+        
+        delegate?.didTap()
     }
     
     // ボタンを押したらresignしてキーボードを閉じる
     @objc func didTapDone(sender: UIButton) {
-        resignFirstResponder()
-        borderView.backgroundColor = borderColor
-        bottomBorderHeightConstraint.constant = 1
+        close()
 
         guard let currentItem = currentItemTemp else {
             return

@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 private func createFitLayoutConstraint(item: UIView, toItem: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint {
-    return NSLayoutConstraint(item: item,
-                              attribute: attribute,
-                              relatedBy: .equal,
-                              toItem: toItem,
-                              attribute: attribute,
-                              multiplier: 1.0,
-                              constant: 0)
+    return NSLayoutConstraint(
+        item: item,
+        attribute: attribute,
+        relatedBy: .equal,
+        toItem: toItem,
+        attribute: attribute,
+        multiplier: 1.0,
+        constant: 0
+    )
 }
 
 extension UIView {
@@ -28,9 +30,10 @@ extension UIView {
     }
     
     func setUpCardFrame(borderWidth: CGFloat, cornerRadius: CGFloat, shadowOffset: CGFloat) {
-        let borderColor = UIColor(named: "AccentColor")
+        
+        let borderColor = UIColor(named: "FudaFrameColor")
         let shadowView = UIView()
-        shadowView.backgroundColor = .white
+        shadowView.backgroundColor = UIColor(named: "FudaBackgroundColor")
         shadowView.layer.shadowColor = UIColor.gray.cgColor
         shadowView.layer.shadowOpacity = 0.5
         shadowView.layer.shadowRadius = cornerRadius

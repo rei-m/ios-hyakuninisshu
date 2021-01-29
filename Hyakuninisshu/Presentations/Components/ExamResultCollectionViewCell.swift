@@ -10,4 +10,21 @@ import UIKit
 class ExamResultCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var correctImage: UIImageView!
+    
+    private let bgColor = UIColor(named: "BackgroundColor")
+    
+    private func setUp() {
+        backgroundColor = bgColor
+        layer.cornerRadius = 4
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUp()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUp()
+    }
 }

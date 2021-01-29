@@ -19,9 +19,10 @@ class AnswerViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var fudaView: FudaView!
     @IBOutlet weak var noAndKimarijiLabel: UILabel!
-    @IBOutlet weak var goToNextButton: UIButton!
-    @IBOutlet weak var goToResultButton: UIButton!
-
+    @IBOutlet weak var creatorLabel: UILabel!
+    @IBOutlet weak var goToNextButton: ActionButton!
+    @IBOutlet weak var goToResultButton: ActionButton!
+    
     // MARK: - Property
     private var presenter: AnswerPresenterProtocol!
     
@@ -36,9 +37,12 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBackButton()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
+        title = "\(questionNo ?? 0) / \(questionCount ?? 0)"
         
         fudaView.material = material
         noAndKimarijiLabel.text = "\(material.noTxt) / \(material.kimarijiTxt)"
+        creatorLabel.text = material.creator
         
         let isAnsweredAllQuestions = questionNo == questionCount
         goToNextButton.isHidden = isAnsweredAllQuestions
@@ -46,6 +50,7 @@ class AnswerViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
 

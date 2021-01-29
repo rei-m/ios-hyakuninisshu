@@ -19,11 +19,14 @@ class ExamResultViewController: UIViewController {
         super.viewDidLoad()
         setUpLeftBackButton()
 
+        resultCollectionView.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
+
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
     
@@ -66,7 +69,10 @@ extension ExamResultViewController: UICollectionViewDataSource {
         
         cell.noLabel.text = material.noTxt
         cell.correctImage.image = isCorrect ? #imageLiteral(resourceName: "Correct") : #imageLiteral(resourceName: "Wrong")
-
+        let imageSize = collectionView.cellSize * 0.8
+        cell.correctImage.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
+        cell.correctImage.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
+        
         return cell
     }
 
@@ -76,11 +82,18 @@ extension ExamResultViewController: UICollectionViewDataSource {
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ExamResultHeaderView", for: indexPath) as? ExamResultCollectionViewHeader else {
                 fatalError("The dequeued view is not instance of ExamResultHeaderView.")
             }
-            view.scoreLabel.text = examResult.score.score
-            view.averageAnswerTimeLabel.text = examResult.score.averageAnswerSecText
+            view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
+            view.scoreView.value = examResult.score.score
+            view.averageAnswerTimeView.value = examResult.score.averageAnswerSecText
             return view
         case "UICollectionElementKindSectionFooter":
-            return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExamResultFooterView", for: indexPath)
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExamResultFooterView", for: indexPath) as? ExamResultCollectionViewFooter else {
+                fatalError("The dequeued view is not instance of ExamResultFooterView.")
+            }
+            view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
+            return view
         default:
             fatalError("Unknown kind. value=\(kind)")
         }
@@ -89,16 +102,25 @@ extension ExamResultViewController: UICollectionViewDataSource {
 
 extension ExamResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return 2
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (UIScreen.main.bounds.size.width - 8 * 4 ) / 5
-        
-        return CGSize(width: size, height: size)
+        let cellSize = collectionView.cellSize
+        return CGSize(width: cellSize, height: cellSize)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+}
+
+private extension UICollectionView {
+    var cellSize: CGFloat {
+        return (frame.size.width - 32 - 10) / 5
     }
 }

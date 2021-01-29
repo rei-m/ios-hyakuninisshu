@@ -26,7 +26,8 @@ class QuestionStarterViewController: UIViewController {
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        setUpLeftBackButton()
         presenter.viewDidLoad()
     }
     

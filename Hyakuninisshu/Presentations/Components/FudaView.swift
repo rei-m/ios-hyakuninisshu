@@ -7,11 +7,15 @@
 
 import UIKit
 
-@IBDesignable class FudaView: UIView {
-    @IBInspectable var borderWidth: CGFloat = 6.0
-    @IBInspectable var cornerRadius: CGFloat = 6.0
-    @IBInspectable var shadowOffset: CGFloat = 2.0
-    @IBInspectable var fontSize: CGFloat = 17.0
+class FudaView: UIView {
+    var borderWidth: CGFloat = 6.0
+    var cornerRadius: CGFloat = 6.0
+    var shadowOffset: CGFloat = 2.0
+    var fontSize: CGFloat = {
+        let screenBounds = UIScreen.main.bounds
+        let baseSize = min(screenBounds.width, screenBounds.height / 2)
+        return baseSize / 16
+    }()
 
     private var _material: Material?
     var material: Material? {
@@ -39,12 +43,13 @@ import UIKit
         setUpCardFrame(borderWidth: borderWidth, cornerRadius: cornerRadius, shadowOffset: shadowOffset)
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: fontSize * 10).isActive = true
-        heightAnchor.constraint(equalToConstant: fontSize * 13).isActive = true
+        heightAnchor.constraint(equalToConstant: fontSize * 14).isActive = true
         backgroundColor = .clear
     }
     
     private func setUpLineView(lineView: VerticalLabel) {
         addSubview(lineView)
+        lineView.fontSize = fontSize
         lineView.backgroundColor = .clear
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 32).isActive = true

@@ -8,11 +8,15 @@
 import UIKit
 import Combine
 
-@IBDesignable class YomiFudaView: UIView {
-    @IBInspectable var borderWidth: CGFloat = 6.0
-    @IBInspectable var cornerRadius: CGFloat = 6.0
-    @IBInspectable var shadowOffset: CGFloat = 2.0
-    @IBInspectable var fontSize: CGFloat = 17.0
+class YomiFudaView: UIView {
+    var borderWidth: CGFloat = 6.0
+    var cornerRadius: CGFloat = 6.0
+    var shadowOffset: CGFloat = 2.0
+    var fontSize: CGFloat = {
+        let screenBounds = UIScreen.main.bounds
+        let baseSize = min(screenBounds.width, screenBounds.height / 2)
+        return baseSize / 16
+    }()
 
     private var _yomiFuda: YomiFuda?
     var yomiFuda: YomiFuda? {
@@ -30,9 +34,10 @@ import Combine
             }
         }
     }
-    
-    private let borderColor = UIColor(named: "AccentColor")
-    
+
+    private let textColor = UIColor(named: .fudaText)
+    private let borderColor = UIColor(named: .fudaFrame)
+
     private let firstLineView = UIStackView()
     private let secondLineView = UIStackView()
     private let thirdLineView = UIStackView()
@@ -52,10 +57,10 @@ import Combine
         lineView.spacing = 1
         
         for _ in 0..<count {
-            let label = UILabel() // 6
+            let label = UILabel()
             lineView.addArrangedSubview(label)
-            label.font = UIFont.systemFont(ofSize: fontSize)
-            label.textColor = .black
+            label.font = UIFont(name: .hannari, size: fontSize)
+            label.textColor = textColor
             label.heightAnchor.constraint(equalToConstant: fontSize).isActive = true
             label.text = " "
             label.alpha = 0
@@ -67,7 +72,7 @@ import Combine
         setUpLineView(lineView: thirdLineView, count: 6)
         setUpLineView(lineView: secondLineView, count: 8)
         setUpLineView(lineView: firstLineView, count: 6)
-                
+
         secondLineView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         secondLineView.topAnchor.constraint(equalTo: topAnchor, constant: fontSize * 3).isActive = true
         secondLineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: fontSize * -2).isActive = true
