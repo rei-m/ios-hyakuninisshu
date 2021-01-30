@@ -84,6 +84,10 @@
 		FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560864259B13940059AF7D /* QuestionViewController.swift */; };
 		FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56086C259B21DB0059AF7D /* QuestionStarterPresenter.swift */; };
 		FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560871259B21E70059AF7D /* QuestionStarterModel.swift */; };
+		FA58E38B25C5A71500FA7FCF /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E38A25C5A71500FA7FCF /* UserDefaultsExtension.swift */; };
+		FA58E39125C5AAF200FA7FCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */; };
+		FA58E39625C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E39525C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift */; };
+		FA58E39C25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */; };
 		FA5E6A5925A74B80008EE33F /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A5825A74B80008EE33F /* UIStoryboardExtension.swift */; };
 		FA5E6A5E25A74BCA008EE33F /* ViewControllerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A5D25A74BCA008EE33F /* ViewControllerIdentifier.swift */; };
 		FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E6A6525A7F9F5008EE33F /* UINavigationControllerExtension.swift */; };
@@ -213,6 +217,10 @@
 		FA560864259B13940059AF7D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FA56086C259B21DB0059AF7D /* QuestionStarterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStarterPresenter.swift; sourceTree = "<group>"; };
 		FA560871259B21E70059AF7D /* QuestionStarterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStarterModel.swift; sourceTree = "<group>"; };
+		FA58E38A25C5A71500FA7FCF /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FA58E39525C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUserInterfaceStyleExtension.swift; sourceTree = "<group>"; };
+		FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeSettingViewController.swift; sourceTree = "<group>"; };
 		FA5E6A5825A74B80008EE33F /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		FA5E6A5D25A74BCA008EE33F /* ViewControllerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifier.swift; sourceTree = "<group>"; };
 		FA5E6A6525A7F9F5008EE33F /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
@@ -507,6 +515,8 @@
 		FA3BA3FC25A7016A00841087 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */,
+				FA58E38F25C5AAD800FA7FCF /* Setting */,
 				FACB599325B482C800B4ACFA /* UnexpectedError */,
 				FA5FEFC125AB5E7D00948165 /* ExamHistory */,
 				FAB9E0D525A8A0620038EA04 /* ExamResult */,
@@ -545,6 +555,22 @@
 			path = Question;
 			sourceTree = "<group>";
 		};
+		FA58E38F25C5AAD800FA7FCF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */ = {
+			isa = PBXGroup;
+			children = (
+				FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */,
+			);
+			path = DarkModeSetting;
+			sourceTree = "<group>";
+		};
 		FA5E6A5725A74B67008EE33F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +581,8 @@
 				FA142B5325A84C8A005218F4 /* UIViewExtension.swift */,
 				FA31034C25C3CB04004452F7 /* UIFontExtension.swift */,
 				FA31035125C3DD0B004452F7 /* UIColorExtension.swift */,
+				FA58E38A25C5A71500FA7FCF /* UserDefaultsExtension.swift */,
+				FA58E39525C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -774,6 +802,7 @@
 				FA5FEFD025AB5EC100948165 /* ExamHistoryPresenter.swift in Sources */,
 				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
 				FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */,
+				FA58E39625C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift in Sources */,
 				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
 				FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
@@ -820,6 +849,7 @@
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
 				FA178EF2259E172D001C0311 /* YomiFuda.swift in Sources */,
 				FA0289442570CBBA003ADE9C /* KamiNoKu.swift in Sources */,
+				FA58E39C25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift in Sources */,
 				FA142B4725A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift in Sources */,
 				FA3BA3DB25A5179600841087 /* TrainingResultViewController.swift in Sources */,
 				FA0EC5C82599B749003B4FEE /* ColorCondition.swift in Sources */,
@@ -831,6 +861,7 @@
 				FAB9E0F925A8B6530038EA04 /* ExamResult.swift in Sources */,
 				FA35DB2A2592DFEE00B2DA55 /* CreateQuestionsService.swift in Sources */,
 				FA27E26A257055FC001132A3 /* Hyakuninisshu.xcdatamodeld in Sources */,
+				FA58E38B25C5A71500FA7FCF /* UserDefaultsExtension.swift in Sources */,
 				FA12E2D625A356B300C057B6 /* AnswerViewController.swift in Sources */,
 				FA5E6A7425A80525008EE33F /* ExamModel.swift in Sources */,
 				FA3BA3EA25A5FC1C00841087 /* TrainingResult.swift in Sources */,
@@ -853,6 +884,7 @@
 				FA0EC5D22599BBAE003B4FEE /* AnimationSpeedCondition.swift in Sources */,
 				FA5E6A6C25A8051A008EE33F /* ExamViewController.swift in Sources */,
 				FA142B5425A84C8A005218F4 /* UIViewExtension.swift in Sources */,
+				FA58E39125C5AAF200FA7FCF /* SettingViewController.swift in Sources */,
 				FA35DB0B2592DA9D00B2DA55 /* QuestionState.swift in Sources */,
 				FA6BC5A425B1310800B2DEFE /* EntityId.swift in Sources */,
 				FA0EC5A725972389003B4FEE /* KanjiFormatter.swift in Sources */,

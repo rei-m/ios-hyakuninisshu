@@ -13,7 +13,7 @@ extension UIFont {
         case hannari = "HannariMincho"
     }
 
-    convenience init(name: FontNames, size: CGFloat) {
-        self.init(name: name.rawValue, size: size)!
+    convenience init?(name: FontNames, size: CGFloat) {
+        self.init(name: name.rawValue, size: size)
     }
 }
