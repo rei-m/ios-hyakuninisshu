@@ -979,10 +979,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="3fa-dC-wVX" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="57.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="56.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fa-dC-wVX" id="PKI-y7-Ohp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-hY-Jgb" userLabel="DateLabel">
@@ -995,13 +995,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解数: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-BN-3E6" userLabel="ScoreLabel">
-                                            <rect key="frame" x="8" y="28" width="199" height="21.333333333333329"/>
+                                            <rect key="frame" x="8" y="28" width="199" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="TextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均回答時間: 3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Re-fuk" userLabel="AverageAnswerTimeLabel">
-                                            <rect key="frame" x="215" y="28" width="191" height="21.333333333333329"/>
+                                            <rect key="frame" x="215" y="28" width="191" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="TextColor"/>
                                             <nil key="highlightedColor"/>
@@ -1563,6 +1563,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="09s-Bl-gzd" kind="show" id="8UB-s3-nId"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="AjD-8l-oVp" style="IBUITableViewCellStyleDefault" id="Lyy-Kf-lKY" userLabel="AboutAd Cell">
                                         <rect key="frame" x="0.0" y="555.33333587646484" width="414" height="43.666667938232422"/>
@@ -1719,6 +1722,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trg-vn-GTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2020" y="2056"/>
+        </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="PH8-lz-N2e">
+            <objects>
+                <viewController id="09s-Bl-gzd" userLabel="Privacy Policy View Controller" customClass="PrivacyPolicyViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="68W-JQ-z9S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当アプリの利用状況を把握するためにGoogle Analyticsを利用しております。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-km-HLc">
+                                <rect key="frame" x="16" y="104" width="382" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Analyticsにより収集されたデータは、Google社のプライバシーポリシーに基づいて管理されます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9s-l5-Xrp">
+                                <rect key="frame" x="16" y="140" width="382" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRh-uf-YGN">
+                                <rect key="frame" x="16" y="208" width="382" height="30"/>
+                                <state key="normal" title="Googleのプライバシーポリシー"/>
+                                <connections>
+                                    <action selector="didTapGooglePrivacyPolicy:" destination="09s-Bl-gzd" eventType="touchUpInside" id="ZVg-hw-fwy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sUf-ar-cTc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sUf-ar-cTc" firstAttribute="trailing" secondItem="jRh-uf-YGN" secondAttribute="trailing" constant="16" id="0Wh-W1-b5q"/>
+                            <constraint firstItem="l9s-l5-Xrp" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="NQG-pq-9SD"/>
+                            <constraint firstItem="C8I-km-HLc" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="UFz-oj-Gu7"/>
+                            <constraint firstItem="C8I-km-HLc" firstAttribute="top" secondItem="sUf-ar-cTc" secondAttribute="top" constant="16" id="WES-LN-KqC"/>
+                            <constraint firstItem="jRh-uf-YGN" firstAttribute="top" secondItem="l9s-l5-Xrp" secondAttribute="bottom" constant="32" id="h8b-gt-7xS"/>
+                            <constraint firstAttribute="trailing" secondItem="l9s-l5-Xrp" secondAttribute="trailing" constant="16" id="kQx-QC-S2x"/>
+                            <constraint firstItem="jRh-uf-YGN" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="mGm-nf-tnf"/>
+                            <constraint firstItem="l9s-l5-Xrp" firstAttribute="top" secondItem="C8I-km-HLc" secondAttribute="bottom" id="nvs-vW-tHA"/>
+                            <constraint firstAttribute="trailing" secondItem="C8I-km-HLc" secondAttribute="trailing" constant="16" id="pEh-M1-Co2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KD0-S5-Ejm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-1t-TWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018.840579710145" y="2805.8035714285711"/>
         </scene>
     </scenes>
     <designables>

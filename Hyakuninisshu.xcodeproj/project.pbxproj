@@ -114,6 +114,7 @@
 		FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B2325B1844F00579F96 /* DIContainer.swift */; };
 		FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC8B2B25B1D75C00579F96 /* Error.storyboard */; };
 		FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B3025B1E0E400579F96 /* PresentationError.swift */; };
+		FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		FACC8B2325B1844F00579F96 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		FACC8B2B25B1D75C00579F96 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		FACC8B3025B1E0E400579F96 /* PresentationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationError.swift; sourceTree = "<group>"; };
+		FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */,
+				FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA5FEFBD25AB463C00948165 /* PlayScore.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
+				FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
 				FA142B1225A82DD9005218F4 /* ExamHitory.swift in Sources */,
 				FA5E6A6625A7F9F5008EE33F /* UINavigationControllerExtension.swift in Sources */,
