@@ -1583,6 +1583,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gkR-CC-GZV" kind="show" id="Jtv-Ph-0Jo"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="xK5-Ch-h7b" style="IBUITableViewCellStyleDefault" id="DFo-Le-FnY" userLabel="Credit Cell">
                                         <rect key="frame" x="0.0" y="599.00000381469727" width="414" height="43.666667938232422"/>
@@ -1601,7 +1604,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="kN0-Eg-ChQ" detailTextLabel="5HL-J1-TaI" style="IBUITableViewCellStyleValue1" id="fQ1-th-0qM" userLabel="AppVersion Cell">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="kN0-Eg-ChQ" detailTextLabel="5HL-J1-TaI" style="IBUITableViewCellStyleValue1" id="fQ1-th-0qM" userLabel="AppVersion Cell">
                                         <rect key="frame" x="0.0" y="642.66667175292969" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fQ1-th-0qM" id="90q-mY-eSc">
@@ -1633,7 +1636,7 @@
                             <outlet property="delegate" destination="kMp-M4-Ldi" id="cCS-X3-6rm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EeR-a5-J0T"/>
+                    <navigationItem key="navigationItem" title="その他" id="EeR-a5-J0T"/>
                     <connections>
                         <outlet property="darkModeValueLabel" destination="am8-oi-CfH" id="IWW-kq-xFa"/>
                     </connections>
@@ -1737,14 +1740,15 @@
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Analyticsにより収集されたデータは、Google社のプライバシーポリシーに基づいて管理されます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9s-l5-Xrp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Analyticsにより収集されたデータは、Googleのプライバシーポリシーに基づいて管理されます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9s-l5-Xrp">
                                 <rect key="frame" x="16" y="140" width="382" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRh-uf-YGN">
-                                <rect key="frame" x="16" y="208" width="382" height="30"/>
+                                <rect key="frame" x="84" y="208" width="246" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Googleのプライバシーポリシー"/>
                                 <connections>
                                     <action selector="didTapGooglePrivacyPolicy:" destination="09s-Bl-gzd" eventType="touchUpInside" id="ZVg-hw-fwy"/>
@@ -1754,13 +1758,12 @@
                         <viewLayoutGuide key="safeArea" id="sUf-ar-cTc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sUf-ar-cTc" firstAttribute="trailing" secondItem="jRh-uf-YGN" secondAttribute="trailing" constant="16" id="0Wh-W1-b5q"/>
+                            <constraint firstItem="jRh-uf-YGN" firstAttribute="top" secondItem="l9s-l5-Xrp" secondAttribute="bottom" constant="32" id="9G3-wX-v8B"/>
                             <constraint firstItem="l9s-l5-Xrp" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="NQG-pq-9SD"/>
+                            <constraint firstItem="jRh-uf-YGN" firstAttribute="centerX" secondItem="68W-JQ-z9S" secondAttribute="centerX" id="P1W-jB-hDy"/>
                             <constraint firstItem="C8I-km-HLc" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="UFz-oj-Gu7"/>
                             <constraint firstItem="C8I-km-HLc" firstAttribute="top" secondItem="sUf-ar-cTc" secondAttribute="top" constant="16" id="WES-LN-KqC"/>
-                            <constraint firstItem="jRh-uf-YGN" firstAttribute="top" secondItem="l9s-l5-Xrp" secondAttribute="bottom" constant="32" id="h8b-gt-7xS"/>
                             <constraint firstAttribute="trailing" secondItem="l9s-l5-Xrp" secondAttribute="trailing" constant="16" id="kQx-QC-S2x"/>
-                            <constraint firstItem="jRh-uf-YGN" firstAttribute="leading" secondItem="sUf-ar-cTc" secondAttribute="leading" constant="16" id="mGm-nf-tnf"/>
                             <constraint firstItem="l9s-l5-Xrp" firstAttribute="top" secondItem="C8I-km-HLc" secondAttribute="bottom" id="nvs-vW-tHA"/>
                             <constraint firstAttribute="trailing" secondItem="C8I-km-HLc" secondAttribute="trailing" constant="16" id="pEh-M1-Co2"/>
                         </constraints>
@@ -1770,6 +1773,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-1t-TWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2018.840579710145" y="2805.8035714285711"/>
+        </scene>
+        <!--About Ad View Controller-->
+        <scene sceneID="sKX-re-q4c">
+            <objects>
+                <viewController id="gkR-CC-GZV" userLabel="About Ad View Controller" customClass="AboutAdViewController" customModule="Hyakuninisshu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wjO-K1-8C2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当アプリはGoogle AdMobを利用して広告配信を行っております。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-Yh-S2q">
+                                <rect key="frame" x="16" y="104" width="382" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google AdMobでは利用者の情報を自動取得する場合がございます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWc-ob-4SA">
+                                <rect key="frame" x="16" y="140" width="382" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取得する情報、利用目的、第三者への提供等につきましては、Googleのプライバシーポリシーに基づいて管理されます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j96-9W-lTO">
+                                <rect key="frame" x="16" y="176" width="382" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xA9-7Q-Yl4">
+                                <rect key="frame" x="84" y="262" width="246" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Googleのプライバシーポリシー"/>
+                                <connections>
+                                    <action selector="didTapGooglePrivacyPolicy:" destination="gkR-CC-GZV" eventType="touchUpInside" id="0Ut-bC-1Jg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vmS-O3-Aen"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zb3-Yh-S2q" firstAttribute="top" secondItem="vmS-O3-Aen" secondAttribute="top" constant="16" id="8c9-7W-SXh"/>
+                            <constraint firstItem="xA9-7Q-Yl4" firstAttribute="top" secondItem="j96-9W-lTO" secondAttribute="bottom" constant="32" id="8wX-hV-uTR"/>
+                            <constraint firstItem="vmS-O3-Aen" firstAttribute="trailing" secondItem="zb3-Yh-S2q" secondAttribute="trailing" constant="16" id="HFm-mc-oGZ"/>
+                            <constraint firstItem="GWc-ob-4SA" firstAttribute="top" secondItem="zb3-Yh-S2q" secondAttribute="bottom" id="IAP-jS-q7H"/>
+                            <constraint firstItem="zb3-Yh-S2q" firstAttribute="leading" secondItem="vmS-O3-Aen" secondAttribute="leading" constant="16" id="JVN-sn-IQT"/>
+                            <constraint firstItem="vmS-O3-Aen" firstAttribute="trailing" secondItem="GWc-ob-4SA" secondAttribute="trailing" constant="16" id="Ljk-xi-P9d"/>
+                            <constraint firstItem="xA9-7Q-Yl4" firstAttribute="centerX" secondItem="wjO-K1-8C2" secondAttribute="centerX" id="QW2-Qh-hLU"/>
+                            <constraint firstItem="vmS-O3-Aen" firstAttribute="trailing" secondItem="j96-9W-lTO" secondAttribute="trailing" constant="16" id="UKH-HE-VvX"/>
+                            <constraint firstItem="j96-9W-lTO" firstAttribute="top" secondItem="GWc-ob-4SA" secondAttribute="bottom" id="hO4-dz-1el"/>
+                            <constraint firstItem="j96-9W-lTO" firstAttribute="leading" secondItem="vmS-O3-Aen" secondAttribute="leading" constant="16" id="uvv-NL-U5d"/>
+                            <constraint firstItem="GWc-ob-4SA" firstAttribute="leading" secondItem="vmS-O3-Aen" secondAttribute="leading" constant="16" id="wDE-Kv-H4Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gbh-qO-y8O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXY-nJ-Itz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018.840579710145" y="3553.7946428571427"/>
         </scene>
     </scenes>
     <designables>

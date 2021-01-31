@@ -115,6 +115,7 @@
 		FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC8B2B25B1D75C00579F96 /* Error.storyboard */; };
 		FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B3025B1E0E400579F96 /* PresentationError.swift */; };
 		FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */; };
+		FAD9677A25C75D0F009936AD /* AboutAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677925C75D0F009936AD /* AboutAdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,7 @@
 		FACC8B2B25B1D75C00579F96 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		FACC8B3025B1E0E400579F96 /* PresentationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationError.swift; sourceTree = "<group>"; };
 		FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		FAD9677925C75D0F009936AD /* AboutAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,6 +564,7 @@
 			children = (
 				FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */,
 				FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */,
+				FAD9677925C75D0F009936AD /* AboutAdViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				FA0EC5AC2597EAEF003B4FEE /* RangeCondition.swift in Sources */,
 				FA0ED109259F76BC00D41DBA /* ToriFudaView.swift in Sources */,
 				FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */,
+				FAD9677A25C75D0F009936AD /* AboutAdViewController.swift in Sources */,
 				FA8FBC3A25B7106A00152176 /* ActionButton.swift in Sources */,
 				FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */,
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
