@@ -107,4 +107,10 @@ class DarkModeSettingViewController: UITableViewController {
         UserDefaults.standard.setDarkMode(styles[indexPath.item])
         view.window?.overrideUserInterfaceStyle = styles[indexPath.item]
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        print("unko")
+//        tableView.estimatedRowHeight = 80 //セルの高さ
+//        return UITableView.automaticDimension //自動設定
+//     }
 }

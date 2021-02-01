@@ -1427,10 +1427,10 @@
                         <sections>
                             <tableViewSection headerTitle="アプリについて" id="BP8-Fb-hE0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5xw-8q-WNa">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="328" id="5xw-8q-WNa">
                                         <rect key="frame" x="0.0" y="28" width="414" height="328"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5xw-8q-WNa" id="zKl-IV-K66">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5xw-8q-WNa" id="zKl-IV-K66">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1531,10 +1531,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="am8-oi-CfH" userLabel="Value">
-                                                    <rect key="frame" x="331" y="11.999999999999998" width="43.666666666666664" height="20.333333333333332"/>
+                                                    <rect key="frame" x="335.33333333333337" y="14" width="39.333333333333336" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1638,6 +1638,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="その他" id="EeR-a5-J0T"/>
                     <connections>
+                        <outlet property="aboutAppCell" destination="5xw-8q-WNa" id="p3M-3D-SMt"/>
                         <outlet property="appVersionLabel" destination="5HL-J1-TaI" id="I3s-gT-jHA"/>
                         <outlet property="darkModeValueLabel" destination="am8-oi-CfH" id="IWW-kq-xFa"/>
                     </connections>
@@ -1725,7 +1726,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trg-vn-GTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="2056"/>
+            <point key="canvasLocation" x="1825" y="2908"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="PH8-lz-N2e">
@@ -1773,7 +1774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-1t-TWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018.840579710145" y="2805.8035714285711"/>
+            <point key="canvasLocation" x="3464" y="2908"/>
         </scene>
         <!--About Ad View Controller-->
         <scene sceneID="sKX-re-q4c">
@@ -1830,7 +1831,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXY-nJ-Itz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018.840579710145" y="3553.7946428571427"/>
+            <point key="canvasLocation" x="2662" y="2908"/>
         </scene>
     </scenes>
     <designables>

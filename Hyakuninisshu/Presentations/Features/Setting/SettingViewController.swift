@@ -10,6 +10,7 @@ import UIKit
 class SettingViewController: UITableViewController {
     @IBOutlet weak var darkModeValueLabel: UILabel!
     @IBOutlet weak var appVersionLabel: UILabel!
+    @IBOutlet weak var aboutAppCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,11 @@ class SettingViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         darkModeValueLabel.text = UserDefaults.standard.darkMode.text
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     // MARK: - Table view data source
