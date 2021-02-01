@@ -24,8 +24,8 @@ extension UIColor {
         case text = "TextColor"
     }
 
-    convenience init(named: ColorNames) {
-        self.init(named: named.rawValue)!
+    convenience init?(named: ColorNames) {
+        self.init(named: named.rawValue)
     }
 }
 

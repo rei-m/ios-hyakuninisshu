@@ -41,8 +41,8 @@ class VerticalLabel: UIView {
     override func draw(_ rect: CGRect) {
         _text.enumerated().forEach { c in
             String(c.element).draw(at: CGPoint(x: 0, y: Int(_fontSize) * c.offset), withAttributes: [
-                NSAttributedString.Key.foregroundColor : textColor,
-                NSAttributedString.Key.font : font.withSize(_fontSize),
+                NSAttributedString.Key.foregroundColor : textColor!,
+                NSAttributedString.Key.font : font!.withSize(_fontSize),
             ])
         }
     }
