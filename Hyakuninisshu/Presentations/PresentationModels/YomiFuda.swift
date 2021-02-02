@@ -8,19 +8,23 @@
 import Foundation
 
 struct YomiFuda {
-    static func fromKamiNoKu(kamiNoKu: KamiNoKu, style: DisplayStyleCondition) -> YomiFuda {
-        switch style.value {
-        case 0:
-            return YomiFuda(karutaNo: kamiNoKu.karutaNo.value, firstLine: kamiNoKu.shoku.kanji, secondLine: kamiNoKu.niku.kanji, thirdLine: kamiNoKu.sanku.kanji)
-        case 1:
-            return YomiFuda(karutaNo: kamiNoKu.karutaNo.value, firstLine: kamiNoKu.shoku.kana, secondLine: kamiNoKu.niku.kana, thirdLine: kamiNoKu.sanku.kana)
-        default:
-            fatalError("unknown value")
-        }
+  static func fromKamiNoKu(kamiNoKu: KamiNoKu, style: DisplayStyleCondition) -> YomiFuda {
+    switch style.value {
+    case 0:
+      return YomiFuda(
+        karutaNo: kamiNoKu.karutaNo.value, firstLine: kamiNoKu.shoku.kanji,
+        secondLine: kamiNoKu.niku.kanji, thirdLine: kamiNoKu.sanku.kanji)
+    case 1:
+      return YomiFuda(
+        karutaNo: kamiNoKu.karutaNo.value, firstLine: kamiNoKu.shoku.kana,
+        secondLine: kamiNoKu.niku.kana, thirdLine: kamiNoKu.sanku.kana)
+    default:
+      fatalError("unknown value")
     }
-    
-    let karutaNo: UInt8
-    let firstLine: String
-    let secondLine: String
-    let thirdLine: String
+  }
+
+  let karutaNo: UInt8
+  let firstLine: String
+  let secondLine: String
+  let thirdLine: String
 }

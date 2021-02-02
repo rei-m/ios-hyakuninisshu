@@ -9,17 +9,17 @@ import UIKit
 
 class MaterialTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var noLabel: UILabel!
-    @IBOutlet weak var contentLine1Label: UILabel!
-    @IBOutlet weak var contentLine2Label: UILabel!
-    @IBOutlet weak var creatorLabel: UILabel!
-    @IBOutlet weak var karutaImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+  @IBOutlet weak var noLabel: UILabel!
+  @IBOutlet weak var contentLine1Label: UILabel!
+  @IBOutlet weak var contentLine2Label: UILabel!
+  @IBOutlet weak var creatorLabel: UILabel!
+  @IBOutlet weak var karutaImage: UIImageView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 struct KarutaNoCollection {
-    let values: [KarutaNo]
-    
-    init(_ values: [KarutaNo]) {
-        self.values = values
-    }
+  let values: [KarutaNo]
+
+  init(_ values: [KarutaNo]) {
+    self.values = values
+  }
 }

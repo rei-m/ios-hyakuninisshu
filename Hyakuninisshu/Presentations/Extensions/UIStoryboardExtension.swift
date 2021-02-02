@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension UIStoryboard {
-    func instantiateViewController<T: UIViewController>(identifier: ViewControllerIdentifier) -> T {
-        guard let vc = instantiateViewController(identifier: identifier.rawValue) as? T else {
-            fatalError("unknown VC identifier value=\(identifier.rawValue)")
-        }
-        return vc
+  func instantiateViewController<T: UIViewController>(identifier: ViewControllerIdentifier) -> T {
+    guard let vc = instantiateViewController(identifier: identifier.rawValue) as? T else {
+      fatalError("unknown VC identifier value=\(identifier.rawValue)")
     }
+    return vc
+  }
 }

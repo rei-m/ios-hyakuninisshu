@@ -8,6 +8,6 @@
 import Foundation
 
 struct QuestionJudgement: ValueObject {
-    let karutaNo: KarutaNo
-    let isCorrect: Bool
+  let karutaNo: KarutaNo
+  let isCorrect: Bool
 }

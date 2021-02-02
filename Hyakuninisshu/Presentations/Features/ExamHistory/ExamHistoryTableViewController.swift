@@ -8,67 +8,72 @@
 import UIKit
 
 protocol ExamHistoryTableViewProtocol: AnyObject {
-    func updateLoading(_ isLoading: Bool)
-    func updateTable(_ scores: [PlayScore])
-    func displayError(_ message: String)
+  func updateLoading(_ isLoading: Bool)
+  func updateTable(_ scores: [PlayScore])
+  func displayError(_ message: String)
 }
 
 class ExamHistoryTableViewController: UITableViewController {
 
-    private var presenter: ExamHistoryPresenterProtocol!
+  private var presenter: ExamHistoryPresenterProtocol!
 
-    private var scores: [PlayScore] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter.viewDidLoad()
+  private var scores: [PlayScore] = []
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    presenter.viewDidLoad()
+  }
+
+  // MARK: - Table view data source
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    // #warning Incomplete implementation, return the number of sections
+    return 1
+  }
+
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // #warning Incomplete implementation, return the number of rows
+    return scores.count
+  }
+
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+    -> UITableViewCell
+  {
+    guard
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: "ExamHistoryTableViewCell", for: indexPath) as? ExamHistoryTableViewCell
+    else {
+      fatalError("The dequeued cell is not instance of ExamHistoryTableViewCell.")
     }
 
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+    let item = scores[indexPath.item]
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return scores.count
-    }
+    cell.dateLabel.text = item.tookDateText
+    cell.scoreLabel.text = item.score
+    cell.averageAnswerTimeLabel.text = item.averageAnswerSecText
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExamHistoryTableViewCell", for: indexPath) as? ExamHistoryTableViewCell else {
-            fatalError("The dequeued cell is not instance of ExamHistoryTableViewCell.")
-        }
+    return cell
+  }
 
-        let item = scores[indexPath.item]
-        
-        cell.dateLabel.text = item.tookDateText
-        cell.scoreLabel.text = item.score
-        cell.averageAnswerTimeLabel.text = item.averageAnswerSecText
-        
-        return cell
-    }
-
-    func inject(presenter: ExamHistoryPresenterProtocol) {
-        self.presenter = presenter
-    }
+  func inject(presenter: ExamHistoryPresenterProtocol) {
+    self.presenter = presenter
+  }
 }
 
 extension ExamHistoryTableViewController: ExamHistoryTableViewProtocol {
-    // MARK: - View methods
-    func updateLoading(_ isLoading: Bool) {
-        // deprecatedになった
-        // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
-    }
+  // MARK: - View methods
+  func updateLoading(_ isLoading: Bool) {
+    // deprecatedになった
+    // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
+  }
 
-    func updateTable(_ scores: [PlayScore]) {
-        self.scores = scores
-        self.tableView.reloadData()
-        self.tableView.setContentOffset(CGPoint.zero, animated: false)
-    }
+  func updateTable(_ scores: [PlayScore]) {
+    self.scores = scores
+    self.tableView.reloadData()
+    self.tableView.setContentOffset(CGPoint.zero, animated: false)
+  }
 
-    func displayError(_ message: String) {
-        // TODO
-        print("Error: \(message)")
-    }
+  func displayError(_ message: String) {
+    // TODO
+    print("Error: \(message)")
+  }
 }

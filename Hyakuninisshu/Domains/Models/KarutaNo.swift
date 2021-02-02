@@ -8,13 +8,13 @@
 import Foundation
 
 struct KarutaNo: ValueObject {
-    static let MIN = KarutaNo(1)
-    static let MAX = KarutaNo(100)
-    static let LIST: [KarutaNo] = (MIN.value...MAX.value).map { KarutaNo($0) }
+  static let MIN = KarutaNo(1)
+  static let MAX = KarutaNo(100)
+  static let LIST: [KarutaNo] = (MIN.value...MAX.value).map { KarutaNo($0) }
 
-    let value: UInt8
-    
-    init(_ value: UInt8) {
-        self.value = value
-    }
+  let value: UInt8
+
+  init(_ value: UInt8) {
+    self.value = value
+  }
 }

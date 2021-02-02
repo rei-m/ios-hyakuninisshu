@@ -8,7 +8,7 @@
 import Foundation
 
 enum QuestionState {
-    case ready
-    case inAnswer(startDate: Date)
-    case answered(startDate: Date, result: QuestionResult)
+  case ready
+  case inAnswer(startDate: Date)
+  case answered(startDate: Date, result: QuestionResult)
 }

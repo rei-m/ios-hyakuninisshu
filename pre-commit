@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for FILE in `git diff --staged --name-only | grep -E .+\.swift$`; do
+    swift run -c release swift-format -i $FILE
+    git add $FILE
+done
+

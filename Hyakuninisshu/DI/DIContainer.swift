@@ -5,17 +5,17 @@
 //  Created by Rei Matsushita on 2021/01/15.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class DIContainer {
-    let karutaRepository: KarutaRepository
-    let questionRepository: QuestionRepository
-    let examHistoryRepository: ExamHistoryRepository
-    
-    init(container: NSPersistentContainer) {
-        self.karutaRepository = KarutaRepositoryImpl(container: container)
-        self.questionRepository = QuestionRepositoryImpl(container: container)
-        self.examHistoryRepository = ExamHistoryRepositoryImpl(container: container)
-    }
+  let karutaRepository: KarutaRepository
+  let questionRepository: QuestionRepository
+  let examHistoryRepository: ExamHistoryRepository
+
+  init(container: NSPersistentContainer) {
+    self.karutaRepository = KarutaRepositoryImpl(container: container)
+    self.questionRepository = QuestionRepositoryImpl(container: container)
+    self.examHistoryRepository = ExamHistoryRepositoryImpl(container: container)
+  }
 }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct Verse: ValueObject {
-    let kana: String
-    let kanji: String
+  let kana: String
+  let kanji: String
 }

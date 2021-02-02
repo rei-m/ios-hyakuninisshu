@@ -8,8 +8,8 @@
 import Foundation
 
 struct Play {
-    let no: UInt8
-    let yomiFuda: YomiFuda
-    let toriFudas: [ToriFuda]
-    let correct: Material
+  let no: UInt8
+  let yomiFuda: YomiFuda
+  let toriFudas: [ToriFuda]
+  let correct: Material
 }

@@ -8,17 +8,17 @@
 import Foundation
 
 struct ExamHistoryId: EntityId {
-    let value: UUID
-    
-    private init(_ value: UUID) {
-        self.value = value
-    }
-    
-    static func create() -> ExamHistoryId {
-        return ExamHistoryId(UUID())
-    }
+  let value: UUID
 
-    static func restore(_ value: UUID) -> ExamHistoryId {
-        return ExamHistoryId(value)
-    }
+  private init(_ value: UUID) {
+    self.value = value
+  }
+
+  static func create() -> ExamHistoryId {
+    return ExamHistoryId(UUID())
+  }
+
+  static func restore(_ value: UUID) -> ExamHistoryId {
+    return ExamHistoryId(value)
+  }
 }
