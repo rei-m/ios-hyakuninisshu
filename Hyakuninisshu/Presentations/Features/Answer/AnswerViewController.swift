@@ -69,12 +69,13 @@ class AnswerViewController: UIViewController {
   }
 
   @IBAction func didTapGoToResult(_ sender: UIButton) {
-    if 0 < requireNavigationController.viewControllers.filter { $0 is TrainingViewController }.count
+    if 0
+      < requireNavigationController.viewControllers.filter({ $0 is TrainingViewController }).count
     {
       presenter.didTapGoToTrainingResult(now: Date())
       return
     }
-    if 0 < requireNavigationController.viewControllers.filter { $0 is ExamViewController }.count {
+    if 0 < requireNavigationController.viewControllers.filter({ $0 is ExamViewController }).count {
       presenter.didTapGoToExamResult(now: Date())
       return
     }
