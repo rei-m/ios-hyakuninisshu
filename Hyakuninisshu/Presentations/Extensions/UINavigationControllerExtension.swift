@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension UINavigationController {
-    func replace(_ vc: UIViewController) {
-        var currentVCs = viewControllers
-        currentVCs.removeLast()
-        currentVCs.append(vc)
-        setViewControllers(currentVCs, animated: false)
-    }
+  func replace(_ vc: UIViewController) {
+    var currentVCs = viewControllers
+    currentVCs.removeLast()
+    currentVCs.append(vc)
+    setViewControllers(currentVCs, animated: false)
+  }
 }

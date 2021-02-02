@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 extension UIFont {
-    enum FontNames: String {
-        case hannari = "HannariMincho"
-    }
+  enum FontNames: String {
+    case hannari = "HannariMincho"
+  }
 
-    convenience init?(name: FontNames, size: CGFloat) {
-        self.init(name: name.rawValue, size: size)
-    }
+  convenience init?(name: FontNames, size: CGFloat) {
+    self.init(name: name.rawValue, size: size)
+  }
 }

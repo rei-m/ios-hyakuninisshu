@@ -8,45 +8,48 @@
 import Foundation
 
 class CreateQuestionsService {
-    
-    private let allKarutaNoCollection: KarutaNoCollection
-    
-    init?(_ allKarutaNoCollection: KarutaNoCollection) {
-        if (allKarutaNoCollection.values.count != KarutaNo.MAX.value) {
-            return nil
-        }
-        self.allKarutaNoCollection = allKarutaNoCollection
-    }
-    
-    func execute(
-        targetKarutaNoCollection: KarutaNoCollection,
-        choiceCount: Int
-    ) -> [Question] {
 
-        if (targetKarutaNoCollection.values.count == 0) {
-            return []
-        }
+  private let allKarutaNoCollection: KarutaNoCollection
 
-        let result: [Question] = targetKarutaNoCollection.values.shuffled().enumerated().map { value in
-            let no: UInt8 = UInt8(value.offset + 1)
-            let targetKarutaNo = value.element
-            
-            var dupNos = allKarutaNoCollection.values
-            dupNos.removeAll(where: { $0.value == targetKarutaNo.value })
-            
-            var choices = generateRandomIndexArray(total: dupNos.count, size: choiceCount - 1).map { dupNos[$0] }
-            let correctPosition = generateRandomIndexArray(total: choiceCount, size: 1).first!
-            choices.insert(targetKarutaNo, at: correctPosition)
-            
-            return Question(id: QuestionId.create(), no: no, choices: choices, correctNo: targetKarutaNo, state: .ready)
-        }
-        
-        return result
+  init?(_ allKarutaNoCollection: KarutaNoCollection) {
+    if allKarutaNoCollection.values.count != KarutaNo.MAX.value {
+      return nil
     }
-    
-    private func generateRandomIndexArray(total: Int, size: Int) -> [Int] {
-        let max = total - 1
-        let shuffled: [Int] = (0 ... max).shuffled()
-        return shuffled.prefix(size).map { $0 }
+    self.allKarutaNoCollection = allKarutaNoCollection
+  }
+
+  func execute(
+    targetKarutaNoCollection: KarutaNoCollection,
+    choiceCount: Int
+  ) -> [Question] {
+
+    if targetKarutaNoCollection.values.count == 0 {
+      return []
     }
+
+    let result: [Question] = targetKarutaNoCollection.values.shuffled().enumerated().map { value in
+      let no: UInt8 = UInt8(value.offset + 1)
+      let targetKarutaNo = value.element
+
+      var dupNos = allKarutaNoCollection.values
+      dupNos.removeAll(where: { $0.value == targetKarutaNo.value })
+
+      var choices = generateRandomIndexArray(total: dupNos.count, size: choiceCount - 1).map {
+        dupNos[$0]
+      }
+      let correctPosition = generateRandomIndexArray(total: choiceCount, size: 1).first!
+      choices.insert(targetKarutaNo, at: correctPosition)
+
+      return Question(
+        id: QuestionId.create(), no: no, choices: choices, correctNo: targetKarutaNo, state: .ready)
+    }
+
+    return result
+  }
+
+  private func generateRandomIndexArray(total: Int, size: Int) -> [Int] {
+    let max = total - 1
+    let shuffled: [Int] = (0...max).shuffled()
+    return shuffled.prefix(size).map { $0 }
+  }
 }

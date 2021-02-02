@@ -8,20 +8,20 @@
 import Foundation
 
 struct PresentationError: Error {
-    enum ErrorKind {
-        case unhandled
-    }
+  enum ErrorKind {
+    case unhandled
+  }
 
-    let reason: String
-    let kind: ErrorKind
-    
-    init(reason: String, kind: ErrorKind) {
-        self.reason = reason
-        self.kind = kind
-    }
-    
-    init(_ domainError: DomainError) {
-        self.reason = "Domain: \(domainError.reason)"
-        self.kind = .unhandled
-    }
+  let reason: String
+  let kind: ErrorKind
+
+  init(reason: String, kind: ErrorKind) {
+    self.reason = reason
+    self.kind = kind
+  }
+
+  init(_ domainError: DomainError) {
+    self.reason = "Domain: \(domainError.reason)"
+    self.kind = .unhandled
+  }
 }

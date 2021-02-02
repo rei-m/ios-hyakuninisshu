@@ -8,11 +8,11 @@
 import Foundation
 
 struct ShimoNoKu: ValueObject {
-    let karutaNo: KarutaNo
-    let shiku: Verse
-    let goku: Verse
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(karutaNo)
-    }
+  let karutaNo: KarutaNo
+  let shiku: Verse
+  let goku: Verse
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(karutaNo)
+  }
 }

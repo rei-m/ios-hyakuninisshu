@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 extension UIUserInterfaceStyle {
-    var text: String {
-        switch self {
-        case .dark:
-            return "ダーク"
-        case .light:
-            return "ライト"
-        case .unspecified:
-            return "システム設定に従う"
-        @unknown default:
-            fatalError("unknown UIUserInterfaceStyle. value=\(self)")
-        }
+  var text: String {
+    switch self {
+    case .dark:
+      return "ダーク"
+    case .light:
+      return "ライト"
+    case .unspecified:
+      return "システム設定に従う"
+    @unknown default:
+      fatalError("unknown UIUserInterfaceStyle. value=\(self)")
     }
+  }
 }

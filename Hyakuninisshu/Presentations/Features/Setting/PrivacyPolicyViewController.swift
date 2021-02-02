@@ -8,13 +8,13 @@
 import UIKit
 
 class PrivacyPolicyViewController: UIViewController {
-    @IBAction func didTapGooglePrivacyPolicy(_ sender: Any) {
-        guard let url = URL(string: "https://policies.google.com/privacy?hl=ja") else {
-            fatalError()
-        }
-
-        if (UIApplication.shared.canOpenURL(url)) {
-            UIApplication.shared.open(url)
-        }
+  @IBAction func didTapGooglePrivacyPolicy(_ sender: Any) {
+    guard let url = URL(string: "https://policies.google.com/privacy?hl=ja") else {
+      fatalError()
     }
+
+    if UIApplication.shared.canOpenURL(url) {
+      UIApplication.shared.open(url)
+    }
+  }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol Entity: Hashable {
-    associatedtype Id: EntityId
+  associatedtype Id: EntityId
 }

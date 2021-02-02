@@ -8,6 +8,6 @@
 import Foundation
 
 struct ExamResult {
-    let score: PlayScore
-    let judgements: [(Material, Bool)]
+  let score: PlayScore
+  let judgements: [(Material, Bool)]
 }
