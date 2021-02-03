@@ -88,4 +88,5 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-Hyakuninisshu/Configs/
+Hyakuninisshu/Configs/GoogleService-Info-Debug.plist
+Hyakuninisshu/Configs/GoogleService-Info-Release.plist
