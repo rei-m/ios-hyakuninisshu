@@ -11,6 +11,7 @@ target 'Hyakuninisshu' do
   pod 'Firebase/Analytics'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'HyakuninisshuTests' do
     inherit! :search_paths
