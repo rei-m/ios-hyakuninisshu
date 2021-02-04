@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import Firebase
 import UIKit
 
 @main
@@ -32,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     // Override point for customization after application launch.
+    FirebaseApp.configure()
 
     print(1)
     return true
