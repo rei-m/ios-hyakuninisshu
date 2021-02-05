@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2021/01/08.
 //
 
+import GoogleMobileAds
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
@@ -20,6 +21,7 @@ class ExamViewController: UIViewController {
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var averageAnswerSecLabel: UILabel!
   @IBOutlet weak var startTrainingButton: UIButton!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var presenter: ExamPresenterProtocol!
@@ -28,12 +30,28 @@ class ExamViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     lastExamResultView.layer.cornerRadius = 8
+    setUpAdBannerView(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
+    loadBannerAd()
     presenter.viewWillAppear()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    coordinator.animate(alongsideTransition: { _ in
+      self.loadBannerAd()
+    })
+  }
+
+  func loadBannerAd() {
+    bannerView.load(adSize)
   }
 
   // MARK: - Action
@@ -51,14 +69,14 @@ class ExamViewController: UIViewController {
     switch segue.identifier ?? "" {
     case "ShowExamHistory":
       guard
-        let examHistoryTableViewController = segue.destination as? ExamHistoryTableViewController
+        let examHistoryViewController = segue.destination as? ExamHistoryViewController
       else {
         fatalError("Unexpected destination: \(segue.destination)")
       }
       let model = ExamHistoryModel(examHistoryRepository: diContainer.examHistoryRepository)
-      let presenter = ExamHistoryPresenter(view: examHistoryTableViewController, model: model)
+      let presenter = ExamHistoryPresenter(view: examHistoryViewController, model: model)
 
-      examHistoryTableViewController.inject(presenter: presenter)
+      examHistoryViewController.inject(presenter: presenter)
     default:
       fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
     }
@@ -84,18 +102,22 @@ extension ExamViewController: ExamViewProtocol {
   }
 
   func presentNextVC(karutaNos: [UInt8]) {
-    //        let playScore = PlayScore(tookDate: Date(), score: "0 / 100", averageAnswerSecText: "10秒")
-    //        let material = Material(no: 1, kimariji: 2, creator: "天智天皇", shokuKanji: "秋の田の", shokuKana: "あきのたの", nikuKanji: "かりほの庵の", nikuKana: "かりほのいおの", sankuKanji: "苫をあらみ", sankuKana: "とまをあらみ", shikuKanji: "我が衣ては", shikuKana: "わがころもでは", gokuKanji: "露に濡れつつ", gokuKana: "つゆぬぬれつつ", translation: "unko")
-    //        let judgements = (1...100).map { i in (material, i % 2 == 0)  }
-    //        let examResult = ExamResult(score: playScore, judgements: judgements)
-    //
-    //        let testVC: ExamResultViewController  = requireStoryboard.instantiateViewController(identifier: .examResult)
-    //        testVC.inject(examResult: examResult)
-    //        requireNavigationController.pushViewController(testVC, animated: false)
-    //
-    //
-    //        // TODO
-    //        return
+    let playScore = PlayScore(tookDate: Date(), score: "0 / 100", averageAnswerSecText: "10秒")
+    let material = Material(
+      no: 1, kimariji: 2, creator: "天智天皇", shokuKanji: "秋の田の", shokuKana: "あきのたの",
+      nikuKanji: "かりほの庵の", nikuKana: "かりほのいおの", sankuKanji: "苫をあらみ", sankuKana: "とまをあらみ",
+      shikuKanji: "我が衣ては", shikuKana: "わがころもでは", gokuKanji: "露に濡れつつ", gokuKana: "つゆぬぬれつつ",
+      translation: "unko")
+    let judgements = (1...100).map { i in (material, i % 2 == 0) }
+    let examResult = ExamResult(score: playScore, judgements: judgements)
+
+    let testVC: ExamResultViewController = requireStoryboard.instantiateViewController(
+      identifier: .examResult)
+    testVC.inject(examResult: examResult)
+    requireNavigationController.pushViewController(testVC, animated: false)
+
+    // TODO
+    return
 
     let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(
       identifier: .questionStarter)

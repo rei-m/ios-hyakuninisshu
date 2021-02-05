@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -59,9 +59,6 @@
 		FA27E27A257055FF001132A3 /* HyakuninisshuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E279257055FF001132A3 /* HyakuninisshuTests.swift */; };
 		FA27E285257055FF001132A3 /* HyakuninisshuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27E284257055FF001132A3 /* HyakuninisshuUITests.swift */; };
 		FA2D7AD32581781800C6134B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */; };
-		FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */; };
-		FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */; };
-		FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */; };
 		FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */; };
 		FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */; };
 		FA2D7B05258361F800C6134B /* EntranceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */; };
@@ -100,7 +97,6 @@
 		FA5FEFBD25AB463C00948165 /* PlayScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFBC25AB463C00948165 /* PlayScore.swift */; };
 		FA5FEFCB25AB5EB100948165 /* ExamHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFCA25AB5EB100948165 /* ExamHistoryModel.swift */; };
 		FA5FEFD025AB5EC100948165 /* ExamHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFCF25AB5EC100948165 /* ExamHistoryPresenter.swift */; };
-		FA5FEFDB25AB61B700948165 /* ExamHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFDA25AB61B700948165 /* ExamHistoryTableViewController.swift */; };
 		FA5FEFE325AD005600948165 /* ExamHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FEFE225AD005600948165 /* ExamHistoryTableViewCell.swift */; };
 		FA6BC59C25B130F000B2DEFE /* ValueObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BC59B25B130F000B2DEFE /* ValueObject.swift */; };
 		FA6BC5A425B1310800B2DEFE /* EntityId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BC5A325B1310800B2DEFE /* EntityId.swift */; };
@@ -117,6 +113,11 @@
 		FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B2325B1844F00579F96 /* DIContainer.swift */; };
 		FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC8B2B25B1D75C00579F96 /* Error.storyboard */; };
 		FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC8B3025B1E0E400579F96 /* PresentationError.swift */; };
+		FACCA29D25CD914F00D5D3C3 /* ExamHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCA29C25CD914F00D5D3C3 /* ExamHistoryViewController.swift */; };
+		FAD1686E25CCF06A00A447A1 /* GADBannerViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1686D25CCF06A00A447A1 /* GADBannerViewExtension.swift */; };
+		FAD1687925CD099600A447A1 /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1687825CD099600A447A1 /* MaterialViewController.swift */; };
+		FAD1687E25CD0CC500A447A1 /* MaterialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1687D25CD0CC500A447A1 /* MaterialModel.swift */; };
+		FAD1688325CD0D2F00A447A1 /* MaterialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1688225CD0D2F00A447A1 /* MaterialPresenter.swift */; };
 		FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */; };
 		FAD9677A25C75D0F009936AD /* AboutAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677925C75D0F009936AD /* AboutAdViewController.swift */; };
 /* End PBXBuildFile section */
@@ -202,9 +203,6 @@
 		FA27E284257055FF001132A3 /* HyakuninisshuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyakuninisshuUITests.swift; sourceTree = "<group>"; };
 		FA27E286257055FF001132A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2D7AD22581781800C6134B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewController.swift; sourceTree = "<group>"; };
-		FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTablePresenter.swift; sourceTree = "<group>"; };
-		FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableModel.swift; sourceTree = "<group>"; };
 		FA2D7AF62583192A00C6134B /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		FA2D7AFE258350B400C6134B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FA2D7B04258361F800C6134B /* EntranceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceTabBarController.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 		FA5FEFBC25AB463C00948165 /* PlayScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScore.swift; sourceTree = "<group>"; };
 		FA5FEFCA25AB5EB100948165 /* ExamHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryModel.swift; sourceTree = "<group>"; };
 		FA5FEFCF25AB5EC100948165 /* ExamHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryPresenter.swift; sourceTree = "<group>"; };
-		FA5FEFDA25AB61B700948165 /* ExamHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryTableViewController.swift; sourceTree = "<group>"; };
 		FA5FEFE225AD005600948165 /* ExamHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FA6BC59B25B130F000B2DEFE /* ValueObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueObject.swift; sourceTree = "<group>"; };
 		FA6BC5A325B1310800B2DEFE /* EntityId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityId.swift; sourceTree = "<group>"; };
@@ -260,6 +257,11 @@
 		FACC8B2325B1844F00579F96 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		FACC8B2B25B1D75C00579F96 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		FACC8B3025B1E0E400579F96 /* PresentationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationError.swift; sourceTree = "<group>"; };
+		FACCA29C25CD914F00D5D3C3 /* ExamHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamHistoryViewController.swift; sourceTree = "<group>"; };
+		FAD1686D25CCF06A00A447A1 /* GADBannerViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADBannerViewExtension.swift; sourceTree = "<group>"; };
+		FAD1687825CD099600A447A1 /* MaterialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
+		FAD1687D25CD0CC500A447A1 /* MaterialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialModel.swift; sourceTree = "<group>"; };
+		FAD1688225CD0D2F00A447A1 /* MaterialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialPresenter.swift; sourceTree = "<group>"; };
 		FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		FAD9677925C75D0F009936AD /* AboutAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdViewController.swift; sourceTree = "<group>"; };
 		FEE95F1FA685359C0B15F61D /* Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; path = "Target Support Files/Pods-Hyakuninisshu-HyakuninisshuUITests/Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -303,7 +305,6 @@
 				B2FAAF1DB8E2AE43782FC5C2 /* Pods-HyakuninisshuTests.debug.xcconfig */,
 				3540D85C37BAF640F6C7DDD4 /* Pods-HyakuninisshuTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -498,9 +499,9 @@
 		FA2D7ADA25817A4600C6134B /* Material */ = {
 			isa = PBXGroup;
 			children = (
-				FA2D7ADB25817B6F00C6134B /* MaterialTableViewController.swift */,
-				FA2D7AE525817C7800C6134B /* MaterialTablePresenter.swift */,
-				FA2D7AED25817D3100C6134B /* MaterialTableModel.swift */,
+				FAD1687D25CD0CC500A447A1 /* MaterialModel.swift */,
+				FAD1687825CD099600A447A1 /* MaterialViewController.swift */,
+				FAD1688225CD0D2F00A447A1 /* MaterialPresenter.swift */,
 			);
 			path = Material;
 			sourceTree = "<group>";
@@ -630,6 +631,7 @@
 				FA31035125C3DD0B004452F7 /* UIColorExtension.swift */,
 				FA58E38A25C5A71500FA7FCF /* UserDefaultsExtension.swift */,
 				FA58E39525C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift */,
+				FAD1686D25CCF06A00A447A1 /* GADBannerViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -647,8 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				FA5FEFCA25AB5EB100948165 /* ExamHistoryModel.swift */,
-				FA5FEFDA25AB61B700948165 /* ExamHistoryTableViewController.swift */,
 				FA5FEFCF25AB5EC100948165 /* ExamHistoryPresenter.swift */,
+				FACCA29C25CD914F00D5D3C3 /* ExamHistoryViewController.swift */,
 			);
 			path = ExamHistory;
 			sourceTree = "<group>";
@@ -973,13 +975,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5FEFD025AB5EC100948165 /* ExamHistoryPresenter.swift in Sources */,
-				FA2D7ADC25817B6F00C6134B /* MaterialTableViewController.swift in Sources */,
 				FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */,
 				FA58E39625C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift in Sources */,
 				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
 				FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */,
 				FA0289532570D107003ADE9C /* Kimariji.swift in Sources */,
 				FA5E6A5E25A74BCA008EE33F /* ViewControllerIdentifier.swift in Sources */,
+				FAD1686E25CCF06A00A447A1 /* GADBannerViewExtension.swift in Sources */,
 				FA56086D259B21DB0059AF7D /* QuestionStarterPresenter.swift in Sources */,
 				FA1B78DD25A9FCC9000DB361 /* ExamResultCollectionViewCell.swift in Sources */,
 				FA1B78E225AA074D000DB361 /* ExamResultCollectionViewFooter.swift in Sources */,
@@ -987,7 +989,6 @@
 				FA0EC5B12597EE45003B4FEE /* TrainingModel.swift in Sources */,
 				FA35DB322592E14000B2DA55 /* KarutaNoCollection.swift in Sources */,
 				FACC8B2425B1844F00579F96 /* DIContainer.swift in Sources */,
-				FA5FEFDB25AB61B700948165 /* ExamHistoryTableViewController.swift in Sources */,
 				FA560872259B21E70059AF7D /* QuestionStarterModel.swift in Sources */,
 				FA6BC59C25B130F000B2DEFE /* ValueObject.swift in Sources */,
 				FAC72D5525BC67FA0051A2BF /* QuestionResultView.swift in Sources */,
@@ -1000,6 +1001,8 @@
 				FA35DB1A2592DDC000B2DA55 /* Question.swift in Sources */,
 				FA31034D25C3CB04004452F7 /* UIFontExtension.swift in Sources */,
 				FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */,
+				FAD1687E25CD0CC500A447A1 /* MaterialModel.swift in Sources */,
+				FAD1687925CD099600A447A1 /* MaterialViewController.swift in Sources */,
 				FA142B4225A839E1005218F4 /* QuestionRepositoryImpl.swift in Sources */,
 				FA2D7AFF258350B400C6134B /* UIImageViewExtension.swift in Sources */,
 				FA0ED10E259F854900D41DBA /* YomiFudaView.swift in Sources */,
@@ -1026,6 +1029,7 @@
 				FA58E39C25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift in Sources */,
 				FA142B4725A83AC5005218F4 /* ExamHistoryRepositoryImpl.swift in Sources */,
 				FA3BA3DB25A5179600841087 /* TrainingResultViewController.swift in Sources */,
+				FACCA29D25CD914F00D5D3C3 /* ExamHistoryViewController.swift in Sources */,
 				FA0EC5C82599B749003B4FEE /* ColorCondition.swift in Sources */,
 				FA0EC5C32599B199003B4FEE /* KimarijiCondition.swift in Sources */,
 				FA02893F2570C194003ADE9C /* KarutaNo.swift in Sources */,
@@ -1044,12 +1048,12 @@
 				FA35DB1F2592DF0E00B2DA55 /* QuestionRepository.swift in Sources */,
 				FA6BC5A925B1376200B2DEFE /* Entity.swift in Sources */,
 				FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */,
-				FA2D7AE625817C7800C6134B /* MaterialTablePresenter.swift in Sources */,
 				FA142B0525A82D5C005218F4 /* ExamHistoryId.swift in Sources */,
 				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
 				FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */,
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA5FEFBD25AB463C00948165 /* PlayScore.swift in Sources */,
+				FAD1688325CD0D2F00A447A1 /* MaterialPresenter.swift in Sources */,
 				FA0289352570A390003ADE9C /* Karuta.swift in Sources */,
 				FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */,
 				FA0EC59C259694C0003B4FEE /* Material.swift in Sources */,
@@ -1070,7 +1074,6 @@
 				FA12E2DE25A3BFD200C057B6 /* FudaView.swift in Sources */,
 				FA2D7AF72583192A00C6134B /* MaterialTableViewCell.swift in Sources */,
 				FA5FEFE325AD005600948165 /* ExamHistoryTableViewCell.swift in Sources */,
-				FA2D7AEE25817D3100C6134B /* MaterialTableModel.swift in Sources */,
 				FA178EED259E14B8001C0311 /* ToriFuda.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2020/12/23.
 //
 
+import GoogleMobileAds
 import UIKit
 
 protocol TrainingViewProtocol: AnyObject {
@@ -47,6 +48,7 @@ class TrainingViewController: UIViewController {
   @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
   @IBOutlet weak var rangeErrorLabel: UILabel!
   @IBOutlet weak var maskView: UIView!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var rangeErrorHeightConstraint: NSLayoutConstraint?
@@ -57,11 +59,27 @@ class TrainingViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter.viewDidLoad()
+    setUpAdBannerView(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
+    loadBannerAd()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    coordinator.animate(alongsideTransition: { _ in
+      self.loadBannerAd()
+    })
+  }
+
+  func loadBannerAd() {
+    bannerView.load(adSize)
   }
 
   // MARK: - Action

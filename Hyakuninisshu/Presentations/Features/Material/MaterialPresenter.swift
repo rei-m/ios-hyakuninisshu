@@ -1,25 +1,25 @@
 //
-//  MaterialTablePresenter.swift
+//  MaterialPresenter.swift
 //  Hyakuninisshu
 //
-//  Created by Rei Matsushita on 2020/12/10.
+//  Created by Rei Matsushita on 2021/02/05.
 //
 
 import Combine
 import Foundation
 
-protocol MaterialTablePresenterProtocol: AnyObject {
+protocol MaterialPresenterProtocol: AnyObject {
   func viewDidLoad()
 }
 
-class MaterialTablePresenter: MaterialTablePresenterProtocol {
+class MaterialPresenter: MaterialPresenterProtocol {
 
-  private weak var view: MaterialTableViewProtocol!
-  private let model: MaterialTableModelProtocol
+  private weak var view: MaterialViewProtocol!
+  private let model: MaterialModelProtocol
 
   private var cancellables = [AnyCancellable]()
 
-  init(view: MaterialTableViewProtocol, model: MaterialTableModelProtocol) {
+  init(view: MaterialViewProtocol, model: MaterialModelProtocol) {
     self.view = view
     self.model = model
   }

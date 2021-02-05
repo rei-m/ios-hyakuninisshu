@@ -8,12 +8,11 @@
 import UIKit
 
 class MaterialTableViewCell: UITableViewCell {
-
   @IBOutlet weak var noLabel: UILabel!
+  @IBOutlet weak var karutaImage: UIImageView!
   @IBOutlet weak var contentLine1Label: UILabel!
   @IBOutlet weak var contentLine2Label: UILabel!
   @IBOutlet weak var creatorLabel: UILabel!
-  @IBOutlet weak var karutaImage: UIImageView!
 
   override func awakeFromNib() {
     super.awakeFromNib()

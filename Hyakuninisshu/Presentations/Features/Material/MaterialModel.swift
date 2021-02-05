@@ -1,18 +1,18 @@
 //
-//  MaterialTableModel.swift
+//  MaterialModel.swift
 //  Hyakuninisshu
 //
-//  Created by Rei Matsushita on 2020/12/10.
+//  Created by Rei Matsushita on 2021/02/05.
 //
 
 import Combine
 import Foundation
 
-protocol MaterialTableModelProtocol: AnyObject {
+protocol MaterialModelProtocol: AnyObject {
   func fetchKarutas() -> AnyPublisher<[Material], PresentationError>
 }
 
-class MaterialTableModel: MaterialTableModelProtocol {
+class MaterialModel: MaterialModelProtocol {
 
   private let karutaRepository: KarutaRepository
 

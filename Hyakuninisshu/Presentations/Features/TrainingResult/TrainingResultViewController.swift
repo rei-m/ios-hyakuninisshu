@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2021/01/06.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class TrainingResultViewController: UIViewController {
@@ -13,6 +14,7 @@ class TrainingResultViewController: UIViewController {
   @IBOutlet weak var averageAnswerTimeView: QuestionResultView!
 
   @IBOutlet weak var goToTrainingButton: UIButton!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var trainingResult: TrainingResult!
@@ -29,11 +31,27 @@ class TrainingResultViewController: UIViewController {
     scoreView.value = trainingResult.score.score
     averageAnswerTimeView.value = trainingResult.score.averageAnswerSecText
     goToTrainingButton.isHidden = !trainingResult.canRestart
+    setUpAdBannerView(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    loadBannerAd()
     tabBarController?.tabBar.isHidden = true
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    coordinator.animate(alongsideTransition: { _ in
+      self.loadBannerAd()
+    })
+  }
+
+  func loadBannerAd() {
+    bannerView.load(self.adSize)
   }
 
   // MARK: - Action

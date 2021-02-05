@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2020/12/12.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class MaterialDetailViewController: UIViewController {
@@ -18,6 +19,8 @@ class MaterialDetailViewController: UIViewController {
   @IBOutlet weak var kamiNoKuKanaLabel: UILabel!
   @IBOutlet weak var shimoNoKuKanaLabel: UILabel!
   @IBOutlet weak var transrationLabel: UILabel!
+  @IBOutlet weak var bannerView: GADBannerView!
+  //  @IBOutlet weak var translationBottomConstraint: NSLayoutConstraint!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,6 +35,27 @@ class MaterialDetailViewController: UIViewController {
     transrationLabel.text = material.translation
 
     kamiNoKuKanaLabel.addKimarijiAccent(material.kimariji)
+    setUpAdBannerView(bannerView)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    loadBannerAd()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    coordinator.animate(alongsideTransition: { _ in
+      self.loadBannerAd()
+    })
+  }
+
+  // MARK: - Method
+  private func loadBannerAd() {
+    bannerView.load(adSize)
   }
 }
 

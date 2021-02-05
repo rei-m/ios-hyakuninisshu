@@ -18,12 +18,12 @@ class EntranceTabBarController: UITabBarController {
     viewControllers?.forEach { vc in
       if vc is UINavigationController {
         for nvc in vc.children {
-          guard let materialTableViewController = nvc as? MaterialTableViewController else {
+          guard let materialViewController = nvc as? MaterialViewController else {
             break
           }
-          let model = MaterialTableModel(karutaRepository: diContainer.karutaRepository)
-          let presenter = MaterialTablePresenter(view: materialTableViewController, model: model)
-          materialTableViewController.inject(presenter: presenter)
+          let model = MaterialModel(karutaRepository: diContainer.karutaRepository)
+          let presenter = MaterialPresenter(view: materialViewController, model: model)
+          materialViewController.inject(presenter: presenter)
         }
         for nvc in vc.children {
           guard let trainingViewController = nvc as? TrainingViewController else {

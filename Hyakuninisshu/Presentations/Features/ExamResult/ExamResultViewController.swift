@@ -5,11 +5,13 @@
 //  Created by Rei Matsushita on 2021/01/08.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class ExamResultViewController: UIViewController {
   // MARK: - Outlet
   @IBOutlet weak var resultCollectionView: UICollectionView!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var examResult: ExamResult!
@@ -23,11 +25,28 @@ class ExamResultViewController: UIViewController {
 
     resultCollectionView.dataSource = self
     resultCollectionView.delegate = self
+
+    setUpAdBannerView(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = true
+    loadBannerAd()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    coordinator.animate(alongsideTransition: { _ in
+      self.loadBannerAd()
+    })
+  }
+
+  func loadBannerAd() {
+    bannerView.load(adSize)
   }
 
   // MARK: - Action

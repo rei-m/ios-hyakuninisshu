@@ -7,6 +7,7 @@
 
 import CoreData
 import Firebase
+import GoogleMobileAds
 import UIKit
 
 @main
@@ -34,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     // Override point for customization after application launch.
     FirebaseApp.configure()
-
+    GADMobileAds.sharedInstance().start(completionHandler: nil)
+    //    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = @[ kGADSimulatorID ]
+    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+      "1e744ceea426619bc5f40e046a7ea00f"
+    ]
     print(1)
     return true
   }
