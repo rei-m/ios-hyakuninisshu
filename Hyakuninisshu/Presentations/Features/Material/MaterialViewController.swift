@@ -17,6 +17,7 @@ protocol MaterialViewProtocol: AnyObject {
 class MaterialViewController: UIViewController {
   // MARK: - Property
   private var presenter: MaterialPresenterProtocol!
+  private var adController: AdController!
 
   private var materials: [Material] = []
 
@@ -27,15 +28,15 @@ class MaterialViewController: UIViewController {
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpAdBannerView(bannerView)
     tableView.dataSource = self
     presenter.viewDidLoad()
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
-    loadBannerAd()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -43,9 +44,7 @@ class MaterialViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Navigation
@@ -54,7 +53,7 @@ class MaterialViewController: UIViewController {
 
     switch segue.identifier ?? "" {
     case "ShowMaterialDetail":
-      guard let mealDetailViewController = segue.destination as? MaterialDetailViewController else {
+      guard let destinationVC = segue.destination as? MaterialDetailViewController else {
         fatalError("Unexpected destination: \(segue.destination)")
       }
 
@@ -67,7 +66,8 @@ class MaterialViewController: UIViewController {
       }
 
       let selectedMaterial = materials[indexPath.row]
-      mealDetailViewController.material = selectedMaterial
+      let adController = AdController(vc: destinationVC)
+      destinationVC.inject(material: selectedMaterial, adController: adController)
       tableView.deselectRow(at: indexPath, animated: true)
     default:
       fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -75,12 +75,9 @@ class MaterialViewController: UIViewController {
   }
 
   // MARK: - Method
-  func inject(presenter: MaterialPresenterProtocol) {
+  func inject(presenter: MaterialPresenterProtocol, adController: AdController) {
     self.presenter = presenter
-  }
-
-  private func loadBannerAd() {
-    bannerView.load(adSize)
+    self.adController = adController
   }
 }
 
@@ -92,7 +89,7 @@ extension MaterialViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.item == materials.count {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AdBannerCell", for: indexPath)
-      cell.heightAnchor.constraint(equalToConstant: adSize.size.height).isActive = true
+      cell.heightAnchor.constraint(equalToConstant: adController.adSize.size.height).isActive = true
       return cell
     }
 

@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 Hyakuninisshu/Configs/GoogleService-Info-Debug.plist
 Hyakuninisshu/Configs/GoogleService-Info-Release.plist
+
+Hyakuninisshu/.env

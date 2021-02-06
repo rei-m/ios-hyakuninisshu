@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import GoogleMobileAds
 import UIKit
 
 extension UIViewController {
@@ -35,19 +34,6 @@ extension UIViewController {
     requireAppDelegate.diContainer
   }
 
-  var adSize: GADAdSize {
-    let frame = { () -> CGRect in
-      // Here safe area is taken into account, hence the view frame is used
-      // after the view has been laid out.
-      if #available(iOS 11.0, *) {
-        return view.frame.inset(by: view.safeAreaInsets)
-      } else {
-        return view.frame
-      }
-    }()
-    return GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.size.width)
-  }
-
   func presentUnexpectedErrorVC(_ error: Error) {
     let storyboard = UIStoryboard(name: "Error", bundle: nil)
     let vc: UnexpectedErrorViewController = storyboard.instantiateViewController(
@@ -62,11 +48,6 @@ extension UIViewController {
       title: "戻る", style: UIBarButtonItem.Style.plain, target: self,
       action: #selector(popToNaviRoot))
     navigationItem.leftBarButtonItem = leftButton
-  }
-
-  func setUpAdBannerView(_ bannerView: GADBannerView) {
-    bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
-    bannerView.rootViewController = self
   }
 
   @objc func popToNaviRoot() {

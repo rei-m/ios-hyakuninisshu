@@ -34,12 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     // Override point for customization after application launch.
+    Env.shared.configure()
     FirebaseApp.configure()
     GADMobileAds.sharedInstance().start(completionHandler: nil)
-    //    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = @[ kGADSimulatorID ]
-    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
-      "1e744ceea426619bc5f40e046a7ea00f"
-    ]
+    switch Env.shared.value(.testDeviceIdentifier) {
+    case .some(let testDeviceIdentifier):
+      GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+        testDeviceIdentifier
+      ]
+    case .none: break
+    }
     print(1)
     return true
   }

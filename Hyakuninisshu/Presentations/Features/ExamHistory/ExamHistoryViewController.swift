@@ -21,19 +21,21 @@ class ExamHistoryViewController: UIViewController {
 
   // MARK: - Property
   private var presenter: ExamHistoryPresenterProtocol!
+  private var adController: AdController!
+
   private var scores: [PlayScore] = []
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
-    setUpAdBannerView(bannerView)
     presenter.viewDidLoad()
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    loadBannerAd()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -41,18 +43,13 @@ class ExamHistoryViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Method
-  func inject(presenter: ExamHistoryPresenterProtocol) {
+  func inject(presenter: ExamHistoryPresenterProtocol, adController: AdController) {
     self.presenter = presenter
-  }
-
-  private func loadBannerAd() {
-    bannerView.load(adSize)
+    self.adController = adController
   }
 }
 
@@ -68,7 +65,7 @@ extension ExamHistoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.item == scores.count {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AdBannerCell", for: indexPath)
-      cell.heightAnchor.constraint(equalToConstant: adSize.size.height).isActive = true
+      cell.heightAnchor.constraint(equalToConstant: adController.adSize.size.height).isActive = true
       return cell
     }
 

@@ -9,9 +9,7 @@ import GoogleMobileAds
 import UIKit
 
 class MaterialDetailViewController: UIViewController {
-
-  var material: Material!
-
+  // MARK: - Outlet
   @IBOutlet weak var karutaImage: UIImageView!
   @IBOutlet weak var creatorLabel: UILabel!
   @IBOutlet weak var kamiNoKuKanjiLabel: UILabel!
@@ -20,8 +18,12 @@ class MaterialDetailViewController: UIViewController {
   @IBOutlet weak var shimoNoKuKanaLabel: UILabel!
   @IBOutlet weak var transrationLabel: UILabel!
   @IBOutlet weak var bannerView: GADBannerView!
-  //  @IBOutlet weak var translationBottomConstraint: NSLayoutConstraint!
 
+  // MARK: - Property
+  private var material: Material!
+  private var adController: AdController!
+
+  // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = material.noTxt
@@ -35,12 +37,13 @@ class MaterialDetailViewController: UIViewController {
     transrationLabel.text = material.translation
 
     kamiNoKuKanaLabel.addKimarijiAccent(material.kimariji)
-    setUpAdBannerView(bannerView)
+
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    loadBannerAd()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -48,14 +51,16 @@ class MaterialDetailViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Method
-  private func loadBannerAd() {
-    bannerView.load(adSize)
+  func inject(
+    material: Material,
+    adController: AdController
+  ) {
+    self.material = material
+    self.adController = adController
   }
 }
 

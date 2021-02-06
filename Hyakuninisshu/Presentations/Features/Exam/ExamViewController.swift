@@ -25,19 +25,20 @@ class ExamViewController: UIViewController {
 
   // MARK: - Property
   private var presenter: ExamPresenterProtocol!
+  private var adController: AdController!
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     lastExamResultView.layer.cornerRadius = 8
-    setUpAdBannerView(bannerView)
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
-    loadBannerAd()
     presenter.viewWillAppear()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -45,13 +46,7 @@ class ExamViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
-  }
-
-  func loadBannerAd() {
-    bannerView.load(adSize)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -75,16 +70,17 @@ class ExamViewController: UIViewController {
       }
       let model = ExamHistoryModel(examHistoryRepository: diContainer.examHistoryRepository)
       let presenter = ExamHistoryPresenter(view: examHistoryViewController, model: model)
-
-      examHistoryViewController.inject(presenter: presenter)
+      let adController = AdController(vc: examHistoryViewController)
+      examHistoryViewController.inject(presenter: presenter, adController: adController)
     default:
       fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
     }
   }
 
   // MARK: - Method
-  func inject(presenter: ExamPresenterProtocol) {
+  func inject(presenter: ExamPresenterProtocol, adController: AdController) {
     self.presenter = presenter
+    self.adController = adController
   }
 }
 
@@ -113,7 +109,8 @@ extension ExamViewController: ExamViewProtocol {
 
     let testVC: ExamResultViewController = requireStoryboard.instantiateViewController(
       identifier: .examResult)
-    testVC.inject(examResult: examResult)
+    let adController = AdController(vc: testVC)
+    testVC.inject(examResult: examResult, adController: adController)
     requireNavigationController.pushViewController(testVC, animated: false)
 
     // TODO

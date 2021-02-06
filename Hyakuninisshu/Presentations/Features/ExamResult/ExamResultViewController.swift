@@ -15,6 +15,7 @@ class ExamResultViewController: UIViewController {
 
   // MARK: - Property
   private var examResult: ExamResult!
+  private var adController: AdController!
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
@@ -26,13 +27,13 @@ class ExamResultViewController: UIViewController {
     resultCollectionView.dataSource = self
     resultCollectionView.delegate = self
 
-    setUpAdBannerView(bannerView)
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = true
-    loadBannerAd()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -40,13 +41,7 @@ class ExamResultViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
-  }
-
-  func loadBannerAd() {
-    bannerView.load(adSize)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -67,12 +62,14 @@ class ExamResultViewController: UIViewController {
     }
 
     let (material, _) = examResult.judgements[indexPath.row]
-    destinationVC.material = material
+    let adController = AdController(vc: destinationVC)
+    destinationVC.inject(material: material, adController: adController)
   }
 
   // MARK: - Method
-  func inject(examResult: ExamResult) {
+  func inject(examResult: ExamResult, adController: AdController) {
     self.examResult = examResult
+    self.adController = adController
   }
 }
 

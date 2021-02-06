@@ -120,6 +120,12 @@
 		FAD1688325CD0D2F00A447A1 /* MaterialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1688225CD0D2F00A447A1 /* MaterialPresenter.swift */; };
 		FAD9677525C6FD7D009936AD /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */; };
 		FAD9677A25C75D0F009936AD /* AboutAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9677925C75D0F009936AD /* AboutAdViewController.swift */; };
+		FAF4EBBB25CE61B3006BABF5 /* AdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4EBBA25CE61B3006BABF5 /* AdController.swift */; };
+		FAF4EBC325CE70A7006BABF5 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBC225CE70A7006BABF5 /* .env */; };
+		FAF4EBC825CE74DD006BABF5 /* .debug.env in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBC725CE74DD006BABF5 /* .debug.env */; };
+		FAF4EBDB25CED9D7006BABF5 /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBD825CED9D7006BABF5 /* GoogleService-Info-Release.plist */; };
+		FAF4EBDC25CED9D7006BABF5 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBD925CED9D7006BABF5 /* GoogleService-Info-Debug.plist */; };
+		FAF4EBE125CED9F6006BABF5 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4EBE025CED9F6006BABF5 /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +270,12 @@
 		FAD1688225CD0D2F00A447A1 /* MaterialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialPresenter.swift; sourceTree = "<group>"; };
 		FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		FAD9677925C75D0F009936AD /* AboutAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdViewController.swift; sourceTree = "<group>"; };
+		FAF4EBBA25CE61B3006BABF5 /* AdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdController.swift; sourceTree = "<group>"; };
+		FAF4EBC225CE70A7006BABF5 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		FAF4EBC725CE74DD006BABF5 /* .debug.env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .debug.env; sourceTree = "<group>"; };
+		FAF4EBD825CED9D7006BABF5 /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
+		FAF4EBD925CED9D7006BABF5 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
+		FAF4EBE025CED9F6006BABF5 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		FEE95F1FA685359C0B15F61D /* Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; path = "Target Support Files/Pods-Hyakuninisshu-HyakuninisshuUITests/Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -461,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				FA31034725C3C790004452F7 /* hannari.otf */,
+				FAF4EBD625CED9D6006BABF5 /* Configs */,
 				FACC8B2225B1841F00579F96 /* DI */,
 				FA5E6A6A25A803DB008EE33F /* Infrastructures */,
 				FA028972257A0096003ADE9C /* Presentations */,
@@ -474,6 +487,8 @@
 				FA27E26D257055FF001132A3 /* LaunchScreen.storyboard */,
 				FA27E270257055FF001132A3 /* Info.plist */,
 				FA27E268257055FC001132A3 /* Hyakuninisshu.xcdatamodeld */,
+				FAF4EBC225CE70A7006BABF5 /* .env */,
+				FAF4EBC725CE74DD006BABF5 /* .debug.env */,
 			);
 			path = Hyakuninisshu;
 			sourceTree = "<group>";
@@ -561,6 +576,7 @@
 		FA3BA3FC25A7016A00841087 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FAF4EBB925CE61A0006BABF5 /* Ad */,
 				FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */,
 				FA58E38F25C5AAD800FA7FCF /* Setting */,
 				FACB599325B482C800B4ACFA /* UnexpectedError */,
@@ -714,6 +730,24 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		FAF4EBB925CE61A0006BABF5 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				FAF4EBBA25CE61B3006BABF5 /* AdController.swift */,
+			);
+			path = Ad;
+			sourceTree = "<group>";
+		};
+		FAF4EBD625CED9D6006BABF5 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				FAF4EBD825CED9D7006BABF5 /* GoogleService-Info-Release.plist */,
+				FAF4EBD925CED9D7006BABF5 /* GoogleService-Info-Debug.plist */,
+				FAF4EBE025CED9F6006BABF5 /* Env.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -724,6 +758,7 @@
 				AF233064538C1BF9891BA819 /* [CP] Check Pods Manifest.lock */,
 				FA27E258257055FC001132A3 /* Sources */,
 				FA27E259257055FC001132A3 /* Frameworks */,
+				FAF4EBEB25CEE37C006BABF5 /* ShellScript */,
 				FA27E25A257055FC001132A3 /* Resources */,
 				FA1738F225CB758D001D13E6 /* ShellScript */,
 				AEE3BF484BEBD00FC2425AB5 /* [CP] Embed Pods Frameworks */,
@@ -825,11 +860,15 @@
 			files = (
 				FA6DEACB25A8550E00F8C349 /* karuta_list_v_3.json in Resources */,
 				FACC8B2C25B1D75C00579F96 /* Error.storyboard in Resources */,
+				FAF4EBC825CE74DD006BABF5 /* .debug.env in Resources */,
+				FAF4EBDB25CED9D7006BABF5 /* GoogleService-Info-Release.plist in Resources */,
 				FA27E26F257055FF001132A3 /* LaunchScreen.storyboard in Resources */,
+				FAF4EBC325CE70A7006BABF5 /* .env in Resources */,
 				FA27E26C257055FF001132A3 /* Assets.xcassets in Resources */,
 				FA02897F257A0626003ADE9C /* Splash.storyboard in Resources */,
 				FA27E267257055FC001132A3 /* Main.storyboard in Resources */,
 				FA31034825C3C790004452F7 /* hannari.otf in Resources */,
+				FAF4EBDC25CED9D7006BABF5 /* GoogleService-Info-Debug.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,6 +1006,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Configs/GoogleService-Info-Release.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Configs/GoogleService-Info-Debug.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
 		};
+		FAF4EBEB25CEE37C006BABF5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nplistBuddy=\"/usr/libexec/PlistBuddy\"\npreprocessedInfoPlist=\"${TEMP_DIR}/Preprocessed-Info.plist\"\n\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  . ./Hyakuninisshu/.env\nelse\n  . ./Hyakuninisshu/.debug.env\nfi\n\n$plistBuddy -c \"set GADApplicationIdentifier string ${GAD_APPLICATION_IDENTIFIER}\" \"${preprocessedInfoPlist}\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -976,6 +1032,7 @@
 			files = (
 				FA5FEFD025AB5EC100948165 /* ExamHistoryPresenter.swift in Sources */,
 				FACC8B3125B1E0E400579F96 /* PresentationError.swift in Sources */,
+				FAF4EBE125CED9F6006BABF5 /* Env.swift in Sources */,
 				FA58E39625C5ABF700FA7FCF /* UIUserInterfaceStyleExtension.swift in Sources */,
 				FA5E6A7925A8052F008EE33F /* ExamPresenter.swift in Sources */,
 				FAB9E0D725A8A0C30038EA04 /* ExamResultViewController.swift in Sources */,
@@ -1068,6 +1125,7 @@
 				FA6BC5A425B1310800B2DEFE /* EntityId.swift in Sources */,
 				FA0EC5A725972389003B4FEE /* KanjiFormatter.swift in Sources */,
 				FAB9E0EE25A8A3700038EA04 /* AnswerPresenter.swift in Sources */,
+				FAF4EBBB25CE61B3006BABF5 /* AdController.swift in Sources */,
 				FA35DB152592DB4900B2DA55 /* QuestionJudgement.swift in Sources */,
 				FA27E262257055FC001132A3 /* SceneDelegate.swift in Sources */,
 				FA56085C259B13510059AF7D /* QuestionStarterViewController.swift in Sources */,
@@ -1180,6 +1238,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1235,6 +1294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -22,6 +22,8 @@ class TrainingResultViewController: UIViewController {
   private var shimoNoKu: DisplayStyleCondition!
   private var animationSpeed: AnimationSpeedCondition!
 
+  private var adController: AdController!
+
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,13 +33,14 @@ class TrainingResultViewController: UIViewController {
     scoreView.value = trainingResult.score.score
     averageAnswerTimeView.value = trainingResult.score.averageAnswerSecText
     goToTrainingButton.isHidden = !trainingResult.canRestart
-    setUpAdBannerView(bannerView)
+
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    loadBannerAd()
     tabBarController?.tabBar.isHidden = true
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -45,13 +48,7 @@ class TrainingResultViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
-  }
-
-  func loadBannerAd() {
-    bannerView.load(self.adSize)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -81,11 +78,12 @@ class TrainingResultViewController: UIViewController {
     trainingResult: TrainingResult,
     kamiNoKu: DisplayStyleCondition,
     shimoNoKu: DisplayStyleCondition,
-    animationSpeed: AnimationSpeedCondition
+    animationSpeed: AnimationSpeedCondition, adController: AdController
   ) {
     self.trainingResult = trainingResult
     self.kamiNoKu = kamiNoKu
     self.shimoNoKu = shimoNoKu
     self.animationSpeed = animationSpeed
+    self.adController = adController
   }
 }

@@ -52,20 +52,20 @@ class TrainingViewController: UIViewController {
 
   // MARK: - Property
   private var rangeErrorHeightConstraint: NSLayoutConstraint?
-
   private var presenter: TrainingPresenterProtocol!
+  private var adController: AdController!
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter.viewDidLoad()
-    setUpAdBannerView(bannerView)
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
-    loadBannerAd()
+    adController.viewWillAppear()
   }
 
   override func viewWillTransition(
@@ -73,13 +73,7 @@ class TrainingViewController: UIViewController {
     with coordinator: UIViewControllerTransitionCoordinator
   ) {
     super.viewWillTransition(to: size, with: coordinator)
-    coordinator.animate(alongsideTransition: { _ in
-      self.loadBannerAd()
-    })
-  }
-
-  func loadBannerAd() {
-    bannerView.load(adSize)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -92,8 +86,9 @@ class TrainingViewController: UIViewController {
   }
 
   // MARK: - Method
-  func inject(presenter: TrainingPresenterProtocol) {
+  func inject(presenter: TrainingPresenterProtocol, adController: AdController) {
     self.presenter = presenter
+    self.adController = adController
   }
 }
 
