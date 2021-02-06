@@ -14,12 +14,12 @@ protocol ExamHistoryPresenterProtocol: AnyObject {
 
 class ExamHistoryPresenter: ExamHistoryPresenterProtocol {
 
-  private weak var view: ExamHistoryTableViewProtocol!
+  private weak var view: ExamHistoryViewProtocol!
   private let model: ExamHistoryModelProtocol
 
   private var cancellables = [AnyCancellable]()
 
-  init(view: ExamHistoryTableViewProtocol, model: ExamHistoryModelProtocol) {
+  init(view: ExamHistoryViewProtocol, model: ExamHistoryModelProtocol) {
     self.view = view
     self.model = model
   }

@@ -6,6 +6,8 @@
 //
 
 import CoreData
+import Firebase
+import GoogleMobileAds
 import UIKit
 
 @main
@@ -32,7 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     // Override point for customization after application launch.
-
+    Env.shared.configure()
+    FirebaseApp.configure()
+    GADMobileAds.sharedInstance().start(completionHandler: nil)
+    switch Env.shared.value(.testDeviceIdentifier) {
+    case .some(let testDeviceIdentifier):
+      GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+        testDeviceIdentifier
+      ]
+    case .none: break
+    }
     print(1)
     return true
   }

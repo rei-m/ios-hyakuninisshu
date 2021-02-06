@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2021/01/06.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class TrainingResultViewController: UIViewController {
@@ -13,12 +14,15 @@ class TrainingResultViewController: UIViewController {
   @IBOutlet weak var averageAnswerTimeView: QuestionResultView!
 
   @IBOutlet weak var goToTrainingButton: UIButton!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var trainingResult: TrainingResult!
   private var kamiNoKu: DisplayStyleCondition!
   private var shimoNoKu: DisplayStyleCondition!
   private var animationSpeed: AnimationSpeedCondition!
+
+  private var adController: AdController!
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
@@ -29,11 +33,22 @@ class TrainingResultViewController: UIViewController {
     scoreView.value = trainingResult.score.score
     averageAnswerTimeView.value = trainingResult.score.averageAnswerSecText
     goToTrainingButton.isHidden = !trainingResult.canRestart
+
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = true
+    adController.viewWillAppear()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -63,11 +78,12 @@ class TrainingResultViewController: UIViewController {
     trainingResult: TrainingResult,
     kamiNoKu: DisplayStyleCondition,
     shimoNoKu: DisplayStyleCondition,
-    animationSpeed: AnimationSpeedCondition
+    animationSpeed: AnimationSpeedCondition, adController: AdController
   ) {
     self.trainingResult = trainingResult
     self.kamiNoKu = kamiNoKu
     self.shimoNoKu = shimoNoKu
     self.animationSpeed = animationSpeed
+    self.adController = adController
   }
 }

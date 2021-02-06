@@ -5,14 +5,17 @@
 //  Created by Rei Matsushita on 2021/01/08.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class ExamResultViewController: UIViewController {
   // MARK: - Outlet
   @IBOutlet weak var resultCollectionView: UICollectionView!
+  @IBOutlet weak var bannerView: GADBannerView!
 
   // MARK: - Property
   private var examResult: ExamResult!
+  private var adController: AdController!
 
   // MARK: - LifeCycle
   override func viewDidLoad() {
@@ -23,11 +26,22 @@ class ExamResultViewController: UIViewController {
 
     resultCollectionView.dataSource = self
     resultCollectionView.delegate = self
+
+    adController.viewDidLoad(bannerView)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = true
+    adController.viewWillAppear()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    adController.viewWillTransition(to: size, with: coordinator)
   }
 
   // MARK: - Action
@@ -48,12 +62,14 @@ class ExamResultViewController: UIViewController {
     }
 
     let (material, _) = examResult.judgements[indexPath.row]
-    destinationVC.material = material
+    let adController = AdController(vc: destinationVC)
+    destinationVC.inject(material: material, adController: adController)
   }
 
   // MARK: - Method
-  func inject(examResult: ExamResult) {
+  func inject(examResult: ExamResult, adController: AdController) {
     self.examResult = examResult
+    self.adController = adController
   }
 }
 

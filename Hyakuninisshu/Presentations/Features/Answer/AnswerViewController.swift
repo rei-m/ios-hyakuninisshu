@@ -59,8 +59,8 @@ class AnswerViewController: UIViewController {
     guard let destinationVC = segue.destination as? MaterialDetailViewController else {
       fatalError("Unexpected destination: \(segue.destination)")
     }
-
-    destinationVC.material = material
+    let adController = AdController(vc: destinationVC)
+    destinationVC.inject(material: material, adController: adController)
   }
 
   // MARK: - Action
@@ -123,12 +123,13 @@ extension AnswerViewController: AnswerViewProtocol {
   func presentTrainingResultVC(_ trainingResult: TrainingResult) {
     let vc: TrainingResultViewController = requireStoryboard.instantiateViewController(
       identifier: .trainingResult)
-
+    let adController = AdController(vc: vc)
     vc.inject(
       trainingResult: trainingResult,
       kamiNoKu: kamiNoKu,
       shimoNoKu: shimoNoKu,
-      animationSpeed: animationSpeed
+      animationSpeed: animationSpeed,
+      adController: adController
     )
 
     requireNavigationController.replace(vc)
@@ -138,7 +139,8 @@ extension AnswerViewController: AnswerViewProtocol {
     let vc: ExamResultViewController = requireStoryboard.instantiateViewController(
       identifier: .examResult)
 
-    vc.inject(examResult: examResult)
+    let adController = AdController(vc: vc)
+    vc.inject(examResult: examResult, adController: adController)
 
     requireNavigationController.replace(vc)
   }

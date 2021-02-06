@@ -18,12 +18,13 @@ class EntranceTabBarController: UITabBarController {
     viewControllers?.forEach { vc in
       if vc is UINavigationController {
         for nvc in vc.children {
-          guard let materialTableViewController = nvc as? MaterialTableViewController else {
+          guard let materialViewController = nvc as? MaterialViewController else {
             break
           }
-          let model = MaterialTableModel(karutaRepository: diContainer.karutaRepository)
-          let presenter = MaterialTablePresenter(view: materialTableViewController, model: model)
-          materialTableViewController.inject(presenter: presenter)
+          let model = MaterialModel(karutaRepository: diContainer.karutaRepository)
+          let presenter = MaterialPresenter(view: materialViewController, model: model)
+          let adController = AdController(vc: materialViewController)
+          materialViewController.inject(presenter: presenter, adController: adController)
         }
         for nvc in vc.children {
           guard let trainingViewController = nvc as? TrainingViewController else {
@@ -31,7 +32,8 @@ class EntranceTabBarController: UITabBarController {
           }
           let model = TrainingModel(karutaRepository: diContainer.karutaRepository)
           let presenter = TrainingPresenter(view: trainingViewController, model: model)
-          trainingViewController.inject(presenter: presenter)
+          let adController = AdController(vc: trainingViewController)
+          trainingViewController.inject(presenter: presenter, adController: adController)
         }
         for nvc in vc.children {
           guard let examViewController = nvc as? ExamViewController else {
@@ -41,7 +43,8 @@ class EntranceTabBarController: UITabBarController {
             karutaRepository: diContainer.karutaRepository,
             examHistoryRepository: diContainer.examHistoryRepository)
           let presenter = ExamPresenter(view: examViewController, model: model)
-          examViewController.inject(presenter: presenter)
+          let adController = AdController(vc: examViewController)
+          examViewController.inject(presenter: presenter, adController: adController)
         }
       }
     }

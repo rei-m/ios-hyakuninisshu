@@ -5,12 +5,11 @@
 //  Created by Rei Matsushita on 2020/12/12.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class MaterialDetailViewController: UIViewController {
-
-  var material: Material!
-
+  // MARK: - Outlet
   @IBOutlet weak var karutaImage: UIImageView!
   @IBOutlet weak var creatorLabel: UILabel!
   @IBOutlet weak var kamiNoKuKanjiLabel: UILabel!
@@ -18,7 +17,13 @@ class MaterialDetailViewController: UIViewController {
   @IBOutlet weak var kamiNoKuKanaLabel: UILabel!
   @IBOutlet weak var shimoNoKuKanaLabel: UILabel!
   @IBOutlet weak var transrationLabel: UILabel!
+  @IBOutlet weak var bannerView: GADBannerView!
 
+  // MARK: - Property
+  private var material: Material!
+  private var adController: AdController!
+
+  // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = material.noTxt
@@ -32,6 +37,30 @@ class MaterialDetailViewController: UIViewController {
     transrationLabel.text = material.translation
 
     kamiNoKuKanaLabel.addKimarijiAccent(material.kimariji)
+
+    adController.viewDidLoad(bannerView)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    adController.viewWillAppear()
+  }
+
+  override func viewWillTransition(
+    to size: CGSize,
+    with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    super.viewWillTransition(to: size, with: coordinator)
+    adController.viewWillTransition(to: size, with: coordinator)
+  }
+
+  // MARK: - Method
+  func inject(
+    material: Material,
+    adController: AdController
+  ) {
+    self.material = material
+    self.adController = adController
   }
 }
 
