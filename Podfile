@@ -13,6 +13,8 @@ target 'Hyakuninisshu' do
   # https://firebase.google.com/docs/ios/setup#available-pods
   pod 'Google-Mobile-Ads-SDK'
 
+  pod 'LicensePlist'
+  
   target 'HyakuninisshuTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# genarate license
+Pods/LicensePlist/license-plist  --output-path "TempLicensePlistOutput" --html-path "Hyakuninisshu/Licenses/license.html" --prefix "net.hyakuninanki" --suppress-opening-directory
+git add Hyakuninisshu/Licenses/license.html
+rm -rf TempLicensePlistOutput
+
+# swift-format
 for FILE in `git diff --staged --name-only | grep -E .+\.swift$`; do
     swift run -c release swift-format -i $FILE
     git add $FILE

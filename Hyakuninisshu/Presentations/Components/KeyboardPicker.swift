@@ -91,6 +91,8 @@ class KeyboardPicker: UIControl {
     // キーボードを閉じるための完了ボタン
     let closeButton = UIButton(type: .system)
     closeButton.setTitle("選択", for: .normal)
+    closeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+    closeButton.tintColor = textColor
     closeButton.addTarget(
       self, action: #selector(KeyboardPicker.didTapDone(sender:)), for: .touchDown)
 
