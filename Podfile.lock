@@ -60,6 +60,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.2.0):
     - GoogleUtilities/Logger
+  - LicensePlist (3.0.5)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
@@ -70,6 +71,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Google-Mobile-Ads-SDK
+  - LicensePlist
 
 SPEC REPOS:
   trunk:
@@ -83,6 +85,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUserMessagingPlatform
     - GoogleUtilities
+    - LicensePlist
     - nanopb
     - PromisesObjC
 
@@ -97,9 +100,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
+  LicensePlist: 11c638fa9dc22ddb5771cdf910242ae1ba2684da
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: ace977f60bb9c8f532a564b2e624381440c9c081
+PODFILE CHECKSUM: e4c7b93d0c0a03429c0661e50c82fb8021b17322
 
 COCOAPODS: 1.10.1

@@ -27,6 +27,7 @@ import UIKit
       case .normal:
         titleColor = textColor
         bgColor = .systemGray3
+        touchedColor = .systemGray4
       case .primary:
         titleColor = primaryTextColor
         bgColor = primaryColor
