@@ -35,9 +35,10 @@ class AnswerModel: AnswerModelProtocol {
       questionCollection -> AnyPublisher<TrainingResult, DomainError> in
       do {
         let (resultSummary, judgements) = try questionCollection.aggregateResult()
+        let score = Score(
+          denominator: resultSummary.totalQuestionCount, numerator: resultSummary.correctCount)
         let playScore = PlayScore(
-          tookDate: finishDate, score: resultSummary.score,
-          averageAnswerSecText: "\(resultSummary.averageAnswerSec)秒")
+          tookDate: finishDate, score: score, averageAnswerSec: resultSummary.averageAnswerSec)
         let wrongKarutaNos = judgements.filter { !$0.isCorrect }.map { $0.karutaNo.value }
         let trainingResult = TrainingResult(
           score: playScore, canRestart: resultSummary.canRestart, wrongKarutaNos: wrongKarutaNos)
@@ -57,9 +58,9 @@ class AnswerModel: AnswerModelProtocol {
     let publisher = self.questionRepository.findCollection().flatMap {
       questionCollection -> AnyPublisher<ExamHistory, DomainError> in
       do {
-        let (resultSummary, questionJudgements) = try questionCollection.aggregateResult()
+        let (score, questionJudgements) = try questionCollection.aggregateResult()
         let examHistory = ExamHistory(
-          id: ExamHistoryId.create(), tookDate: Date(), resultSummary: resultSummary,
+          id: ExamHistoryId.create(), tookDate: Date(), score: score,
           questionJudgements: questionJudgements)
 
         return self.examHistoryRepository.add(examHistory).flatMap {
@@ -85,9 +86,13 @@ class AnswerModel: AnswerModelProtocol {
         (Material.fromKaruta($0), correctKauraNoSet.contains($0.no))
       }
 
+      let score = Score(
+        denominator: examHistory.score.totalQuestionCount, numerator: examHistory.score.correctCount
+      )
+
       let playScore = PlayScore(
-        tookDate: finishDate, score: examHistory.resultSummary.score,
-        averageAnswerSecText: "\(examHistory.resultSummary.averageAnswerSec)秒")
+        tookDate: finishDate, score: score,
+        averageAnswerSec: examHistory.score.averageAnswerSec)
 
       return ExamResult(score: playScore, judgements: judgements)
     }

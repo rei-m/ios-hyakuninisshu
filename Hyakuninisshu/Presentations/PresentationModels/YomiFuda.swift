@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 読み札
 struct YomiFuda {
   static func fromKamiNoKu(kamiNoKu: KamiNoKu, style: DisplayStyleCondition) -> YomiFuda {
     switch style.value {

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 問題の回答結果
 struct QuestionJudgement: ValueObject {
   let karutaNo: KarutaNo
   let isCorrect: Bool

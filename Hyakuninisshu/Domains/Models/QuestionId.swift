@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 問題ID
 struct QuestionId: EntityId {
   let value: UUID
 

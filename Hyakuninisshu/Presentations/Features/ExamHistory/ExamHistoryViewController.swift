@@ -79,7 +79,7 @@ extension ExamHistoryViewController: UITableViewDataSource {
     let item = scores[indexPath.item]
 
     cell.dateLabel.text = item.tookDateText
-    cell.scoreLabel.text = item.score
+    cell.scoreLabel.text = item.score.text
     cell.averageAnswerTimeLabel.text = item.averageAnswerSecText
 
     return cell

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 問題実行用
 struct Play {
   let no: UInt8
   let yomiFuda: YomiFuda

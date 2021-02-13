@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 問題の結果
 struct QuestionResult: ValueObject {
   let selectedKarutaNo: KarutaNo
   let answerSec: TimeInterval

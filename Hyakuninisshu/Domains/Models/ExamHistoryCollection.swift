@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 力試し履歴の集合
 struct ExamHistoryCollection {
   static let MAX_HISTORY_COUNT = 10
 

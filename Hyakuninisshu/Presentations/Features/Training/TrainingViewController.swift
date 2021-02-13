@@ -5,6 +5,7 @@
 //  Created by Rei Matsushita on 2020/12/23.
 //
 
+import FirebaseCrashlytics
 import GoogleMobileAds
 import UIKit
 

@@ -86,7 +86,7 @@ class ExamViewController: UIViewController {
 
 extension ExamViewController: ExamViewProtocol {
   func displayLastResult(_ examScore: PlayScore) {
-    scoreLabel.text = examScore.score
+    scoreLabel.text = examScore.score.text
     averageAnswerSecLabel.text = examScore.averageAnswerSecText
     lastExamResultView.isHidden = false
     startTrainingButton.isHidden = false
@@ -98,24 +98,6 @@ extension ExamViewController: ExamViewProtocol {
   }
 
   func presentNextVC(karutaNos: [UInt8]) {
-    let playScore = PlayScore(tookDate: Date(), score: "0 / 100", averageAnswerSecText: "10秒")
-    let material = Material(
-      no: 1, kimariji: 2, creator: "天智天皇", shokuKanji: "秋の田の", shokuKana: "あきのたの",
-      nikuKanji: "かりほの庵の", nikuKana: "かりほのいおの", sankuKanji: "苫をあらみ", sankuKana: "とまをあらみ",
-      shikuKanji: "我が衣ては", shikuKana: "わがころもでは", gokuKanji: "露に濡れつつ", gokuKana: "つゆぬぬれつつ",
-      translation: "unko")
-    let judgements = (1...100).map { i in (material, i % 2 == 0) }
-    let examResult = ExamResult(score: playScore, judgements: judgements)
-
-    let testVC: ExamResultViewController = requireStoryboard.instantiateViewController(
-      identifier: .examResult)
-    let adController = AdController(vc: testVC)
-    testVC.inject(examResult: examResult, adController: adController)
-    requireNavigationController.pushViewController(testVC, animated: false)
-
-    // TODO
-    return
-
     let vc: QuestionStarterViewController = requireStoryboard.instantiateViewController(
       identifier: .questionStarter)
 

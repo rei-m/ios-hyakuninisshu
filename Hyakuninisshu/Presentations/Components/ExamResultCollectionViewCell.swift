@@ -11,7 +11,7 @@ class ExamResultCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var noLabel: UILabel!
   @IBOutlet weak var correctImage: UIImageView!
 
-  private let bgColor = UIColor(named: "BackgroundColor")
+  private let bgColor = UIColor(named: .background)
 
   private func setUp() {
     backgroundColor = bgColor

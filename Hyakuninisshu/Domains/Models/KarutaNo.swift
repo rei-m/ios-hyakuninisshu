@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 歌番号
 struct KarutaNo: ValueObject {
   static let MIN = KarutaNo(1)
   static let MAX = KarutaNo(100)

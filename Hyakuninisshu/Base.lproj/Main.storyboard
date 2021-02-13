@@ -1057,10 +1057,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="ExamHistoryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamHistoryTableViewCell" id="1UX-ec-uzL" customClass="ExamHistoryTableViewCell" customModule="Hyakuninisshu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="57.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1UX-ec-uzL" id="T15-xV-Jrw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="57.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/21 11:22:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ab-Pt-eU7" userLabel="DateLabel">
@@ -1073,13 +1073,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.6秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWq-z1-xxw" userLabel="AverageAnswerTimeLabel">
-                                                    <rect key="frame" x="215" y="28" width="191" height="21.666666666666671"/>
+                                                    <rect key="frame" x="215" y="28" width="191" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yre-tI-i3B" userLabel="ScoreLabel">
-                                                    <rect key="frame" x="8" y="28" width="207" height="21.666666666666671"/>
+                                                    <rect key="frame" x="8" y="28" width="207" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1106,7 +1106,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="AdBannerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdBannerCell" id="0DT-aL-Hy8" userLabel="AdBannerCell">
-                                        <rect key="frame" x="0.0" y="85.666667938232422" width="414" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="85" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0DT-aL-Hy8" id="bdK-pN-pa4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
@@ -1251,14 +1251,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-Zn-wxx" customClass="YomiFudaView" customModule="Hyakuninisshu" customModuleProvider="target">
-                                        <rect key="frame" x="139" y="90.666666666666671" width="136" height="227.66666666666663"/>
+                                        <rect key="frame" x="139" y="114.66666666666667" width="136" height="227.66666666666663"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="227.66999999999999" id="UEh-q2-ujP"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerY" secondItem="KhX-fE-c6R" secondAttribute="centerY" id="3OR-KI-euO"/>
+                                    <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerY" secondItem="KhX-fE-c6R" secondAttribute="centerY" constant="24" id="3OR-KI-euO"/>
                                     <constraint firstItem="mpO-Zn-wxx" firstAttribute="centerX" secondItem="KhX-fE-c6R" secondAttribute="centerX" id="Zqn-mf-zD6"/>
                                     <constraint firstItem="mpO-Zn-wxx" firstAttribute="leading" secondItem="KhX-fE-c6R" secondAttribute="leading" priority="250" constant="139" id="hlG-od-rD4"/>
                                 </constraints>

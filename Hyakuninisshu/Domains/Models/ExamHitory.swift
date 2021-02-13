@@ -7,21 +7,22 @@
 
 import Foundation
 
+/// 力試し履歴
 class ExamHistory: Entity {
   typealias Id = ExamHistoryId
 
   let id: Id
   let tookDate: Date
-  let resultSummary: QuestionResultSummary
+  let score: QuestionResultScore
   let questionJudgements: [QuestionJudgement]
 
   init(
-    id: Id, tookDate: Date, resultSummary: QuestionResultSummary,
+    id: Id, tookDate: Date, score: QuestionResultScore,
     questionJudgements: [QuestionJudgement]
   ) {
     self.id = id
     self.tookDate = tookDate
-    self.resultSummary = resultSummary
+    self.score = score
     self.questionJudgements = questionJudgements
   }
 

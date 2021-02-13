@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 出題条件 - 歌番号
 struct RangeCondition: KeyboardPickerItem, Equatable {
   let text: String
   let no: UInt8

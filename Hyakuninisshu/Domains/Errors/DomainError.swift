@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ドメインレイヤエラー
 struct DomainError: Error {
   enum ErrorKind {
     case model

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 出題条件 - 札の表示スタイル
 struct DisplayStyleCondition: KeyboardPickerItem, Equatable {
   let text: String
   let value: Int

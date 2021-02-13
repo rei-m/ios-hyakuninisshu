@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 出題条件 - 読み札の表示速
 struct AnimationSpeedCondition: KeyboardPickerItem, Equatable {
   let text: String
   let value: Double

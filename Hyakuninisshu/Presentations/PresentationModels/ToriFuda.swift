@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 取り札
 struct ToriFuda {
   static func fromShimoNoKu(shimoNoKu: ShimoNoKu, style: DisplayStyleCondition) -> ToriFuda {
     switch style.value {

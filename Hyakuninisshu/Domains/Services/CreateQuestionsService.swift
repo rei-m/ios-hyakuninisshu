@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// 問題作成サービス
 class CreateQuestionsService {
 
   private let allKarutaNoCollection: KarutaNoCollection
 
+  /// - Parameter allKarutaNoCollection: 全ての歌番号のコレクション
   init?(_ allKarutaNoCollection: KarutaNoCollection) {
     if allKarutaNoCollection.values.count != KarutaNo.MAX.value {
       return nil
@@ -18,6 +20,11 @@ class CreateQuestionsService {
     self.allKarutaNoCollection = allKarutaNoCollection
   }
 
+  /// 指定した歌番号の問題を作成する
+  /// - Parameters:
+  ///   - targetKarutaNoCollection: 作成対象の歌番号コレクション
+  ///   - choiceCount: 選択肢の数
+  /// - Returns: 問題のリスト
   func execute(
     targetKarutaNoCollection: KarutaNoCollection,
     choiceCount: Int

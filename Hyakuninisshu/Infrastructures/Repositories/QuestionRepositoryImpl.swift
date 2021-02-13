@@ -176,7 +176,6 @@ class QuestionRepositoryImpl: QuestionRepository {
         } catch {
           let domainError = DomainError(reason: error.localizedDescription, kind: .repository)
           promise(.failure(domainError))
-
         }
       }
     }

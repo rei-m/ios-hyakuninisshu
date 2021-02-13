@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 数字を表示用の値に整形する
 class KanjiFormatter {
   private static let shared = KanjiFormatter()
 

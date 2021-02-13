@@ -11,7 +11,7 @@ import Foundation
 
 extension CDExamHistory {
   fileprivate func toModel() -> ExamHistory {
-    let resultSummary = QuestionResultSummary(
+    let score = QuestionResultScore(
       totalQuestionCount: UInt8(totalQuestionCount),
       correctCount: UInt8(correctCount),
       averageAnswerSec: averageAnswerSec
@@ -24,15 +24,15 @@ extension CDExamHistory {
     }
 
     return ExamHistory(
-      id: ExamHistoryId.restore(id!), tookDate: tookDate!, resultSummary: resultSummary,
+      id: ExamHistoryId.restore(id!), tookDate: tookDate!, score: score,
       questionJudgements: questionJudgements)
   }
 
   fileprivate func persistFromModel(examHistory: ExamHistory) {
     id = examHistory.id.value
-    correctCount = Int16(examHistory.resultSummary.correctCount)
-    averageAnswerSec = examHistory.resultSummary.averageAnswerSec
-    totalQuestionCount = Int16(examHistory.resultSummary.totalQuestionCount)
+    correctCount = Int16(examHistory.score.correctCount)
+    averageAnswerSec = examHistory.score.averageAnswerSec
+    totalQuestionCount = Int16(examHistory.score.totalQuestionCount)
     tookDate = examHistory.tookDate
   }
 }

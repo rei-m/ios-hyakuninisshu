@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 歌番号の集合
 struct KarutaNoCollection {
   let values: [KarutaNo]
 

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 出題条件 - 色
 struct ColorCondition: KeyboardPickerItem, Equatable {
   let text: String
   let value: String?
