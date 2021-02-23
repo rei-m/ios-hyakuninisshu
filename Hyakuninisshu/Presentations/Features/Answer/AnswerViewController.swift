@@ -9,6 +9,8 @@ import Combine
 import UIKit
 
 protocol AnswerViewProtocol: AnyObject {
+  func disableInteraction()
+  func enableInteraction()
   func presentNextQuestionVC()
   func presentTrainingResultVC(_ trainingResult: TrainingResult)
   func presentExamResultVC(_ examResult: ExamResult)
@@ -52,6 +54,7 @@ class AnswerViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = true
+    presenter.viewWillAppear()
   }
 
   // MARK: - Navigation
@@ -104,6 +107,16 @@ class AnswerViewController: UIViewController {
 }
 
 extension AnswerViewController: AnswerViewProtocol {
+  func disableInteraction() {
+    goToNextButton.isUserInteractionEnabled = false
+    goToResultButton.isUserInteractionEnabled = false
+  }
+
+  func enableInteraction() {
+    goToNextButton.isUserInteractionEnabled = true
+    goToResultButton.isUserInteractionEnabled = true
+  }
+
   func presentNextQuestionVC() {
     let vc: QuestionViewController = requireStoryboard.instantiateViewController(
       identifier: .question)

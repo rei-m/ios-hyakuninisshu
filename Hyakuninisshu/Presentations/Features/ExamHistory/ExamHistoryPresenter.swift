@@ -25,16 +25,12 @@ class ExamHistoryPresenter: ExamHistoryPresenterProtocol {
   }
 
   func viewDidLoad() {
-    view.updateLoading(true)
     model.fetchScores().receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
-        switch completion {
-        case .finished:
-          self?.view.updateLoading(false)
-        case .failure(let error):
-          // TODO
-          print(error)
+        guard case .failure(let error) = completion else {
+          return
         }
+        self?.view.presentErrorVC(error)
       },
       receiveValue: { [weak self] scores in
         self?.view.updateTable(scores)

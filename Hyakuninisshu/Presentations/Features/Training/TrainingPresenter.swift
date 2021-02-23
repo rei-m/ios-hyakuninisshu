@@ -10,6 +10,7 @@ import Foundation
 
 protocol TrainingPresenterProtocol: AnyObject {
   func viewDidLoad()
+  func viewWillAppear()
   func didTapCondition()
   func didChangeRangeFrom(_ condition: RangeCondition)
   func didChangeRangeTo(_ condition: RangeCondition)
@@ -44,6 +45,10 @@ class TrainingPresenter: TrainingPresenterProtocol {
       shimoNoKu: model.shimoNoKuCondition,
       animationSpeed: model.animationSpeedCondition
     )
+  }
+
+  func viewWillAppear() {
+    view.enableInteraction()
   }
 
   func didTapCondition() {
@@ -100,8 +105,11 @@ class TrainingPresenter: TrainingPresenterProtocol {
       return
     }
 
+    view.disableInteraction()
+
     model.fetchQuestionKarutaNos().receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
+        self?.view.enableInteraction()
         guard case let .failure(error) = completion else {
           return
         }

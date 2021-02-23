@@ -5,11 +5,12 @@
 //  Created by Rei Matsushita on 2020/12/23.
 //
 
-import FirebaseCrashlytics
 import GoogleMobileAds
 import UIKit
 
 protocol TrainingViewProtocol: AnyObject {
+  func disableInteraction()
+  func enableInteraction()
   func initSettings(
     rangeFrom: RangeCondition,
     rangeTo: RangeCondition,
@@ -48,6 +49,7 @@ class TrainingViewController: UIViewController {
   @IBOutlet weak var shimoNoKuPicker: KeyboardPicker!
   @IBOutlet weak var animationSpeedPicker: KeyboardPicker!
   @IBOutlet weak var rangeErrorLabel: UILabel!
+  @IBOutlet weak var startTrainingButton: ActionButton!
   @IBOutlet weak var maskView: UIView!
   @IBOutlet weak var bannerView: GADBannerView!
 
@@ -66,6 +68,7 @@ class TrainingViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tabBarController?.tabBar.isHidden = false
+    presenter.viewWillAppear()
     adController.viewWillAppear()
   }
 
@@ -94,6 +97,14 @@ class TrainingViewController: UIViewController {
 }
 
 extension TrainingViewController: TrainingViewProtocol {
+  func disableInteraction() {
+    startTrainingButton.isUserInteractionEnabled = false
+  }
+
+  func enableInteraction() {
+    startTrainingButton.isUserInteractionEnabled = true
+  }
+
   func initSettings(
     rangeFrom: RangeCondition,
     rangeTo: RangeCondition,
@@ -210,7 +221,6 @@ extension TrainingViewController: TrainingViewProtocol {
 
 extension TrainingViewController: KeyboardPickerDelegate {
   func didTap() {
-
     maskView.isHidden = false
   }
 

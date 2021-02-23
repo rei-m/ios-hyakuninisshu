@@ -478,6 +478,7 @@
                         <outlet property="bannerView" destination="0LO-yC-FU6" id="mYm-pV-er0"/>
                         <outlet property="lastExamResultView" destination="EQu-SP-zNg" id="DUs-7N-Ag3"/>
                         <outlet property="scoreLabel" destination="Dxu-e6-Pv5" id="aNL-Ra-gdC"/>
+                        <outlet property="startExamButton" destination="F9F-PJ-Yoh" id="8KW-93-o5U"/>
                         <outlet property="startTrainingButton" destination="bgB-gm-r2E" id="j5O-1l-W40"/>
                     </connections>
                 </viewController>
@@ -734,6 +735,7 @@
                         <outlet property="rangeFromPicker" destination="DUZ-yn-wNR" id="aKV-zQ-UcE"/>
                         <outlet property="rangeToPicker" destination="lo2-JV-ciE" id="D6e-tt-w5p"/>
                         <outlet property="shimoNoKuPicker" destination="Fxs-qY-H86" id="ETz-wa-pqa"/>
+                        <outlet property="startTrainingButton" destination="Qcn-hM-Gw6" id="ftf-eY-Z0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvz-Ka-gNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

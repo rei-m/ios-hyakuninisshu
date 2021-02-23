@@ -593,7 +593,6 @@
 			isa = PBXGroup;
 			children = (
 				FAF4EBB925CE61A0006BABF5 /* Ad */,
-				FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */,
 				FA58E38F25C5AAD800FA7FCF /* Setting */,
 				FACB599325B482C800B4ACFA /* UnexpectedError */,
 				FA5FEFC125AB5E7D00948165 /* ExamHistory */,
@@ -636,20 +635,13 @@
 		FA58E38F25C5AAD800FA7FCF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */,
 				FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */,
 				FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */,
 				FAD9677925C75D0F009936AD /* AboutAdViewController.swift */,
 				FA2C3C2025D1864000790429 /* CreditViewController.swift */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */ = {
-			isa = PBXGroup;
-			children = (
-				FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */,
-			);
-			path = DarkModeSetting;
 			sourceTree = "<group>";
 		};
 		FA5E6A5725A74B67008EE33F /* Extensions */ = {

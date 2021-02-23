@@ -9,6 +9,8 @@ import GoogleMobileAds
 import UIKit
 
 protocol ExamViewProtocol: AnyObject {
+  func disableInteraction()
+  func enableInteraction()
   func displayLastResult(_ examScore: PlayScore)
   func hideLastResult()
   func presentNextVC(karutaNos: [UInt8])
@@ -20,6 +22,7 @@ class ExamViewController: UIViewController {
   @IBOutlet weak var lastExamResultView: UIView!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var averageAnswerSecLabel: UILabel!
+  @IBOutlet weak var startExamButton: ActionButton!
   @IBOutlet weak var startTrainingButton: UIButton!
   @IBOutlet weak var bannerView: GADBannerView!
 
@@ -85,6 +88,16 @@ class ExamViewController: UIViewController {
 }
 
 extension ExamViewController: ExamViewProtocol {
+  func disableInteraction() {
+    startExamButton.isUserInteractionEnabled = false
+    startTrainingButton.isUserInteractionEnabled = false
+  }
+
+  func enableInteraction() {
+    startExamButton.isUserInteractionEnabled = true
+    startTrainingButton.isUserInteractionEnabled = true
+  }
+
   func displayLastResult(_ examScore: PlayScore) {
     scoreLabel.text = examScore.score.text
     averageAnswerSecLabel.text = examScore.averageAnswerSecText

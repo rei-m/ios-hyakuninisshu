@@ -8,6 +8,8 @@
 import UIKit
 
 protocol QuestionViewProtocol: AnyObject {
+  func disableInteraction()
+  func enableInteraction()
   func startPlay(_ play: Play)
   func displayResult(selectedNo: UInt8, isCorrect: Bool)
   func presentNextVC(
@@ -101,6 +103,20 @@ class QuestionViewController: UIViewController {
 }
 
 extension QuestionViewController: QuestionViewProtocol {
+  func disableInteraction() {
+    toriFudaView1.isUserInteractionEnabled = false
+    toriFudaView2.isUserInteractionEnabled = false
+    toriFudaView3.isUserInteractionEnabled = false
+    toriFudaView4.isUserInteractionEnabled = false
+  }
+
+  func enableInteraction() {
+    toriFudaView1.isUserInteractionEnabled = true
+    toriFudaView2.isUserInteractionEnabled = true
+    toriFudaView3.isUserInteractionEnabled = true
+    toriFudaView4.isUserInteractionEnabled = true
+  }
+
   func startPlay(_ play: Play) {
     self.play = play
     yomiFudaView.startAnimation(animationSpeed)
