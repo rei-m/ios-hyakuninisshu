@@ -11,8 +11,9 @@ target 'Hyakuninisshu' do
   pod 'Firebase/Analytics'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
-
+  
   pod 'LicensePlist'
   
   target 'HyakuninisshuTests' do

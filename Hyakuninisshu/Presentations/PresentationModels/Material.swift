@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 資料表示用（ちょっと雑に作ってしまった・・・）
 struct Material {
   static func fromKaruta(_ karuta: Karuta) -> Material {
     return Material(

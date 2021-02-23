@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 百人一首の歌
 struct Karuta: ValueObject {
   let no: KarutaNo
   let kamiNoKu: KamiNoKu

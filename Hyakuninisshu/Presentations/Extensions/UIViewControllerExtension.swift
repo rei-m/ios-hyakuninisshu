@@ -34,6 +34,8 @@ extension UIViewController {
     requireAppDelegate.diContainer
   }
 
+  /// unhandledなエラー表示用のViewControllerを表示する
+  /// - Parameter error: エラー
   func presentUnexpectedErrorVC(_ error: Error) {
     let storyboard = UIStoryboard(name: "Error", bundle: nil)
     let vc: UnexpectedErrorViewController = storyboard.instantiateViewController(
@@ -43,6 +45,7 @@ extension UIViewController {
     present(vc, animated: false)
   }
 
+  /// ナビゲーション左にカスタムの戻るボタンを設置する
   func setUpLeftBackButton() {
     let leftButton = UIBarButtonItem(
       title: "戻る", style: UIBarButtonItem.Style.plain, target: self,
@@ -50,6 +53,7 @@ extension UIViewController {
     navigationItem.leftBarButtonItem = leftButton
   }
 
+  /// Navigationの先頭まで戻る
   @objc func popToNaviRoot() {
     requireNavigationController.popToRootViewController(animated: true)
   }

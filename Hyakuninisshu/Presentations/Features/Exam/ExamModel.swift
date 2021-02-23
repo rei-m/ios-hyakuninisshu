@@ -28,9 +28,12 @@ class ExamModel: ExamModelProtocol {
       guard let examHistory = examHistory else {
         return nil
       }
+      let resultSummary = examHistory.score
+      let score = Score(
+        denominator: resultSummary.totalQuestionCount, numerator: resultSummary.correctCount)
       return PlayScore(
-        tookDate: Date(), score: examHistory.resultSummary.score,
-        averageAnswerSecText: "\(examHistory.resultSummary.averageAnswerSec)秒")
+        tookDate: examHistory.tookDate, score: score,
+        averageAnswerSec: resultSummary.averageAnswerSec)
     }
     return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()
   }

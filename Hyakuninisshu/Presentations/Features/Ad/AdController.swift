@@ -29,7 +29,7 @@ class AdController {
   }
 
   func viewDidLoad(_ bannerView: GADBannerView) {
-    bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+    bannerView.adUnitID = Env.shared.value(.adUnitId)
     bannerView.rootViewController = vc
     self.bannerView = bannerView
   }

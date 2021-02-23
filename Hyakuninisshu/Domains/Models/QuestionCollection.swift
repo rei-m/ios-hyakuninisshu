@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 問題の集合
 struct QuestionCollection {
   let values: [Question]
 
@@ -14,11 +15,14 @@ struct QuestionCollection {
     self.values = values
   }
 
-  func aggregateResult() throws -> (QuestionResultSummary, [QuestionJudgement]) {
+  /// 問題の結果を集約する
+  /// - Throws: 未回答の問題が含まれていた場合
+  /// - Returns: スコアと各問題の回答結果
+  func aggregateResult() throws -> (QuestionResultScore, [QuestionJudgement]) {
     let questionCount = UInt8(values.count)
     if questionCount == 0 {
       return (
-        QuestionResultSummary(totalQuestionCount: 0, correctCount: 0, averageAnswerSec: 0), []
+        QuestionResultScore(totalQuestionCount: 0, correctCount: 0, averageAnswerSec: 0), []
       )
     }
 
@@ -44,10 +48,12 @@ struct QuestionCollection {
     let averageAnswerSec = totalAnswerTimeSec / Double(questionCount)
     let roundedAverageAnswerSec = round(averageAnswerSec * 100) / 100
 
-    return (
-      QuestionResultSummary(
-        totalQuestionCount: questionCount, correctCount: collectCount,
-        averageAnswerSec: roundedAverageAnswerSec), judgements
+    let score = QuestionResultScore(
+      totalQuestionCount: questionCount,
+      correctCount: collectCount,
+      averageAnswerSec: roundedAverageAnswerSec
     )
+
+    return (score, judgements)
   }
 }

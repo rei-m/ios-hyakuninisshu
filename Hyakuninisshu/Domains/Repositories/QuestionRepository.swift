@@ -9,6 +9,7 @@ import Combine
 import CoreData
 import Foundation
 
+/// 問題リポジトリ
 protocol QuestionRepository {
   func initialize(questions: [Question]) -> Future<Void, DomainError>
   func findByNo(no: UInt8) -> Future<Question, DomainError>

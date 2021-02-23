@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 五色百人一首の色
 enum KarutaColor: String {
   case blue = "blue"
   case pink = "pink"

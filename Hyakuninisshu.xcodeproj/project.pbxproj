@@ -80,7 +80,7 @@
 		FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35DB3D259310C000B2DA55 /* TrainingViewController.swift */; };
 		FA3BA3DB25A5179600841087 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3DA25A5179600841087 /* TrainingResultViewController.swift */; };
 		FA3BA3E025A53D7C00841087 /* QuestionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3DF25A53D7C00841087 /* QuestionCollection.swift */; };
-		FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3E425A540BD00841087 /* QuestionResultSummary.swift */; };
+		FA3BA3E525A540BD00841087 /* QuestionResultScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3E425A540BD00841087 /* QuestionResultScore.swift */; };
 		FA3BA3EA25A5FC1C00841087 /* TrainingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */; };
 		FA56085C259B13510059AF7D /* QuestionStarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56085B259B13510059AF7D /* QuestionStarterViewController.swift */; };
 		FA560865259B13940059AF7D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA560864259B13940059AF7D /* QuestionViewController.swift */; };
@@ -128,6 +128,7 @@
 		FAF4EBDB25CED9D7006BABF5 /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBD825CED9D7006BABF5 /* GoogleService-Info-Release.plist */; };
 		FAF4EBDC25CED9D7006BABF5 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF4EBD925CED9D7006BABF5 /* GoogleService-Info-Debug.plist */; };
 		FAF4EBE125CED9F6006BABF5 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4EBE025CED9F6006BABF5 /* Env.swift */; };
+		FAF7E07325DBB62300017290 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF7E07225DBB62300017290 /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,7 +233,7 @@
 		FA35DB3D259310C000B2DA55 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		FA3BA3DA25A5179600841087 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
 		FA3BA3DF25A53D7C00841087 /* QuestionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollection.swift; sourceTree = "<group>"; };
-		FA3BA3E425A540BD00841087 /* QuestionResultSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultSummary.swift; sourceTree = "<group>"; };
+		FA3BA3E425A540BD00841087 /* QuestionResultScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultScore.swift; sourceTree = "<group>"; };
 		FA3BA3E925A5FC1C00841087 /* TrainingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResult.swift; sourceTree = "<group>"; };
 		FA56085B259B13510059AF7D /* QuestionStarterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStarterViewController.swift; sourceTree = "<group>"; };
 		FA560864259B13940059AF7D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 		FAF4EBD825CED9D7006BABF5 /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
 		FAF4EBD925CED9D7006BABF5 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
 		FAF4EBE025CED9F6006BABF5 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		FAF7E07225DBB62300017290 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		FEE95F1FA685359C0B15F61D /* Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; path = "Target Support Files/Pods-Hyakuninisshu-HyakuninisshuUITests/Pods-Hyakuninisshu-HyakuninisshuUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -358,7 +360,7 @@
 				FA35DB052592DA0D00B2DA55 /* QuestionId.swift */,
 				FA35DB0A2592DA9D00B2DA55 /* QuestionState.swift */,
 				FA35DB0F2592DB3A00B2DA55 /* QuestionResult.swift */,
-				FA3BA3E425A540BD00841087 /* QuestionResultSummary.swift */,
+				FA3BA3E425A540BD00841087 /* QuestionResultScore.swift */,
 				FA3BA3DF25A53D7C00841087 /* QuestionCollection.swift */,
 				FA35DB192592DDC000B2DA55 /* Question.swift */,
 				FA35DB142592DB4900B2DA55 /* QuestionJudgement.swift */,
@@ -419,6 +421,7 @@
 				FAB9E0F825A8B6530038EA04 /* ExamResult.swift */,
 				FA5FEFBC25AB463C00948165 /* PlayScore.swift */,
 				FACC8B3025B1E0E400579F96 /* PresentationError.swift */,
+				FAF7E07225DBB62300017290 /* Score.swift */,
 			);
 			path = PresentationModels;
 			sourceTree = "<group>";
@@ -590,7 +593,6 @@
 			isa = PBXGroup;
 			children = (
 				FAF4EBB925CE61A0006BABF5 /* Ad */,
-				FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */,
 				FA58E38F25C5AAD800FA7FCF /* Setting */,
 				FACB599325B482C800B4ACFA /* UnexpectedError */,
 				FA5FEFC125AB5E7D00948165 /* ExamHistory */,
@@ -633,20 +635,13 @@
 		FA58E38F25C5AAD800FA7FCF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */,
 				FA58E39025C5AAF200FA7FCF /* SettingViewController.swift */,
 				FAD9677425C6FD7D009936AD /* PrivacyPolicyViewController.swift */,
 				FAD9677925C75D0F009936AD /* AboutAdViewController.swift */,
 				FA2C3C2025D1864000790429 /* CreditViewController.swift */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		FA58E39A25C5AF5400FA7FCF /* DarkModeSetting */ = {
-			isa = PBXGroup;
-			children = (
-				FA58E39B25C5AF6C00FA7FCF /* DarkModeSettingViewController.swift */,
-			);
-			path = DarkModeSetting;
 			sourceTree = "<group>";
 		};
 		FA5E6A5725A74B67008EE33F /* Extensions */ = {
@@ -773,9 +768,10 @@
 				FA27E258257055FC001132A3 /* Sources */,
 				FA27E259257055FC001132A3 /* Frameworks */,
 				FAF4EBEB25CEE37C006BABF5 /* ShellScript */,
-				FA27E25A257055FC001132A3 /* Resources */,
 				FA1738F225CB758D001D13E6 /* ShellScript */,
+				FA27E25A257055FC001132A3 /* Resources */,
 				AEE3BF484BEBD00FC2425AB5 /* [CP] Embed Pods Frameworks */,
+				FAF7E08B25DF83C000017290 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1038,6 +1034,25 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nplistBuddy=\"/usr/libexec/PlistBuddy\"\npreprocessedInfoPlist=\"${TEMP_DIR}/Preprocessed-Info.plist\"\n\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  . ./Hyakuninisshu/.env\nelse\n  . ./Hyakuninisshu/.debug.env\nfi\n\n$plistBuddy -c \"set GADApplicationIdentifier string ${GAD_APPLICATION_IDENTIFIER}\" \"${preprocessedInfoPlist}\"\n";
 		};
+		FAF7E08B25DF83C000017290 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1094,6 +1109,7 @@
 				FA0ED109259F76BC00D41DBA /* ToriFudaView.swift in Sources */,
 				FA0ED11625A0CA4D00D41DBA /* VerticalLabel.swift in Sources */,
 				FAD9677A25C75D0F009936AD /* AboutAdViewController.swift in Sources */,
+				FAF7E07325DBB62300017290 /* Score.swift in Sources */,
 				FA8FBC3A25B7106A00152176 /* ActionButton.swift in Sources */,
 				FA35DB3E259310C000B2DA55 /* TrainingViewController.swift in Sources */,
 				FA35DB062592DA0D00B2DA55 /* QuestionId.swift in Sources */,
@@ -1123,7 +1139,7 @@
 				FA27E260257055FC001132A3 /* AppDelegate.swift in Sources */,
 				FA142B0525A82D5C005218F4 /* ExamHistoryId.swift in Sources */,
 				FA02893A2570BEDF003ADE9C /* Verse.swift in Sources */,
-				FA3BA3E525A540BD00841087 /* QuestionResultSummary.swift in Sources */,
+				FA3BA3E525A540BD00841087 /* QuestionResultScore.swift in Sources */,
 				FA178EE8259E0F6B001C0311 /* QuestionModel.swift in Sources */,
 				FA5FEFBD25AB463C00948165 /* PlayScore.swift in Sources */,
 				FAD1688325CD0D2F00A447A1 /* MaterialPresenter.swift in Sources */,
@@ -1329,6 +1345,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BUNDLE_ID_SUFFIX = .debug;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5NCQ7MMXQM;
 				INFOPLIST_FILE = Hyakuninisshu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

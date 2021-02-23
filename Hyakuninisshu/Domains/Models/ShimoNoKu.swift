@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 歌の下の句
 struct ShimoNoKu: ValueObject {
   let karutaNo: KarutaNo
   let shiku: Verse

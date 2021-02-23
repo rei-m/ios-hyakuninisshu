@@ -7,17 +7,16 @@
 
 import Foundation
 
+/// 問題の結果
 struct PlayScore {
-  let tookDate: Date
   let tookDateText: String
-  let score: String
+  let score: Score
   let averageAnswerSecText: String
 
-  init(tookDate: Date, score: String, averageAnswerSecText: String) {
-    self.tookDate = tookDate
+  init(tookDate: Date, score: Score, averageAnswerSec: Double) {
     self.tookDateText = Self.formatter.string(from: tookDate)
     self.score = score
-    self.averageAnswerSecText = averageAnswerSecText
+    self.averageAnswerSecText = "\(averageAnswerSec)秒"
   }
 
   private static let formatter: DateFormatter = {

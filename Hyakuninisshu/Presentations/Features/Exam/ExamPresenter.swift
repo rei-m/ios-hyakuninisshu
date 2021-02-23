@@ -28,6 +28,7 @@ class ExamPresenter: ExamPresenterProtocol {
 
   func viewWillAppear() {
     view.hideLastResult()
+    view.enableInteraction()
 
     model.fetchLastExamScore().receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
@@ -46,8 +47,10 @@ class ExamPresenter: ExamPresenterProtocol {
   }
 
   func didTapStartExamButton() {
+    view.disableInteraction()
     model.fetchExamKarutaNos().receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
+        self?.view.enableInteraction()
         guard case let .failure(error) = completion else {
           return
         }
@@ -60,8 +63,10 @@ class ExamPresenter: ExamPresenterProtocol {
   }
 
   func didTapStartTrainingButton() {
+    view.disableInteraction()
     model.fetchPastExamsWrongKarutaNos().receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
+        self?.view.enableInteraction()
         guard case let .failure(error) = completion else {
           return
         }

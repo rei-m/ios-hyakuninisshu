@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// プレゼンテーションレイヤのエラー
 struct PresentationError: Error {
   enum ErrorKind {
     case unhandled

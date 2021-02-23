@@ -30,14 +30,14 @@ class DarkModeSettingViewController: UITableViewController {
     @unknown default:
       fatalError("unknown UIUserInterfaceStyle. value=\(UserDefaults.standard.darkMode)")
     }
-
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     cells.enumerated().forEach { (offset, cell) in
       cell.accessoryType = offset == indexPath.item ? .checkmark : .none
     }
-    UserDefaults.standard.setDarkMode(styles[indexPath.item])
-    view.window?.overrideUserInterfaceStyle = styles[indexPath.item]
+    let currentStyle = styles[indexPath.item]
+    UserDefaults.standard.setDarkMode(currentStyle)
+    view.window?.overrideUserInterfaceStyle = currentStyle
   }
 }

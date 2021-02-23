@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 歌の句
 struct Verse: ValueObject {
   let kana: String
   let kanji: String

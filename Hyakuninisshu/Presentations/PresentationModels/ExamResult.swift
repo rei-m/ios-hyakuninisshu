@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 力試し結果
 struct ExamResult {
   let score: PlayScore
   let judgements: [(Material, Bool)]

@@ -33,6 +33,7 @@ class Env {
         of: "'", with: "")
       let envVars = clean.components(separatedBy: "\n")
       for envVar in envVars {
+        /// TODO: キーのチェックまでしたほうがいいかな
         let keyVal = envVar.components(separatedBy: "=")
         if keyVal.count == 2 {
           setenv(keyVal[0], keyVal[1], 1)

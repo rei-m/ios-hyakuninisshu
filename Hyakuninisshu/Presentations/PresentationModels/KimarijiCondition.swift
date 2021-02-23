@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 出題条件 - 決まり字
 struct KimarijiCondition: KeyboardPickerItem, Equatable {
   let text: String
   let value: UInt8?

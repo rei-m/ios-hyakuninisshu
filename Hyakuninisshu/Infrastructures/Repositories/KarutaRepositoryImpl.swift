@@ -10,7 +10,7 @@ import CoreData
 import Foundation
 
 private struct KarutaJson: Codable {
-  var no: Int8
+  var no: UInt8
   var creator: String
   var first_kana: String
   var first_kanji: String
@@ -23,9 +23,9 @@ private struct KarutaJson: Codable {
   var fifth_kana: String
   var fifth_kanji: String
   var translation: String
-  var kimariji: Int8
+  var kimariji: UInt8
   var color: String
-  var color_no: Int
+  var color_no: UInt8
 }
 
 private struct KarutaListJson: Codable {
@@ -35,6 +35,7 @@ private struct KarutaListJson: Codable {
 extension CDKaruta {
   fileprivate func toModel() -> Karuta {
     let karutaNo = KarutaNo(UInt8(no))
+
     let kamiNoKu = KamiNoKu(
       karutaNo: karutaNo,
       shoku: Verse(kana: first_kana!, kanji: first_kanji!),
@@ -48,22 +49,14 @@ extension CDKaruta {
       goku: Verse(kana: fifth_kana!, kanji: fifth_kanji!)
     )
 
-    guard let kimarijiModel = Kimariji(rawValue: UInt8(kimariji)) else {
-      fatalError("unknown value: kimariji=\(kimariji)")
-    }
-
-    guard let karutaColor = KarutaColor(rawValue: color!) else {
-      fatalError("unknown value: color=\(color ?? "")")
-    }
-
     return Karuta(
       no: karutaNo,
       kamiNoKu: kamiNoKu,
       shimoNoKu: shimoNoKu,
       creator: creator!,
       translation: translation!,
-      kimariji: kimarijiModel,
-      color: karutaColor
+      kimariji: Kimariji(rawValue: UInt8(kimariji))!,
+      color: KarutaColor(rawValue: color!)!
     )
   }
 

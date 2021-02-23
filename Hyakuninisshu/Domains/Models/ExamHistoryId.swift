@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 力試し履歴ID
 struct ExamHistoryId: EntityId {
   let value: UUID
 

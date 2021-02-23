@@ -26,6 +26,7 @@ class QuestionPresenter: QuestionPresenterProtocol {
   }
 
   func viewWillAppear(now: Date) {
+    view.enableInteraction()
     model.start(startDate: now).receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
         guard case let .failure(error) = completion else {
@@ -40,8 +41,10 @@ class QuestionPresenter: QuestionPresenterProtocol {
   }
 
   func didTapToriFuda(now: Date, no: UInt8) {
+    view.disableInteraction()
     model.answer(answerDate: now, selectedNo: no).receive(on: DispatchQueue.main).sink(
       receiveCompletion: { [weak self] completion in
+        self?.view.enableInteraction()
         guard case let .failure(error) = completion else {
           return
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 練習結果
 struct TrainingResult {
   let score: PlayScore
   let canRestart: Bool

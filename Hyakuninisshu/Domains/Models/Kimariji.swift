@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 決まり字
 enum Kimariji: UInt8 {
   case one = 1
   case two = 2

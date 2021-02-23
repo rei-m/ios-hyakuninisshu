@@ -23,9 +23,12 @@ class ExamHistoryModel: ExamHistoryModelProtocol {
     let publisher = examHistoryRepository.findCollection().map {
       examHistoryCollection -> [PlayScore] in
       return examHistoryCollection.values.map { examHistory in
+        let score = Score(
+          denominator: examHistory.score.totalQuestionCount,
+          numerator: examHistory.score.correctCount)
         return PlayScore(
-          tookDate: examHistory.tookDate, score: examHistory.resultSummary.score,
-          averageAnswerSecText: "\(examHistory.resultSummary.averageAnswerSec)秒")
+          tookDate: examHistory.tookDate, score: score,
+          averageAnswerSec: examHistory.score.averageAnswerSec)
       }
     }
     return publisher.mapError { PresentationError($0) }.eraseToAnyPublisher()

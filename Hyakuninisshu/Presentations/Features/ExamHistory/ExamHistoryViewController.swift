@@ -9,9 +9,8 @@ import GoogleMobileAds
 import UIKit
 
 protocol ExamHistoryViewProtocol: AnyObject {
-  func updateLoading(_ isLoading: Bool)
   func updateTable(_ scores: [PlayScore])
-  func displayError(_ message: String)
+  func presentErrorVC(_ error: Error)
 }
 
 class ExamHistoryViewController: UIViewController {
@@ -79,7 +78,7 @@ extension ExamHistoryViewController: UITableViewDataSource {
     let item = scores[indexPath.item]
 
     cell.dateLabel.text = item.tookDateText
-    cell.scoreLabel.text = item.score
+    cell.scoreLabel.text = item.score.text
     cell.averageAnswerTimeLabel.text = item.averageAnswerSecText
 
     return cell
@@ -88,19 +87,13 @@ extension ExamHistoryViewController: UITableViewDataSource {
 
 extension ExamHistoryViewController: ExamHistoryViewProtocol {
   // MARK: - View methods
-  func updateLoading(_ isLoading: Bool) {
-    // deprecatedになった
-    // UIApplication.shared.isNetworkActivityIndicatorVisible = isLoading
-  }
-
   func updateTable(_ scores: [PlayScore]) {
     self.scores = scores
     self.tableView.reloadData()
     self.tableView.setContentOffset(CGPoint.zero, animated: false)
   }
 
-  func displayError(_ message: String) {
-    // TODO
-    print("Error: \(message)")
+  func presentErrorVC(_ error: Error) {
+    presentUnexpectedErrorVC(error)
   }
 }

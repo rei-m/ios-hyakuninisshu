@@ -30,7 +30,7 @@ class TrainingResultViewController: UIViewController {
     setUpLeftBackButton()
     view.backgroundColor = UIColor(patternImage: UIImage(named: "Tatami")!)
 
-    scoreView.value = trainingResult.score.score
+    scoreView.value = trainingResult.score.score.text
     averageAnswerTimeView.value = trainingResult.score.averageAnswerSecText
     goToTrainingButton.isHidden = !trainingResult.canRestart
 

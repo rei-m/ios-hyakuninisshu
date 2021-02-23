@@ -118,7 +118,7 @@ extension ExamResultViewController: UICollectionViewDataSource {
       }
       view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
-      view.scoreView.value = examResult.score.score
+      view.scoreView.value = examResult.score.score.text
       view.averageAnswerTimeView.value = examResult.score.averageAnswerSecText
       return view
     case "UICollectionElementKindSectionFooter":
