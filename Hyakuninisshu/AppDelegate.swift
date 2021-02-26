@@ -5,6 +5,8 @@
 //  Created by Rei Matsushita on 2020/11/27.
 //
 
+import AdSupport
+import AppTrackingTransparency
 import CoreData
 import Firebase
 import GoogleMobileAds
@@ -36,15 +38,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     Env.shared.configure()
     FirebaseApp.configure()
-    GADMobileAds.sharedInstance().start(completionHandler: nil)
-
-    switch Env.shared.value(.testDeviceIdentifier) {
-    case .some(let testDeviceIdentifier):
-      GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
-        testDeviceIdentifier
-      ]
-    case .none: break
+    if #available(iOS 14, *) {
+      ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+      })
+    } else {
+      // Fallback on earlier versions
+      GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
+
+    #if DEBUG
+      switch Env.shared.value(.testDeviceIdentifier) {
+      case .some(let testDeviceIdentifier):
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+          testDeviceIdentifier
+        ]
+      case .none: break
+      }
+    #endif
 
     return true
   }

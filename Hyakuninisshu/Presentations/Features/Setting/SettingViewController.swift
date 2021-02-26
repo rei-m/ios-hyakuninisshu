@@ -14,7 +14,8 @@ class SettingViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    appVersionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
+    appVersionLabel.text =
+      Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
   }
 
   override func viewWillAppear(_ animated: Bool) {
