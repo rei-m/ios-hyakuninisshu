@@ -122,7 +122,7 @@ extension ExamViewController: ExamViewProtocol {
 
     vc.inject(
       presenter: presenter, kamiNoKu: DisplayStyleCondition.DATA[0],
-      shimoNoKu: DisplayStyleCondition.DATA[1], animationSpeed: AnimationSpeedCondition.DATA[1])
+      shimoNoKu: DisplayStyleCondition.DATA[1], animationSpeed: AnimationSpeedCondition.DATA[2])
 
     requireNavigationController.pushViewController(vc, animated: false)
   }
