@@ -38,7 +38,7 @@ class CreateQuestionsService {
       let no: UInt8 = UInt8(value.offset + 1)
       let targetKarutaNo = value.element
 
-      var dupNos = allKarutaNoCollection.values
+      var dupNos = allKarutaNoCollection.values.map { value in value }
       dupNos.removeAll(where: { $0.value == targetKarutaNo.value })
 
       var choices = generateRandomIndexArray(total: dupNos.count, size: choiceCount - 1).map {
