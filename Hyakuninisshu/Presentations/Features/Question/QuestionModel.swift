@@ -62,7 +62,7 @@ class QuestionModel: QuestionModelProtocol {
       let yomiFuda = YomiFuda.fromKamiNoKu(kamiNoKu: correctKaruta.kamiNoKu, style: self.kamiNoKu)
       let toriFudas = choiceKarutas.map {
         ToriFuda.fromShimoNoKu(shimoNoKu: $0.shimoNoKu, style: self.shimoNoKu)
-      }
+      }.shuffled()
 
       return Play(no: question.no, yomiFuda: yomiFuda, toriFudas: toriFudas, correct: correct)
     }
